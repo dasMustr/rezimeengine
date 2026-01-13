@@ -16,3 +16,66 @@ body {
 body {
   background: #000;
 }
+/* ---------- REZIME Premium Motion (lightweight) ---------- */
+
+.rezime-vignette {
+  background: radial-gradient(1200px 700px at 50% 10%, transparent 40%, rgba(0,0,0,0.65) 78%, rgba(0,0,0,0.92) 100%);
+}
+
+/* Film grain using repeating gradients (cheap) */
+.rezime-grain {
+  opacity: 0.08;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.04), rgba(255,255,255,0.04) 1px, transparent 1px, transparent 2px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.03) 1px, transparent 1px, transparent 3px);
+  mix-blend-mode: overlay;
+}
+
+/* Slow float for the bloom */
+@keyframes rezimeFloat {
+  0%   { transform: translate(-50%, 0px) scale(1); opacity: 0.55; }
+  50%  { transform: translate(-50%, 10px) scale(1.02); opacity: 0.65; }
+  100% { transform: translate(-50%, 0px) scale(1); opacity: 0.55; }
+}
+.rezime-float {
+  animation: rezimeFloat 8s ease-in-out infinite;
+}
+
+/* Reveal-on-scroll */
+.rezime-reveal {
+  transform: translateY(10px);
+  opacity: 0;
+  filter: blur(2px);
+  transition: opacity 600ms ease, transform 600ms ease, filter 700ms ease;
+  will-change: opacity, transform, filter;
+}
+.rezime-reveal.is-in {
+  transform: translateY(0px);
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Premium hover sheen utility (apply to cards/buttons if you want) */
+.rezime-sheen {
+  position: relative;
+  overflow: hidden;
+}
+.rezime-sheen::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.10), transparent 60%);
+  transform: translateX(-30%) translateY(-10%) rotate(10deg);
+  opacity: 0;
+  transition: opacity 250ms ease;
+  pointer-events: none;
+}
+.rezime-sheen:hover::after {
+  opacity: 1;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .rezime-float { animation: none; }
+  .rezime-reveal { transition: none; transform: none; opacity: 1; filter: none; }
+}

@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import LivingBackground from "./components/LivingBackground";
 
 export const metadata: Metadata = {
   title: "REZIME Engine",
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-black text-white">
+        <LivingBackground />
         <Nav />
         <main className="mx-auto max-w-6xl px-6 py-14">{children}</main>
         <Footer />

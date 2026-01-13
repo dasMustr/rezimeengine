@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Reveal from "./components/Reveal";
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
