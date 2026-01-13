@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+/* Tell Tailwind where your files are (Tailwind v4) */
+@source "./app/**/*.{js,ts,jsx,tsx,mdx}";
+@source "./components/**/*.{js,ts,jsx,tsx,mdx}";
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #000;
+}
