@@ -90,7 +90,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-            Regime mapping for deez nuts.
+            Regime mapping for holding through market cycles.
           </h1>
 
           <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
