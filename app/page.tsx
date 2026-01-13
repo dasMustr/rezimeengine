@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "./components/Reveal";
+import Sheen from "./components/Sheen";
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
