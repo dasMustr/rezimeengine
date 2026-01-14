@@ -83,8 +83,23 @@ body {
   transition: opacity 600ms ease, transform 600ms ease, filter 700ms ease;
   will-change: opacity, transform, filter;
 }
+
 .rezime-reveal.is-in {
   transform: translateY(0px);
+  opacity: 1;
+  filter: blur(0);
+}
+/* Pop-in reveal (for Sheet items / menus) */
+.rezime-pop {
+  transform: translateY(10px) scale(0.98);
+  opacity: 0;
+  filter: blur(3px);
+  transition: opacity 520ms ease, transform 520ms ease, filter 620ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.rezime-pop.is-in {
+  transform: translateY(0px) scale(1);
   opacity: 1;
   filter: blur(0);
 }
@@ -112,6 +127,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .rezime-float { animation: none; }
   .rezime-reveal { transition: none; transform: none; opacity: 1; filter: none; }
+  .rezime-pop { transition: none; transform: none; opacity: 1; filter: none; }
 }
 @keyframes sheenMove {
   0% {
@@ -233,4 +249,8 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+html, body {
+  overflow-x: hidden;
 }
