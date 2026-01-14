@@ -186,44 +186,47 @@ export default function ObserverPage() {
         </Section>
       </Reveal>
 
-      {/* STORYBOARD (the ladder you described) */}
+      {/* STORYBOARD (compressed grid) */}
       <Reveal delayMs={260}>
         <Section
           eyebrow="How transitions evolve"
           title="The REZIME storyboard"
-          subtitle="Transitions are not one moment — they escalate through phases."
+          subtitle="Transitions escalate in phases. Real markets aren’t linear — but naming the phase prevents phase-mismatch decisions."
         >
           <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
             <div className="text-sm text-neutral-300 leading-relaxed">
-              Think of it like civil unrest inside an Empire:
+              Think of it like civil unrest inside an Empire:{" "}
               <span className="font-semibold text-white">
-                {" "}you don’t fight Rome at its peak — you wait for cracks.
+                you don’t fight Rome at its peak — you wait for cracks.
               </span>
             </div>
 
-            <div className="mt-4 grid gap-3">
+            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {[
-                ["Standoff", "The smallest challengers test the Empire… and get pushed back."],
-                ["Rebellion", "The challengers start winning small battles. Instability becomes real."],
-                ["Deadlock", "Conflict spreads. The fight becomes visible and messy."],
-                ["Uprising", "The middle layer flips. The storm is now obvious."],
-                ["Siege", "The Empire itself is pressured. The old structure is no longer safe."],
-                ["Revolution", "The regime flips. A new Empire begins forming."],
+                ["Standoff", "Small challengers test the Empire… and get pushed back."],
+                ["Rebellion", "Challengers start winning. Instability becomes real."],
+                ["Deadlock", "Conflict spreads. The fight becomes messy and visible."],
+                ["Uprising", "The mid layer flips. The storm is now obvious."],
+                ["Siege", "The Empire itself is pressured. Structure isn’t safe."],
+                ["Revolution", "Regime flips. A new Empire begins forming."],
               ].map(([name, desc]) => (
-                <div key={name} className="flex gap-3 rounded-xl border border-white/10 bg-black/30 p-4">
-                  <div className="shrink-0">
-                    <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] text-white">
-                      {name}
-                    </span>
+                <div
+                  key={name}
+                  className="rounded-xl border border-white/10 bg-black/30 p-4"
+                >
+                  <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] text-white">
+                    {name}
+                  </span>
+                  <div className="mt-3 text-sm text-neutral-300 leading-relaxed">
+                    {desc}
                   </div>
-                  <div className="text-sm text-neutral-300 leading-relaxed">{desc}</div>
                 </div>
               ))}
             </div>
 
             <div className="mt-4 text-xs text-neutral-500 leading-relaxed">
-              Note: real markets aren’t linear. REZIME isn’t saying “this always happens.” It’s saying:
-              if you can recognize the phase, you stop making phase-mismatched decisions.
+              REZIME doesn’t say “this always happens.” It says: if you can recognize
+              the phase, you stop making phase-mismatched decisions.
             </div>
           </div>
         </Section>

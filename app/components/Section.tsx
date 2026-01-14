@@ -1,16 +1,20 @@
 export default function Section({
+  id,
   eyebrow,
   title,
   subtitle,
   children,
+  className = "",
 }: {
+  id?: string;
   eyebrow?: string;
   title: string;
   subtitle?: string;
   children?: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <section className="space-y-6">
+    <section id={id} className={`scroll-mt-24 space-y-6 ${className}`}>
       <div className="space-y-2">
         {eyebrow && (
           <p className="text-xs uppercase tracking-widest text-neutral-400">
