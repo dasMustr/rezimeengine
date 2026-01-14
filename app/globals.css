@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
-/* Tell Tailwind where your files are (Tailwind v4) */
+/* Tailwind v4 sources */
 @source "./app/**/*.{js,ts,jsx,tsx,mdx}";
-@source "./components/**/*.{js,ts,jsx,tsx,mdx}";
 
 :root {
   color-scheme: dark;
@@ -108,4 +107,11 @@ body {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.16);
   background: rgba(255, 255, 255, 0.06);
+}
+
+.premium-card:focus-visible {
+  outline: none;
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
 }

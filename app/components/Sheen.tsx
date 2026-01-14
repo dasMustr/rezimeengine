@@ -9,8 +9,8 @@ export default function Sheen({ className = "" }: { className?: string }) {
         className,
       ].join(" ")}
     >
-      {/* moving highlight */}
-      <span className="absolute -left-1/2 top-[-30%] h-[160%] w-[60%] rotate-12 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-sheen" />
+      {/* moving highlight (only on hover via group-hover) */}
+      <span className="absolute -left-1/2 top-[-30%] h-[160%] w-[60%] rotate-12 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-sheen" />
       {/* subtle edge glow */}
       <span className="absolute inset-0 rounded-2xl ring-1 ring-white/10" />
     </span>

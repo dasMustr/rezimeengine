@@ -60,7 +60,7 @@ export default function HomePage() {
   return (
     <section className="space-y-14">
       {/* HERO */}
-      <Reveal>
+      <Reveal delayMs={0}>
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-8 sm:p-12">
           <div className="pointer-events-none absolute inset-0 opacity-40">
             <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
@@ -106,7 +106,7 @@ export default function HomePage() {
       </Reveal>
 
       {/* PORTALS */}
-      <Reveal className="mt-2">
+      <Reveal delayMs={80} className="mt-2">
         <div className="space-y-4">
           <div className="flex items-end justify-between gap-6">
             <div>
@@ -146,7 +146,7 @@ export default function HomePage() {
       </Reveal>
 
       {/* WHAT IT IS (institutional blocks) */}
-      <Reveal className="mt-2">
+      <Reveal delayMs={140} className="mt-2">
         <div className="grid gap-4 sm:grid-cols-3">
           <InfoBlock
             title="Not a signal service"
