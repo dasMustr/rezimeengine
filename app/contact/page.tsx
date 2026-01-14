@@ -1,167 +1,214 @@
 import Link from "next/link";
+import Reveal from "../components/Reveal";
+import Sheen from "../components/Sheen";
 
-function SectionTitle({
-  kicker,
-  title,
-  desc,
-}: {
-  kicker: string;
-  title: string;
-  desc: string;
-}) {
+function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <div className="space-y-3">
-      <p className="text-xs uppercase tracking-widest text-neutral-400">
-        {kicker}
-      </p>
-      <h1 className="text-3xl font-semibold leading-tight sm:text-4xl">
-        {title}
-      </h1>
-      <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-        {desc}
-      </p>
-    </div>
+    <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-neutral-300">
+      {children}
+    </span>
   );
 }
 
 function Card({
   title,
   desc,
-  children,
+  href,
+  meta,
 }: {
   title: string;
   desc: string;
-  children?: React.ReactNode;
+  href: string;
+  meta?: string;
 }) {
   return (
-    <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
-      <div className="space-y-2">
-        <h2 className="text-base font-semibold">{title}</h2>
-        <p className="text-sm text-neutral-300 leading-relaxed">{desc}</p>
+    <a
+      href={href}
+      className="premium-card group relative rounded-2xl border border-white/10 bg-white/5 p-6 transition"
+    >
+      <Sheen />
+      <div className="flex items-start justify-between gap-4">
+        <div className="space-y-2">
+          {meta && (
+            <p className="text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+              {meta}
+            </p>
+          )}
+          <h3 className="text-sm font-semibold text-white">{title}</h3>
+        </div>
+        <span className="mt-1 text-xs text-neutral-400 group-hover:text-neutral-200 transition">
+          Open →
+        </span>
       </div>
-      {children ? <div className="mt-5">{children}</div> : null}
-    </section>
+      <p className="mt-3 text-sm text-neutral-300 leading-relaxed">{desc}</p>
+    </a>
   );
 }
 
-function Field({
-  label,
-  placeholder,
+function InfoBlock({
+  title,
+  desc,
 }: {
-  label: string;
-  placeholder: string;
+  title: string;
+  desc: string;
 }) {
   return (
-    <label className="block space-y-2">
-      <span className="text-xs uppercase tracking-widest text-neutral-400">
-        {label}
-      </span>
-      <input
-        className="w-full rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-neutral-500 outline-none focus:border-white/20"
-        placeholder={placeholder}
-      />
-    </label>
+    <div className="premium-card relative rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+      <Sheen />
+      <h4 className="text-sm font-semibold text-white">{title}</h4>
+      <p className="mt-3 text-sm leading-relaxed text-neutral-300">{desc}</p>
+    </div>
   );
 }
 
 export default function ContactPage() {
   return (
-    <section className="space-y-10">
-      <SectionTitle
-        kicker="Contact"
-        title="Reach out."
-        desc="For collaborations, media, or institutional conversations. REZIME is a map-not-signals framework — inquiries should be aligned with research, process, and long-horizon thinking."
-      />
+    <div className="space-y-14">
+      {/* HERO */}
+      <Reveal delayMs={0}>
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-8 sm:p-12">
+          <div className="pointer-events-none absolute inset-0 opacity-40">
+            <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+            <div className="absolute -left-24 -bottom-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+          </div>
 
-      <div className="grid gap-4 lg:grid-cols-2">
-        <Card
-          title="General"
-          desc="For questions about REZIME philosophy, site content, or operator access (when available)."
-        >
-          <div className="space-y-4">
-            <Field label="Name" placeholder="Your name" />
-            <Field label="Email" placeholder="you@email.com" />
-            <label className="block space-y-2">
-              <span className="text-xs uppercase tracking-widest text-neutral-400">
-                Message
-              </span>
-              <textarea
-                className="h-32 w-full resize-none rounded-xl border border-white/10 bg-black/40 px-4 py-3 text-sm text-white placeholder:text-neutral-500 outline-none focus:border-white/20"
-                placeholder="What would you like to discuss?"
-              />
-            </label>
+          <div className="relative space-y-6">
+            <div className="flex flex-wrap gap-2">
+              <Pill>Research documentation</Pill>
+              <Pill>No signals</Pill>
+              <Pill>Institutional tone</Pill>
+            </div>
 
-            {/* This is UI-only for now. We'll wire it later via Formspree/Resend. */}
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
-            >
-              Send (coming soon)
-            </button>
+            <h1 className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
+              Contact
+            </h1>
 
-            <p className="text-xs text-neutral-500">
-              Note: This form is a placeholder. Next step is wiring delivery via
-              Formspree or Resend.
+            <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
+              For interviews, partnerships, or research collaboration. REZIME is
+              a mapping framework — not a signal service.
+            </p>
+
+            <div className="flex flex-wrap gap-3 pt-1">
+              <Link
+                href="/observer"
+                className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-neutral-200 hover:bg-white/10 transition"
+              >
+                <Sheen className="rounded-full" />
+                Start with Observer
+              </Link>
+
+              <Link
+                href="/allocator"
+                className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 hover:bg-white/[0.06] transition"
+              >
+                <Sheen className="rounded-full" />
+                Allocator Portal
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* QUICK INTENTS */}
+      <Reveal delayMs={90}>
+        <section className="space-y-4">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
+                Select intent
+              </p>
+              <h2 className="mt-2 text-xl font-semibold tracking-tight text-white">
+                What are you reaching out about?
+              </h2>
+            </div>
+            <p className="hidden text-sm text-neutral-400 sm:block">
+              Press → Collaboration → General
             </p>
           </div>
-        </Card>
 
-        <div className="space-y-4">
-          <Card
-            title="Institutional / Allocator"
-            desc="For allocators who want process clarity, reporting discipline, and governance framing."
-          >
-            <ul className="mt-1 space-y-2 text-sm text-neutral-300">
-              <li>• Mandate & reporting expectations</li>
-              <li>• Risk doctrine & drawdown governance</li>
-              <li>• Portfolio Lab review (simulated → live later)</li>
-            </ul>
-          </Card>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <Card
+              meta="Press"
+              title="Interviews / Podcasts"
+              desc="Markets, regime thinking, and the REZIME worldview."
+              href="mailto:hello@rezimeengine.com?subject=Press%20/%20Interview%20Inquiry"
+            />
+            <Card
+              meta="Collaboration"
+              title="Research / Partnerships"
+              desc="Tooling, education, or aligned long-horizon projects."
+              href="mailto:hello@rezimeengine.com?subject=Collaboration%20Inquiry"
+            />
+            <Card
+              meta="General"
+              title="Questions / Notes"
+              desc="Short messages, feedback, or requests for clarifications."
+              href="mailto:hello@rezimeengine.com?subject=General%20Inquiry"
+            />
+          </div>
+        </section>
+      </Reveal>
 
-          <Card
-            title="Media / Speaking"
-            desc="For interviews, podcasts, or written features on markets, regime thinking, and the REZIME philosophy."
+      {/* DETAILS */}
+      <Reveal delayMs={160}>
+        <section className="grid gap-4 sm:grid-cols-3">
+          <InfoBlock
+            title="Primary contact"
+            desc="Email: hello@rezimeengine.com (recommended)."
           />
+          <InfoBlock
+            title="Identity"
+            desc="REZIME by paeteon (dasMustr). Links can be added later without turning this into a linktree."
+          />
+          <InfoBlock
+            title="Response expectations"
+            desc="Replies may be slow. This is a solo-operated research + build project."
+          />
+        </section>
+      </Reveal>
 
-          <section className="rounded-2xl border border-white/10 bg-black/30 p-6">
-            <p className="text-xs uppercase tracking-widest text-neutral-400">
-              Identity
-            </p>
-            <p className="mt-3 text-sm text-neutral-300 leading-relaxed">
-              REZIME by <span className="text-white font-semibold">paeteon</span>{" "}
-              (<span className="text-white font-semibold">dasMustr</span>)
-            </p>
-            <p className="mt-2 text-xs text-neutral-500">
-              Links/socials can be added here later without turning the page
-              into a linktree.
-            </p>
-          </section>
-        </div>
-      </div>
+      {/* DISCLOSURES */}
+      <Reveal delayMs={240}>
+        <section className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-white">Disclosures</h2>
+          <p className="mt-3 text-sm text-neutral-300 leading-relaxed">
+            REZIME is educational documentation and research tooling. It does not
+            provide investment advice. This website is not an offer to sell or a
+            solicitation to buy any securities or services.
+          </p>
+        </section>
+      </Reveal>
 
-      <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
-        <h2 className="text-base font-semibold">Disclosures</h2>
-        <p className="mt-3 text-sm text-neutral-300 leading-relaxed">
-          REZIME is educational documentation and research tooling. It does not
-          provide investment advice. This website is not an offer to sell or a
-          solicitation to buy any securities or services.
-        </p>
-      </section>
+      {/* (OPTIONAL) SMALL FOOT CTA */}
+      <Reveal delayMs={320}>
+        <section className="rounded-2xl border border-white/10 bg-black/30 p-6">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="text-sm font-semibold text-white">
+                Want the full framing first?
+              </div>
+              <div className="text-xs text-neutral-400">
+                Observer explains the worldview. Operator explains interpretation rules.
+              </div>
+            </div>
 
-      <div className="flex flex-wrap gap-3 pt-6">
-        <Link
-          href="/"
-          className="rounded-full border border-white/15 px-4 py-2 text-sm hover:bg-white/5 transition"
-        >
-          ← Back to Home
-        </Link>
-        <Link
-          href="/allocator"
-          className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm hover:bg-white/10 transition"
-        >
-          ← Back to Allocator
-        </Link>
-      </div>
-    </section>
+            <div className="flex flex-wrap gap-2">
+              <Link
+                href="/observer"
+                className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
+              >
+                Observer
+              </Link>
+              <Link
+                href="/operator"
+                className="inline-flex justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
+              >
+                Operator
+              </Link>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+    </div>
   );
 }
