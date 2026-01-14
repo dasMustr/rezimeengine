@@ -207,6 +207,7 @@ export default function AllocatorPage() {
       </Reveal>
 
       {/* TOC + CONTENT */}
+      <TocLink href="#rezime" label="REZIME Philosophy" />
       <Reveal delayMs={90}>
         <section className="grid gap-8 lg:grid-cols-[240px_1fr]">
           {/* TOC */}
@@ -294,6 +295,146 @@ export default function AllocatorPage() {
                   </p>
                 </div>
               </section>
+            </Reveal>
+            <Reveal delayMs={140}>
+              <Section
+                id="rezime"
+                eyebrow="Framework"
+                title="REZIME Philosophy"
+                desc="A regime framework that improves time-in-market by clarifying what phase the market is in — and what actions are rational inside that phase."
+              >
+                <div className="grid gap-4 lg:grid-cols-3">
+                  <Card
+                    title="Why it exists"
+                    desc="Most participants know “time in the market beats timing the market.” The real problem is: which time are we in?"
+                    rows={[
+                      { k: "Root failure", v: "Unclear regime → wrong behavior" },
+                      { k: "REZIME role", v: "Identify regime + phase" },
+                      { k: "Outcome", v: "More holding power, less panic" },
+                    ]}
+                  />
+                  <Card
+                    title="What it is"
+                    desc="REZIME is not a signal engine. It is a context map that stabilizes whatever execution approach you already use."
+                    rows={[
+                      { k: "Type", v: "Regime & transition model" },
+                      { k: "Works with", v: "TA, fundamentals, discretionary" },
+                      { k: "Not", v: "Holy grail / prediction / signals" },
+                    ]}
+                  />
+                  <Card
+                    title="What it changes"
+                    desc="Stress often comes from not knowing what’s happening. Clarity lowers noise and improves decision quality."
+                    rows={[
+                      { k: "Reduces", v: "Random entries, emotional exits" },
+                      { k: "Improves", v: "Exposure discipline & patience" },
+                      { k: "Focus", v: "Survivability through transitions" },
+                    ]}
+                  />
+                </div>
+
+                <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <div className="flex flex-wrap gap-2">
+                    <Badge tone="hard">Map, not signals</Badge>
+                    <Badge>Time-in-market{" > "}timing hype</Badge>
+                    <Badge>Regime clarity governs exposure</Badge>
+                    <Badge>Survival over optimization</Badge>
+                  </div>
+
+                  <div className="mt-5 space-y-3 text-sm text-neutral-300 leading-relaxed">
+                    <p>
+                      <span className="font-semibold text-white">Core thesis:</span>{" "}
+                      REZIME helps you avoid fighting a strong empire. Contrarian trades are
+                      not “brave” — they’re often structurally early. The model waits for
+                      internal disruption before treating reversal as plausible.
+                    </p>
+                    <p>
+                      <span className="font-semibold text-white">Mechanism:</span>{" "}
+                      REZIME reads the interaction of three timeframes. Full alignment
+                      signals a strong trend (high caution for contrarians). Transition
+                      phases identify when pressure is building against the regime.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-4 grid gap-4 lg:grid-cols-2">
+                  <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
+                    <p className="text-sm font-semibold text-white">Phase sequence</p>
+                    <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                      In REZIME, markets behave like empires: stable dominance → internal
+                      disruption → structural challenge → regime change.
+                    </p>
+
+                    <div className="mt-4 space-y-2 text-sm text-neutral-300">
+                      {[
+                        ["Full Alignment", "All 3 TFs point the same way — strong trend. Don’t fight it yet."],
+                        ["Standoff", "LTF challenges the regime but gets pushed back (earliest + noisiest)."],
+                        ["Rebellion", "LTF breaks through; counter-pressure becomes real."],
+                        ["Deadlock", "MTF is challenged; transition risk increases."],
+                        ["Uprising", "MTF breaks through; regime weakening becomes visible."],
+                        ["Siege", "HTF is challenged; reversal becomes structurally possible."],
+                        ["Revolution", "HTF flips; a new empire takes control."],
+                      ].map(([k, v]) => (
+                        <div key={k} className="border-t border-white/10 pt-3">
+                          <div className="text-xs text-neutral-400">{k}</div>
+                          <div className="text-sm text-neutral-200">{v}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <p className="mt-4 text-[11px] text-neutral-500">
+                      Note: Markets are not linear — this sequence is a map for probability,
+                      not a script for certainty.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <p className="text-sm font-semibold text-white">
+                      The 4 failure modes REZIME addresses
+                    </p>
+                    <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                      When you don’t know the regime, you’re vulnerable to every outcome.
+                      REZIME reduces ambiguity so your execution method can operate inside a
+                      coherent context.
+                    </p>
+
+                    <ul className="mt-4 space-y-2 text-sm text-neutral-300">
+                      {[
+                        "Regime blindness → chopped by sideways & transitions.",
+                        "Entering too early → thesis dies before maturity.",
+                        "Entering too late → buying exhaustion and stagnation.",
+                        "Holding without context → panic exits before structure breaks.",
+                      ].map((x) => (
+                        <li key={x} className="flex gap-2">
+                          <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" />
+                          <span>{x}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-5 rounded-2xl border border-white/10 bg-black/30 p-4">
+                      <p className="text-xs uppercase tracking-widest text-neutral-400">
+                        Practitioner note
+                      </p>
+                      <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                        My personal style prefers early transition entries (Standoff →
+                        Rebellion), not chasing Full Alignment. But REZIME itself is a lens:
+                        it gives context — execution is optional and modular.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 premium-card relative rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <p className="text-sm font-semibold text-white">Why I built this</p>
+                  <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                    I’m not obsessed with markets — I’m obsessed with systems. Markets are a
+                    high-pressure environment where weak frameworks break. REZIME is built
+                    to preserve clarity and survivability so a thesis can be seen through —
+                    or avoided when the storm is structurally likely.
+                  </p>
+                </div>
+              </Section>
             </Reveal>
 
             {/* rest of your sections stay the same */}
