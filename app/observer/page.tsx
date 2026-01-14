@@ -2,31 +2,50 @@ import Link from "next/link";
 import Section from "../components/Section";
 import Reveal from "../components/Reveal";
 
-function Card({
-  n,
+function Pill({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-neutral-300">
+      {children}
+    </span>
+  );
+}
+
+function MiniCard({
   title,
   desc,
-  href,
 }: {
-  n: string;
   title: string;
   desc: string;
-  href: string;
 }) {
   return (
-    <Link
-      href={href}
-      className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
-    >
-      <div className="flex items-center justify-between">
-        <div className="text-xs text-neutral-400">{n}</div>
-        <div className="text-xs text-neutral-400 transition group-hover:text-neutral-200">
-          Read →
-        </div>
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
+      <div className="text-sm font-semibold text-white">{title}</div>
+      <div className="mt-2 text-sm leading-relaxed text-neutral-300">{desc}</div>
+    </div>
+  );
+}
+
+function StateRow({
+  name,
+  vibe,
+  whatToDo,
+}: {
+  name: string;
+  vibe: string;
+  whatToDo: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-black/30 p-5">
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] text-white">
+          {name}
+        </span>
+        <span className="text-xs text-neutral-400">{vibe}</span>
       </div>
-      <h3 className="mt-3 text-base font-semibold text-white">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-neutral-300">{desc}</p>
-    </Link>
+      <div className="mt-3 text-sm text-neutral-300 leading-relaxed">
+        <span className="font-semibold text-white">What you do:</span> {whatToDo}
+      </div>
+    </div>
   );
 }
 
@@ -40,14 +59,22 @@ export default function ObserverPage() {
             Observer Portal
           </p>
 
+          <div className="flex flex-wrap gap-2">
+            <Pill>Map, not signals</Pill>
+            <Pill>Time-in-market</Pill>
+            <Pill>Regimes & transitions</Pill>
+            <Pill>Beginner-friendly</Pill>
+          </div>
+
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            A documentary lens on market regimes.
+            REZIME tells you what time it is.
           </h1>
 
           <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-            REZIME is a map — not a signal service. This portal explains the
-            worldview: Empires (trend), Rebellions (early instability), Uprisings
-            (transition), and Revolutions (new regime).
+            People don’t lose because they “picked the wrong thing” — they lose
+            because they didn’t know what phase the market was in. REZIME is a
+            documentary lens on the battle happening in price: an Empire
+            (dominant trend) and the challengers trying to overthrow it.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -62,159 +89,182 @@ export default function ObserverPage() {
               href="/operator"
               className="rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
             >
-              Jump to Operator →
+              Tools / Operator →
             </Link>
           </div>
         </section>
       </Reveal>
 
-      {/* QUICK CHAPTERS */}
+      {/* WHY THIS EXISTS */}
       <Reveal delayMs={80}>
         <Section
-          eyebrow="Select a chapter"
-          title="Four chapters. One map."
-          subtitle="Start here if you want the core idea without technical details."
+          eyebrow="Why REZIME exists"
+          title="The common problem: you didn’t know the regime."
+          subtitle="If you don’t know what phase you’re in, every bad outcome becomes possible."
         >
           <div className="grid gap-4 sm:grid-cols-2">
-            <Card
-              n="1)"
-              title="What is REZIME?"
-              desc="Why regime context matters more than entries — and why holding is the real edge."
-              href="#what"
+            <MiniCard
+              title="1) You hold the right thing at the wrong time"
+              desc="It goes sideways for months. You get bored, lose conviction, and exit right before it moves."
             />
-            <Card
-              n="2)"
-              title="The 4 Regime States"
-              desc="Empire → Rebellion → Uprising → Revolution, and how each one feels in price."
-              href="#states"
+            <MiniCard
+              title="2) You buy during the wrong Empire"
+              desc="You unknowingly enter while the ruling force is collapsing. Your entry isn’t the problem — the timing is."
             />
-            <Card
-              n="3)"
-              title="How to read a chart (without signals)"
-              desc="A simple decision flow: identify regime → align exposure → respect transitions."
-              href="#read"
+            <MiniCard
+              title="3) You fight a strong trend"
+              desc="You try to be contrarian when the Empire is at full strength. You might win one battle, but the war crushes you."
             />
-            <Card
-              n="4)"
-              title="Creator / Beyond Markets"
-              desc="The story: systems thinking, games-as-training, and why this became inevitable."
-              href="#creator"
+            <MiniCard
+              title="4) You get cooked by the storm"
+              desc="Transitions are where volatility spikes. Most people size up when they should be reducing uncertainty."
             />
           </div>
         </Section>
       </Reveal>
 
-      {/* LONGFORM */}
+      {/* WHAT IT IS / IS NOT */}
       <Reveal delayMs={140}>
-        <section id="what" className="scroll-mt-24">
-          <Section
-            title="What is REZIME?"
-            subtitle="REZIME frames markets as competing forces. The goal is not “predict the next candle” — it’s to understand the dominant regime so you can avoid fighting structure and survive volatility with composure."
-          >
-            <div className="space-y-3 text-sm leading-relaxed text-neutral-300">
-              <p>
-                Most traders lose from regime mismatch: using tactics meant for
-                trend inside a transition, or trying to fade momentum inside a
-                true Empire.
-              </p>
-              <p>
-                REZIME reduces decision-noise. It helps you stay aligned with
-                what the market is actually doing — not what you want it to do.
-              </p>
+        <Section
+          eyebrow="Definition"
+          title="REZIME is a map, not a prediction."
+          subtitle="It doesn’t replace your strategy — it gives your strategy context."
+        >
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <div className="text-sm font-semibold text-white">What it is</div>
+              <ul className="mt-3 space-y-2 text-sm text-neutral-300">
+                <li>• A regime lens: “Who’s ruling right now?”</li>
+                <li>• A transition lens: “Is the storm coming?”</li>
+                <li>• A behavior lens: “How do I act in this phase?”</li>
+                <li>• A clarity tool: reduces panic + overtrading</li>
+              </ul>
             </div>
-          </Section>
-        </section>
+
+            <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
+              <div className="text-sm font-semibold text-white">What it is not</div>
+              <ul className="mt-3 space-y-2 text-sm text-neutral-300">
+                <li>• Not a holy grail</li>
+                <li>• Not “buy/sell signals”</li>
+                <li>• Not top/bottom hunting</li>
+                <li>• Not a substitute for learning or experience</li>
+              </ul>
+            </div>
+          </div>
+        </Section>
       </Reveal>
 
+      {/* 4 STATES */}
       <Reveal delayMs={200}>
-        <section id="states" className="scroll-mt-24">
-          <Section
-            title="The 4 Regime States"
-            subtitle="Each state is a behavior pattern. If you can name the state, you can stop arguing with reality."
-          >
-            <div className="space-y-3 text-sm leading-relaxed text-neutral-300">
-              <p>
-                <span className="font-semibold text-white">Empire:</span>{" "}
-                dominant trend. Holding is rewarded.
-              </p>
-              <p>
-                <span className="font-semibold text-white">Rebellion:</span>{" "}
-                first instability. Noise increases. Positioning becomes
-                selective.
-              </p>
-              <p>
-                <span className="font-semibold text-white">Uprising:</span>{" "}
-                transition becomes visible. Risk control matters most.
-              </p>
-              <p>
-                <span className="font-semibold text-white">Revolution:</span>{" "}
-                new regime. The map resets. A new Empire is born.
-              </p>
-            </div>
-          </Section>
-        </section>
+        <Section
+          eyebrow="The big picture"
+          title="The 4 regime states"
+          subtitle="If you can name the state, you stop arguing with reality."
+        >
+          <div className="space-y-4">
+            <StateRow
+              name="Empire"
+              vibe="Dominant trend • holding is rewarded"
+              whatToDo="Don’t fight it. If you’re in, protect your position. If you’re not, wait for safer re-entry windows."
+            />
+            <StateRow
+              name="Rebellion"
+              vibe="First instability • noise rises"
+              whatToDo="Be selective. Rebellion can be a pullback… or the beginning of a bigger overthrow."
+            />
+            <StateRow
+              name="Uprising"
+              vibe="Transition becomes visible"
+              whatToDo="This is storm territory. Reduce uncertainty. Don’t size up just because candles look exciting."
+            />
+            <StateRow
+              name="Revolution"
+              vibe="Regime flip • a new Empire is born"
+              whatToDo="Reset your assumptions. What used to work may stop working — until the new Empire stabilizes."
+            />
+          </div>
+        </Section>
       </Reveal>
 
+      {/* STORYBOARD (the ladder you described) */}
       <Reveal delayMs={260}>
-        <section id="read" className="scroll-mt-24">
-          <Section
-            title="How to read (no signals)"
-            subtitle="A simple operator mindset for the public: stop trying to be right — start trying to be aligned."
-          >
-            <div className="space-y-3 text-sm leading-relaxed text-neutral-300">
-              <p>
-                Step 1: Identify the regime. Step 2: Match exposure to regime.
-                Step 3: When transitions appear, reduce uncertainty — don’t
-                increase ambition.
-              </p>
-              <p>
-                If you want the actual tool behavior and rule-set, move to the
-                Operator portal.
-              </p>
-
-              <div className="pt-2">
-                <Link
-                  href="/operator"
-                  className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
-                >
-                  Go to Operator →
-                </Link>
-              </div>
+        <Section
+          eyebrow="How transitions evolve"
+          title="The REZIME storyboard"
+          subtitle="Transitions are not one moment — they escalate through phases."
+        >
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="text-sm text-neutral-300 leading-relaxed">
+              Think of it like civil unrest inside an Empire:
+              <span className="font-semibold text-white">
+                {" "}you don’t fight Rome at its peak — you wait for cracks.
+              </span>
             </div>
-          </Section>
-        </section>
+
+            <div className="mt-4 grid gap-3">
+              {[
+                ["Standoff", "The smallest challengers test the Empire… and get pushed back."],
+                ["Rebellion", "The challengers start winning small battles. Instability becomes real."],
+                ["Deadlock", "Conflict spreads. The fight becomes visible and messy."],
+                ["Uprising", "The middle layer flips. The storm is now obvious."],
+                ["Siege", "The Empire itself is pressured. The old structure is no longer safe."],
+                ["Revolution", "The regime flips. A new Empire begins forming."],
+              ].map(([name, desc]) => (
+                <div key={name} className="flex gap-3 rounded-xl border border-white/10 bg-black/30 p-4">
+                  <div className="shrink-0">
+                    <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] text-white">
+                      {name}
+                    </span>
+                  </div>
+                  <div className="text-sm text-neutral-300 leading-relaxed">{desc}</div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-4 text-xs text-neutral-500 leading-relaxed">
+              Note: real markets aren’t linear. REZIME isn’t saying “this always happens.” It’s saying:
+              if you can recognize the phase, you stop making phase-mismatched decisions.
+            </div>
+          </div>
+        </Section>
       </Reveal>
 
+      {/* WHAT THIS DOES FOR YOU (stress, survivability) */}
       <Reveal delayMs={320}>
-        <section id="creator" className="scroll-mt-24">
-          <Section
-            title="Creator / Beyond Markets"
-            subtitle="This is where your legitimacy story lives — but it stays optional and tucked behind the Observer portal."
-          >
-            <div className="space-y-3 text-sm leading-relaxed text-neutral-300">
-              <p>
-                You can place your narrative here: law → self-directed markets
-                apprenticeship → REZIME worldview.
-              </p>
-              <p>
-                Add the Pro Clubs leadership story as “team systems + human
-                dynamics” training — not “gaming”. Then link to your philosophy
-                pages (Pattern / Spiral / Energy Wealth).
-              </p>
-            </div>
-          </Section>
-        </section>
+        <Section
+          eyebrow="The benefit"
+          title="REZIME reduces stress by replacing confusion with context."
+          subtitle="Stress usually isn’t risk — it’s not understanding what’s happening."
+        >
+          <div className="grid gap-4 sm:grid-cols-2">
+            <MiniCard
+              title="Withstand the storm"
+              desc="REZIME helps you survive transitions without spiraling into impulsive decisions."
+            />
+            <MiniCard
+              title="Avoid the storm"
+              desc="Sometimes the best move is no move. Knowing the phase makes inactivity feel intelligent, not fearful."
+            />
+            <MiniCard
+              title="Better experience, less burnout"
+              desc="You build intuition faster when your experiences are high-quality — not random churn."
+            />
+            <MiniCard
+              title="Works with any approach"
+              desc="Use it with technicals, fundamentals, macro… or just as a sanity check on ‘what time it is.’"
+            />
+          </div>
+        </Section>
       </Reveal>
 
-      {/* BOTTOM CTA */}
+      {/* CTA */}
       <Reveal delayMs={380}>
         <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <div className="text-sm font-semibold">Ready for the tools?</div>
+              <div className="text-sm font-semibold">Want the tool behavior?</div>
               <div className="text-xs text-neutral-400">
-                Operator portal = interpretation rules + Engine / Sync / Battle
-                Lines behavior.
+                Operator portal = how the Engine / Sync / Battle Lines express these regimes on chart.
               </div>
             </div>
 
