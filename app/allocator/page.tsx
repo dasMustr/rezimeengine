@@ -1,5 +1,13 @@
 import Link from "next/link";
 import Reveal from "../components/Reveal";
+import TikTokEmbed from "../components/TikTokEmbed";
+
+const TIKTOKS = [
+  "https://www.tiktok.com/@bridger_pennington/video/7580125906451123486",
+  "https://www.tiktok.com/@bridger_pennington/video/7580493673092091166",
+  "https://www.tiktok.com/@bridger_pennington/video/7580820321058524446",
+  "https://www.tiktok.com/@bridger_pennington/video/7581597457797238046",
+];
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -134,13 +142,13 @@ export default function AllocatorPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/operator"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
+              className="premium-card relative rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
             >
               ← Operator
             </Link>
             <Link
               href="/contact"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
+              className="premium-card relative rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
             >
               Contact →
             </Link>
@@ -157,6 +165,7 @@ export default function AllocatorPage() {
               Contents
             </p>
             <div className="grid gap-2">
+              <TocLink href="#proof" label="Proof Strip" />
               <TocLink href="#mandate" label="Mandate" />
               <TocLink href="#governance" label="Governance" />
               <TocLink href="#risk" label="Risk Doctrine" />
@@ -172,6 +181,66 @@ export default function AllocatorPage() {
 
           {/* CONTENT */}
           <div className="space-y-12">
+            {/* PROOF STRIP (Allocator-only) */}
+            <Reveal delayMs={120}>
+              <section id="proof" className="scroll-mt-24 space-y-4">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                  <div>
+                    <p className="text-xs uppercase tracking-widest text-neutral-400">
+                      Proof Strip
+                    </p>
+                    <h2 className="mt-2 text-xl font-semibold tracking-tight text-white">
+                      Time-stamped public journal (TikTok)
+                    </h2>
+                    <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
+                      Weekly portfolio updates posted publicly, time-stamped, and
+                      archived. This is the proof layer — the Portfolio Lab below
+                      holds the full detail.
+                    </p>
+                  </div>
+
+                  <div className="text-xs text-neutral-500">
+                    Updated weekly • low-noise • context-first
+                  </div>
+                </div>
+
+                <div className="grid gap-4 lg:grid-cols-3">
+                  {TIKTOKS.map((url, i) => (
+                    <Reveal key={url} delayMs={160 + i * 70}>
+                      <TikTokEmbed url={url} caption={`Week ${i + 1} update`} />
+                    </Reveal>
+                  ))}
+                </div>
+
+                <div className="premium-card relative rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-sm font-semibold text-white">
+                        Portfolio Lab (deep detail)
+                      </p>
+                      <p className="mt-1 text-xs text-neutral-400 leading-relaxed">
+                        Factsheet-style archive: holdings, regime context, exposure
+                        posture, and week-by-week deltas. (Hosted externally to keep
+                        the site clean.)
+                      </p>
+                    </div>
+
+                    <Link
+                      href="https://www.notion.so/END-Weekly-Global-Portfolio-22126a6e989c803896a4d732246aea06?source=copy_link"
+                      target="_blank"
+                      className="premium-card relative inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
+                    >
+                      Open Portfolio Lab →
+                    </Link>
+                  </div>
+
+                  <p className="mt-4 text-[11px] text-neutral-500">
+                    Not financial advice. Public journal for transparency and process documentation.
+                  </p>
+                </div>
+              </section>
+            </Reveal>
+
             <Reveal delayMs={150}>
               <Section
                 id="mandate"
@@ -291,8 +360,8 @@ export default function AllocatorPage() {
                       Drawdown framing (placeholder)
                     </p>
                     <p className="text-sm text-neutral-300 leading-relaxed">
-                      This section will later publish explicit drawdown
-                      constraints once Portfolio Lab is active.
+                      This section will later publish explicit drawdown constraints
+                      once Portfolio Lab is active.
                     </p>
                     <div className="flex flex-wrap gap-2 pt-1">
                       <Badge>Max DD: TBD</Badge>
@@ -353,12 +422,10 @@ export default function AllocatorPage() {
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300 leading-relaxed">
                   <p>
                     The Portfolio Lab is a public demonstration layer. It answers:
-                    can this worldview hold through regimes with controlled
-                    drawdowns?
+                    can this worldview hold through regimes with controlled drawdowns?
                   </p>
                   <p className="text-xs text-neutral-500">
-                    Placeholder: country universe, allocation rules, factsheet
-                    template.
+                    Placeholder: country universe, allocation rules, factsheet template.
                   </p>
                 </div>
               </Section>
@@ -396,8 +463,7 @@ export default function AllocatorPage() {
                       Allocator inquiries
                     </p>
                     <p className="text-xs text-neutral-400">
-                      For collaboration, research, or future allocation
-                      discussions.
+                      For collaboration, research, or future allocation discussions.
                     </p>
                   </div>
                   <Link
