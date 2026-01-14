@@ -45,13 +45,7 @@ function Card({
   );
 }
 
-function InfoBlock({
-  title,
-  desc,
-}: {
-  title: string;
-  desc: string;
-}) {
+function InfoBlock({ title, desc }: { title: string; desc: string }) {
   return (
     <div className="premium-card relative rounded-2xl border border-white/10 bg-white/[0.03] p-6">
       <Sheen />
@@ -75,8 +69,8 @@ export default function ContactPage() {
           <div className="relative space-y-6">
             <div className="flex flex-wrap gap-2">
               <Pill>Research documentation</Pill>
-              <Pill>No signals</Pill>
-              <Pill>Institutional tone</Pill>
+              <Pill>Map, not signals</Pill>
+              <Pill>Long-horizon tone</Pill>
             </div>
 
             <h1 className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
@@ -84,8 +78,8 @@ export default function ContactPage() {
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              For interviews, partnerships, or research collaboration. REZIME is
-              a mapping framework — not a signal service.
+              Reach out for collaboration, tooling discussions, or general notes.
+              REZIME is a mapping framework and documentation layer, not a signal service.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-1">
@@ -122,27 +116,27 @@ export default function ContactPage() {
               </h2>
             </div>
             <p className="hidden text-sm text-neutral-400 sm:block">
-              Press → Collaboration → General
+              Collaboration → General
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
             <Card
-              meta="Press"
-              title="Interviews / Podcasts"
-              desc="Markets, regime thinking, and the REZIME worldview."
-              href="mailto:hello@rezimeengine.com?subject=Press%20/%20Interview%20Inquiry"
-            />
-            <Card
               meta="Collaboration"
               title="Research / Partnerships"
-              desc="Tooling, education, or aligned long-horizon projects."
-              href="mailto:hello@rezimeengine.com?subject=Collaboration%20Inquiry"
+              desc="Aligned long-horizon projects, tooling, education, or institutional-facing work."
+              href="mailto:hello@rezimeengine.com?subject=Collaboration%20/%20Partnership%20Inquiry"
+            />
+            <Card
+              meta="Allocator"
+              title="Allocator / IR"
+              desc="Factsheets, reporting cadence, mandate fit, or diligence-style questions."
+              href="mailto:hello@rezimeengine.com?subject=Allocator%20/%20IR%20Inquiry"
             />
             <Card
               meta="General"
               title="Questions / Notes"
-              desc="Short messages, feedback, or requests for clarifications."
+              desc="Short messages, feedback, or clarifications about the framework."
               href="mailto:hello@rezimeengine.com?subject=General%20Inquiry"
             />
           </div>
@@ -158,7 +152,7 @@ export default function ContactPage() {
           />
           <InfoBlock
             title="Identity"
-            desc="REZIME by paeteon (dasMustr). Links can be added later without turning this into a linktree."
+            desc="REZIME by paeteon (dasMustr). Links can be added later without turning this page into a linktree."
           />
           <InfoBlock
             title="Response expectations"
@@ -172,20 +166,20 @@ export default function ContactPage() {
         <section className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-white">Disclosures</h2>
           <p className="mt-3 text-sm text-neutral-300 leading-relaxed">
-            REZIME is educational documentation and research tooling. It does not
-            provide investment advice. This website is not an offer to sell or a
-            solicitation to buy any securities or services.
+            REZIME is educational documentation and research tooling. It does not provide
+            investment advice. This website is not an offer to sell or a solicitation to
+            buy any securities or services.
           </p>
         </section>
       </Reveal>
 
-      {/* (OPTIONAL) SMALL FOOT CTA */}
+      {/* FOOT CTA */}
       <Reveal delayMs={320}>
         <section className="rounded-2xl border border-white/10 bg-black/30 p-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="text-sm font-semibold text-white">
-                Want the full framing first?
+                Want the framing first?
               </div>
               <div className="text-xs text-neutral-400">
                 Observer explains the worldview. Operator explains interpretation rules.
