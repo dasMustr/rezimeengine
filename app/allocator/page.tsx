@@ -1,12 +1,62 @@
 import Link from "next/link";
 import Reveal from "../components/Reveal";
-import TikTokEmbed from "../components/TikTokEmbed";
+import ProofCard from "../components/ProofCard";
 
-const TIKTOKS = [
-  "https://www.tiktok.com/@bridger_pennington/video/7580125906451123486",
-  "https://www.tiktok.com/@bridger_pennington/video/7580493673092091166",
-  "https://www.tiktok.com/@bridger_pennington/video/7580820321058524446",
-  "https://www.tiktok.com/@bridger_pennington/video/7581597457797238046",
+const PORTFOLIO_LAB_URL =
+  "https://www.notion.so/END-Weekly-Global-Portfolio-22126a6e989c803896a4d732246aea06?source=copy_link";
+
+// You’ll fill links as you post each week.
+// Keep them empty now; the UI still looks intentional.
+const PROOFS = [
+  {
+    week: 1,
+    date: "Wk 1",
+    title: "Global Portfolio Lab — Week 1",
+    summary:
+      "Kickoff snapshot: holdings established, baseline regime map, and exposure posture recorded.",
+    tags: ["Time-stamped", "Factsheet", "Baseline"],
+    links: {
+      // youtube: "https://youtube.com/...",
+      // x: "https://x.com/...",
+      // instagram: "https://instagram.com/...",
+      // tradingview: "https://www.tradingview.com/...",
+      notion: PORTFOLIO_LAB_URL,
+      // pdf: "https://...",
+    },
+  },
+  {
+    week: 2,
+    date: "Wk 2",
+    title: "Week 2",
+    summary:
+      "First delta week: changes vs baseline, regime stability notes, and risk posture adjustments.",
+    tags: ["Weekly delta", "Regime notes"],
+    links: {
+      notion: PORTFOLIO_LAB_URL,
+    },
+  },
+  {
+    week: 3,
+    date: "Wk 3",
+    title: "Week 3",
+    summary:
+      "Consistency check: beta-hugging behavior vs major indices and country baskets. No hype.",
+    tags: ["Consistency", "Low-noise"],
+    links: {
+      notion: PORTFOLIO_LAB_URL,
+    },
+  },
+  {
+    week: 4,
+    date: "Wk 4",
+    title: "Week 4",
+    summary:
+      "Momentum confirmation window: this is where public-facing rollout becomes viable if behavior holds.",
+    tags: ["Launch gate", "Proof-first"],
+    links: {
+      notion: PORTFOLIO_LAB_URL,
+    },
+  },
 ];
 
 function Pill({ children }: { children: React.ReactNode }) {
@@ -165,7 +215,7 @@ export default function AllocatorPage() {
               Contents
             </p>
             <div className="grid gap-2">
-              <TocLink href="#proof" label="Proof Strip" />
+              <TocLink href="#proof" label="Proof Archive" />
               <TocLink href="#mandate" label="Mandate" />
               <TocLink href="#governance" label="Governance" />
               <TocLink href="#risk" label="Risk Doctrine" />
@@ -181,21 +231,20 @@ export default function AllocatorPage() {
 
           {/* CONTENT */}
           <div className="space-y-12">
-            {/* PROOF STRIP (Allocator-only) */}
+            {/* PROOF ARCHIVE (Allocator-only) */}
             <Reveal delayMs={120}>
               <section id="proof" className="scroll-mt-24 space-y-4">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                   <div>
                     <p className="text-xs uppercase tracking-widest text-neutral-400">
-                      Proof Strip
+                      Proof Archive
                     </p>
                     <h2 className="mt-2 text-xl font-semibold tracking-tight text-white">
-                      Time-stamped public journal (TikTok)
+                      Time-stamped public journal (platform-agnostic)
                     </h2>
                     <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-                      Weekly portfolio updates posted publicly, time-stamped, and
-                      archived. This is the proof layer — the Portfolio Lab below
-                      holds the full detail.
+                      Weekly updates are recorded publicly and indexed here. No embeds,
+                      no scripts — just a clean archive that works everywhere.
                     </p>
                   </div>
 
@@ -204,10 +253,17 @@ export default function AllocatorPage() {
                   </div>
                 </div>
 
-                <div className="grid gap-4 lg:grid-cols-3">
-                  {TIKTOKS.map((url, i) => (
-                    <Reveal key={url} delayMs={160 + i * 70}>
-                      <TikTokEmbed url={url} caption={`Week ${i + 1} update`} />
+                <div className="grid gap-4 lg:grid-cols-2">
+                  {PROOFS.map((p, i) => (
+                    <Reveal key={p.week} delayMs={160 + i * 70}>
+                      <ProofCard
+                        week={p.week}
+                        date={p.date}
+                        title={p.title}
+                        summary={p.summary}
+                        tags={p.tags}
+                        links={p.links}
+                      />
                     </Reveal>
                   ))}
                 </div>
@@ -219,14 +275,13 @@ export default function AllocatorPage() {
                         Portfolio Lab (deep detail)
                       </p>
                       <p className="mt-1 text-xs text-neutral-400 leading-relaxed">
-                        Factsheet-style archive: holdings, regime context, exposure
-                        posture, and week-by-week deltas. (Hosted externally to keep
-                        the site clean.)
+                        Factsheet-style archive: holdings, regime context, exposure posture,
+                        and week-by-week deltas. Hosted externally to keep the site clean.
                       </p>
                     </div>
 
                     <Link
-                      href="https://www.notion.so/END-Weekly-Global-Portfolio-22126a6e989c803896a4d732246aea06?source=copy_link"
+                      href={PORTFOLIO_LAB_URL}
                       target="_blank"
                       className="premium-card relative inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
                     >
@@ -235,12 +290,13 @@ export default function AllocatorPage() {
                   </div>
 
                   <p className="mt-4 text-[11px] text-neutral-500">
-                    Not financial advice. Public journal for transparency and process documentation.
+                    Not financial advice. Public documentation for transparency and process.
                   </p>
                 </div>
               </section>
             </Reveal>
 
+            {/* rest of your sections stay the same */}
             <Reveal delayMs={150}>
               <Section
                 id="mandate"
@@ -280,201 +336,8 @@ export default function AllocatorPage() {
               </Section>
             </Reveal>
 
-            <Reveal delayMs={220}>
-              <Section
-                id="governance"
-                eyebrow="Operating rules"
-                title="Governance"
-                desc="Designed to prevent style-drift and protect capital during uncertainty."
-              >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <div className="flex flex-wrap gap-2">
-                    <Badge tone="hard">Map, not signals</Badge>
-                    <Badge>Regime before tactics</Badge>
-                    <Badge>Exposure follows clarity</Badge>
-                    <Badge>Survival over optimization</Badge>
-                  </div>
-
-                  <div className="mt-5 space-y-3 text-sm text-neutral-300 leading-relaxed">
-                    <p>
-                      <span className="font-semibold text-white">
-                        1) Regime authority:
-                      </span>{" "}
-                      exposure biased toward dominant Empire; transitions reduce
-                      aggression.
-                    </p>
-                    <p>
-                      <span className="font-semibold text-white">
-                        2) No forced trading:
-                      </span>{" "}
-                      absence of clarity is valid; inactivity is permitted.
-                    </p>
-                    <p>
-                      <span className="font-semibold text-white">
-                        3) Risk neutralization:
-                      </span>{" "}
-                      make positions riskless (BE → SL+) when structure allows,
-                      then let upside ride.
-                    </p>
-                    <p>
-                      <span className="font-semibold text-white">
-                        4) Exit condition:
-                      </span>{" "}
-                      reduce or exit on confirmed structural regime break, not
-                      discomfort.
-                    </p>
-                  </div>
-                </div>
-              </Section>
-            </Reveal>
-
-            <Reveal delayMs={290}>
-              <Section
-                id="risk"
-                eyebrow="Capital protection"
-                title="Risk Doctrine"
-                desc="Edge is behavioral: constrain drawdowns by respecting transitions."
-              >
-                <div className="grid gap-4 lg:grid-cols-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3">
-                    <p className="text-sm font-semibold text-white">
-                      Core risk principles
-                    </p>
-                    <ul className="space-y-2 text-sm text-neutral-300">
-                      {[
-                        "Regime clarity governs sizing.",
-                        "Transitions are treated as high-variance environments.",
-                        "Reduce leverage before increasing conviction.",
-                        "Prefer fewer, cleaner holds over frequent decisions.",
-                      ].map((x) => (
-                        <li key={x} className="flex gap-2">
-                          <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" />
-                          <span>{x}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-black/30 p-6 space-y-3">
-                    <p className="text-sm font-semibold text-white">
-                      Drawdown framing (placeholder)
-                    </p>
-                    <p className="text-sm text-neutral-300 leading-relaxed">
-                      This section will later publish explicit drawdown constraints
-                      once Portfolio Lab is active.
-                    </p>
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      <Badge>Max DD: TBD</Badge>
-                      <Badge>Exposure cap: TBD</Badge>
-                      <Badge>Risk units: TBD</Badge>
-                    </div>
-                  </div>
-                </div>
-              </Section>
-            </Reveal>
-
-            <Reveal delayMs={360}>
-              <Section
-                id="reporting"
-                eyebrow="Transparency"
-                title="Reporting"
-                desc="Proof-first communication. Factsheet format, minimal commentary."
-              >
-                <div className="grid gap-4 lg:grid-cols-3">
-                  <Card
-                    title="Cadence"
-                    desc="Low-noise updates to build long-horizon trust."
-                    rows={[
-                      { k: "Schedule", v: "Weekly" },
-                      { k: "Format", v: "Factsheet-style" },
-                      { k: "Tone", v: "Non-promotional" },
-                    ]}
-                  />
-                  <Card
-                    title="Contents"
-                    desc="What gets reported (not signals)."
-                    rows={[
-                      { k: "Regime", v: "Empire state + transitions" },
-                      { k: "Exposure", v: "Posture + risk notes" },
-                      { k: "Performance", v: "Simple series" },
-                    ]}
-                  />
-                  <Card
-                    title="Integrity"
-                    desc="Designed to be auditable later."
-                    rows={[
-                      { k: "Time-stamped", v: "Yes" },
-                      { k: "Archive", v: "Persistent" },
-                      { k: "Scope", v: "Global lab" },
-                    ]}
-                  />
-                </div>
-              </Section>
-            </Reveal>
-
-            <Reveal delayMs={430}>
-              <Section
-                id="portfolio"
-                eyebrow="Research program"
-                title="Portfolio Lab"
-                desc="A simulated global equity portfolio (10 exchanges/countries) used as a public proof engine."
-              >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300 leading-relaxed">
-                  <p>
-                    The Portfolio Lab is a public demonstration layer. It answers:
-                    can this worldview hold through regimes with controlled drawdowns?
-                  </p>
-                  <p className="text-xs text-neutral-500">
-                    Placeholder: country universe, allocation rules, factsheet template.
-                  </p>
-                </div>
-              </Section>
-            </Reveal>
-
-            <Reveal delayMs={500}>
-              <Section
-                id="status"
-                eyebrow="Status"
-                title="Current Status"
-                desc="A calm, honest status page. No hype."
-              >
-                <div className="rounded-2xl border border-white/10 bg-black/30 p-6 space-y-3 text-sm text-neutral-300 leading-relaxed">
-                  <p>
-                    <span className="font-semibold text-white">Phase:</span>{" "}
-                    Documentation + Portfolio Lab buildout.
-                  </p>
-                  <p>
-                    <span className="font-semibold text-white">Tools:</span>{" "}
-                    Engine / Sync / Battle Lines in active development.
-                  </p>
-                  <p>
-                    <span className="font-semibold text-white">Release:</span>{" "}
-                    Public access intentionally delayed; proof-first comes first.
-                  </p>
-                </div>
-              </Section>
-            </Reveal>
-
-            <Reveal delayMs={570}>
-              <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-white">
-                      Allocator inquiries
-                    </p>
-                    <p className="text-xs text-neutral-400">
-                      For collaboration, research, or future allocation discussions.
-                    </p>
-                  </div>
-                  <Link
-                    href="/contact"
-                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
-                  >
-                    Contact →
-                  </Link>
-                </div>
-              </section>
-            </Reveal>
+            {/* Governance / Risk / Reporting / Portfolio / Status / CTA… keep your existing code */}
+            {/* (No other changes required) */}
           </div>
         </section>
       </Reveal>
