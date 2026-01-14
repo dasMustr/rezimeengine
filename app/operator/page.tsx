@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Reveal from "../components/Reveal";
+import TradingViewAdvancedChart from "../components/TradingViewAdvancedChart";
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -52,7 +53,7 @@ function ToolCard({
   bullets: string[];
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+    <div className="premium-card relative rounded-2xl border border-white/10 bg-white/5 p-6">
       <div className="space-y-2">
         <h3 className="text-base font-semibold text-white">{title}</h3>
         <p className="text-sm text-neutral-300 leading-relaxed">{subtitle}</p>
@@ -83,7 +84,7 @@ function TocLink({ href, label }: { href: string; label: string }) {
 export default function OperatorPage() {
   return (
     <div className="space-y-14">
-      {/* HERO */}
+      {/* Hero */}
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
@@ -109,13 +110,13 @@ export default function OperatorPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/observer"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
+              className="premium-card relative rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
             >
               ← Observer
             </Link>
             <Link
               href="/allocator"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
+              className="premium-card relative rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
             >
               Allocator →
             </Link>
@@ -123,8 +124,34 @@ export default function OperatorPage() {
         </section>
       </Reveal>
 
-      {/* TOC + CONTENT */}
+      {/* TradingView chart (Operator-only) */}
       <Reveal delayMs={90}>
+        <section className="space-y-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-neutral-400">
+                Live context (widget)
+              </p>
+              <h2 className="mt-2 text-xl font-semibold tracking-tight">
+                Interactive chart sandbox
+              </h2>
+              <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
+                This is for vibe + demonstration only. Operator gets the “alive”
+                tooling; Home stays ultra-light.
+              </p>
+            </div>
+
+            <div className="text-xs text-neutral-500">
+              Default: XAUUSD • 1H • Dark
+            </div>
+          </div>
+
+          <TradingViewAdvancedChart symbol="OANDA:XAUUSD" interval="60" height={520} />
+        </section>
+      </Reveal>
+
+      {/* Layout: TOC + content */}
+      <Reveal delayMs={140}>
         <section className="grid gap-8 lg:grid-cols-[240px_1fr]">
           {/* TOC */}
           <aside className="space-y-3 lg:sticky lg:top-24 lg:h-fit">
@@ -145,9 +172,9 @@ export default function OperatorPage() {
             </div>
           </aside>
 
-          {/* CONTENT */}
+          {/* Content */}
           <div className="space-y-12">
-            <Reveal delayMs={150}>
+            <Reveal delayMs={0}>
               <Section
                 id="stack"
                 eyebrow="System architecture"
@@ -186,7 +213,7 @@ export default function OperatorPage() {
               </Section>
             </Reveal>
 
-            <Reveal delayMs={210}>
+            <Reveal delayMs={90}>
               <Section
                 id="interpret"
                 eyebrow="How to read it"
@@ -206,27 +233,28 @@ export default function OperatorPage() {
                       2) Respect Rebellion.
                     </span>{" "}
                     Rebellion is not “reverse now.” It’s warning: volatility and
-                    counterpressure have increased.
+                    counterpressure have increased. Reduce leverage, tighten rules.
                   </p>
                   <p>
                     <span className="font-semibold text-white">
                       3) Uprising = transition.
                     </span>{" "}
                     When disagreement intensifies, aim for survival, not
-                    optimization.
+                    optimization. “Do less, not more.”
                   </p>
                   <p>
                     <span className="font-semibold text-white">
                       4) Revolution = reset.
                     </span>{" "}
                     A confirmed flip changes the operating environment. Old
-                    assumptions are invalid.
+                    assumptions are invalid. Rebuild positioning under the new
+                    Empire.
                   </p>
                 </div>
               </Section>
             </Reveal>
 
-            <Reveal delayMs={270}>
+            <Reveal delayMs={180}>
               <Section
                 id="doctrine"
                 eyebrow="How you use it"
@@ -238,56 +266,57 @@ export default function OperatorPage() {
                     <p className="font-semibold text-white">Entry posture</p>
                     <p>
                       Prefer a single clean entry at smallest meaningful
-                      confluence: LTF + MTF alignment, often near an MTF
-                      transition with early EMA respect.
+                      confluence: LTF + MTF alignment, often near an MTF transition
+                      (SMA100 break) with early EMA respect.
                     </p>
                     <p>
-                      One clean entry → neutralize risk → hold. No “7 adds.”
+                      You’re not trying to “add 7 times.” You’re trying to enter
+                      clean, neutralize risk, and hold.
                     </p>
                   </div>
 
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300 leading-relaxed">
                     <p className="font-semibold text-white">Exit posture</p>
                     <p>
-                      Exit is not “took profit.” Exit is “structure broke.” Stay
-                      until regime truly flips.
+                      Exit is not “took profit.” Exit is “structure broke.” You
+                      stay until a real reversal challenges MTF/HTF and confirms a
+                      regime flip.
                     </p>
                     <p>
-                      REZIME is built to avoid catastrophic drawdowns — not to
-                      snipe tops and bottoms.
+                      REZIME is designed to avoid catastrophic drawdowns — not to
+                      capture every turning point.
                     </p>
                   </div>
                 </div>
               </Section>
             </Reveal>
 
-            <Reveal delayMs={330}>
+            <Reveal delayMs={260}>
               <Section
                 id="case"
                 eyebrow="Proof library"
                 title="Case Study Slots (placeholders)"
-                desc="Where you’ll later paste screenshots of the regime strip only (MA hidden)."
+                desc="Later: paste screenshots of the regime strip only (MA hidden), to prove behavior without leaking construction."
               >
                 <div className="grid gap-4 lg:grid-cols-3">
                   <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
                     <p className="text-sm font-semibold text-white">COVID Crash</p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Empire → Rebellion → Uprising → Revolution mapping during
-                      panic.
+                      Empire → Rebellion → Uprising → Revolution mapping during panic.
                     </p>
                     <p className="mt-3 text-xs text-neutral-500">Screenshot slot</p>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
                     <p className="text-sm font-semibold text-white">Luna Collapse</p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Transition behavior under cascade.
+                      Transition behavior under structural failure and cascade.
                     </p>
                     <p className="mt-3 text-xs text-neutral-500">Screenshot slot</p>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
                     <p className="text-sm font-semibold text-white">BTC Cycles</p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Longer empires, fewer rebellions — why HTF is cleaner.
+                      Longer empires, fewer rebellions — why HTF works best.
                     </p>
                     <p className="mt-3 text-xs text-neutral-500">Screenshot slot</p>
                   </div>
@@ -295,7 +324,7 @@ export default function OperatorPage() {
               </Section>
             </Reveal>
 
-            <Reveal delayMs={390}>
+            <Reveal delayMs={330}>
               <Section
                 id="ip"
                 eyebrow="IP protection"
@@ -306,31 +335,34 @@ export default function OperatorPage() {
                   <p>
                     Public proofs will show the{" "}
                     <span className="text-white font-semibold">regime strip</span>{" "}
-                    only.
+                    and state labels only (Empire/Rebellion/Uprising/Revolution).
                   </p>
                   <p>
                     The moving average construction and territory/border logic
-                    remain internal until operator access is released.
+                    remain internal until subscriber access is released.
+                  </p>
+                  <p className="text-xs text-neutral-500">
+                    Clear message: REZIME is a map — the details are for operators.
                   </p>
                 </div>
               </Section>
             </Reveal>
 
-            <Reveal delayMs={450}>
+            <Reveal delayMs={400}>
+              {/* CTA */}
               <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-semibold text-white">
-                      Want institutional framing?
+                      Want the institutional framing?
                     </p>
                     <p className="text-xs text-neutral-400">
-                      Allocator portal = factsheet archive + mandate + governance
-                      + risk.
+                      Allocator portal = factsheet archive + mandate + governance + risk.
                     </p>
                   </div>
                   <Link
                     href="/allocator"
-                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
+                    className="premium-card relative inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
                   >
                     Enter Allocator →
                   </Link>

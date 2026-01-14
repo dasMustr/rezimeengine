@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TradingViewHeatmap from "../components/TradingViewHeatmap";
 import Reveal from "../components/Reveal";
 
 function Pill({ children }: { children: React.ReactNode }) {
@@ -386,6 +387,10 @@ export default function AllocatorPage() {
                   </p>
                 </div>
               </Section>
+            </Reveal>
+
+            <Reveal delayMs={140}>
+              <TradingViewHeatmap />
             </Reveal>
 
             <Reveal delayMs={570}>
