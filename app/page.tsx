@@ -80,9 +80,8 @@ export default function HomePage() {
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              REZIME is a regime map that helps you align exposure with the ruling Empire
-              and stay composed through transitions. No buy/sell prompts. Just context,
-              posture, and discipline.
+              REZIME is a regime map that for staying aligned with structure.
+              It helps you hold through cycles, reduce noice, and avoid fighting the dominant trend.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">

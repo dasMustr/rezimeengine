@@ -66,13 +66,14 @@ export default function ObserverPage() {
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            Know what time it is in the market.
+            A map of market behavior.
           </h1>
 
           <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-            REZIME is a documentary lens on market regimes. The goal is not to
-            predict the next candle. It is to identify the ruling Empire and its
-            phase so you stop fighting structure and start aligning exposure.
+            REZIME breaks market behavior into four regime states:
+            Empire, Rebellion, Uprising, Revolution.
+            This portal teaches the vocabulary, so you can
+            name what you're seeing and stop reacting blindly.
           </p>
 
           <div className="flex flex-wrap gap-3">
