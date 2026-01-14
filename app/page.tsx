@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Reveal from "./components/Reveal";
 import Sheen from "./components/Sheen";
-import TradingViewTickerTape from "./components/TradingViewTickerTape";
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
@@ -61,9 +60,6 @@ export default function HomePage() {
   return (
     <section className="space-y-14">
       {/* HERO */}
-      <Reveal delayMs={60} className="mt-2">
-        <TradingViewTickerTape />
-      </Reveal>
       <Reveal delayMs={0}>
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-8 sm:p-12">
           <div className="pointer-events-none absolute inset-0 opacity-40">

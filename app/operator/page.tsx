@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Reveal from "../components/Reveal";
-import TradingViewAdvancedChart from "../components/TradingViewAdvancedChart";
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -145,10 +144,6 @@ export default function OperatorPage() {
               Default: XAUUSD • 1H • Dark
             </div>
           </div>
-
-          <TradingViewAdvancedChart symbol="OANDA:XAUUSD" interval="60" height={520} />
-        </section>
-      </Reveal>
 
       {/* Layout: TOC + content */}
       <Reveal delayMs={140}>
