@@ -83,7 +83,7 @@ function TocLink({ href, label }: { href: string; label: string }) {
 export default function OperatorPage() {
   return (
     <div className="space-y-14">
-      {/* Hero */}
+      {/* HERO */}
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
@@ -123,29 +123,23 @@ export default function OperatorPage() {
         </section>
       </Reveal>
 
-      {/* TradingView chart (Operator-only) */}
+      {/* OPTIONAL: Small intro block (keeps it alive, replaces widget space) */}
       <Reveal delayMs={90}>
-        <section className="space-y-4">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-neutral-400">
-                Live context (widget)
-              </p>
-              <h2 className="mt-2 text-xl font-semibold tracking-tight">
-                Interactive chart sandbox
-              </h2>
-              <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-                This is for vibe + demonstration only. Operator gets the “alive”
-                tooling; Home stays ultra-light.
-              </p>
-            </div>
+        <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <p className="text-xs uppercase tracking-widest text-neutral-400">
+            Operating principles
+          </p>
+          <h2 className="mt-2 text-xl font-semibold tracking-tight text-white">
+            Context first. Execution second.
+          </h2>
+          <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
+            Operator is intentionally “docs-like.” You use the map to reduce noise,
+            align exposure, and survive transitions — then let time-in-market do the compounding.
+          </p>
+        </section>
+      </Reveal>
 
-            <div className="text-xs text-neutral-500">
-              Default: XAUUSD • 1H • Dark
-            </div>
-          </div>
-
-      {/* Layout: TOC + content */}
+      {/* LAYOUT: TOC + CONTENT */}
       <Reveal delayMs={140}>
         <section className="grid gap-8 lg:grid-cols-[240px_1fr]">
           {/* TOC */}
@@ -153,6 +147,7 @@ export default function OperatorPage() {
             <p className="text-xs uppercase tracking-widest text-neutral-400">
               Contents
             </p>
+
             <div className="grid gap-2">
               <TocLink href="#stack" label="The Stack (Engine / Sync / Lines)" />
               <TocLink href="#interpret" label="Interpretation Rules" />
@@ -162,12 +157,11 @@ export default function OperatorPage() {
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              Tip: If you’re new, read Observer first. Operator is intentionally
-              “docs-like.”
+              Tip: If you’re new, read Observer first. Operator is for practitioners.
             </div>
           </aside>
 
-          {/* Content */}
+          {/* CONTENT */}
           <div className="space-y-12">
             <Reveal delayMs={0}>
               <Section
@@ -234,16 +228,15 @@ export default function OperatorPage() {
                     <span className="font-semibold text-white">
                       3) Uprising = transition.
                     </span>{" "}
-                    When disagreement intensifies, aim for survival, not
-                    optimization. “Do less, not more.”
+                    When disagreement intensifies, aim for survival, not optimization.
+                    “Do less, not more.”
                   </p>
                   <p>
                     <span className="font-semibold text-white">
                       4) Revolution = reset.
                     </span>{" "}
-                    A confirmed flip changes the operating environment. Old
-                    assumptions are invalid. Rebuild positioning under the new
-                    Empire.
+                    A confirmed flip changes the operating environment. Old assumptions
+                    are invalid. Rebuild positioning under the new Empire.
                   </p>
                 </div>
               </Section>
@@ -260,26 +253,24 @@ export default function OperatorPage() {
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300 leading-relaxed">
                     <p className="font-semibold text-white">Entry posture</p>
                     <p>
-                      Prefer a single clean entry at smallest meaningful
-                      confluence: LTF + MTF alignment, often near an MTF transition
-                      (SMA100 break) with early EMA respect.
+                      Prefer a single clean entry at smallest meaningful confluence:
+                      LTF + MTF alignment, often near an MTF transition with early EMA respect.
                     </p>
                     <p>
-                      You’re not trying to “add 7 times.” You’re trying to enter
-                      clean, neutralize risk, and hold.
+                      You’re not trying to “add 7 times.” You’re trying to enter clean,
+                      neutralize risk, and hold.
                     </p>
                   </div>
 
                   <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300 leading-relaxed">
                     <p className="font-semibold text-white">Exit posture</p>
                     <p>
-                      Exit is not “took profit.” Exit is “structure broke.” You
-                      stay until a real reversal challenges MTF/HTF and confirms a
-                      regime flip.
+                      Exit is not “took profit.” Exit is “structure broke.” You stay until
+                      a real reversal challenges MTF/HTF and confirms a regime flip.
                     </p>
                     <p>
-                      REZIME is designed to avoid catastrophic drawdowns — not to
-                      capture every turning point.
+                      REZIME is designed to avoid catastrophic drawdowns — not to capture
+                      every turning point.
                     </p>
                   </div>
                 </div>
@@ -333,8 +324,8 @@ export default function OperatorPage() {
                     and state labels only (Empire/Rebellion/Uprising/Revolution).
                   </p>
                   <p>
-                    The moving average construction and territory/border logic
-                    remain internal until subscriber access is released.
+                    The moving average construction and territory/border logic remain internal
+                    until subscriber access is released.
                   </p>
                   <p className="text-xs text-neutral-500">
                     Clear message: REZIME is a map — the details are for operators.
@@ -355,6 +346,7 @@ export default function OperatorPage() {
                       Allocator portal = factsheet archive + mandate + governance + risk.
                     </p>
                   </div>
+
                   <Link
                     href="/allocator"
                     className="premium-card relative inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
