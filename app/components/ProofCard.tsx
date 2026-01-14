@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 type ProofLinks = Partial<{
   youtube: string;
   instagram: string;
@@ -12,6 +10,19 @@ type ProofLinks = Partial<{
   notion: string;
   pdf: string;
 }>;
+
+function ExternalPillLink({ href, label }: { href: string; label: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] text-neutral-200 hover:bg-white/10 transition"
+    >
+      {label} →
+    </a>
+  );
+}
 
 export default function ProofCard({
   week,
@@ -28,16 +39,15 @@ export default function ProofCard({
   tags?: string[];
   links?: ProofLinks;
 }) {
-  const items: { k: keyof ProofLinks; label: string; href?: string }[] = [
-    { k: "youtube", label: "YouTube", href: links.youtube },
-    { k: "instagram", label: "Instagram", href: links.instagram },
-    { k: "x", label: "X", href: links.x },
-    { k: "tradingview", label: "TradingView", href: links.tradingview },
-    { k: "substack", label: "Substack", href: links.substack },
-    { k: "notion", label: "Lab", href: links.notion },
-    { k: "pdf", label: "PDF", href: links.pdf },
-    // keep tiktok optional, but not required / not embedded
-    { k: "tiktok", label: "TikTok", href: links.tiktok },
+  const items: { key: keyof ProofLinks; label: string; href?: string }[] = [
+    { key: "youtube", label: "YouTube", href: links.youtube },
+    { key: "instagram", label: "Instagram", href: links.instagram },
+    { key: "x", label: "X", href: links.x },
+    { key: "tradingview", label: "TradingView", href: links.tradingview },
+    { key: "substack", label: "Substack", href: links.substack },
+    { key: "notion", label: "Lab", href: links.notion },
+    { key: "pdf", label: "PDF", href: links.pdf },
+    { key: "tiktok", label: "TikTok", href: links.tiktok },
   ].filter((x) => !!x.href);
 
   return (
@@ -72,14 +82,7 @@ export default function ProofCard({
 
       <div className="mt-4 flex flex-wrap gap-2">
         {items.map((it) => (
-          <Link
-            key={it.k}
-            href={it.href!}
-            target="_blank"
-            className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] text-neutral-200 hover:bg-white/10 transition"
-          >
-            {it.label} →
-          </Link>
+          <ExternalPillLink key={it.key} href={it.href!} label={it.label} />
         ))}
 
         {items.length === 0 && (
