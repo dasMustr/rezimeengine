@@ -40,15 +40,16 @@ export default function ProofCard({
   links?: ProofLinks;
 }) {
   const items: { key: keyof ProofLinks; label: string; href?: string }[] = [
-    { key: "youtube", label: "YouTube", href: links.youtube },
-    { key: "instagram", label: "Instagram", href: links.instagram },
-    { key: "x", label: "X", href: links.x },
-    { key: "tradingview", label: "TradingView", href: links.tradingview },
-    { key: "substack", label: "Substack", href: links.substack },
-    { key: "notion", label: "Lab", href: links.notion },
-    { key: "pdf", label: "PDF", href: links.pdf },
-    { key: "tiktok", label: "TikTok", href: links.tiktok },
-  ].filter((x) => !!x.href);
+  { key: "youtube" as const, label: "YouTube", href: links.youtube },
+  { key: "instagram" as const, label: "Instagram", href: links.instagram },
+  { key: "x" as const, label: "X", href: links.x },
+  { key: "tradingview" as const, label: "TradingView", href: links.tradingview },
+  { key: "substack" as const, label: "Substack", href: links.substack },
+  { key: "notion" as const, label: "Lab", href: links.notion },
+  { key: "pdf" as const, label: "PDF", href: links.pdf },
+  { key: "tiktok" as const, label: "TikTok", href: links.tiktok },
+].filter((x) => !!x.href);
+
 
   return (
     <div className="premium-card relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5">
