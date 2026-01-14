@@ -70,18 +70,19 @@ export default function HomePage() {
           <div className="relative space-y-6">
             <div className="flex flex-wrap gap-2">
               <Tag>Map, not signals</Tag>
-              <Tag>Bull Empire / Bear Empire</Tag>
-              <Tag>Regime • Alignment • Territory</Tag>
+              <Tag>Regime context</Tag>
+              <Tag>Time-in-market</Tag>
+              <Tag>Engine • Sync • Battle Lines</Tag>
             </div>
 
             <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-              Regime mapping for holding through market cycles.
+              Know what time it is in the market.
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              REZIME frames markets as competing Empires. The goal is survival
-              through transitions — then time-in-market. No buy/sell prompts.
-              Only context.
+              REZIME is a regime map that helps you align exposure with the ruling Empire
+              and stay composed through transitions. No buy/sell prompts. Just context,
+              posture, and discipline.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
@@ -100,7 +101,19 @@ export default function HomePage() {
                 <Sheen className="rounded-full" />
                 View Tools (Operator)
               </Link>
+
+              <Link
+                href="/allocator"
+                className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
+              >
+                <Sheen className="rounded-full" />
+                Allocator Snapshot →
+              </Link>
             </div>
+
+            <p className="text-xs text-neutral-500 leading-relaxed">
+              Built for clarity and survivability. Public overview, operator mechanics, and allocator-grade reporting.
+            </p>
           </div>
         </div>
       </Reveal>
@@ -111,54 +124,54 @@ export default function HomePage() {
           <div className="flex items-end justify-between gap-6">
             <div>
               <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
-                Select audience
+                Select portal
               </p>
               <h2 className="mt-2 text-xl font-semibold tracking-tight">
                 Three portals. One system.
               </h2>
             </div>
             <p className="hidden text-sm text-neutral-400 sm:block">
-              Documentary → Technical → Institutional
+              Overview → Tools → IR
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
             <PortalCard
               title="Observer"
-              audience="Public"
+              audience="Overview"
               href="/observer"
-              desc="A documentary introduction to the REZIME worldview: Empires, Rebellions, Uprisings, Revolutions — and how to hold with structure, not emotion."
+              desc="A plain-language introduction: what REZIME is, why regime context matters, and how transitions change what’s rational."
             />
             <PortalCard
               title="Operator"
-              audience="Practitioners"
+              audience="Tools"
               href="/operator"
-              desc="Technical usage of REZIME Engine / Sync / Battle Lines, interpretation rules, and curated case studies across major market events."
+              desc="How to interpret Engine / Sync / Battle Lines, plus operating doctrine and case study slots."
             />
             <PortalCard
               title="Allocator"
-              audience="Allocators"
+              audience="IR"
               href="/allocator"
-              desc="An IR-style portal: Portfolio Lab, factsheets, mandate, governance, and risk doctrine — designed for institutional conversations."
+              desc="Allocator-first layout: snapshot, mandate fit, risk controls, governance, reporting cadence, and a proof archive."
             />
           </div>
         </div>
       </Reveal>
 
-      {/* WHAT IT IS (institutional blocks) */}
+      {/* WHAT IT IS */}
       <Reveal delayMs={140} className="mt-2">
         <div className="grid gap-4 sm:grid-cols-3">
           <InfoBlock
             title="Not a signal service"
-            desc="REZIME is designed to reduce decision-noise. It identifies the dominant regime so you can align exposure and hold through volatility."
+            desc="REZIME reduces decision-noise by clarifying regime and transition risk. Your method decides entries; REZIME governs context."
           />
           <InfoBlock
             title="Defined states"
-            desc="Empire (trend control) → Rebellion (counter-move) → Uprising (pressure spreads) → Revolution (regime shift)."
+            desc="Empire (trend control) → Rebellion (early instability) → Uprising (transition) → Revolution (regime reset)."
           />
           <InfoBlock
             title="Risk-first orientation"
-            desc="Primary objective: survive transitions, avoid fighting the Empire, and let time-in-market do the compounding."
+            desc="Primary objective: survivability through transitions. Secondary: participate in dominant regimes with patience and discipline."
           />
         </div>
       </Reveal>
