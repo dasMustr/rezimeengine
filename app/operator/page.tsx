@@ -52,7 +52,7 @@ function ToolCard({
   bullets: string[];
 }) {
   return (
-    <div className="premium-card relative rounded-2xl border border-white/10 bg-white/5 p-6">
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
       <div className="space-y-2">
         <h3 className="text-base font-semibold text-white">{title}</h3>
         <p className="text-sm text-neutral-300 leading-relaxed">{subtitle}</p>
@@ -103,13 +103,7 @@ function MiniCard({
   );
 }
 
-function RuleRow({
-  label,
-  text,
-}: {
-  label: string;
-  text: string;
-}) {
+function RuleRow({ label, text }: { label: string; text: string }) {
   return (
     <div className="flex flex-col gap-2 border-t border-white/10 pt-4 sm:flex-row sm:items-start sm:justify-between">
       <div className="text-xs uppercase tracking-widest text-neutral-400">
@@ -143,27 +137,28 @@ export default function OperatorPage() {
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            Operator is for practitioners. It explains how to interpret REZIME Engine,
-            Sync, and Battle Lines. It does not tell you to buy or sell.
-            The goal is clarity. You stay aligned with the dominant Empire and you survive transitions.
+            Operator is for practitioners. It explains how to interpret REZIME
+            Engine, Sync, and Battle Lines. It does not tell you to buy or sell.
+            The goal is clarity: align with the dominant Empire and survive
+            transitions.
           </p>
 
           <div className="flex flex-wrap gap-3">
             <Link
               href="/observer"
-              className="premium-card relative rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
             >
               ← Observer
             </Link>
             <Link
               href="/allocator"
-              className="premium-card relative rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
+              className="rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
             >
               Allocator →
             </Link>
           </div>
         </section>
-       </Reveal> 
+      </Reveal>
 
       {/* OPERATING PRINCIPLES */}
       <Reveal delayMs={90}>
@@ -252,17 +247,17 @@ export default function OperatorPage() {
                 id="alignment"
                 eyebrow="Core mechanic"
                 title="Full Alignment vs Transitions"
-                desc="This is the part most traders are missing. If you can name the phase, you stop making phase-mismatched decisions."
+                desc="If you can name the phase, you stop making phase-mismatched decisions."
               >
                 <div className="grid gap-4 lg:grid-cols-2">
                   <MiniCard
                     tone="hard"
                     title="Full Alignment (all 3 TF agree)"
-                    desc="This is a strong Empire. It is usually not the place to be a hero. If you are aligned, you focus on holding and reducing churn. If you are not in, you wait for cracks."
+                    desc="This is a strong Empire. If you are aligned, focus on holding and reducing churn. If you are not in, wait for cracks."
                   />
                   <MiniCard
                     title="Transition ladder (conflict escalates upward)"
-                    desc="Transitions usually start at the LTF, then climb into MTF, then HTF. Your job is not to predict the flip. Your job is to see the escalation early and adjust posture before the storm grows."
+                    desc="Transitions usually start at the LTF, then climb into MTF, then HTF. Your job is to see escalation early and adjust posture before the storm grows."
                   />
                 </div>
 
@@ -271,8 +266,8 @@ export default function OperatorPage() {
                     The escalation storyboard
                   </p>
                   <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                    Think of it like pressure building in layers. Early phases have the best RR,
-                    but they are noisy. Later phases are safer, but RR is worse.
+                    Early phases have the best RR, but they are noisy. Later
+                    phases are safer, but RR is worse.
                   </p>
 
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -299,7 +294,8 @@ export default function OperatorPage() {
                   </div>
 
                   <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-                    Best operator habit: never be contrarian inside Full Alignment. Wait until cracks appear.
+                    Best operator habit: never be contrarian inside Full
+                    Alignment. Wait until cracks appear.
                   </p>
                 </div>
               </Section>
@@ -336,7 +332,8 @@ export default function OperatorPage() {
                   />
 
                   <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-                    Reminder: REZIME supplements any method. It adds regime context to your own execution.
+                    Reminder: REZIME supplements any method. It adds regime
+                    context to your own execution.
                   </p>
                 </div>
               </Section>
@@ -348,26 +345,26 @@ export default function OperatorPage() {
                 id="doctrine"
                 eyebrow="How you use it"
                 title="Operator Doctrine"
-                desc="The goal is to make risk small early, then let time-in-market do the heavy lifting."
+                desc="Make risk small early, then let time-in-market do the heavy lifting."
               >
                 <div className="grid gap-4 lg:grid-cols-2">
                   <MiniCard
                     tone="hard"
                     title="Entry posture"
-                    desc="You prefer a single clean entry at the smallest meaningful confluence. Often this is when LTF and MTF begin to re-align after a pullback. You avoid stacking entries just to feel busy."
+                    desc="Prefer a single clean entry at the smallest meaningful confluence. Often this is when LTF and MTF begin to re-align after a pullback. Avoid stacking entries just to feel busy."
                   />
                   <MiniCard
                     tone="hard"
                     title="Hold posture"
-                    desc="Once aligned, you reduce churn. You want to hold through the right phase, not micro-manage every candle. If Full Alignment returns, that supports holding."
+                    desc="Once aligned, reduce churn. Hold through the right phase, not every candle. If Full Alignment returns, that supports holding."
                   />
                   <MiniCard
                     title="Reduce posture"
-                    desc="If Rebellion grows or Uprising appears, you reduce exposure. This is where people usually do the opposite and get chopped. You aim for composure."
+                    desc="If Rebellion grows or Uprising appears, reduce exposure. This is where people usually do the opposite and get chopped."
                   />
                   <MiniCard
                     title="Exit posture"
-                    desc="Exit is not “took profit.” Exit is “structure broke” on the timeframe that matters to your plan. A real regime flip changes the environment, so you stop pretending the old plan still applies."
+                    desc="Exit is 'structure broke' on the timeframe that matters to your plan. A real regime flip changes the environment, so you stop pretending the old plan still applies."
                   />
                 </div>
 
@@ -376,8 +373,10 @@ export default function OperatorPage() {
                     The point of the doctrine
                   </p>
                   <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                    Most stress comes from not knowing what battle you are in. REZIME gives you the battle map.
-                    When you understand the battle, the mind calms down. Then you can act with discipline.
+                    Most stress comes from not knowing what battle you are in.
+                    REZIME gives you the battle map. When you understand the
+                    battle, the mind calms down. Then you can act with
+                    discipline.
                   </p>
                 </div>
               </Section>
@@ -457,7 +456,7 @@ export default function OperatorPage() {
 
                   <Link
                     href="/allocator"
-                    className="premium-card relative inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
+                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
                   >
                     Enter Allocator →
                   </Link>
