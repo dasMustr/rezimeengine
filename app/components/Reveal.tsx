@@ -10,54 +10,65 @@ type Props = {
 
 export default function Reveal({ children, className = "", delayMs = 0 }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
-  const timeoutRef = useRef<number | null>(null);
   const [shown, setShown] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (shown) return;
+
+    // Respect reduced motion (nice polish)
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced) {
+      setShown(true);
+      return;
+    }
+
+    // Mobile tends to be stricter; reveal earlier to avoid "blank page" feeling
+    const isMobile =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(max-width: 768px)").matches;
 
     const obs = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (!entry?.isIntersecting) return;
+        if (!entry) return;
 
-        // IMPORTANT: disconnect immediately so we only trigger once
-        obs.disconnect();
-
-        if (delayMs > 0) {
-          timeoutRef.current = window.setTimeout(() => {
-            setShown(true);
-            timeoutRef.current = null;
-          }, delayMs);
-        } else {
+        if (entry.isIntersecting) {
+          if (delayMs > 0) {
+            const t = window.setTimeout(() => setShown(true), delayMs);
+            return () => window.clearTimeout(t);
+          }
           setShown(true);
+          obs.disconnect();
         }
       },
       {
-        threshold: 0.12,
-        rootMargin: "0px 0px -10% 0px", // helps mobile trigger earlier & smoother
+        // Trigger sooner
+        threshold: isMobile ? 0.01 : 0.1,
+        // Reveal *before* it enters fully (prevents blank blocks)
+        rootMargin: isMobile ? "20% 0px 20% 0px" : "10% 0px 10% 0px",
       }
     );
 
     obs.observe(el);
-
-    return () => {
-      obs.disconnect();
-      if (timeoutRef.current !== null) {
-        window.clearTimeout(timeoutRef.current);
-        timeoutRef.current = null;
-      }
-    };
-  }, [delayMs, shown]);
+    return () => obs.disconnect();
+  }, [delayMs]);
 
   return (
     <div
       ref={ref}
       className={[
-        "transition-all duration-700 ease-out will-change-transform",
-        shown ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-3 blur-[1px]",
+        "transition-all ease-out will-change-transform",
+        // slightly faster on mobile feels better
+        "duration-500 sm:duration-700",
+        shown
+          ? "opacity-100 translate-y-0 blur-0"
+          : "opacity-0 translate-y-3 blur-[1px]",
         className,
       ].join(" ")}
     >
