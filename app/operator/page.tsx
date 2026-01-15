@@ -126,6 +126,7 @@ export default function OperatorPage() {
   return (
     <div className="space-y-14">
       {/* HERO */}
+      <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
             Operator Portal
@@ -162,6 +163,7 @@ export default function OperatorPage() {
             </Link>
           </div>
         </section>
+       </Reveal> 
 
       {/* OPERATING PRINCIPLES */}
       <Reveal delayMs={90}>
