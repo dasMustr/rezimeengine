@@ -137,10 +137,9 @@ export default function OperatorPage() {
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            Operator is for practitioners. It explains how to interpret REZIME
-            Engine, Sync, and Battle Lines. It does not tell you to buy or sell.
-            The goal is clarity: align with the dominant Empire and survive
-            transitions.
+            Operator is for practitioners. It explains how to interpret REZIME Engine, Sync, and Battle Lines,
+            turning regime context into posture and risk behavior.
+            REZIME can sit above any execution style, including discretionary, systematic, macro, or signal-based workflows.
           </p>
 
           <div className="flex flex-wrap gap-3">

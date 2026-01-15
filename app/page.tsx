@@ -69,19 +69,22 @@ export default function HomePage() {
 
           <div className="relative space-y-6">
             <div className="flex flex-wrap gap-2">
-              <Tag>Map, not signals</Tag>
-              <Tag>Regime context</Tag>
-              <Tag>Time-in-market</Tag>
+              <Tag>Market regimes</Tag>
+              <Tag>Transitions</Tag>
               <Tag>Engine • Sync • Battle Lines</Tag>
             </div>
 
             <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-              Know what time it is in the market.
+              A market behavior map.
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              REZIME is a regime map that for staying aligned with structure.
-              It helps you hold through cycles, reduce noice, and avoid fighting the dominant trend.
+              REZIME compresses market complexity into a small set of regimes and transition phases,
+              giving clear context for anyone making decisions in markets.
+            </p>
+
+            <p className="max-w-2xl text-sm leading-relaxed text-neutral-400">
+              Built to sit above style. It can support discretionary, systematic, macro, and signal-based workflows.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">

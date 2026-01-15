@@ -66,15 +66,14 @@ export default function ObserverPage() {
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            A map of market behavior.
+            Learn the regimes. Recognize the phase.
           </h1>
 
           <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-            REZIME breaks market behavior into four regime states:
-            Empire, Rebellion, Uprising, Revolution.
-            This portal teaches the vocabulary, so you can
-            name what you're seeing and stop reacting blindly.
-          </p>
+              Observer is a plain-language introduction to REZIME.
+              It teaches the regime vocabulary and transition phases so you can name what you are seeing,
+              reduce confusion, and make calmer decisions in markets.
+            </p>
 
           <div className="flex flex-wrap gap-3">
             <Link

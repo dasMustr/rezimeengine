@@ -215,9 +215,9 @@ export default function AllocatorPage() {
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            This portal is written in an investor-relations tone. It focuses on
-            mandate fit, risk controls, governance, and reporting. Tactics live
-            in Operator.
+            This portal is written in an investor-relations tone.
+            It focuses on mandate fit, governance, risk controls, and proof-first reporting.
+            REZIME is a context layer that can sit above different execution styles.
           </p>
 
           <div className="flex flex-wrap gap-3">
