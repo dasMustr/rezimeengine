@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Reveal from "../components/Reveal";
-import ProofCard from "../components/ProofCard";
 
 const PORTFOLIO_LAB_URL =
   "https://www.notion.so/END-Weekly-Global-Portfolio-22126a6e989c803896a4d732246aea06?source=copy_link";
@@ -147,6 +146,54 @@ function Badge({
   );
 }
 
+function ProofCardLite({
+  week,
+  date,
+  title,
+  summary,
+  tags,
+  notionUrl,
+}: {
+  week: number;
+  date: string;
+  title: string;
+  summary: string;
+  tags: string[];
+  notionUrl: string;
+}) {
+  return (
+    <a
+      href={notionUrl}
+      target="_blank"
+      rel="noreferrer"
+      className="block rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <div className="text-xs text-neutral-400">
+            Week {week} • {date}
+          </div>
+          <div className="mt-2 text-base font-semibold text-white">{title}</div>
+        </div>
+        <div className="text-xs text-neutral-400">Open →</div>
+      </div>
+
+      <p className="mt-3 text-sm text-neutral-300 leading-relaxed">{summary}</p>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        {tags.map((t) => (
+          <span
+            key={t}
+            className="inline-flex items-center rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-neutral-300"
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+    </a>
+  );
+}
+
 export default function AllocatorPage() {
   return (
     <div className="space-y-14">
@@ -176,13 +223,13 @@ export default function AllocatorPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/operator"
-              className="premium-card relative rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
+              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
             >
               ← Operator
             </Link>
             <Link
               href="/contact"
-              className="premium-card relative rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
+              className="rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
             >
               Contact →
             </Link>
@@ -190,7 +237,7 @@ export default function AllocatorPage() {
         </section>
       </Reveal>
 
-      {/* LAYOUT: TOC + CONTENT */}
+      {/* LAYOUT */}
       <Reveal delayMs={80}>
         <section className="grid gap-8 lg:grid-cols-[240px_1fr]">
           {/* TOC */}
@@ -247,10 +294,7 @@ export default function AllocatorPage() {
                       title="Mandate fit"
                       desc="Designed to participate in dominant regimes while controlling behavior during transitions."
                       rows={[
-                        {
-                          k: "Primary objective",
-                          v: "Survivability through regime change",
-                        },
+                        { k: "Primary objective", v: "Survivability through regime change" },
                         { k: "Secondary", v: "Participation in dominant trend regimes" },
                         { k: "Not optimized for", v: "Top/bottom precision" },
                       ]}
@@ -329,115 +373,8 @@ export default function AllocatorPage() {
               </Section>
             </Reveal>
 
-            {/* RISK */}
-            <Reveal delayMs={190}>
-              <Section
-                id="risk"
-                eyebrow="Controls"
-                title="Risk Controls"
-                desc="The model is built to reduce phase-mismatch and manage exposure during transitions."
-              >
-                <div className="grid gap-4 lg:grid-cols-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                    <p className="text-sm font-semibold text-white">
-                      Risk posture by regime
-                    </p>
-                    <div className="mt-4 space-y-2 text-sm text-neutral-300">
-                      {[
-                        [
-                          "Empire / Full alignment",
-                          "Hold posture. Avoid contrarian exposure. Reduce churn.",
-                        ],
-                        [
-                          "Rebellion",
-                          "Warning posture. Tighten rules. Reduce overconfidence.",
-                        ],
-                        [
-                          "Uprising",
-                          "Survival posture. Do less. Reduce exposure during instability.",
-                        ],
-                        [
-                          "Revolution",
-                          "Reset posture. Old assumptions invalid. Rebuild under new regime.",
-                        ],
-                      ].map(([k, v]) => (
-                        <div key={k} className="border-t border-white/10 pt-3">
-                          <div className="text-xs text-neutral-400">{k}</div>
-                          <div className="text-sm text-neutral-200">{v}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
-                    <p className="text-sm font-semibold text-white">
-                      What this avoids
-                    </p>
-                    <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      The largest avoidable losses often come from fighting a
-                      strong trend, increasing exposure inside instability, and
-                      panic-exiting without structural break.
-                    </p>
-                    <ul className="mt-4 space-y-2 text-sm text-neutral-300">
-                      {[
-                        "Contrarian impulses during full alignment",
-                        "Overtrading inside deadlock / transition churn",
-                        "Leverage creep when volatility is rising",
-                        "Narrative attachment after regime flip",
-                      ].map((x) => (
-                        <li key={x} className="flex gap-2">
-                          <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" />
-                          <span>{x}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </Section>
-            </Reveal>
-
-            {/* GOVERNANCE */}
-            <Reveal delayMs={230}>
-              <Section
-                id="governance"
-                eyebrow="Process"
-                title="Governance"
-                desc="Institutional friendliness comes from consistency: vocabulary, cadence, and review discipline."
-              >
-                <div className="grid gap-4 lg:grid-cols-3">
-                  <Card
-                    title="Vocabulary"
-                    desc="A shared language reduces interpretation drift."
-                    rows={[
-                      { k: "States", v: "Empire / Rebellion / Uprising / Revolution" },
-                      { k: "Phases", v: "Standoff → Deadlock → Siege" },
-                      { k: "Result", v: "Repeatable posture decisions" },
-                    ]}
-                  />
-                  <Card
-                    title="Review loop"
-                    desc="Regime notes become a weekly decision record."
-                    rows={[
-                      { k: "Format", v: "Factsheet + deltas" },
-                      { k: "Focus", v: "Posture + risk changes" },
-                      { k: "Benefit", v: "Auditability over hindsight" },
-                    ]}
-                  />
-                  <Card
-                    title="Transparency"
-                    desc="Show outcomes without revealing construction."
-                    rows={[
-                      { k: "Public", v: "Regime strip + labels" },
-                      { k: "Private", v: "Model construction details" },
-                      { k: "Purpose", v: "Proof without leakage" },
-                    ]}
-                  />
-                </div>
-              </Section>
-            </Reveal>
-
             {/* REPORTING */}
-            <Reveal delayMs={270}>
+            <Reveal delayMs={190}>
               <Section
                 id="reporting"
                 eyebrow="IR cadence"
@@ -451,30 +388,30 @@ export default function AllocatorPage() {
                         Portfolio Lab (deep detail)
                       </p>
                       <p className="mt-1 text-xs text-neutral-400 leading-relaxed">
-                        Factsheet-style archive: holdings, regime context,
-                        exposure posture, and week-by-week deltas.
+                        Factsheet-style archive: holdings, regime context, exposure posture,
+                        and week-by-week deltas.
                       </p>
                     </div>
 
-                    <Link
+                    <a
                       href={PORTFOLIO_LAB_URL}
                       target="_blank"
-                      className="premium-card relative inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
+                      rel="noreferrer"
+                      className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
                     >
                       Open Portfolio Lab →
-                    </Link>
+                    </a>
                   </div>
 
                   <p className="mt-4 text-[11px] text-neutral-500">
-                    Not financial advice. Public documentation for transparency
-                    and process.
+                    Not financial advice. Public documentation for transparency and process.
                   </p>
                 </div>
               </Section>
             </Reveal>
 
-            {/* PROOF ARCHIVE (IMPORTANT: no nested Reveals per card) */}
-            <Reveal delayMs={310}>
+            {/* PROOF ARCHIVE */}
+            <Reveal delayMs={230}>
               <section id="proof" className="scroll-mt-24 space-y-4">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                   <div>
@@ -485,8 +422,8 @@ export default function AllocatorPage() {
                       Time-stamped weekly index
                     </h2>
                     <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-                      Weekly updates are indexed here. Platform-agnostic. No
-                      embeds. Designed to be easy to audit.
+                      Weekly updates are indexed here. Platform-agnostic. No embeds.
+                      Designed to be easy to audit.
                     </p>
                   </div>
 
@@ -497,36 +434,22 @@ export default function AllocatorPage() {
 
                 <div className="grid gap-4 lg:grid-cols-2">
                   {PROOFS.map((p) => (
-                    <ProofCard
+                    <ProofCardLite
                       key={p.week}
                       week={p.week}
                       date={p.date}
                       title={p.title}
                       summary={p.summary}
                       tags={p.tags}
-                      links={p.links}
+                      notionUrl={p.links.notion}
                     />
                   ))}
                 </div>
               </section>
             </Reveal>
 
-            {/* PORTFOLIO / STATUS placeholders */}
-            <Reveal delayMs={350}>
-              <Section
-                id="portfolio"
-                eyebrow="Archive"
-                title="Portfolio"
-                desc="Reserved for future: downloadable factsheets, exposure summaries, and standardized risk notes."
-              >
-                <div className="rounded-2xl border border-white/10 bg-black/30 p-6 text-sm text-neutral-300 leading-relaxed">
-                  Placeholder section. The primary archive currently lives in
-                  Portfolio Lab.
-                </div>
-              </Section>
-            </Reveal>
-
-            <Reveal delayMs={390}>
+            {/* STATUS */}
+            <Reveal delayMs={270}>
               <Section
                 id="status"
                 eyebrow="Now"
@@ -541,49 +464,15 @@ export default function AllocatorPage() {
                     </p>
                     <p>
                       <span className="font-semibold text-white">In build:</span>{" "}
-                      standardized factsheet template and public regime-strip
-                      proofs.
+                      standardized factsheet template and public regime-strip proofs.
                     </p>
                     <p>
                       <span className="font-semibold text-white">Next:</span>{" "}
-                      tighten reporting format and expand case studies under
-                      Operator.
+                      tighten reporting format and expand case studies under Operator.
                     </p>
                   </div>
                 </div>
               </Section>
-            </Reveal>
-
-            {/* CTA */}
-            <Reveal delayMs={430}>
-              <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-white">
-                      Need the public framing?
-                    </p>
-                    <p className="text-xs text-neutral-400">
-                      Observer explains REZIME in plain language. Operator
-                      explains mechanics.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-wrap gap-3">
-                    <Link
-                      href="/observer"
-                      className="premium-card relative inline-flex justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
-                    >
-                      Observer →
-                    </Link>
-                    <Link
-                      href="/operator"
-                      className="premium-card relative inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
-                    >
-                      Operator →
-                    </Link>
-                  </div>
-                </div>
-              </section>
             </Reveal>
           </div>
         </section>

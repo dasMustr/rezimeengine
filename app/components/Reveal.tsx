@@ -10,69 +10,51 @@ type Props = {
 
 export default function Reveal({ children, className = "", delayMs = 0 }: Props) {
   const ref = useRef<HTMLDivElement | null>(null);
-
-  // ✅ Start visible by default (server + first paint)
-  const [shown, setShown] = useState(true);
-
-  // ✅ Only run reveal logic after hydration
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => setHydrated(true), []);
+  const [shown, setShown] = useState(false);
 
   useEffect(() => {
-    if (!hydrated) return;
-
-    const el = ref.current;
-    if (!el) return;
-
-    // If user prefers reduced motion, just show
-    const reduce =
+    // Respect reduced motion (also helps weak phones)
+    const prefersReduced =
       typeof window !== "undefined" &&
       window.matchMedia &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (reduce) {
+    if (prefersReduced) {
       setShown(true);
       return;
     }
 
-    // ✅ Now we can start hidden and reveal
-    setShown(false);
+    const el = ref.current;
+    if (!el) return;
 
     const obs = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
+        if (!entry) return;
         if (entry.isIntersecting) {
           if (delayMs > 0) {
-            const t = setTimeout(() => setShown(true), delayMs);
-            return () => clearTimeout(t);
+            const t = window.setTimeout(() => setShown(true), delayMs);
+            obs.disconnect();
+            return () => window.clearTimeout(t);
           }
           setShown(true);
           obs.disconnect();
         }
       },
-      {
-        threshold: 0.1,
-        // Helps iOS/Safari weirdness + makes it trigger earlier
-        rootMargin: "0px 0px -10% 0px",
-      }
+      { threshold: 0.15 }
     );
 
     obs.observe(el);
     return () => obs.disconnect();
-  }, [delayMs, hydrated]);
+  }, [delayMs]);
 
-  // ✅ Before hydration: render normally (never hidden)
-  if (!hydrated) {
-    return <div className={className}>{children}</div>;
-  }
-
+  // NOTE: NO blur/filter classes at all (mobile GPU-safe)
   return (
     <div
       ref={ref}
       className={[
         "transition-all duration-700 ease-out will-change-transform",
-        shown ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-4 blur-[1px]",
+        shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4",
         className,
       ].join(" ")}
     >
