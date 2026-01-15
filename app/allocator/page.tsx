@@ -151,7 +151,6 @@ export default function AllocatorPage() {
   return (
     <div className="space-y-14">
       {/* HERO */}
-      <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
             Allocator Portal
@@ -187,7 +186,6 @@ export default function AllocatorPage() {
             </Link>
           </div>
         </section>
-      </Reveal>
 
       {/* LAYOUT: TOC + CONTENT */}
       <Reveal delayMs={80}>
