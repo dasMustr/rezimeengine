@@ -70,10 +70,10 @@ export default function ObserverPage() {
           </h1>
 
           <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-              Observer is a plain-language introduction to REZIME.
-              It teaches the regime vocabulary and transition phases so you can name what you are seeing,
-              reduce confusion, and make calmer decisions in markets.
-            </p>
+            Observer is a plain-language introduction to REZIME. It teaches the
+            regime vocabulary and transition phases so you can name what you are
+            seeing, reduce confusion, and make calmer decisions in markets.
+          </p>
 
           <div className="flex flex-wrap gap-3">
             <Link
@@ -340,24 +340,65 @@ export default function ObserverPage() {
                 title="How to use REZIME (public version)"
                 subtitle="A simple flow: identify regime → align exposure → respect transitions."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300 leading-relaxed">
-                  <p>
-                    1) Name the regime (Empire / Rebellion / Uprising /
-                    Revolution). 2) Match behavior: hold, wait, reduce exposure,
-                    or reposition. 3) Don’t become contrarian inside full
-                    alignment. Wait for cracks.
-                  </p>
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  {/* Flow chips */}
+                  <div className="flex flex-wrap gap-2 text-[11px]">
+                    <span className="inline-flex items-center rounded-full border border-white/10 bg-black/30 px-3 py-1 text-neutral-300">
+                      Identify regime
+                    </span>
+                    <span className="inline-flex items-center rounded-full border border-white/10 bg-black/30 px-3 py-1 text-neutral-300">
+                      Align exposure
+                    </span>
+                    <span className="inline-flex items-center rounded-full border border-white/10 bg-black/30 px-3 py-1 text-neutral-300">
+                      Respect transitions
+                    </span>
+                  </div>
 
-                  <p className="text-xs text-neutral-500">
-                    Your personal style decides entries. REZIME decides context.
-                  </p>
+                  {/* Steps */}
+                  <div className="mt-5 space-y-3 text-sm text-neutral-300 leading-relaxed">
+                    <div className="rounded-xl border border-white/10 bg-black/30 p-4">
+                      <div className="text-xs uppercase tracking-widest text-neutral-400">
+                        Step 1
+                      </div>
+                      <div className="mt-1">
+                        Name the regime: <span className="text-white">Empire</span>,{" "}
+                        <span className="text-white">Rebellion</span>,{" "}
+                        <span className="text-white">Uprising</span>,{" "}
+                        <span className="text-white">Revolution</span>.
+                      </div>
+                    </div>
 
-                  <div className="pt-2">
+                    <div className="rounded-xl border border-white/10 bg-black/30 p-4">
+                      <div className="text-xs uppercase tracking-widest text-neutral-400">
+                        Step 2
+                      </div>
+                      <div className="mt-1">
+                        Match behavior: hold, wait, reduce exposure, or reposition.
+                      </div>
+                    </div>
+
+                    <div className="rounded-xl border border-white/10 bg-black/30 p-4">
+                      <div className="text-xs uppercase tracking-widest text-neutral-400">
+                        Step 3
+                      </div>
+                      <div className="mt-1">
+                        Avoid contrarian decisions during full alignment. Wait for cracks.
+                      </div>
+                    </div>
+
+                    <p className="pt-1 text-xs text-neutral-500">
+                      Your style decides entries. REZIME decides context.
+                    </p>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="mt-5">
                     <Link
                       href="/operator"
-                      className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+                      className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15 sm:w-auto"
                     >
-                      Go to Operator → (tools & rules)
+                      Go to Operator →{" "}
+                      <span className="ml-2 text-neutral-300">(tools & rules)</span>
                     </Link>
                   </div>
                 </div>
