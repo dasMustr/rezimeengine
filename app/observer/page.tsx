@@ -390,17 +390,6 @@ export default function ObserverPage() {
                       Your style decides entries. REZIME decides context.
                     </p>
                   </div>
-
-                  {/* CTA */}
-                  <div className="mt-5">
-                    <Link
-                      href="/operator"
-                      className="inline-flex w-full items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15 sm:w-auto"
-                    >
-                      Go to Operator →{" "}
-                      <span className="ml-2 text-neutral-300">(tools & rules)</span>
-                    </Link>
-                  </div>
                 </div>
               </Section>
             </Reveal>
