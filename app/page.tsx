@@ -177,6 +177,6 @@ export default function HomePage() {
           />
         </div>
       </Reveal>
-    </section>
+    </sections>
   );
 }
