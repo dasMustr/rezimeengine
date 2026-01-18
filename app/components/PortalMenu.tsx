@@ -78,6 +78,7 @@ export default function PortalMenu() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
+  // Close dropdown on click outside
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
       if (!ref.current) return;
@@ -87,10 +88,20 @@ export default function PortalMenu() {
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, []);
 
-  // Close desktop dropdown on route change
+  // Close menus on route change
   useEffect(() => {
     setOpen(false);
+    setMobileOpen(false);
   }, [pathname]);
+
+  // Close desktop dropdown on Escape
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   return (
     <>
@@ -100,7 +111,12 @@ export default function PortalMenu() {
       <div className="sm:hidden">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
-            <button className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition">
+            <button
+              type="button"
+              aria-haspopup="dialog"
+              aria-expanded={mobileOpen}
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
+            >
               <span>{current.label}</span>
               <span className="text-neutral-400">▼</span>
             </button>
@@ -166,6 +182,9 @@ export default function PortalMenu() {
       {/* ===================== */}
       <div ref={ref} className="relative hidden sm:block">
         <button
+          type="button"
+          aria-haspopup="menu"
+          aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
         >
@@ -177,6 +196,7 @@ export default function PortalMenu() {
           <div
             className="absolute left-0 mt-2 w-[520px] max-w-[92vw] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-xl backdrop-blur"
             role="menu"
+            aria-label="Portals"
           >
             <div className="p-2">
               <div className="px-3 pb-2 pt-3">
