@@ -56,6 +56,21 @@ function InfoBlock({ title, desc }: { title: string; desc: string }) {
   );
 }
 
+function FaqPreviewItem({
+  q,
+  a,
+}: {
+  q: string;
+  a: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <div className="text-sm font-semibold text-white">{q}</div>
+      <div className="mt-2 text-sm leading-relaxed text-neutral-300">{a}</div>
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <section className="space-y-14">
@@ -75,16 +90,16 @@ export default function HomePage() {
             </div>
 
             <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-              A market behavior map.
+              A market regime map — built for survivability.
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              REZIME compresses market complexity into a small set of regimes and transition phases,
-              giving clear context for anyone making decisions in markets.
+              REZIME Engine compresses market complexity into clear regimes so you stop guessing,
+              reduce phase-mismatch mistakes, and stay alive long enough to build real skill.
             </p>
 
             <p className="max-w-2xl text-sm leading-relaxed text-neutral-400">
-              Built to sit above style. It can support discretionary, systematic, macro, and signal-based workflows.
+              Map, not signals. Built to sit above style — technical, macro, discretionary, or systematic.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
@@ -93,7 +108,7 @@ export default function HomePage() {
                 className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Start with Observer
+                Start with Learn
               </Link>
 
               <Link
@@ -101,7 +116,7 @@ export default function HomePage() {
                 className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
               >
                 <Sheen className="rounded-full" />
-                View Tools (Operator)
+                View Playbook
               </Link>
 
               <Link
@@ -109,12 +124,12 @@ export default function HomePage() {
                 className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
               >
                 <Sheen className="rounded-full" />
-                Allocator Snapshot →
+                Portfolio Lab →{/* route can stay /allocator for now */}
               </Link>
             </div>
 
             <p className="text-xs text-neutral-500 leading-relaxed">
-              Built for clarity and survivability. Public overview, operator mechanics, and allocator-grade reporting.
+              Learn the map → apply the tools → verify with Portfolio Lab proof.
             </p>
           </div>
         </div>
@@ -133,28 +148,28 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="hidden text-sm text-neutral-400 sm:block">
-              Overview → Tools → IR
+              Learn → Playbook → Proof
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
             <PortalCard
-              title="Observer"
+              title="Learn"
               audience="Overview"
               href="/observer"
-              desc="A plain-language introduction: what REZIME is, why regime context matters, and how transitions change what’s rational."
+              desc="Plain-language intro: what the map is, why regimes matter, and how transitions change what’s rational."
             />
             <PortalCard
-              title="Operator"
+              title="Playbook"
               audience="Tools"
               href="/operator"
               desc="How to interpret Engine / Sync / Battle Lines, plus operating doctrine and case study slots."
             />
             <PortalCard
-              title="Allocator"
-              audience="IR"
+              title="Portfolio Lab"
+              audience="Proof"
               href="/allocator"
-              desc="Allocator-first layout: snapshot, mandate fit, risk controls, governance, reporting cadence, and a proof archive."
+              desc="Proof archive + risk posture + reporting cadence. Built to show survivability across real regimes."
             />
           </div>
         </div>
@@ -164,17 +179,115 @@ export default function HomePage() {
       <Reveal delayMs={140} className="mt-2">
         <div className="grid gap-4 sm:grid-cols-3">
           <InfoBlock
-            title="Not a signal service"
-            desc="REZIME reduces decision-noise by clarifying regime and transition risk. Your method decides entries; REZIME governs context."
+            title="Map, not signals"
+            desc="REZIME Engine doesn’t say buy/sell. It reduces decision-noise by clarifying regime and transition risk."
           />
           <InfoBlock
-            title="Defined states"
-            desc="Empire (trend control) → Rebellion (early instability) → Uprising (transition) → Revolution (regime reset)."
+            title="Three core regimes"
+            desc="Empire (continuation) → Siege (conflict / chop / uncertainty) → Revolution (reset / regime change)."
           />
           <InfoBlock
-            title="Risk-first orientation"
-            desc="Primary objective: survivability through transitions. Secondary: participate in dominant regimes with patience and discipline."
+            title="Survival-first orientation"
+            desc="Primary objective: avoid being right in the wrong regime. Secondary: participate in stable regimes with patience and discipline."
           />
+        </div>
+      </Reveal>
+
+      {/* FAQ PREVIEW */}
+      <Reveal delayMs={200} className="mt-2">
+        <div className="space-y-4">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
+                FAQ
+              </p>
+              <h2 className="mt-2 text-xl font-semibold tracking-tight">
+                Clear answers. No hype.
+              </h2>
+            </div>
+
+            <Link
+              href="/faq"
+              className="hidden sm:inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+            >
+              View full FAQ →
+            </Link>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <FaqPreviewItem
+              q="What is REZIME Engine?"
+              a={
+                <>
+                  A <span className="font-semibold text-white">market regime map</span> that classifies the market into
+                  clear states so you stop guessing.
+                </>
+              }
+            />
+            <FaqPreviewItem
+              q="Is it a signal indicator?"
+              a={
+                <>
+                  No. REZIME is <span className="font-semibold text-white">map, not signals</span>. You still make the
+                  decisions — it makes the environment easier to read.
+                </>
+              }
+            />
+            <FaqPreviewItem
+              q="Do you guarantee profits?"
+              a={
+                <>
+                  No. Markets contain randomness. REZIME Engine improves decision quality by reducing confusion and
+                  phase-mismatch mistakes.
+                </>
+              }
+            />
+            <FaqPreviewItem
+              q="Is it the holy grail?"
+              a={
+                <>
+                  No. It’s meant to keep you alive long enough to develop your own edge — and it can supplement almost
+                  any approach.
+                </>
+              }
+            />
+            <FaqPreviewItem
+              q="What timeframe should I use?"
+              a={
+                <>
+                  If you’re new: start higher (cleaner, less noise). Stocks: Daily/Weekly. Crypto/Futures/FX: 4H/Daily.
+                </>
+              }
+            />
+            <FaqPreviewItem
+              q="Where’s the proof?"
+              a={
+                <>
+                  In the <span className="font-semibold text-white">Portfolio Lab</span> — applied documentation across
+                  real markets and real regimes, focused on survivability and drawdown control.
+                </>
+              }
+            />
+          </div>
+
+          <div className="flex flex-wrap gap-3 pt-1">
+            <Link
+              href="/faq"
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
+            >
+              Read the full FAQ →
+            </Link>
+            <Link
+              href="/allocator"
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+            >
+              Enter Portfolio Lab →
+            </Link>
+          </div>
+
+          <p className="text-xs text-neutral-500 leading-relaxed">
+            New here? Start with the FAQ, then go to Learn for the full regime walkthrough.
+          </p>
         </div>
       </Reveal>
     </section>
