@@ -56,19 +56,19 @@ function MenuItem({
   );
 }
 
-export default function AudienceMenu() {
+export default function PortalMenu() {
   const pathname = usePathname();
 
   const current = useMemo(() => {
     if (pathname.startsWith("/observer"))
       return { label: "Learn", sub: "Public • Beginner • Survival-first" };
     if (pathname.startsWith("/operator"))
-      return { label: "Playbook", sub: "Tools • Interpretation • Rules" };
+      return { label: "Playbook", sub: "Interpretation • Rules • Usage" };
     if (pathname.startsWith("/allocator"))
       return { label: "Portfolio Lab", sub: "Proof • Risk posture • Reporting" };
     if (pathname.startsWith("/faq"))
       return { label: "FAQ", sub: "Clear answers • No hype" };
-    return { label: "Portal", sub: "Choose a portal" };
+    return { label: "Portals", sub: "Learn • Playbook • Proof" };
   }, [pathname]);
 
   // Mobile (Sheet)
@@ -112,7 +112,7 @@ export default function AudienceMenu() {
           >
             <SheetHeader>
               <SheetTitle className="text-left text-sm font-semibold text-white">
-                Portals
+                REZIME Engine
               </SheetTitle>
             </SheetHeader>
 
@@ -130,7 +130,7 @@ export default function AudienceMenu() {
                 <MenuItem
                   href="/operator"
                   label="Playbook"
-                  sub="Tools • Interpretation • Rules"
+                  sub="Interpretation • Rules • Usage"
                   onPick={() => setMobileOpen(false)}
                 />
               </StaggerItem>
@@ -194,7 +194,7 @@ export default function AudienceMenu() {
               <MenuItem
                 href="/operator"
                 label="Playbook"
-                sub="Tools • Interpretation • Rules"
+                sub="Interpretation • Rules • Usage"
                 onPick={() => setOpen(false)}
               />
               <MenuItem
