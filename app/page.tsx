@@ -56,13 +56,7 @@ function InfoBlock({ title, desc }: { title: string; desc: string }) {
   );
 }
 
-function FaqPreviewItem({
-  q,
-  a,
-}: {
-  q: string;
-  a: React.ReactNode;
-}) {
+function FaqPreviewItem({ q, a }: { q: string; a: React.ReactNode }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
       <div className="text-sm font-semibold text-white">{q}</div>
@@ -86,7 +80,7 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-2">
               <Tag>Market regimes</Tag>
               <Tag>Transitions</Tag>
-              <Tag>Engine • Sync • Battle Lines</Tag>
+              <Tag>REZIME Engine</Tag>
             </div>
 
             <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
@@ -124,7 +118,7 @@ export default function HomePage() {
                 className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
               >
                 <Sheen className="rounded-full" />
-                Portfolio Lab →{/* route can stay /allocator for now */}
+                Portfolio Lab →
               </Link>
             </div>
 
