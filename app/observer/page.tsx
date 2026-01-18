@@ -49,6 +49,61 @@ function Pill({ children }: { children: React.ReactNode }) {
   );
 }
 
+function MiniBlock({
+  title,
+  desc,
+  tone = "soft",
+}: {
+  title: string;
+  desc: string;
+  tone?: "soft" | "hard";
+}) {
+  return (
+    <div
+      className={
+        tone === "hard"
+          ? "rounded-2xl border border-white/15 bg-white/10 p-6"
+          : "rounded-2xl border border-white/10 bg-black/30 p-6"
+      }
+    >
+      <p className="text-sm font-semibold text-white">{title}</p>
+      <p className="mt-2 text-sm text-neutral-300 leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+
+function PlaceholderShot({
+  title,
+  desc,
+}: {
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="text-sm font-semibold text-white">{title}</p>
+          <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+            {desc}
+          </p>
+        </div>
+        <span className="text-xs text-neutral-500">Placeholder</span>
+      </div>
+
+      <div className="mt-4 rounded-xl border border-dashed border-white/15 bg-black/30 p-6">
+        <p className="text-xs uppercase tracking-widest text-neutral-400">
+          Screenshot slot
+        </p>
+        <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
+          Later: add a single chart image + 1–2 sentences explaining the regime and
+          the correct behavior (no internal formulas).
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function ObserverPage() {
   return (
     <div className="space-y-14">
@@ -70,9 +125,9 @@ export default function ObserverPage() {
           </h1>
 
           <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-            Learn is a plain-language introduction to REZIME Engine. It teaches a
-            simple regime vocabulary so you can name what you’re seeing, reduce
-            confusion, and make calmer decisions in markets.
+            Learn is a plain-language introduction to REZIME Engine.
+            It teaches a simple regime vocabulary so you can name what you’re seeing,
+            reduce confusion, and make calmer decisions in markets.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -112,14 +167,14 @@ export default function ObserverPage() {
               <TocLink href="#what" label="What is REZIME Engine?" />
               <TocLink href="#why" label="Why regimes matter" />
               <TocLink href="#states" label="The 3 regimes" />
-              <TocLink href="#siege" label="Inside Siege (phases)" />
+              <TocLink href="#behavior" label="How to behave (public)" />
+              <TocLink href="#examples" label="Examples (placeholders)" />
               <TocLink href="#how-to-read" label="How to use it (public)" />
               <TocLink href="#next" label="Where to go next" />
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              This portal is for people with zero market context. It explains
-              the map — not execution rules.
+              This portal is for people with zero market context. It explains the map — not execution rules.
             </div>
           </aside>
 
@@ -153,9 +208,9 @@ export default function ObserverPage() {
                   />
                   <Card
                     n="4)"
-                    title="Inside Siege (phases)"
-                    desc="Siege isn’t one thing — it escalates and de-escalates."
-                    href="#siege"
+                    title="How to behave (public)"
+                    desc="A beginner-safe rule: match your activity to the regime."
+                    href="#behavior"
                   />
                 </div>
               </Section>
@@ -171,18 +226,13 @@ export default function ObserverPage() {
               >
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm leading-relaxed text-neutral-300">
                   <p>
-                    People don’t blow up because they “entered wrong.” They blow
-                    up because they{" "}
-                    <span className="font-semibold text-white">
-                      stayed active in the wrong regime
-                    </span>
-                    .
+                    People don’t blow up because they “entered wrong.” They blow up because they{" "}
+                    <span className="font-semibold text-white">stayed active in the wrong regime</span>.
                   </p>
                   <p>
                     REZIME Engine doesn’t replace your method. It{" "}
                     <span className="font-semibold text-white">supplements</span>{" "}
-                    it by adding context: is the environment stable, conflicted,
-                    or resetting?
+                    it by adding context: is the environment stable, conflicted, or resetting?
                   </p>
                 </div>
               </Section>
@@ -202,9 +252,8 @@ export default function ObserverPage() {
                       The core problem
                     </p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Stress comes from not understanding the environment. If
-                      you can name the regime, decisions become calmer, more
-                      structured, and less reactive.
+                      Stress comes from not understanding the environment.
+                      If you can name the regime, decisions become calmer, more structured, and less reactive.
                     </p>
                   </div>
 
@@ -214,8 +263,7 @@ export default function ObserverPage() {
                     </p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
                       REZIME Engine helps you avoid phase-mismatch mistakes:
-                      being “right” while the environment is wrong for your
-                      behavior.
+                      being “right” while the environment is wrong for your behavior.
                     </p>
                   </div>
                 </div>
@@ -235,109 +283,111 @@ export default function ObserverPage() {
                     <div className="rounded-xl border border-white/10 bg-black/30 p-4">
                       <p className="text-sm">
                         <span className="font-semibold text-white">Empire:</span>{" "}
-                        stable continuation. Holding and patience are rewarded.
+                        stable continuation. Patience and holding are rewarded.
                       </p>
                     </div>
 
                     <div className="rounded-xl border border-white/10 bg-black/30 p-4">
                       <p className="text-sm">
                         <span className="font-semibold text-white">Siege:</span>{" "}
-                        conflict and uncertainty. Chop increases. Participation
-                        should become selective and smaller.
+                        conflict and uncertainty. Chop increases. Participation should become selective and smaller.
                       </p>
                     </div>
 
                     <div className="rounded-xl border border-white/10 bg-black/30 p-4">
                       <p className="text-sm">
-                        <span className="font-semibold text-white">
-                          Revolution:
-                        </span>{" "}
-                        reset / regime change. Old assumptions break. The map
-                        re-anchors.
+                        <span className="font-semibold text-white">Revolution:</span>{" "}
+                        reset / regime change. Old assumptions break. The map re-anchors.
                       </p>
                     </div>
                   </div>
 
                   <p className="pt-2 text-xs text-neutral-500 leading-relaxed">
-                    This is the public vocabulary. The tool mechanics and
-                    interpretation rules live in Playbook.
+                    This is the public vocabulary. Tool mechanics and advanced interpretation live in Playbook.
                   </p>
                 </div>
               </Section>
             </Reveal>
 
-            {/* SIEGE PHASES */}
+            {/* BEHAVIOR */}
             <Reveal delayMs={280}>
               <Section
-                id="siege"
-                eyebrow="Inside the difficult part"
-                title="Inside Siege (phases)"
-                subtitle="Siege isn’t one thing. It escalates, stalls, and resolves — and your behavior should adapt."
+                id="behavior"
+                eyebrow="Beginner-safe behavior"
+                title="How to behave in each regime (public version)"
+                subtitle="The goal is not to predict. The goal is to match your activity level to the environment."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <div className="text-sm text-neutral-300 leading-relaxed">
-                    Markets don’t flip in one candle. Most damage happens in the{" "}
-                    <span className="font-semibold text-white">middle</span> —
-                    when people keep acting like it’s still Empire.
-                  </div>
+                <div className="grid gap-4 lg:grid-cols-3">
+                  <MiniBlock
+                    tone="hard"
+                    title="Empire behavior"
+                    desc="Do less. Hold more. Avoid micro-managing. Your edge is patience and not interrupting the trend."
+                  />
+                  <MiniBlock
+                    title="Siege behavior"
+                    desc="Do less, not more. Reduce exposure and reduce frequency. Siege is where overtrading and impulsive confidence get punished."
+                  />
+                  <MiniBlock
+                    tone="hard"
+                    title="Revolution behavior"
+                    desc="Treat it as a reset. Stop assuming the old logic still applies. Re-anchor your plan after the environment changes."
+                  />
+                </div>
 
-                  <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                    {[
-                      [
-                        "Cracks",
-                        "Early instability appears. The move still continues, but the ride gets bumpier.",
-                      ],
-                      [
-                        "Counterpush",
-                        "The other side starts winning pockets of territory. Confidence fades.",
-                      ],
-                      [
-                        "Chop / Deadlock",
-                        "Both sides trade control. Fakeouts increase. Overtrading becomes expensive.",
-                      ],
-                      [
-                        "Pressure",
-                        "The dominant structure is challenged. Old “safe areas” stop being safe.",
-                      ],
-                      [
-                        "Break",
-                        "A decisive failure occurs. Continuation logic weakens.",
-                      ],
-                      [
-                        "Reset",
-                        "Revolution completes. A new regime begins forming (new Empire).",
-                      ],
-                    ].map(([name, desc]) => (
-                      <div
-                        key={name}
-                        className="rounded-xl border border-white/10 bg-black/30 p-4"
-                      >
-                        <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] text-white">
-                          {name}
-                        </span>
-                        <div className="mt-3 text-sm text-neutral-300 leading-relaxed">
-                          {desc}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="mt-4 text-xs text-neutral-500 leading-relaxed">
-                    You don’t need perfect prediction. You need{" "}
-                    <span className="text-white">regime awareness</span> so you
-                    stop making confident decisions in an unstable environment.
-                  </div>
+                <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <p className="text-sm font-semibold text-white">The simplest rule</p>
+                  <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                    If you are confused, you are probably in <span className="text-white font-semibold">Siege</span>.
+                    Confusion is a signal to reduce activity — not a reason to “try harder.”
+                  </p>
+                  <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
+                    Playbook adds the detailed interpretation rules and the indicator behavior.
+                    Learn stays intentionally simple.
+                  </p>
                 </div>
               </Section>
             </Reveal>
 
-            {/* HOW TO READ */}
+            {/* EXAMPLES */}
             <Reveal delayMs={320}>
+              <Section
+                id="examples"
+                eyebrow="Visual learning"
+                title="Examples (placeholders)"
+                subtitle="Later, we’ll add screenshots showing the same regime concept across different markets."
+              >
+                <div className="grid gap-4 lg:grid-cols-2">
+                  <PlaceholderShot
+                    title="Example A: Clean Empire"
+                    desc="A stable trend regime where holding beats overtrading. Add a chart screenshot + 1–2 line caption later."
+                  />
+                  <PlaceholderShot
+                    title="Example B: Siege / Chop"
+                    desc="A conflict regime where fakeouts spike. The correct move is reduced exposure and fewer decisions."
+                  />
+                  <PlaceholderShot
+                    title="Example C: Revolution / Reset"
+                    desc="A regime change where the old assumptions break. Show how re-anchoring avoids stubborn losses."
+                  />
+                  <PlaceholderShot
+                    title="Example D: Same map, different market"
+                    desc="Show the exact same regime vocabulary on a different asset class (stocks vs crypto vs FX)."
+                  />
+                </div>
+
+                <p className="text-xs text-neutral-500 leading-relaxed">
+                  Rule for Learn examples: show behavior + regime labels, not internal construction.
+                </p>
+              </Section>
+            </Reveal>
+
+            {/* HOW TO READ */}
+            <Reveal delayMs={360}>
               <Section
                 id="how-to-read"
                 eyebrow="Practical use"
                 title="How to use REZIME Engine (public version)"
-                subtitle="A simple flow: identify regime → match participation → avoid phase-mismatch behavior."
+                subtitle="A simple flow: identify regime → match participation → respect resets."
               >
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                   {/* Flow chips */}
@@ -360,8 +410,7 @@ export default function ObserverPage() {
                         Step 1
                       </div>
                       <div className="mt-1">
-                        Name the regime:{" "}
-                        <span className="text-white">Empire</span>,{" "}
+                        Name the regime: <span className="text-white">Empire</span>,{" "}
                         <span className="text-white">Siege</span>,{" "}
                         <span className="text-white">Revolution</span>.
                       </div>
@@ -372,8 +421,7 @@ export default function ObserverPage() {
                         Step 2
                       </div>
                       <div className="mt-1">
-                        Match behavior: hold in Empire, reduce activity in Siege,
-                        re-anchor after Revolution.
+                        Match behavior: hold in Empire, reduce activity in Siege, re-anchor after Revolution.
                       </div>
                     </div>
 
@@ -382,8 +430,7 @@ export default function ObserverPage() {
                         Step 3
                       </div>
                       <div className="mt-1">
-                        Avoid “being right” in the wrong environment. Let the
-                        map decide the tempo.
+                        Avoid “being right” in the wrong environment. Let the map decide the tempo.
                       </div>
                     </div>
 
@@ -411,7 +458,7 @@ export default function ObserverPage() {
             </Reveal>
 
             {/* NEXT */}
-            <Reveal delayMs={360}>
+            <Reveal delayMs={400}>
               <Section
                 id="next"
                 eyebrow="Navigation"
@@ -453,7 +500,7 @@ export default function ObserverPage() {
             </Reveal>
 
             {/* BOTTOM CTA */}
-            <Reveal delayMs={400}>
+            <Reveal delayMs={440}>
               <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
