@@ -116,7 +116,6 @@ export default function AudienceMenu() {
               </SheetTitle>
             </SheetHeader>
 
-            {/* Prevent overflow weirdness on mobile */}
             <div className="mt-4 max-h-[70vh] overflow-auto pr-1 space-y-2">
               <StaggerItem open={mobileOpen} i={0}>
                 <MenuItem
@@ -154,21 +153,6 @@ export default function AudienceMenu() {
                 />
               </StaggerItem>
 
-              <StaggerItem open={mobileOpen} i={4}>
-                <div className="mt-3 rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm font-semibold text-white">
-                    Portfolio Lab (Coming Soon)
-                  </p>
-                  <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
-                    Factsheet-style archive: regimes, exposure posture, time-stamped
-                    updates. Simulated first, live later.
-                  </p>
-                  <div className="mt-3 inline-flex items-center rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[11px] text-neutral-300">
-                    Weekly cadence • low-noise
-                  </div>
-                </div>
-              </StaggerItem>
-
               <div className="pt-2 text-[11px] text-neutral-500">
                 Learn → Playbook → Proof
               </div>
@@ -194,69 +178,37 @@ export default function AudienceMenu() {
             className="absolute left-0 mt-2 w-[520px] max-w-[92vw] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-xl backdrop-blur"
             role="menu"
           >
-            <div className="grid grid-cols-2 gap-0">
-              <div className="p-2">
-                <div className="px-3 pb-2 pt-3">
-                  <p className="text-[11px] uppercase tracking-widest text-neutral-400">
-                    Portals
-                  </p>
-                </div>
-
-                <MenuItem
-                  href="/observer"
-                  label="Learn"
-                  sub="Public • Beginner • Survival-first"
-                  onPick={() => setOpen(false)}
-                />
-                <MenuItem
-                  href="/operator"
-                  label="Playbook"
-                  sub="Tools • Interpretation • Rules"
-                  onPick={() => setOpen(false)}
-                />
-                <MenuItem
-                  href="/allocator"
-                  label="Portfolio Lab"
-                  sub="Proof • Risk posture • Reporting"
-                  onPick={() => setOpen(false)}
-                />
-                <MenuItem
-                  href="/faq"
-                  label="FAQ"
-                  sub="Clear answers • No hype"
-                  onPick={() => setOpen(false)}
-                />
-              </div>
-
-              <div className="border-l border-white/10 p-4">
+            <div className="p-2">
+              <div className="px-3 pb-2 pt-3">
                 <p className="text-[11px] uppercase tracking-widest text-neutral-400">
-                  Featured
+                  Portals
                 </p>
-
-                <div className="mt-3 rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm font-semibold text-white">
-                    Portfolio Lab (Coming Soon)
-                  </p>
-                  <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
-                    A factsheet-style archive: regime context, exposure posture, and
-                    time-stamped updates. Simulated first, live later.
-                  </p>
-
-                  <div className="mt-3 inline-flex items-center rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[11px] text-neutral-300">
-                    Weekly cadence • low-noise
-                  </div>
-                </div>
-
-                <div className="mt-3 rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-sm font-semibold text-white">
-                    Case Study Library
-                  </p>
-                  <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
-                    COVID, Luna, BTC cycles, volatility spikes — shown as regimes
-                    (without exposing the construction).
-                  </p>
-                </div>
               </div>
+
+              <MenuItem
+                href="/observer"
+                label="Learn"
+                sub="Public • Beginner • Survival-first"
+                onPick={() => setOpen(false)}
+              />
+              <MenuItem
+                href="/operator"
+                label="Playbook"
+                sub="Tools • Interpretation • Rules"
+                onPick={() => setOpen(false)}
+              />
+              <MenuItem
+                href="/allocator"
+                label="Portfolio Lab"
+                sub="Proof • Risk posture • Reporting"
+                onPick={() => setOpen(false)}
+              />
+              <MenuItem
+                href="/faq"
+                label="FAQ"
+                sub="Clear answers • No hype"
+                onPick={() => setOpen(false)}
+              />
             </div>
 
             <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
