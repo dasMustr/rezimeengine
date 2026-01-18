@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import AudienceMenu from "./AudienceMenu";
+import PortalMenu from "./PortalMenu";
 
 export default function Nav() {
   return (
@@ -12,7 +12,7 @@ export default function Nav() {
         </Link>
 
         <div className="flex items-center gap-4">
-          <AudienceMenu />
+          <PortalMenu />
           <Link href="/contact" className="text-sm text-neutral-300 hover:text-white">
             Contact
           </Link>
