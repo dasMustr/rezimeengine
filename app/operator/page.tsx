@@ -123,13 +123,13 @@ export default function OperatorPage() {
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Operator Portal
+            Playbook Portal
           </p>
 
           <div className="flex flex-wrap gap-2">
             <Pill>Map, not signals</Pill>
-            <Pill>HTF → MTF → LTF relationships</Pill>
-            <Pill>Time-in-market posture</Pill>
+            <Pill>Regimes → posture</Pill>
+            <Pill>Time-in-market behavior</Pill>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
@@ -137,9 +137,9 @@ export default function OperatorPage() {
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            Operator is for practitioners. It explains how to interpret REZIME Engine, Sync, and Battle Lines,
+            Operator is for practitioners. It explains how to interpret REZIME Engine, Sync, and Battle Lines —
             turning regime context into posture and risk behavior.
-            REZIME can sit above any execution style, including discretionary, systematic, macro, or signal-based workflows.
+            REZIME can sit above any execution style: discretionary, systematic, macro, or signal-based workflows.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -147,14 +147,40 @@ export default function OperatorPage() {
               href="/observer"
               className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
             >
-              ← Observer
+              ← Learn (Observer)
             </Link>
             <Link
               href="/allocator"
               className="rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
             >
-              Allocator →
+              Proof (Portfolio Lab) →
             </Link>
+          </div>
+
+          {/* QUICK JUMP */}
+          <div className="rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-neutral-300">Jump to:</span>
+              <a href="#stack" className="underline decoration-white/20 hover:decoration-white/50 transition">
+                The Stack
+              </a>
+              <span className="text-neutral-600">•</span>
+              <a href="#alignment" className="underline decoration-white/20 hover:decoration-white/50 transition">
+                Transitions
+              </a>
+              <span className="text-neutral-600">•</span>
+              <a href="#rules" className="underline decoration-white/20 hover:decoration-white/50 transition">
+                Rules
+              </a>
+              <span className="text-neutral-600">•</span>
+              <a href="#doctrine" className="underline decoration-white/20 hover:decoration-white/50 transition">
+                Doctrine
+              </a>
+              <span className="text-neutral-600">•</span>
+              <a href="#cases" className="underline decoration-white/20 hover:decoration-white/50 transition">
+                Cases
+              </a>
+            </div>
           </div>
         </section>
       </Reveal>
@@ -170,7 +196,7 @@ export default function OperatorPage() {
           </h2>
           <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
             REZIME is a context layer. It helps you know what battle you are in.
-            Then you apply your own entry method, sizing, and discipline.
+            Then you apply your own entries, sizing, and discipline.
           </p>
         </section>
       </Reveal>
@@ -185,16 +211,16 @@ export default function OperatorPage() {
             </p>
 
             <div className="grid gap-2">
-              <TocLink href="#stack" label="The Stack" />
-              <TocLink href="#alignment" label="Full Alignment vs Transitions" />
+              <TocLink href="#stack" label="The Stack (Engine / Sync / Lines)" />
+              <TocLink href="#alignment" label="Alignment vs Transitions" />
               <TocLink href="#rules" label="Interpretation Rules" />
-              <TocLink href="#doctrine" label="Operator Doctrine" />
-              <TocLink href="#cases" label="Case Study Slots" />
+              <TocLink href="#doctrine" label="Operating Doctrine" />
+              <TocLink href="#cases" label="Case Library" />
               <TocLink href="#ip" label="What’s Shown vs Hidden" />
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              Tip: Observer is the “what.” Operator is the “how.”
+              Tip: Observer explains the worldview. Operator explains how to apply the map.
             </div>
           </aside>
 
@@ -252,11 +278,11 @@ export default function OperatorPage() {
                   <MiniCard
                     tone="hard"
                     title="Full Alignment (all 3 TF agree)"
-                    desc="This is a strong Empire. If you are aligned, focus on holding and reducing churn. If you are not in, wait for cracks."
+                    desc="This is a strong Empire. If you’re aligned, focus on holding and reducing churn. If you’re not in, wait for cracks — don’t force it."
                   />
                   <MiniCard
                     title="Transition ladder (conflict escalates upward)"
-                    desc="Transitions usually start at the LTF, then climb into MTF, then HTF. Your job is to see escalation early and adjust posture before the storm grows."
+                    desc="Transitions usually start at the LTF, then climb into MTF, then HTF. Your job is to detect escalation early and adjust posture before the storm grows."
                   />
                 </div>
 
@@ -265,8 +291,7 @@ export default function OperatorPage() {
                     The escalation storyboard
                   </p>
                   <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                    Early phases have the best RR, but they are noisy. Later
-                    phases are safer, but RR is worse.
+                    Early phases have the best RR, but they are noisy. Later phases are safer, but RR is worse.
                   </p>
 
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -293,8 +318,7 @@ export default function OperatorPage() {
                   </div>
 
                   <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-                    Best operator habit: never be contrarian inside Full
-                    Alignment. Wait until cracks appear.
+                    Best operator habit: never be contrarian inside Full Alignment. Wait until cracks appear.
                   </p>
                 </div>
               </Section>
@@ -315,7 +339,7 @@ export default function OperatorPage() {
                   />
                   <RuleRow
                     label="Rule 2"
-                    text="Rebellion is a warning, not a command. It means volatility and counterpressure increased. Reduce overconfidence. Tighten your personal execution rules."
+                    text="Rebellion is a warning, not a command. It means volatility and counterpressure increased. Reduce overconfidence and tighten your personal execution rules."
                   />
                   <RuleRow
                     label="Rule 3"
@@ -323,7 +347,7 @@ export default function OperatorPage() {
                   />
                   <RuleRow
                     label="Rule 4"
-                    text="Revolution is a reset. If the regime flips, the old assumptions are invalid. You rebuild your plan under the new Empire."
+                    text="Revolution is a reset. If the regime flips, the old assumptions are invalid. Rebuild under the new Empire."
                   />
                   <RuleRow
                     label="Rule 5"
@@ -331,8 +355,7 @@ export default function OperatorPage() {
                   />
 
                   <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-                    Reminder: REZIME supplements any method. It adds regime
-                    context to your own execution.
+                    Reminder: REZIME supplements any method. It adds regime context to your execution.
                   </p>
                 </div>
               </Section>
@@ -343,7 +366,7 @@ export default function OperatorPage() {
               <Section
                 id="doctrine"
                 eyebrow="How you use it"
-                title="Operator Doctrine"
+                title="Operating Doctrine"
                 desc="Make risk small early, then let time-in-market do the heavy lifting."
               >
                 <div className="grid gap-4 lg:grid-cols-2">
@@ -373,9 +396,8 @@ export default function OperatorPage() {
                   </p>
                   <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
                     Most stress comes from not knowing what battle you are in.
-                    REZIME gives you the battle map. When you understand the
-                    battle, the mind calms down. Then you can act with
-                    discipline.
+                    REZIME gives you the battle map. When you understand the battle, the mind calms down.
+                    Then you can act with discipline.
                   </p>
                 </div>
               </Section>
@@ -386,8 +408,8 @@ export default function OperatorPage() {
               <Section
                 id="cases"
                 eyebrow="Proof library"
-                title="Case Study Slots (placeholders)"
-                desc="Later: paste screenshots of the regime strip only. Keep construction private. Show behavior, not ingredients."
+                title="Case Library"
+                desc="Over time, this becomes a public pattern library: regime behavior, escalation, and posture — without exposing construction."
               >
                 <div className="grid gap-4 lg:grid-cols-3">
                   <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
@@ -395,21 +417,21 @@ export default function OperatorPage() {
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
                       Fast escalation from Rebellion to Revolution. Shows why survival mode matters.
                     </p>
-                    <p className="mt-3 text-xs text-neutral-500">Screenshot slot</p>
+                    <p className="mt-3 text-xs text-neutral-500">Regime strip slot</p>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
                     <p className="text-sm font-semibold text-white">BTC Cycle</p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
                       Long Empires, fewer rebellions. Shows why HTF tends to be cleaner.
                     </p>
-                    <p className="mt-3 text-xs text-neutral-500">Screenshot slot</p>
+                    <p className="mt-3 text-xs text-neutral-500">Regime strip slot</p>
                   </div>
                   <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
                     <p className="text-sm font-semibold text-white">Mean Reversion Trap</p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
                       Full Alignment holds longer than expected. Shows why contrarian entries get punished.
                     </p>
-                    <p className="mt-3 text-xs text-neutral-500">Screenshot slot</p>
+                    <p className="mt-3 text-xs text-neutral-500">Regime strip slot</p>
                   </div>
                 </div>
               </Section>
@@ -421,20 +443,20 @@ export default function OperatorPage() {
                 id="ip"
                 eyebrow="IP protection"
                 title="What’s Shown vs Hidden"
-                desc="You can demonstrate outcomes without disclosing construction."
+                desc="You can demonstrate behavior and outcomes without disclosing construction."
               >
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300 leading-relaxed">
                   <p>
-                    Public proofs show the{" "}
+                    Public proofs focus on the{" "}
                     <span className="text-white font-semibold">regime strip</span>{" "}
-                    and the labels only (Empire / Rebellion / Uprising / Revolution).
+                    and labels only (Empire / Rebellion / Uprising / Revolution).
                   </p>
                   <p>
-                    The moving average construction and territory logic remain internal
-                    until subscriber access is released.
+                    Construction details (MA blends, internal logic, territory math) remain internal until
+                    access is released.
                   </p>
                   <p className="text-xs text-neutral-500">
-                    Clear message: REZIME is a map. The details are for operators.
+                    Clear message: REZIME is a map. You can audit behavior without reverse-engineering the tool.
                   </p>
                 </div>
               </Section>
@@ -446,10 +468,10 @@ export default function OperatorPage() {
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-semibold text-white">
-                      Want the institutional framing?
+                      Want the proof archive?
                     </p>
                     <p className="text-xs text-neutral-400">
-                      Allocator portal = factsheet archive + mandate + governance + risk.
+                      Allocator portal = factsheet archive + reporting cadence + governance tone.
                     </p>
                   </div>
 
@@ -457,7 +479,7 @@ export default function OperatorPage() {
                     href="/allocator"
                     className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
                   >
-                    Enter Allocator →
+                    Enter Portfolio Lab →
                   </Link>
                 </div>
               </section>

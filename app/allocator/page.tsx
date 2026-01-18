@@ -201,23 +201,22 @@ export default function AllocatorPage() {
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Allocator Portal
+            Portfolio Lab Portal
           </p>
 
           <div className="flex flex-wrap gap-2">
-            <Pill>Institutional framing</Pill>
-            <Pill>Risk-first posture</Pill>
             <Pill>Proof-first reporting</Pill>
+            <Pill>Risk posture</Pill>
+            <Pill>Allocator-readable cadence</Pill>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            REZIME as an allocatable operating system.
+            REZIME as a proof-backed operating layer.
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            This portal is written in an investor-relations tone.
-            It focuses on mandate fit, governance, risk controls, and proof-first reporting.
-            REZIME is a context layer that can sit above different execution styles.
+            This portal is written for fast scanning: mandate fit, constraints, risk posture, and evidence.
+            REZIME is a context layer — the output is exposure posture and regime awareness, not trade signals.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -225,7 +224,7 @@ export default function AllocatorPage() {
               href="/operator"
               className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
             >
-              ← Operator
+              ← Playbook (Operator)
             </Link>
             <Link
               href="/contact"
@@ -258,7 +257,7 @@ export default function AllocatorPage() {
             </div>
 
             <div className="rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              Built for allocator scanning. Clear sections, minimal story.
+              Built for scanning. Clear sections, minimal story.
               Observer has the public framing.
             </div>
 
@@ -266,7 +265,7 @@ export default function AllocatorPage() {
               href="/observer"
               className="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 hover:bg-white/10 hover:text-white transition"
             >
-              Read REZIME overview in Observer →
+              Read overview in Learn (Observer) →
             </Link>
           </aside>
 
@@ -292,7 +291,7 @@ export default function AllocatorPage() {
                   <div className="mt-5 grid gap-4 lg:grid-cols-3">
                     <Card
                       title="Mandate fit"
-                      desc="Designed to participate in dominant regimes while controlling behavior during transitions."
+                      desc="Participate in dominant regimes while controlling behavior during transitions."
                       rows={[
                         { k: "Primary objective", v: "Survivability through regime change" },
                         { k: "Secondary", v: "Participation in dominant trend regimes" },
@@ -301,7 +300,7 @@ export default function AllocatorPage() {
                     />
                     <Card
                       title="Edge definition"
-                      desc="The edge is behavioral: reducing phase-mismatched decisions that create avoidable drawdowns."
+                      desc="Behavioral edge: reduce phase-mismatched decisions that create avoidable drawdowns."
                       rows={[
                         { k: "Core", v: "Regime recognition + transition discipline" },
                         { k: "Mechanism", v: "Engine / Sync / Battle Lines" },
@@ -321,12 +320,11 @@ export default function AllocatorPage() {
 
                   <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 p-4">
                     <p className="text-xs uppercase tracking-widest text-neutral-400">
-                      What allocators should expect
+                      What to expect
                     </p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      This is not a promise of prediction. It is a governance
-                      layer that improves decision quality across instruments by
-                      clarifying regime and transition risk.
+                      This is not a promise of prediction. It is a documentation and governance layer
+                      that improves decision quality by clarifying regime and transition risk.
                     </p>
                   </div>
                 </div>
@@ -339,7 +337,7 @@ export default function AllocatorPage() {
                 id="mandate"
                 eyebrow="Strategy"
                 title="Mandate Fit"
-                desc="REZIME is compatible with institutional process because it expresses posture, constraints, and auditability."
+                desc="REZIME is compatible with disciplined process because it expresses posture, constraints, and auditability."
               >
                 <div className="grid gap-4 lg:grid-cols-3">
                   <Card
@@ -353,7 +351,7 @@ export default function AllocatorPage() {
                   />
                   <Card
                     title="Implementation"
-                    desc="A context layer that can sit above TA, fundamentals, or discretionary workflows."
+                    desc="Context layer that can sit above TA, fundamentals, or discretionary workflows."
                     rows={[
                       { k: "Input", v: "Multi-timeframe regime signals" },
                       { k: "Output", v: "Exposure posture + transition warnings" },
@@ -373,13 +371,96 @@ export default function AllocatorPage() {
               </Section>
             </Reveal>
 
+            {/* RISK */}
+            <Reveal delayMs={175}>
+              <Section
+                id="risk"
+                eyebrow="Controls"
+                title="Risk Controls"
+                desc="Risk posture is explicit. When regime risk rises, exposure and aggression fall."
+              >
+                <div className="grid gap-4 lg:grid-cols-3">
+                  <Card
+                    title="Posture ladder"
+                    desc="A simple regime→behavior mapping."
+                    rows={[
+                      { k: "Empire", v: "Participate / hold posture" },
+                      { k: "Rebellion", v: "Reduce aggression / tighten rules" },
+                      { k: "Uprising", v: "Survival mode / reduce exposure" },
+                      { k: "Revolution", v: "Reset assumptions / rebuild" },
+                    ]}
+                  />
+                  <Card
+                    title="Drawdown discipline"
+                    desc="Focus on avoiding avoidable drawdowns."
+                    rows={[
+                      { k: "Goal", v: "Prevent phase-mismatch losses" },
+                      { k: "Method", v: "Regime awareness + exposure control" },
+                      { k: "Bias", v: "Higher TF clarity preferred" },
+                    ]}
+                  />
+                  <Card
+                    title="What this is not"
+                    desc="Clear anti-hype boundaries."
+                    rows={[
+                      { k: "Not", v: "A promise of returns" },
+                      { k: "Not", v: "A buy/sell signal service" },
+                      { k: "Not", v: "A magic entry system" },
+                    ]}
+                  />
+                </div>
+              </Section>
+            </Reveal>
+
+            {/* GOVERNANCE */}
+            <Reveal delayMs={200}>
+              <Section
+                id="governance"
+                eyebrow="Process"
+                title="Governance"
+                desc="A clean audit trail: what was believed, what changed, and why."
+              >
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <div className="grid gap-4 lg:grid-cols-3">
+                    <Card
+                      title="Audit trail"
+                      desc="Every update is time-stamped."
+                      rows={[
+                        { k: "Artifacts", v: "Factsheet + posture notes" },
+                        { k: "Deltas", v: "Week-to-week changes" },
+                        { k: "Archive", v: "Indexed proof cards" },
+                      ]}
+                    />
+                    <Card
+                      title="Change policy"
+                      desc="Avoid moving goalposts."
+                      rows={[
+                        { k: "Indicator logic", v: "Not edited to fit outcomes" },
+                        { k: "Reporting", v: "Format tightens over time" },
+                        { k: "Disclosure", v: "Construction stays internal" },
+                      ]}
+                    />
+                    <Card
+                      title="Communication"
+                      desc="Designed to be readable without hype."
+                      rows={[
+                        { k: "Tone", v: "Evidence-first" },
+                        { k: "Focus", v: "Survivability + behavior" },
+                        { k: "Scope", v: "Cross-market applicability" },
+                      ]}
+                    />
+                  </div>
+                </div>
+              </Section>
+            </Reveal>
+
             {/* REPORTING */}
-            <Reveal delayMs={190}>
+            <Reveal delayMs={230}>
               <Section
                 id="reporting"
                 eyebrow="IR cadence"
                 title="Reporting & Evidence"
-                desc="A clean, repeatable evidence trail designed for allocator review."
+                desc="A repeatable evidence trail designed for review."
               >
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -411,7 +492,7 @@ export default function AllocatorPage() {
             </Reveal>
 
             {/* PROOF ARCHIVE */}
-            <Reveal delayMs={230}>
+            <Reveal delayMs={260}>
               <section id="proof" className="scroll-mt-24 space-y-4">
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                   <div>
@@ -448,8 +529,53 @@ export default function AllocatorPage() {
               </section>
             </Reveal>
 
+            {/* PORTFOLIO LAB */}
+            <Reveal delayMs={290}>
+              <Section
+                id="portfolio"
+                eyebrow="Deep archive"
+                title="Portfolio Lab"
+                desc="One place for the full proof trail: holdings, context, posture, and deltas."
+              >
+                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-sm font-semibold text-white">
+                        Open the full archive
+                      </p>
+                      <p className="mt-1 text-xs text-neutral-400 leading-relaxed">
+                        If you only read one thing: read Week 1, then compare weekly deltas.
+                      </p>
+                    </div>
+
+                    <a
+                      href={PORTFOLIO_LAB_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
+                    >
+                      Open Portfolio Lab →
+                    </a>
+                  </div>
+
+                  <div className="mt-4 grid gap-3 sm:grid-cols-3">
+                    {[
+                      ["Holdings", "What is held and why."],
+                      ["Regime context", "Engine/Sync notes for the week."],
+                      ["Posture", "Risk stance and adjustments."],
+                    ].map(([t, d]) => (
+                      <div key={t} className="rounded-xl border border-white/10 bg-black/30 p-4">
+                        <div className="text-xs uppercase tracking-widest text-neutral-400">{t}</div>
+                        <div className="mt-2 text-sm text-neutral-300 leading-relaxed">{d}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </Section>
+            </Reveal>
+
             {/* STATUS */}
-            <Reveal delayMs={270}>
+            <Reveal delayMs={320}>
               <Section
                 id="status"
                 eyebrow="Now"
