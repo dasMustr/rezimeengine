@@ -61,12 +61,14 @@ export default function AudienceMenu() {
 
   const current = useMemo(() => {
     if (pathname.startsWith("/observer"))
-      return { label: "Observer", sub: "Public • Documentary • Worldview" };
+      return { label: "Learn", sub: "Public • Beginner • Survival-first" };
     if (pathname.startsWith("/operator"))
-      return { label: "Operator", sub: "Practitioners • Tools • Rules" };
+      return { label: "Playbook", sub: "Tools • Interpretation • Rules" };
     if (pathname.startsWith("/allocator"))
-      return { label: "Allocator", sub: "Institutional • IR • Risk doctrine" };
-    return { label: "Audience", sub: "Choose a portal" };
+      return { label: "Portfolio Lab", sub: "Proof • Risk posture • Reporting" };
+    if (pathname.startsWith("/faq"))
+      return { label: "FAQ", sub: "Clear answers • No hype" };
+    return { label: "Portal", sub: "Choose a portal" };
   }, [pathname]);
 
   // Mobile (Sheet)
@@ -119,8 +121,8 @@ export default function AudienceMenu() {
               <StaggerItem open={mobileOpen} i={0}>
                 <MenuItem
                   href="/observer"
-                  label="Observer"
-                  sub="Public • Documentary • Worldview"
+                  label="Learn"
+                  sub="Public • Beginner • Survival-first"
                   onPick={() => setMobileOpen(false)}
                 />
               </StaggerItem>
@@ -128,8 +130,8 @@ export default function AudienceMenu() {
               <StaggerItem open={mobileOpen} i={1}>
                 <MenuItem
                   href="/operator"
-                  label="Operator"
-                  sub="Practitioners • Tools • Rules"
+                  label="Playbook"
+                  sub="Tools • Interpretation • Rules"
                   onPick={() => setMobileOpen(false)}
                 />
               </StaggerItem>
@@ -137,20 +139,29 @@ export default function AudienceMenu() {
               <StaggerItem open={mobileOpen} i={2}>
                 <MenuItem
                   href="/allocator"
-                  label="Allocator"
-                  sub="Institutional • IR • Risk doctrine"
+                  label="Portfolio Lab"
+                  sub="Proof • Risk posture • Reporting"
                   onPick={() => setMobileOpen(false)}
                 />
               </StaggerItem>
 
               <StaggerItem open={mobileOpen} i={3}>
+                <MenuItem
+                  href="/faq"
+                  label="FAQ"
+                  sub="Clear answers • No hype"
+                  onPick={() => setMobileOpen(false)}
+                />
+              </StaggerItem>
+
+              <StaggerItem open={mobileOpen} i={4}>
                 <div className="mt-3 rounded-2xl border border-white/10 bg-white/5 p-4">
                   <p className="text-sm font-semibold text-white">
                     Portfolio Lab (Coming Soon)
                   </p>
                   <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
                     Factsheet-style archive: regimes, exposure posture, time-stamped
-                    updates.
+                    updates. Simulated first, live later.
                   </p>
                   <div className="mt-3 inline-flex items-center rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[11px] text-neutral-300">
                     Weekly cadence • low-noise
@@ -159,7 +170,7 @@ export default function AudienceMenu() {
               </StaggerItem>
 
               <div className="pt-2 text-[11px] text-neutral-500">
-                Documentary → Technical → Institutional
+                Learn → Playbook → Proof
               </div>
             </div>
           </SheetContent>
@@ -193,20 +204,26 @@ export default function AudienceMenu() {
 
                 <MenuItem
                   href="/observer"
-                  label="Observer"
-                  sub="Public • Documentary • Worldview"
+                  label="Learn"
+                  sub="Public • Beginner • Survival-first"
                   onPick={() => setOpen(false)}
                 />
                 <MenuItem
                   href="/operator"
-                  label="Operator"
-                  sub="Practitioners • Tools • Rules"
+                  label="Playbook"
+                  sub="Tools • Interpretation • Rules"
                   onPick={() => setOpen(false)}
                 />
                 <MenuItem
                   href="/allocator"
-                  label="Allocator"
-                  sub="Institutional • IR • Risk doctrine"
+                  label="Portfolio Lab"
+                  sub="Proof • Risk posture • Reporting"
+                  onPick={() => setOpen(false)}
+                />
+                <MenuItem
+                  href="/faq"
+                  label="FAQ"
+                  sub="Clear answers • No hype"
                   onPick={() => setOpen(false)}
                 />
               </div>
@@ -235,7 +252,7 @@ export default function AudienceMenu() {
                     Case Study Library
                   </p>
                   <p className="mt-2 text-xs text-neutral-400 leading-relaxed">
-                    COVID, Luna, BTC cycles, volatility spikes — shown as regime states
+                    COVID, Luna, BTC cycles, volatility spikes — shown as regimes
                     (without exposing the construction).
                   </p>
                 </div>
@@ -243,7 +260,7 @@ export default function AudienceMenu() {
             </div>
 
             <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
-              Documentary → Technical → Institutional
+              Learn → Playbook → Proof
             </div>
           </div>
         )}
