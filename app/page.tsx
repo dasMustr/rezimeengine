@@ -145,7 +145,6 @@ export default function HomePage() {
 >
   New to markets? Start with Curious Cat 🐾 →
 </Link>
-
       {/* PORTALS */}
       <Reveal delayMs={80} className="mt-2">
         <div className="space-y-4">
