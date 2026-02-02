@@ -6,37 +6,9 @@ function TocLink({ href, label }: { href: string; label: string }) {
   return (
     <a
       href={href}
-      className="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 hover:bg-white/10 hover:text-white transition"
+      className="block rounded-lg px-2 py-1 text-xs text-neutral-400 hover:text-white transition"
     >
       {label}
-    </a>
-  );
-}
-
-function Card({
-  n,
-  title,
-  desc,
-  href,
-}: {
-  n: string;
-  title: string;
-  desc: string;
-  href: string;
-}) {
-  return (
-    <a
-      href={href}
-      className="group rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
-    >
-      <div className="flex items-center justify-between">
-        <div className="text-xs text-neutral-400">{n}</div>
-        <div className="text-xs text-neutral-400 transition group-hover:text-neutral-200">
-          Read →
-        </div>
-      </div>
-      <h3 className="mt-3 text-base font-semibold text-white">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-neutral-300">{desc}</p>
     </a>
   );
 }
@@ -62,8 +34,8 @@ function MiniBlock({
     <div
       className={
         tone === "hard"
-          ? "rounded-2xl border border-white/15 bg-white/10 p-6"
-          : "rounded-2xl border border-white/10 bg-black/30 p-6"
+          ? "calm-block rounded-2xl border border-white/15 bg-white/10 p-6"
+          : "calm-block rounded-2xl border border-white/10 bg-black/30 p-6"
       }
     >
       <p className="text-sm font-semibold text-white">{title}</p>
@@ -72,15 +44,9 @@ function MiniBlock({
   );
 }
 
-function PlaceholderShot({
-  title,
-  desc,
-}: {
-  title: string;
-  desc: string;
-}) {
+function PlaceholderShot({ title, desc }: { title: string; desc: string }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+    <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-sm font-semibold text-white">{title}</p>
@@ -133,89 +99,67 @@ export default function ObserverPage() {
           <div className="flex flex-wrap gap-3">
             <Link
               href="/"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+              className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
               Back to Home
             </Link>
 
             <Link
               href="/operator"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
+              className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
             >
               Jump to Playbook →
             </Link>
 
             <Link
               href="/faq"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
+              className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
             >
               Read FAQ →
             </Link>
+          </div>
+
+          {/* Minimal “start here” strip */}
+          <div className="calm-block rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+            <p className="text-xs uppercase tracking-widest text-neutral-400">
+              Start here
+            </p>
+            <ul className="mt-3 space-y-2 text-sm text-neutral-300 leading-relaxed">
+              <li>1) Name the regime: Empire / Siege / Revolution</li>
+              <li>2) Match your activity to the environment</li>
+              <li>3) If you’re confused, reduce activity (you’re probably in Siege)</li>
+            </ul>
           </div>
         </section>
       </Reveal>
 
       {/* TOC + CONTENT */}
       <Reveal delayMs={80}>
-        <section className="grid gap-8 lg:grid-cols-[240px_1fr]">
+        <section className="grid gap-8 lg:grid-cols-[220px_1fr]">
           {/* TOC */}
           <aside className="space-y-3 lg:sticky lg:top-24 lg:h-fit">
             <p className="text-xs uppercase tracking-widest text-neutral-400">
               Contents
             </p>
-            <div className="grid gap-2">
-              <TocLink href="#what" label="What is REZIME Engine?" />
-              <TocLink href="#why" label="Why regimes matter" />
-              <TocLink href="#states" label="The 3 regimes" />
-              <TocLink href="#behavior" label="How to behave (public)" />
-              <TocLink href="#examples" label="Examples (placeholders)" />
-              <TocLink href="#how-to-read" label="How to use it (public)" />
-              <TocLink href="#next" label="Where to go next" />
+            <div className="rounded-2xl border border-white/10 bg-black/30 p-3">
+              <div className="grid gap-1">
+                <TocLink href="#what" label="What is REZIME Engine?" />
+                <TocLink href="#why" label="Why regimes matter" />
+                <TocLink href="#states" label="The 3 regimes" />
+                <TocLink href="#behavior" label="How to behave (public)" />
+                <TocLink href="#examples" label="Examples (placeholders)" />
+                <TocLink href="#how-to-read" label="How to use it (public)" />
+                <TocLink href="#next" label="Where to go next" />
+              </div>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
+            <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
               This portal is for people with zero market context. It explains the map — not execution rules.
             </div>
           </aside>
 
           {/* CONTENT */}
           <div className="space-y-12">
-            {/* QUICK CHAPTERS */}
-            <Reveal delayMs={120}>
-              <Section
-                eyebrow="Start here"
-                title="Four chapters. One map."
-                subtitle="High-level first. Tool mechanics live in Playbook."
-              >
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <Card
-                    n="1)"
-                    title="What is REZIME Engine?"
-                    desc="A survival-first regime map for time-in-market."
-                    href="#what"
-                  />
-                  <Card
-                    n="2)"
-                    title="Why regimes matter"
-                    desc="Most losses come from regime mismatch, not bad entries."
-                    href="#why"
-                  />
-                  <Card
-                    n="3)"
-                    title="The 3 regimes"
-                    desc="Empire → Siege → Revolution."
-                    href="#states"
-                  />
-                  <Card
-                    n="4)"
-                    title="How to behave (public)"
-                    desc="A beginner-safe rule: match your activity to the regime."
-                    href="#behavior"
-                  />
-                </div>
-              </Section>
-            </Reveal>
-
             {/* WHAT */}
             <Reveal delayMs={160}>
               <Section
@@ -224,7 +168,7 @@ export default function ObserverPage() {
                 title="What is REZIME Engine?"
                 subtitle="REZIME Engine is a market regime map. It classifies the environment so you stop guessing."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm leading-relaxed text-neutral-300">
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm leading-relaxed text-neutral-300">
                   <p>
                     People don’t blow up because they “entered wrong.” They blow up because they{" "}
                     <span className="font-semibold text-white">stayed active in the wrong regime</span>.
@@ -247,7 +191,7 @@ export default function ObserverPage() {
                 subtitle="If you don’t know the regime, three bad outcomes become likely: you fight the move, you force action in chop, or you hold through a reset."
               >
                 <div className="grid gap-4 lg:grid-cols-2">
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                     <p className="text-sm font-semibold text-white">
                       The core problem
                     </p>
@@ -257,7 +201,7 @@ export default function ObserverPage() {
                     </p>
                   </div>
 
-                  <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
+                  <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
                     <p className="text-sm font-semibold text-white">
                       The core benefit
                     </p>
@@ -278,7 +222,7 @@ export default function ObserverPage() {
                 title="The 3 regimes"
                 subtitle="If you can name the regime, you stop arguing with reality."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300">
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300">
                   <div className="flex flex-col gap-3">
                     <div className="rounded-xl border border-white/10 bg-black/30 p-4">
                       <p className="text-sm">
@@ -334,10 +278,11 @@ export default function ObserverPage() {
                   />
                 </div>
 
-                <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="mt-4 calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                   <p className="text-sm font-semibold text-white">The simplest rule</p>
                   <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                    If you are confused, you are probably in <span className="text-white font-semibold">Siege</span>.
+                    If you are confused, you are probably in{" "}
+                    <span className="text-white font-semibold">Siege</span>.
                     Confusion is a signal to reduce activity — not a reason to “try harder.”
                   </p>
                   <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
@@ -389,8 +334,7 @@ export default function ObserverPage() {
                 title="How to use REZIME Engine (public version)"
                 subtitle="A simple flow: identify regime → match participation → respect resets."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
-                  {/* Flow chips */}
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                   <div className="flex flex-wrap gap-2 text-[11px]">
                     <span className="inline-flex items-center rounded-full border border-white/10 bg-black/30 px-3 py-1 text-neutral-300">
                       Identify regime
@@ -403,7 +347,6 @@ export default function ObserverPage() {
                     </span>
                   </div>
 
-                  {/* Steps */}
                   <div className="mt-5 space-y-3 text-sm text-neutral-300 leading-relaxed">
                     <div className="rounded-xl border border-white/10 bg-black/30 p-4">
                       <div className="text-xs uppercase tracking-widest text-neutral-400">
@@ -442,13 +385,13 @@ export default function ObserverPage() {
                   <div className="mt-5 flex flex-wrap gap-3">
                     <Link
                       href="/faq"
-                      className="rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
+                      className="premium-card is-clickable rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
                     >
                       Read the FAQ →
                     </Link>
                     <Link
                       href="/operator"
-                      className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+                      className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
                     >
                       Enter Playbook →
                     </Link>
@@ -468,7 +411,7 @@ export default function ObserverPage() {
                 <div className="grid gap-3 sm:grid-cols-2">
                   <Link
                     href="/operator"
-                    className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
+                    className="premium-card is-clickable rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
                   >
                     <div className="text-xs uppercase tracking-widest text-neutral-400">
                       Playbook
@@ -483,7 +426,7 @@ export default function ObserverPage() {
 
                   <Link
                     href="/allocator"
-                    className="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
+                    className="premium-card is-clickable rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
                   >
                     <div className="text-xs uppercase tracking-widest text-neutral-400">
                       Portfolio Lab
@@ -501,7 +444,7 @@ export default function ObserverPage() {
 
             {/* BOTTOM CTA */}
             <Reveal delayMs={440}>
-              <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <section className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <div className="text-sm font-semibold text-white">
@@ -514,7 +457,7 @@ export default function ObserverPage() {
 
                   <Link
                     href="/operator"
-                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
+                    className="premium-card is-clickable inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
                   >
                     Enter Playbook →
                   </Link>

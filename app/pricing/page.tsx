@@ -3,7 +3,7 @@ import Link from "next/link";
 const tiers = [
   {
     name: "Engine",
-    price: "$29.99",
+    price: "$19.99",
     note: "Beginner (1 timeframe).",
     features: [
       "Empire / Siege / Revolution regime map",
@@ -16,7 +16,7 @@ const tiers = [
   },
   {
     name: "Sync",
-    price: "$39.99",
+    price: "$29.99",
     note: "Intermediate (multi-timeframe alignment).",
     features: [
       "HTF/LTF alignment mapping",
@@ -30,7 +30,7 @@ const tiers = [
   },
   {
     name: "Battle Lines",
-    price: "$49.99",
+    price: "$34.99",
     note: "Advanced (territory walls for management).",
     features: [
       "HTF/LTF territory walls",
