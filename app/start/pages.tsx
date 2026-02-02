@@ -12,30 +12,51 @@ function StepCard({ title, desc }: { title: string; desc: string }) {
   );
 }
 
+function MiniCard({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="premium-card relative rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+      <Sheen />
+      <h4 className="text-sm font-semibold">{title}</h4>
+      <ul className="mt-3 space-y-2 text-sm text-neutral-300">
+        {items.map((x) => (
+          <li key={x} className="flex gap-2">
+            <span className="mt-[7px] h-1.5 w-1.5 flex-none rounded-full bg-white/40" />
+            <span className="leading-relaxed">{x}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function StartPage() {
   return (
     <section className="space-y-12">
+      {/* HERO */}
       <Reveal delayMs={0}>
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-8 sm:p-12">
-          <div className="relative space-y-4">
+          <div className="relative space-y-5">
             <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
               Curious Cat 🐾 • Start here
             </p>
+
             <h1 className="max-w-4xl text-3xl font-semibold leading-[1.08] tracking-tight sm:text-4xl">
-              Markets aren’t scary — but they are unforgiving.
+              Markets aren’t magic — they’re competitive.
             </h1>
+
             <p className="max-w-2xl text-sm leading-relaxed text-neutral-300">
-              This page explains the basics: what trading is, what charts and indicators are, and why most people
-              lose money. No hype. Just reality — and a clear path forward.
+              If you’re new: you don’t need a “strategy” yet. You need orientation.
+              This page explains what trading is, what charts and indicators are,
+              and why most beginners lose money. No hype. Just a clear path.
             </p>
 
-            <div className="flex flex-wrap gap-3 pt-2">
+            <div className="flex flex-wrap gap-3 pt-1">
               <Link
-                href="/observer"
+                href="#basics"
                 className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                After this: Learn the map
+                Start the basics
               </Link>
 
               <Link
@@ -54,44 +75,102 @@ export default function StartPage() {
         </div>
       </Reveal>
 
+      {/* BASICS GRID */}
       <Reveal delayMs={80}>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <StepCard
-            title="1) What is a market?"
-            desc="A market is price discovery: buyers and sellers negotiating value in public. It’s not a salary and not a casino — it’s a competitive environment."
+        <div id="basics" className="space-y-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
+              Basics
+            </p>
+            <h2 className="mt-2 text-xl font-semibold tracking-tight">
+              The world in plain language
+            </h2>
+            <p className="mt-2 max-w-3xl text-sm text-neutral-400 leading-relaxed">
+              You’re not here to “predict.” You’re here to understand what you’re participating in.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <StepCard
+              title="1) What is a market?"
+              desc="A market is price discovery: buyers and sellers negotiating value in public. Price moves because opinions, information, risk, and urgency change."
+            />
+            <StepCard
+              title="2) Trading vs investing"
+              desc="Investing is longer-horizon ownership. Trading is shorter-horizon participation. Both can work — but both punish confusion, leverage, and impatience."
+            />
+            <StepCard
+              title="3) What is a chart?"
+              desc="A chart is a compressed history of transactions. Different timeframes show different layers of behavior: noise (small) vs structure (large)."
+            />
+            <StepCard
+              title="4) What is TradingView?"
+              desc="A charting workspace many traders use to view price and apply indicators. Think of it like a cockpit for analysis — not a promise of profit."
+            />
+            <StepCard
+              title="5) What are indicators?"
+              desc="Indicators summarize behavior. They can reduce noise — but they’re not prophecy. The danger is treating them like automatic buy/sell signals."
+            />
+            <StepCard
+              title="6) Why beginners lose"
+              desc="Most losses aren’t from one bad entry. They come from staying aggressive in the wrong environment: chop, uncertainty, and phase mismatch."
+            />
+          </div>
+        </div>
+      </Reveal>
+
+      {/* APPROACHES + TOOLING */}
+      <Reveal delayMs={140}>
+        <div className="grid gap-4 lg:grid-cols-3">
+          <MiniCard
+            title="Common approaches people try"
+            items={[
+              "Fundamental: value, economics, company analysis (slower, research-heavy).",
+              "Technical: charts, trend/structure, timing (faster feedback loop).",
+              "Systematic: rules + backtesting + automation mindset.",
+              "Portfolio-style: long-term allocation + rebalancing + risk control.",
+            ]}
           />
-          <StepCard
-            title="2) Trading vs investing"
-            desc="Investing is longer horizon ownership. Trading is shorter horizon participation. Both can work — but both punish confusion and overconfidence."
+          <MiniCard
+            title="What you actually need to start"
+            items={[
+              "A charting platform (TradingView is common).",
+              "One market to focus on (avoid jumping everywhere).",
+              "A risk boundary (so one mistake can’t end you).",
+              "A journal or notes (to learn from repetition).",
+            ]}
           />
-          <StepCard
-            title="3) What is a chart?"
-            desc="A chart is a compressed history of transactions. It’s not magic — it’s a lens. Different timeframes show different levels of behavior."
-          />
-          <StepCard
-            title="4) What is TradingView?"
-            desc="A popular charting platform where you analyze price and apply indicators. It’s the standard workspace for many traders."
-          />
-          <StepCard
-            title="5) What are indicators?"
-            desc="Indicators are visual tools that summarize behavior. The danger: treating them like signals instead of context. REZIME is a map, not a trigger."
-          />
-          <StepCard
-            title="6) Why beginners lose"
-            desc="Most losses come from phase mismatch: trading aggressively in chop, forcing entries, and staying active when the environment is unclear."
+          <MiniCard
+            title="Reality check (healthy expectations)"
+            items={[
+              "This is not a get-rich-quick path. It’s a skill.",
+              "Even professionals have drawdowns and uncertainty.",
+              "Your first milestone isn’t profit — it’s not blowing up.",
+              "Survival gives you time. Time gives you edge.",
+            ]}
           />
         </div>
       </Reveal>
 
-      <Reveal delayMs={140}>
+      {/* BRIDGE TO REZIME */}
+      <Reveal delayMs={200}>
         <div className="premium-card relative rounded-3xl border border-white/10 bg-white/[0.03] p-8">
           <Sheen />
-          <h2 className="text-xl font-semibold tracking-tight">
+          <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
+            The bridge
+          </p>
+          <h2 className="mt-2 text-xl font-semibold tracking-tight">
             Why REZIME exists
           </h2>
+
           <p className="mt-3 max-w-3xl text-sm leading-relaxed text-neutral-300">
-            You can’t be profitable if you can’t survive. REZIME compresses market complexity into regimes so you stop
-            guessing, reduce phase-mismatch mistakes, and stay alive long enough to develop real skill.
+            You can’t be profitable if you can’t survive. REZIME compresses market complexity into regimes
+            so you stop guessing, reduce phase-mismatch mistakes, and stay alive long enough to build real skill.
+          </p>
+
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-neutral-400">
+            REZIME is a map, not signals — it helps you understand the environment so your decisions become calmer,
+            slower, and more consistent.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
@@ -108,12 +187,22 @@ export default function StartPage() {
               View the Playbook →
             </Link>
             <Link
+              href="/pricing#waitlist"
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+            >
+              Pricing / Waitlist →
+            </Link>
+            <Link
               href="/faq"
               className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
               Read FAQ →
             </Link>
           </div>
+
+          <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
+            If you only take one idea from this page: survival buys you time — and time is the only thing that lets skill compound.
+          </p>
         </div>
       </Reveal>
     </section>
