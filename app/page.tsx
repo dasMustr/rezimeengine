@@ -139,6 +139,12 @@ export default function HomePage() {
           </div>
         </div>
       </Reveal>
+<Link
+  href="/start"
+  className="text-xs text-neutral-400 hover:text-white transition"
+>
+  New to markets? Start with Curious Cat 🐾 →
+</Link>
 
       {/* PORTALS */}
       <Reveal delayMs={80} className="mt-2">
