@@ -120,6 +120,17 @@ export default function HomePage() {
                 <Sheen className="rounded-full" />
                 Portfolio Lab →
               </Link>
+              <Link
+                href="/pricing"
+                className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-neutral-200 transition hover:bg-white/10"
+              >
+                <Sheen className="rounded-full" />
+                Pricing
+              </Link>
+              <Link href="/pricing#waitlist" className="...">
+                <Sheen className="rounded-full" />
+                Subscribe (Coming Soon)
+              </Link>
             </div>
 
             <p className="text-xs text-neutral-500 leading-relaxed">
