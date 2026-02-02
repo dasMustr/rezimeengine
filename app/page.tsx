@@ -24,7 +24,7 @@ function PortalCard({
   return (
     <Link
       href={href}
-      className="premium-card group relative rounded-2xl border border-white/10 bg-white/5 p-6 transition"
+      className="premium-card group relative rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/[0.07]"
     >
       <Sheen />
 
@@ -46,13 +46,58 @@ function PortalCard({
   );
 }
 
-function InfoBlock({ title, desc }: { title: string; desc: string }) {
+function InfoStrip() {
   return (
-    <div className="premium-card relative rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+    <div className="premium-card relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6">
       <Sheen />
-      <h4 className="text-sm font-semibold">{title}</h4>
-      <p className="mt-3 text-sm leading-relaxed text-neutral-300">{desc}</p>
+      <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
+        What this is
+      </p>
+      <p className="mt-2 text-sm leading-relaxed text-neutral-300">
+        REZIME is a <span className="font-semibold text-white">regime map</span>, not signals.
+        It doesn’t tell you buy/sell — it helps you avoid being{" "}
+        <span className="font-semibold text-white">right in the wrong environment</span>.
+      </p>
     </div>
+  );
+}
+
+function PathCard({
+  title,
+  kicker,
+  desc,
+  href,
+  cta,
+  variant = "soft",
+}: {
+  title: string;
+  kicker: string;
+  desc: string;
+  href: string;
+  cta: string;
+  variant?: "soft" | "solid";
+}) {
+  const base =
+    "premium-card group relative overflow-hidden rounded-2xl border border-white/10 p-6 transition";
+  const bg =
+    variant === "solid"
+      ? "bg-white/10 hover:bg-white/15"
+      : "bg-white/[0.04] hover:bg-white/[0.07]";
+
+  return (
+    <Link href={href} className={`${base} ${bg}`}>
+      <Sheen />
+      <p className="text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+        {kicker}
+      </p>
+      <div className="mt-2 flex items-start justify-between gap-4">
+        <h3 className="text-base font-semibold">{title}</h3>
+        <span className="text-xs text-neutral-400 group-hover:text-neutral-200 transition">
+          {cta} →
+        </span>
+      </div>
+      <p className="mt-3 text-sm leading-relaxed text-neutral-300">{desc}</p>
+    </Link>
   );
 }
 
@@ -80,7 +125,7 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-2">
               <Tag>Market regimes</Tag>
               <Tag>Transitions</Tag>
-              <Tag>REZIME Engine</Tag>
+              <Tag>Map, not signals</Tag>
             </div>
 
             <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
@@ -88,38 +133,27 @@ export default function HomePage() {
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              REZIME Engine compresses market complexity into clear regimes so you stop guessing,
+              Compress complexity into clear regimes so you stop guessing,
               reduce phase-mismatch mistakes, and stay alive long enough to build real skill.
-            </p>
-
-            <p className="max-w-2xl text-sm leading-relaxed text-neutral-400">
-              Map, not signals. Built to sit above style — technical, macro, discretionary, or systematic.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
-                href="/observer"
+                href="/start"
                 className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Start with Learn
+                Start (Curious Cat 🐾)
               </Link>
 
               <Link
-                href="/operator"
+                href="/observer"
                 className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
               >
                 <Sheen className="rounded-full" />
-                View Playbook
+                Learn the map
               </Link>
 
-              <Link
-                href="/allocator"
-                className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
-              >
-                <Sheen className="rounded-full" />
-                Portfolio Lab →
-              </Link>
               <Link
                 href="/pricing"
                 className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-neutral-200 transition hover:bg-white/10"
@@ -127,31 +161,64 @@ export default function HomePage() {
                 <Sheen className="rounded-full" />
                 Pricing
               </Link>
-              <Link href="/pricing#waitlist" className="...">
-                <Sheen className="rounded-full" />
-                Subscribe (Coming Soon)
-              </Link>
             </div>
 
             <p className="text-xs text-neutral-500 leading-relaxed">
-              Learn the map → apply the tools → verify with Portfolio Lab proof.
+              Survive first → build skill → then care about performance.
             </p>
           </div>
         </div>
       </Reveal>
-<Link
-  href="/start"
-  className="text-xs text-neutral-400 hover:text-white transition"
->
-  New to markets? Start with Curious Cat 🐾 →
-</Link>
-      {/* PORTALS */}
-      <Reveal delayMs={80} className="mt-2">
+
+      {/* PATH SELECTOR */}
+      <Reveal delayMs={70}>
         <div className="space-y-4">
           <div className="flex items-end justify-between gap-6">
             <div>
               <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
-                Select portal
+                Choose your path
+              </p>
+              <h2 className="mt-2 text-xl font-semibold tracking-tight">
+                New to markets — or already participating?
+              </h2>
+            </div>
+            <p className="hidden text-sm text-neutral-400 sm:block">
+              Beginner → Basics • Participant → Tools
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <PathCard
+              kicker="Beginner"
+              title="Curious Cat 🐾"
+              href="/start"
+              cta="Start here"
+              variant="solid"
+              desc="What trading is, what charts/indicators are, and why most beginners lose. Plain language. No hype."
+            />
+            <PathCard
+              kicker="Already trading"
+              title="Active Participant"
+              href="#portals"
+              cta="Jump to portals"
+              desc="Go straight to the map, the tools, and the proof. Learn → Playbook → Portfolio Lab."
+            />
+          </div>
+        </div>
+      </Reveal>
+
+      {/* WHAT THIS IS (short, no heavy cards) */}
+      <Reveal delayMs={120}>
+        <InfoStrip />
+      </Reveal>
+
+      {/* PORTALS (moved lower) */}
+      <Reveal delayMs={160}>
+        <div id="portals" className="space-y-4 scroll-mt-28">
+          <div className="flex items-end justify-between gap-6">
+            <div>
+              <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
+                Portals
               </p>
               <h2 className="mt-2 text-xl font-semibold tracking-tight">
                 Three portals. One system.
@@ -182,29 +249,26 @@ export default function HomePage() {
               desc="Proof archive + risk posture + reporting cadence. Built to show survivability across real regimes."
             />
           </div>
-        </div>
-      </Reveal>
 
-      {/* WHAT IT IS */}
-      <Reveal delayMs={140} className="mt-2">
-        <div className="grid gap-4 sm:grid-cols-3">
-          <InfoBlock
-            title="Map, not signals"
-            desc="REZIME Engine doesn’t say buy/sell. It reduces decision-noise by clarifying regime and transition risk."
-          />
-          <InfoBlock
-            title="Three core regimes"
-            desc="Empire (continuation) → Siege (conflict / chop / uncertainty) → Revolution (reset / regime change)."
-          />
-          <InfoBlock
-            title="Survival-first orientation"
-            desc="Primary objective: avoid being right in the wrong regime. Secondary: participate in stable regimes with patience and discipline."
-          />
+          <div className="flex flex-wrap gap-3 pt-1">
+            <Link
+              href="/operator"
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+            >
+              View Playbook →
+            </Link>
+            <Link
+              href="/pricing#waitlist"
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
+            >
+              Subscribe (Coming Soon) →
+            </Link>
+          </div>
         </div>
       </Reveal>
 
       {/* FAQ PREVIEW */}
-      <Reveal delayMs={200} className="mt-2">
+      <Reveal delayMs={220} className="mt-2">
         <div className="space-y-4">
           <div className="flex items-end justify-between gap-6">
             <div>
@@ -247,7 +311,7 @@ export default function HomePage() {
               q="Do you guarantee profits?"
               a={
                 <>
-                  No. Markets contain randomness. REZIME Engine improves decision quality by reducing confusion and
+                  No. Markets contain randomness. REZIME improves decision quality by reducing confusion and
                   phase-mismatch mistakes.
                 </>
               }
@@ -296,7 +360,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            New here? Start with the FAQ, then go to Learn for the full regime walkthrough.
+            New here? Start with Curious Cat 🐾, then go to Learn for the full regime walkthrough.
           </p>
         </div>
       </Reveal>
