@@ -4,7 +4,7 @@ import Sheen from "../components/Sheen";
 
 function StepCard({ title, desc }: { title: string; desc: string }) {
   return (
-    <div className="premium-card relative rounded-2xl border border-white/10 bg-white/5 p-6">
+    <div className="calm-block relative rounded-2xl border border-white/10 bg-white/5 p-6">
       <Sheen />
       <h3 className="text-sm font-semibold">{title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-neutral-300">{desc}</p>
@@ -14,7 +14,7 @@ function StepCard({ title, desc }: { title: string; desc: string }) {
 
 function MiniCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="premium-card relative rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+    <div className="calm-block relative rounded-2xl border border-white/10 bg-white/[0.03] p-6">
       <Sheen />
       <h4 className="text-sm font-semibold">{title}</h4>
       <ul className="mt-3 space-y-2 text-sm text-neutral-300">
@@ -50,21 +50,28 @@ export default function StartPage() {
               and why most beginners lose money. No hype. Just a clear path.
             </p>
 
-            <div className="flex flex-wrap gap-3 pt-1">
+            <div className="flex flex-wrap items-center gap-3 pt-1">
               <Link
                 href="#basics"
-                className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
+                className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
                 Start the basics
               </Link>
 
               <Link
-                href="/pricing#waitlist"
-                className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
+                href="/observer"
+                className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
               >
                 <Sheen className="rounded-full" />
-                Subscribe (Coming Soon)
+                Already trading? Start with the map →
+              </Link>
+
+              <Link
+                href="/pricing#waitlist"
+                className="ml-1 inline-flex items-center text-sm text-neutral-400 hover:text-white transition"
+              >
+                Subscribe (Coming Soon) →
               </Link>
             </div>
 
@@ -77,7 +84,7 @@ export default function StartPage() {
 
       {/* BASICS GRID */}
       <Reveal delayMs={80}>
-        <div id="basics" className="space-y-4">
+        <div id="basics" className="space-y-4 scroll-mt-28">
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
               Basics
@@ -116,45 +123,65 @@ export default function StartPage() {
               desc="Most losses aren’t from one bad entry. They come from staying aggressive in the wrong environment: chop, uncertainty, and phase mismatch."
             />
           </div>
+
+          <div className="pt-2">
+            <Link
+              href="/faq"
+              className="inline-flex items-center text-sm text-neutral-400 hover:text-white transition"
+            >
+              Still confused? Read the FAQ →
+            </Link>
+          </div>
         </div>
       </Reveal>
 
       {/* APPROACHES + TOOLING */}
       <Reveal delayMs={140}>
-        <div className="grid gap-4 lg:grid-cols-3">
-          <MiniCard
-            title="Common approaches people try"
-            items={[
-              "Fundamental: value, economics, company analysis (slower, research-heavy).",
-              "Technical: charts, trend/structure, timing (faster feedback loop).",
-              "Systematic: rules + backtesting + automation mindset.",
-              "Portfolio-style: long-term allocation + rebalancing + risk control.",
-            ]}
-          />
-          <MiniCard
-            title="What you actually need to start"
-            items={[
-              "A charting platform (TradingView is common).",
-              "One market to focus on (avoid jumping everywhere).",
-              "A risk boundary (so one mistake can’t end you).",
-              "A journal or notes (to learn from repetition).",
-            ]}
-          />
-          <MiniCard
-            title="Reality check (healthy expectations)"
-            items={[
-              "This is not a get-rich-quick path. It’s a skill.",
-              "Even professionals have drawdowns and uncertainty.",
-              "Your first milestone isn’t profit — it’s not blowing up.",
-              "Survival gives you time. Time gives you edge.",
-            ]}
-          />
+        <div className="space-y-4">
+          <div>
+            <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
+              Orientation
+            </p>
+            <h2 className="mt-2 text-xl font-semibold tracking-tight">
+              What people try, and what you actually need
+            </h2>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-3">
+            <MiniCard
+              title="Common approaches people try"
+              items={[
+                "Fundamental: value, economics, company analysis (slower, research-heavy).",
+                "Technical: charts, trend/structure, timing (faster feedback loop).",
+                "Systematic: rules + backtesting + automation mindset.",
+                "Portfolio-style: long-term allocation + rebalancing + risk control.",
+              ]}
+            />
+            <MiniCard
+              title="What you actually need to start"
+              items={[
+                "A charting platform (TradingView is common).",
+                "One market to focus on (avoid jumping everywhere).",
+                "A risk boundary (so one mistake can’t end you).",
+                "A journal or notes (to learn from repetition).",
+              ]}
+            />
+            <MiniCard
+              title="Reality check (healthy expectations)"
+              items={[
+                "This is not a get-rich-quick path. It’s a skill.",
+                "Even professionals have drawdowns and uncertainty.",
+                "Your first milestone isn’t profit — it’s not blowing up.",
+                "Survival gives you time. Time gives you edge.",
+              ]}
+            />
+          </div>
         </div>
       </Reveal>
 
       {/* BRIDGE TO REZIME */}
       <Reveal delayMs={200}>
-        <div className="premium-card relative rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+        <div className="calm-block relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] p-8">
           <Sheen />
           <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
             The bridge
@@ -176,25 +203,25 @@ export default function StartPage() {
           <div className="mt-6 flex flex-wrap gap-3">
             <Link
               href="/observer"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
+              className="premium-card is-clickable inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
             >
               Learn the map →
             </Link>
             <Link
               href="/operator"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+              className="premium-card is-clickable inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
               View the Playbook →
             </Link>
             <Link
               href="/pricing#waitlist"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+              className="premium-card is-clickable inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
               Pricing / Waitlist →
             </Link>
             <Link
               href="/faq"
-              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+              className="premium-card is-clickable inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
               Read FAQ →
             </Link>
