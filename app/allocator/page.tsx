@@ -1,8 +1,10 @@
+import React from "react";
 import Link from "next/link";
 import Reveal from "../components/Reveal";
+import Section from "../components/Section";
 
 const PORTFOLIO_LAB_URL =
-  "https://www.notion.so/END-Weekly-Global-Portfolio-22126a6e989c803896a4d732246aea06?source=copy_link";
+  "https://www.notion.so/REZIME-Portfolio-Lab-2f2e5f5ad67580649936e6102c240fe7?source=copy_link";
 
 const PROOFS = [
   {
@@ -51,44 +53,11 @@ function Pill({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Section({
-  id,
-  eyebrow,
-  title,
-  desc,
-  children,
-}: {
-  id?: string;
-  eyebrow?: string;
-  title: string;
-  desc?: string;
-  children?: React.ReactNode;
-}) {
-  return (
-    <section id={id} className="scroll-mt-24 space-y-5">
-      <div className="space-y-2">
-        {eyebrow && (
-          <p className="text-xs uppercase tracking-widest text-neutral-400">
-            {eyebrow}
-          </p>
-        )}
-        <h2 className="text-2xl font-semibold text-white">{title}</h2>
-        {desc && (
-          <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            {desc}
-          </p>
-        )}
-      </div>
-      {children}
-    </section>
-  );
-}
-
 function TocLink({ href, label }: { href: string; label: string }) {
   return (
     <a
       href={href}
-      className="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 hover:bg-white/10 hover:text-white transition"
+      className="premium-card is-clickable block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 transition hover:text-white"
     >
       {label}
     </a>
@@ -105,7 +74,7 @@ function Card({
   rows: { k: string; v: string }[];
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+    <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
       <div className="space-y-2">
         <h3 className="text-base font-semibold text-white">{title}</h3>
         <p className="text-sm text-neutral-300 leading-relaxed">{desc}</p>
@@ -166,7 +135,7 @@ function ProofCardLite({
       href={notionUrl}
       target="_blank"
       rel="noreferrer"
-      className="block rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
+      className="premium-card is-clickable block rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
@@ -215,20 +184,21 @@ export default function AllocatorPage() {
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            This portal is written for fast scanning: mandate fit, constraints, risk posture, and evidence.
-            REZIME is a context layer — the output is exposure posture and regime awareness, not trade signals.
+            This portal is written for fast scanning: mandate fit, constraints,
+            risk posture, and evidence. REZIME is a context layer — the output is
+            exposure posture and regime awareness, not trade signals.
           </p>
 
           <div className="flex flex-wrap gap-3">
             <Link
               href="/operator"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
+              className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
               ← Playbook (Operator)
             </Link>
             <Link
               href="/contact"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
+              className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
             >
               Contact →
             </Link>
@@ -256,14 +226,14 @@ export default function AllocatorPage() {
               <TocLink href="#status" label="Current Status" />
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              Built for scanning. Clear sections, minimal story.
-              Observer has the public framing.
+            <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
+              Built for scanning. Clear sections, minimal story. Observer has the
+              public framing.
             </div>
 
             <Link
               href="/observer"
-              className="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 hover:bg-white/10 hover:text-white transition"
+              className="premium-card is-clickable block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 transition hover:text-white"
             >
               Read overview in Learn (Observer) →
             </Link>
@@ -277,9 +247,9 @@ export default function AllocatorPage() {
                 id="snapshot"
                 eyebrow="One-screen summary"
                 title="Allocator Snapshot"
-                desc="A compact view of mandate, edge definition, constraints, and reporting cadence."
+                subtitle="A compact view of mandate, edge definition, constraints, and reporting cadence."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                   <div className="flex flex-wrap gap-2">
                     <Badge tone="hard">Map, not signals</Badge>
                     <Badge tone="hard">Risk-first</Badge>
@@ -293,7 +263,10 @@ export default function AllocatorPage() {
                       title="Mandate fit"
                       desc="Participate in dominant regimes while controlling behavior during transitions."
                       rows={[
-                        { k: "Primary objective", v: "Survivability through regime change" },
+                        {
+                          k: "Primary objective",
+                          v: "Survivability through regime change",
+                        },
                         { k: "Secondary", v: "Participation in dominant trend regimes" },
                         { k: "Not optimized for", v: "Top/bottom precision" },
                       ]}
@@ -318,13 +291,14 @@ export default function AllocatorPage() {
                     />
                   </div>
 
-                  <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 p-4">
+                  <div className="calm-block mt-4 rounded-2xl border border-white/10 bg-black/30 p-4">
                     <p className="text-xs uppercase tracking-widest text-neutral-400">
                       What to expect
                     </p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      This is not a promise of prediction. It is a documentation and governance layer
-                      that improves decision quality by clarifying regime and transition risk.
+                      This is not a promise of prediction. It is a documentation
+                      and governance layer that improves decision quality by
+                      clarifying regime and transition risk.
                     </p>
                   </div>
                 </div>
@@ -337,7 +311,7 @@ export default function AllocatorPage() {
                 id="mandate"
                 eyebrow="Strategy"
                 title="Mandate Fit"
-                desc="REZIME is compatible with disciplined process because it expresses posture, constraints, and auditability."
+                subtitle="REZIME is compatible with disciplined process because it expresses posture, constraints, risk posture, and auditability."
               >
                 <div className="grid gap-4 lg:grid-cols-3">
                   <Card
@@ -377,7 +351,7 @@ export default function AllocatorPage() {
                 id="risk"
                 eyebrow="Controls"
                 title="Risk Controls"
-                desc="Risk posture is explicit. When regime risk rises, exposure and aggression fall."
+                subtitle="Risk posture is explicit. When regime risk rises, exposure and aggression fall."
               >
                 <div className="grid gap-4 lg:grid-cols-3">
                   <Card
@@ -418,9 +392,9 @@ export default function AllocatorPage() {
                 id="governance"
                 eyebrow="Process"
                 title="Governance"
-                desc="A clean audit trail: what was believed, what changed, and why."
+                subtitle="A clean audit trail: what was believed, what changed, and why."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                   <div className="grid gap-4 lg:grid-cols-3">
                     <Card
                       title="Audit trail"
@@ -460,17 +434,17 @@ export default function AllocatorPage() {
                 id="reporting"
                 eyebrow="IR cadence"
                 title="Reporting & Evidence"
-                desc="A repeatable evidence trail designed for review."
+                subtitle="A repeatable evidence trail designed for review."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="text-sm font-semibold text-white">
                         Portfolio Lab (deep detail)
                       </p>
                       <p className="mt-1 text-xs text-neutral-400 leading-relaxed">
-                        Factsheet-style archive: holdings, regime context, exposure posture,
-                        and week-by-week deltas.
+                        Factsheet-style archive: holdings, regime context,
+                        exposure posture, and week-by-week deltas.
                       </p>
                     </div>
 
@@ -478,14 +452,15 @@ export default function AllocatorPage() {
                       href={PORTFOLIO_LAB_URL}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
+                      className="premium-card is-clickable inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
                     >
                       Open Portfolio Lab →
                     </a>
                   </div>
 
                   <p className="mt-4 text-[11px] text-neutral-500">
-                    Not financial advice. Public documentation for transparency and process.
+                    Not financial advice. Public documentation for transparency
+                    and process.
                   </p>
                 </div>
               </Section>
@@ -503,8 +478,8 @@ export default function AllocatorPage() {
                       Time-stamped weekly index
                     </h2>
                     <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-                      Weekly updates are indexed here. Platform-agnostic. No embeds.
-                      Designed to be easy to audit.
+                      Weekly updates are indexed here. Platform-agnostic. No
+                      embeds. Designed to be easy to audit.
                     </p>
                   </div>
 
@@ -535,16 +510,17 @@ export default function AllocatorPage() {
                 id="portfolio"
                 eyebrow="Deep archive"
                 title="Portfolio Lab"
-                desc="One place for the full proof trail: holdings, context, posture, and deltas."
+                subtitle="One place for the full proof trail: holdings, context, posture, and deltas."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
                       <p className="text-sm font-semibold text-white">
                         Open the full archive
                       </p>
                       <p className="mt-1 text-xs text-neutral-400 leading-relaxed">
-                        If you only read one thing: read Week 1, then compare weekly deltas.
+                        If you only read one thing: read Week 1, then compare
+                        weekly deltas.
                       </p>
                     </div>
 
@@ -552,7 +528,7 @@ export default function AllocatorPage() {
                       href={PORTFOLIO_LAB_URL}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
+                      className="premium-card is-clickable inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
                     >
                       Open Portfolio Lab →
                     </a>
@@ -564,9 +540,16 @@ export default function AllocatorPage() {
                       ["Regime context", "Engine/Sync notes for the week."],
                       ["Posture", "Risk stance and adjustments."],
                     ].map(([t, d]) => (
-                      <div key={t} className="rounded-xl border border-white/10 bg-black/30 p-4">
-                        <div className="text-xs uppercase tracking-widest text-neutral-400">{t}</div>
-                        <div className="mt-2 text-sm text-neutral-300 leading-relaxed">{d}</div>
+                      <div
+                        key={t}
+                        className="calm-block rounded-xl border border-white/10 bg-black/30 p-4"
+                      >
+                        <div className="text-xs uppercase tracking-widest text-neutral-400">
+                          {t}
+                        </div>
+                        <div className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                          {d}
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -580,9 +563,9 @@ export default function AllocatorPage() {
                 id="status"
                 eyebrow="Now"
                 title="Current Status"
-                desc="What is live today, what is being built, and what changes next."
+                subtitle="What is live today, what is being built, and what changes next."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                   <div className="space-y-2 text-sm text-neutral-300 leading-relaxed">
                     <p>
                       <span className="font-semibold text-white">Live:</span>{" "}
@@ -590,11 +573,13 @@ export default function AllocatorPage() {
                     </p>
                     <p>
                       <span className="font-semibold text-white">In build:</span>{" "}
-                      standardized factsheet template and public regime-strip proofs.
+                      standardized factsheet template and public regime-strip
+                      proofs.
                     </p>
                     <p>
                       <span className="font-semibold text-white">Next:</span>{" "}
-                      tighten reporting format and expand case studies under Operator.
+                      tighten reporting format and expand case studies under
+                      Operator.
                     </p>
                   </div>
                 </div>

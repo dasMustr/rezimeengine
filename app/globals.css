@@ -199,21 +199,31 @@ body {
 .premium-card {
   position: relative;
   overflow: hidden;
-  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+  transition: transform 220ms ease, border-color 220ms ease;
 }
 
-/* Only cards marked clickable should lift on hover */
+/* Mark clickable surfaces explicitly */
+.premium-card.is-clickable {
+  cursor: pointer;
+}
+
+/* Only clickable cards should lift on hover */
 .premium-card.is-clickable:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.06);
 }
 
-.premium-card:focus-visible {
+/* Only clickable cards should lift on keyboard focus */
+.premium-card.is-clickable:focus-visible {
   outline: none;
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.22);
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+}
+
+/* Optional: tiny press feedback */
+.premium-card.is-clickable:active {
+  transform: translateY(-1px);
 }
 
 /* Calm block: looks premium, does NOT hover-lift */

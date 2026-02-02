@@ -1,44 +1,13 @@
+import React from "react";
 import Link from "next/link";
 import Reveal from "../components/Reveal";
+import Section from "../components/Section";
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
     <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-neutral-300">
       {children}
     </span>
-  );
-}
-
-function Section({
-  id,
-  eyebrow,
-  title,
-  desc,
-  children,
-}: {
-  id?: string;
-  eyebrow?: string;
-  title: string;
-  desc?: string;
-  children?: React.ReactNode;
-}) {
-  return (
-    <section id={id} className="scroll-mt-24 space-y-5">
-      <div className="space-y-2">
-        {eyebrow && (
-          <p className="text-xs uppercase tracking-widest text-neutral-400">
-            {eyebrow}
-          </p>
-        )}
-        <h2 className="text-2xl font-semibold text-white">{title}</h2>
-        {desc && (
-          <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            {desc}
-          </p>
-        )}
-      </div>
-      {children}
-    </section>
   );
 }
 
@@ -52,7 +21,7 @@ function ToolCard({
   bullets: string[];
 }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+    <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
       <div className="space-y-2">
         <h3 className="text-base font-semibold text-white">{title}</h3>
         <p className="text-sm text-neutral-300 leading-relaxed">{subtitle}</p>
@@ -73,7 +42,7 @@ function TocLink({ href, label }: { href: string; label: string }) {
   return (
     <a
       href={href}
-      className="block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 hover:bg-white/10 hover:text-white transition"
+      className="premium-card is-clickable block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 transition hover:text-white"
     >
       {label}
     </a>
@@ -93,8 +62,8 @@ function MiniCard({
     <div
       className={
         tone === "hard"
-          ? "rounded-2xl border border-white/15 bg-white/10 p-6"
-          : "rounded-2xl border border-white/10 bg-black/30 p-6"
+          ? "calm-block rounded-2xl border border-white/15 bg-white/10 p-6"
+          : "calm-block rounded-2xl border border-white/10 bg-black/30 p-6"
       }
     >
       <p className="text-sm font-semibold text-white">{title}</p>
@@ -137,47 +106,63 @@ export default function OperatorPage() {
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            Operator is for practitioners. It explains how to interpret REZIME Engine, Sync, and Battle Lines —
-            turning regime context into posture and risk behavior.
-            REZIME can sit above any execution style: discretionary, systematic, macro, or signal-based workflows.
+            Operator is for practitioners. It explains how to interpret REZIME
+            Engine, Sync, and Battle Lines — turning regime context into posture
+            and risk behavior. REZIME can sit above any execution style:
+            discretionary, systematic, macro, or signal-based workflows.
           </p>
 
           <div className="flex flex-wrap gap-3">
             <Link
               href="/observer"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
+              className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
               ← Learn (Observer)
             </Link>
             <Link
               href="/allocator"
-              className="rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 hover:bg-white/5 transition"
+              className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
             >
               Proof (Portfolio Lab) →
             </Link>
           </div>
 
           {/* QUICK JUMP */}
-          <div className="rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
+          <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-neutral-300">Jump to:</span>
-              <a href="#stack" className="underline decoration-white/20 hover:decoration-white/50 transition">
+              <a
+                href="#stack"
+                className="underline decoration-white/20 transition hover:decoration-white/50"
+              >
                 The Stack
               </a>
               <span className="text-neutral-600">•</span>
-              <a href="#alignment" className="underline decoration-white/20 hover:decoration-white/50 transition">
+              <a
+                href="#alignment"
+                className="underline decoration-white/20 transition hover:decoration-white/50"
+              >
                 Transitions
               </a>
               <span className="text-neutral-600">•</span>
-              <a href="#rules" className="underline decoration-white/20 hover:decoration-white/50 transition">
+              <a
+                href="#rules"
+                className="underline decoration-white/20 transition hover:decoration-white/50"
+              >
                 Rules
               </a>
               <span className="text-neutral-600">•</span>
-              <a href="#doctrine" className="underline decoration-white/20 hover:decoration-white/50 transition">
+              <a
+                href="#doctrine"
+                className="underline decoration-white/20 transition hover:decoration-white/50"
+              >
                 Doctrine
               </a>
               <span className="text-neutral-600">•</span>
-              <a href="#cases" className="underline decoration-white/20 hover:decoration-white/50 transition">
+              <a
+                href="#cases"
+                className="underline decoration-white/20 transition hover:decoration-white/50"
+              >
                 Cases
               </a>
             </div>
@@ -187,7 +172,7 @@ export default function OperatorPage() {
 
       {/* OPERATING PRINCIPLES */}
       <Reveal delayMs={90}>
-        <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
+        <section className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
             Operating principles
           </p>
@@ -219,8 +204,9 @@ export default function OperatorPage() {
               <TocLink href="#ip" label="What’s Shown vs Hidden" />
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              Tip: Observer explains the worldview. Operator explains how to apply the map.
+            <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
+              Tip: Observer explains the worldview. Operator explains how to apply
+              the map.
             </div>
           </aside>
 
@@ -232,7 +218,7 @@ export default function OperatorPage() {
                 id="stack"
                 eyebrow="System architecture"
                 title="The Stack"
-                desc="Three indicators. Minimal redundancy. Each answers a different question."
+                subtitle="Three indicators. Minimal redundancy. Each answers a different question."
               >
                 <div className="grid gap-4 lg:grid-cols-3">
                   <ToolCard
@@ -272,7 +258,7 @@ export default function OperatorPage() {
                 id="alignment"
                 eyebrow="Core mechanic"
                 title="Full Alignment vs Transitions"
-                desc="If you can name the phase, you stop making phase-mismatched decisions."
+                subtitle="If you can name the phase, you stop making phase-mismatched decisions."
               >
                 <div className="grid gap-4 lg:grid-cols-2">
                   <MiniCard
@@ -286,12 +272,13 @@ export default function OperatorPage() {
                   />
                 </div>
 
-                <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="calm-block mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
                   <p className="text-sm font-semibold text-white">
                     The escalation storyboard
                   </p>
                   <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                    Early phases have the best RR, but they are noisy. Later phases are safer, but RR is worse.
+                    Early phases have the best RR, but they are noisy. Later phases
+                    are safer, but RR is worse.
                   </p>
 
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -305,7 +292,7 @@ export default function OperatorPage() {
                     ].map(([name, desc]) => (
                       <div
                         key={name}
-                        className="rounded-xl border border-white/10 bg-black/30 p-4"
+                        className="calm-block rounded-xl border border-white/10 bg-black/30 p-4"
                       >
                         <span className="inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] text-white">
                           {name}
@@ -318,7 +305,8 @@ export default function OperatorPage() {
                   </div>
 
                   <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-                    Best operator habit: never be contrarian inside Full Alignment. Wait until cracks appear.
+                    Best operator habit: never be contrarian inside Full Alignment.
+                    Wait until cracks appear.
                   </p>
                 </div>
               </Section>
@@ -330,9 +318,9 @@ export default function OperatorPage() {
                 id="rules"
                 eyebrow="How to read it"
                 title="Interpretation Rules"
-                desc="These rules produce posture. They do not produce entries."
+                subtitle="These rules produce posture. They do not produce entries."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                   <RuleRow
                     label="Rule 1"
                     text="Start with the Empire. If Engine shows a clear Empire, your default posture is to align with it. Do not treat minor counter-moves as reversals."
@@ -355,7 +343,8 @@ export default function OperatorPage() {
                   />
 
                   <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-                    Reminder: REZIME supplements any method. It adds regime context to your execution.
+                    Reminder: REZIME supplements any method. It adds regime context
+                    to your execution.
                   </p>
                 </div>
               </Section>
@@ -367,7 +356,7 @@ export default function OperatorPage() {
                 id="doctrine"
                 eyebrow="How you use it"
                 title="Operating Doctrine"
-                desc="Make risk small early, then let time-in-market do the heavy lifting."
+                subtitle="Make risk small early, then let time-in-market do the heavy lifting."
               >
                 <div className="grid gap-4 lg:grid-cols-2">
                   <MiniCard
@@ -390,14 +379,14 @@ export default function OperatorPage() {
                   />
                 </div>
 
-                <div className="mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
+                <div className="calm-block mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
                   <p className="text-sm font-semibold text-white">
                     The point of the doctrine
                   </p>
                   <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
                     Most stress comes from not knowing what battle you are in.
-                    REZIME gives you the battle map. When you understand the battle, the mind calms down.
-                    Then you can act with discipline.
+                    REZIME gives you the battle map. When you understand the
+                    battle, the mind calms down. Then you can act with discipline.
                   </p>
                 </div>
               </Section>
@@ -409,27 +398,32 @@ export default function OperatorPage() {
                 id="cases"
                 eyebrow="Proof library"
                 title="Case Library"
-                desc="Over time, this becomes a public pattern library: regime behavior, escalation, and posture — without exposing construction."
+                subtitle="Over time, this becomes a public pattern library: regime behavior, escalation, and posture — without exposing construction."
               >
                 <div className="grid gap-4 lg:grid-cols-3">
-                  <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
+                  <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
                     <p className="text-sm font-semibold text-white">2020 Crash</p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Fast escalation from Rebellion to Revolution. Shows why survival mode matters.
+                      Fast escalation from Rebellion to Revolution. Shows why
+                      survival mode matters.
                     </p>
                     <p className="mt-3 text-xs text-neutral-500">Regime strip slot</p>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
+                  <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
                     <p className="text-sm font-semibold text-white">BTC Cycle</p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Long Empires, fewer rebellions. Shows why HTF tends to be cleaner.
+                      Long Empires, fewer rebellions. Shows why HTF tends to be
+                      cleaner.
                     </p>
                     <p className="mt-3 text-xs text-neutral-500">Regime strip slot</p>
                   </div>
-                  <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
-                    <p className="text-sm font-semibold text-white">Mean Reversion Trap</p>
+                  <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
+                    <p className="text-sm font-semibold text-white">
+                      Mean Reversion Trap
+                    </p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Full Alignment holds longer than expected. Shows why contrarian entries get punished.
+                      Full Alignment holds longer than expected. Shows why
+                      contrarian entries get punished.
                     </p>
                     <p className="mt-3 text-xs text-neutral-500">Regime strip slot</p>
                   </div>
@@ -443,20 +437,21 @@ export default function OperatorPage() {
                 id="ip"
                 eyebrow="IP protection"
                 title="What’s Shown vs Hidden"
-                desc="You can demonstrate behavior and outcomes without disclosing construction."
+                subtitle="You can demonstrate behavior and outcomes without disclosing construction."
               >
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300 leading-relaxed">
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm text-neutral-300 leading-relaxed">
                   <p>
                     Public proofs focus on the{" "}
                     <span className="text-white font-semibold">regime strip</span>{" "}
                     and labels only (Empire / Rebellion / Uprising / Revolution).
                   </p>
                   <p>
-                    Construction details (MA blends, internal logic, territory math) remain internal until
-                    access is released.
+                    Construction details (MA blends, internal logic, territory
+                    math) remain internal until access is released.
                   </p>
                   <p className="text-xs text-neutral-500">
-                    Clear message: REZIME is a map. You can audit behavior without reverse-engineering the tool.
+                    Clear message: REZIME is a map. You can audit behavior without
+                    reverse-engineering the tool.
                   </p>
                 </div>
               </Section>
@@ -464,20 +459,21 @@ export default function OperatorPage() {
 
             {/* CTA */}
             <Reveal delayMs={470}>
-              <section className="rounded-2xl border border-white/10 bg-white/5 p-6">
+              <section className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-sm font-semibold text-white">
                       Want the proof archive?
                     </p>
                     <p className="text-xs text-neutral-400">
-                      Allocator portal = factsheet archive + reporting cadence + governance tone.
+                      Allocator portal = factsheet archive + reporting cadence +
+                      governance tone.
                     </p>
                   </div>
 
                   <Link
                     href="/allocator"
-                    className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
+                    className="premium-card is-clickable inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
                   >
                     Enter Portfolio Lab →
                   </Link>
