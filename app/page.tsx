@@ -89,7 +89,7 @@ function FaqPreviewItem({ q, a }: { q: string; a: React.ReactNode }) {
 export default function HomePage() {
   return (
     <section className="space-y-12">
-      {/* HERO (2 CTAs max) */}
+      {/* HERO */}
       <Reveal delayMs={0}>
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-8 sm:p-12">
           <div className="pointer-events-none absolute inset-0 opacity-40">
@@ -99,27 +99,30 @@ export default function HomePage() {
 
           <div className="relative space-y-6">
             <div className="flex flex-wrap gap-2">
-              <Tag>Market regimes</Tag>
-              <Tag>Transitions</Tag>
+              <Tag>Survival-first</Tag>
+              <Tag>Regime map</Tag>
               <Tag>Map, not signals</Tag>
             </div>
 
             <h1 className="max-w-4xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-              A market regime map — built for survivability.
+              I’m not teaching you how to win.
+              <br className="hidden sm:block" /> I’m teaching you how to not die.
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              Compress complexity into clear regimes so you stop guessing, reduce
-              phase-mismatch mistakes, and stay alive long enough to build real skill.
+              REZIME is a market regime map. It doesn’t replace your strategy —
+              it protects you while you build one.
+              <br />
+              When the environment changes, your behavior must change too.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
-                href="/start"
+                href="/observer"
                 className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Start (Curious Cat 🐾)
+                Start with the map →
               </Link>
 
               <Link
@@ -127,26 +130,25 @@ export default function HomePage() {
                 className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
               >
                 <Sheen className="rounded-full" />
-                I’m already trading →
+                Choose a path
               </Link>
 
-              {/* keep pricing as a quiet link, not a hero button */}
               <Link
-                href="/pricing"
+                href="/allocator"
                 className="ml-1 inline-flex items-center text-sm text-neutral-400 hover:text-white transition"
               >
-                Pricing →
+                See the proof →
               </Link>
             </div>
 
             <p className="text-xs text-neutral-500 leading-relaxed">
-              Survive first → build skill → then care about performance.
+              Survive first → build skill → performance becomes a byproduct.
             </p>
           </div>
         </div>
       </Reveal>
 
-      {/* PATH SELECTOR (main funnel gate) */}
+      {/* PATH SELECTOR */}
       <Reveal delayMs={70}>
         <div id="path" className="space-y-4 scroll-mt-28">
           <div className="flex items-end justify-between gap-6">
@@ -159,7 +161,7 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="hidden text-sm text-neutral-400 sm:block">
-              Beginner basics • Participant tools
+              Basics • Map • Proof
             </p>
           </div>
 
@@ -170,20 +172,28 @@ export default function HomePage() {
               href="/start"
               cta="Start here"
               variant="solid"
-              desc="What trading is, what charts/indicators are, and why most beginners lose. Plain language. No hype."
+              desc="Plain-language basics: what markets are, why most beginners lose, and how to avoid blowing up early."
             />
             <PathCard
-              kicker="Already participating"
+              kicker="Already trading"
               title="Active Participant"
               href="/observer"
-              cta="Go to the map"
-              desc="Skip the basics. Start with the regime map, then move to the Playbook and Portfolio Lab when ready."
+              cta="Go to Learn"
+              desc="Start with the regime map (Empire / Siege / Revolution), then move to Playbook when ready."
             />
+          </div>
+
+          {/* single line clarity under the cards */}
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-sm text-neutral-300 leading-relaxed">
+            <span className="font-semibold text-white">Rule of thumb:</span>{" "}
+            if you feel confused, you’re probably in{" "}
+            <span className="font-semibold text-white">Siege</span>. Confusion is
+            a signal to reduce activity — not try harder.
           </div>
         </div>
       </Reveal>
 
-      {/* PORTALS (tiny + optional) */}
+      {/* PORTALS */}
       <Reveal delayMs={130}>
         <div className="space-y-3">
           <div className="flex items-center justify-between gap-6">
@@ -192,26 +202,14 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">
-            <MiniPortal
-              title="Learn"
-              sub="Regime map overview"
-              href="/observer"
-            />
-            <MiniPortal
-              title="Playbook"
-              sub="How to interpret tools"
-              href="/operator"
-            />
-            <MiniPortal
-              title="Portfolio Lab"
-              sub="Proof + cadence"
-              href="/allocator"
-            />
+            <MiniPortal title="Learn" sub="Regime map overview" href="/observer" />
+            <MiniPortal title="Playbook" sub="How to interpret tools" href="/operator" />
+            <MiniPortal title="Portfolio Lab" sub="Proof that survival works" href="/allocator" />
           </div>
         </div>
       </Reveal>
 
-      {/* FAQ PREVIEW (only 3) */}
+      {/* FAQ PREVIEW */}
       <Reveal delayMs={180}>
         <div className="space-y-4">
           <div className="flex items-end justify-between gap-6">
@@ -234,20 +232,20 @@ export default function HomePage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <FaqPreviewItem
-              q="What is REZIME Engine?"
+              q="What is REZIME?"
               a={
                 <>
                   A <span className="font-semibold text-white">market regime map</span>{" "}
-                  that classifies the environment so you stop guessing.
+                  that helps you stop fighting the wrong environment.
                 </>
               }
             />
             <FaqPreviewItem
-              q="Is it a signal indicator?"
+              q="Is it a strategy?"
               a={
                 <>
-                  No. REZIME is <span className="font-semibold text-white">map, not signals</span>.{" "}
-                  You still make decisions — it just makes the environment easier to read.
+                  No. REZIME is <span className="font-semibold text-white">not your strategy</span>.{" "}
+                  It protects you while you build one.
                 </>
               }
             />
@@ -255,8 +253,9 @@ export default function HomePage() {
               q="Do you guarantee profits?"
               a={
                 <>
-                  No. Markets contain randomness. REZIME reduces confusion and{" "}
-                  phase-mismatch mistakes — that’s the edge it targets.
+                  No. The goal is survivability and clarity —{" "}
+                  <span className="font-semibold text-white">profit is a byproduct</span>{" "}
+                  of staying alive long enough to develop edge.
                 </>
               }
             />
@@ -278,7 +277,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            New here? Start with Curious Cat 🐾. Already trading? Start with the map.
+            New? Start with Curious Cat 🐾. Already trading? Start with the map.
           </p>
         </div>
       </Reveal>

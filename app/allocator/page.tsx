@@ -12,8 +12,8 @@ const PROOFS = [
     date: "Wk 1",
     title: "Global Portfolio Lab — Week 1",
     summary:
-      "Kickoff snapshot: holdings established, baseline regime map, and exposure posture recorded.",
-    tags: ["Time-stamped", "Factsheet", "Baseline"],
+      "Kickoff snapshot: baseline holdings, initial regime map, and starting exposure posture.",
+    tags: ["Time-stamped", "Baseline", "Posture"],
     links: { notion: PORTFOLIO_LAB_URL },
   },
   {
@@ -21,7 +21,7 @@ const PROOFS = [
     date: "Wk 2",
     title: "Week 2",
     summary:
-      "First delta week: changes vs baseline, regime stability notes, and risk posture adjustments.",
+      "First adjustment week: what changed, what stayed, and why posture shifted.",
     tags: ["Weekly delta", "Regime notes"],
     links: { notion: PORTFOLIO_LAB_URL },
   },
@@ -30,7 +30,7 @@ const PROOFS = [
     date: "Wk 3",
     title: "Week 3",
     summary:
-      "Consistency check: beta-hugging behavior vs major indices and country baskets. No hype.",
+      "Consistency check: behavior vs environment. No hype, just posture.",
     tags: ["Consistency", "Low-noise"],
     links: { notion: PORTFOLIO_LAB_URL },
   },
@@ -39,8 +39,8 @@ const PROOFS = [
     date: "Wk 4",
     title: "Week 4",
     summary:
-      "Momentum confirmation window: this is where public-facing rollout becomes viable if behavior holds.",
-    tags: ["Launch gate", "Proof-first"],
+      "Proof of process: showing how surviving regimes precedes performance.",
+    tags: ["Process", "Proof-first"],
     links: { notion: PORTFOLIO_LAB_URL },
   },
 ];
@@ -75,10 +75,8 @@ function Card({
 }) {
   return (
     <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-      <div className="space-y-2">
-        <h3 className="text-base font-semibold text-white">{title}</h3>
-        <p className="text-sm text-neutral-300 leading-relaxed">{desc}</p>
-      </div>
+      <h3 className="text-base font-semibold text-white">{title}</h3>
+      <p className="mt-2 text-sm text-neutral-300 leading-relaxed">{desc}</p>
 
       <div className="mt-4 space-y-2">
         {rows.map((r) => (
@@ -92,26 +90,6 @@ function Card({
         ))}
       </div>
     </div>
-  );
-}
-
-function Badge({
-  tone = "soft",
-  children,
-}: {
-  tone?: "soft" | "hard";
-  children: React.ReactNode;
-}) {
-  return (
-    <span
-      className={
-        tone === "hard"
-          ? "inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[11px] text-white"
-          : "inline-flex items-center rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-neutral-300"
-      }
-    >
-      {children}
-    </span>
   );
 }
 
@@ -166,27 +144,31 @@ function ProofCardLite({
 export default function AllocatorPage() {
   return (
     <div className="space-y-14">
+
       {/* HERO */}
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Portfolio Lab Portal
+            Portfolio Lab
           </p>
 
           <div className="flex flex-wrap gap-2">
-            <Pill>Proof-first reporting</Pill>
-            <Pill>Risk posture</Pill>
-            <Pill>Allocator-readable cadence</Pill>
+            <Pill>Proof of process</Pill>
+            <Pill>Survival-first</Pill>
+            <Pill>Behavior over prediction</Pill>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            REZIME as a proof-backed operating layer.
+            Proof that surviving the market comes before profiting from it.
           </h1>
 
-          <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            This portal is written for fast scanning: mandate fit, constraints,
-            risk posture, and evidence. REZIME is a context layer — the output is
-            exposure posture and regime awareness, not trade signals.
+          <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
+            This is not a performance showcase.
+            <br /><br />
+            Portfolio Lab documents posture, regime context, and behavior across real market conditions.
+            The purpose is simple: demonstrate how staying aligned with the environment reduces self-inflicted damage.
+            <br /><br />
+            Performance is a byproduct. Survivability is the foundation.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -194,400 +176,115 @@ export default function AllocatorPage() {
               href="/operator"
               className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
-              ← Playbook (Operator)
+              ← Playbook
             </Link>
-            <Link
-              href="/contact"
-              className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
-            >
-              Contact →
-            </Link>
-          </div>
-        </section>
-      </Reveal>
-
-      {/* LAYOUT */}
-      <Reveal delayMs={80}>
-        <section className="grid gap-8 lg:grid-cols-[240px_1fr]">
-          {/* TOC */}
-          <aside className="space-y-3 lg:sticky lg:top-24 lg:h-fit">
-            <p className="text-xs uppercase tracking-widest text-neutral-400">
-              Contents
-            </p>
-
-            <div className="grid gap-2">
-              <TocLink href="#snapshot" label="Allocator Snapshot" />
-              <TocLink href="#mandate" label="Mandate Fit" />
-              <TocLink href="#risk" label="Risk Controls" />
-              <TocLink href="#governance" label="Governance" />
-              <TocLink href="#reporting" label="Reporting & Evidence" />
-              <TocLink href="#proof" label="Proof Archive" />
-              <TocLink href="#portfolio" label="Portfolio Lab" />
-              <TocLink href="#status" label="Current Status" />
-            </div>
-
-            <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              Built for scanning. Clear sections, minimal story. Observer has the
-              public framing.
-            </div>
-
             <Link
               href="/observer"
-              className="premium-card is-clickable block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 transition hover:text-white"
+              className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
             >
-              Read overview in Learn (Observer) →
+              Learn (Overview) →
             </Link>
-          </aside>
-
-          {/* CONTENT */}
-          <div className="space-y-12">
-            {/* SNAPSHOT */}
-            <Reveal delayMs={110}>
-              <Section
-                id="snapshot"
-                eyebrow="One-screen summary"
-                title="Allocator Snapshot"
-                subtitle="A compact view of mandate, edge definition, constraints, and reporting cadence."
-              >
-                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <div className="flex flex-wrap gap-2">
-                    <Badge tone="hard">Map, not signals</Badge>
-                    <Badge tone="hard">Risk-first</Badge>
-                    <Badge>Time-in-market posture</Badge>
-                    <Badge>Regime-aware exposure</Badge>
-                    <Badge>Weekly factsheet cadence</Badge>
-                  </div>
-
-                  <div className="mt-5 grid gap-4 lg:grid-cols-3">
-                    <Card
-                      title="Mandate fit"
-                      desc="Participate in dominant regimes while controlling behavior during transitions."
-                      rows={[
-                        {
-                          k: "Primary objective",
-                          v: "Survivability through regime change",
-                        },
-                        { k: "Secondary", v: "Participation in dominant trend regimes" },
-                        { k: "Not optimized for", v: "Top/bottom precision" },
-                      ]}
-                    />
-                    <Card
-                      title="Edge definition"
-                      desc="Behavioral edge: reduce phase-mismatched decisions that create avoidable drawdowns."
-                      rows={[
-                        { k: "Core", v: "Regime recognition + transition discipline" },
-                        { k: "Mechanism", v: "Engine / Sync / Battle Lines" },
-                        { k: "Output", v: "Exposure posture, not entries" },
-                      ]}
-                    />
-                    <Card
-                      title="Reporting"
-                      desc="Evidence is published in a consistent format with time-stamps and deltas."
-                      rows={[
-                        { k: "Cadence", v: "Weekly updates" },
-                        { k: "Artifacts", v: "Factsheet + posture notes" },
-                        { k: "Archive", v: "Proof cards + Portfolio Lab" },
-                      ]}
-                    />
-                  </div>
-
-                  <div className="calm-block mt-4 rounded-2xl border border-white/10 bg-black/30 p-4">
-                    <p className="text-xs uppercase tracking-widest text-neutral-400">
-                      What to expect
-                    </p>
-                    <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      This is not a promise of prediction. It is a documentation
-                      and governance layer that improves decision quality by
-                      clarifying regime and transition risk.
-                    </p>
-                  </div>
-                </div>
-              </Section>
-            </Reveal>
-
-            {/* MANDATE */}
-            <Reveal delayMs={150}>
-              <Section
-                id="mandate"
-                eyebrow="Strategy"
-                title="Mandate Fit"
-                subtitle="REZIME is compatible with disciplined process because it expresses posture, constraints, risk posture, and auditability."
-              >
-                <div className="grid gap-4 lg:grid-cols-3">
-                  <Card
-                    title="Objective"
-                    desc="Participation with controlled downside behavior."
-                    rows={[
-                      { k: "Primary", v: "Avoid catastrophic drawdowns" },
-                      { k: "Secondary", v: "Participate in dominant regimes" },
-                      { k: "Constraint", v: "No signal-selling behavior" },
-                    ]}
-                  />
-                  <Card
-                    title="Implementation"
-                    desc="Context layer that can sit above TA, fundamentals, or discretionary workflows."
-                    rows={[
-                      { k: "Input", v: "Multi-timeframe regime signals" },
-                      { k: "Output", v: "Exposure posture + transition warnings" },
-                      { k: "Use", v: "Reduce churn and overtrading" },
-                    ]}
-                  />
-                  <Card
-                    title="Why it scales"
-                    desc="Because it governs behavior, not instrument-specific tricks."
-                    rows={[
-                      { k: "Multi-asset", v: "Indices • FX • Metals • Crypto" },
-                      { k: "Preference", v: "Higher TFs for clarity" },
-                      { k: "Design", v: "Low-noise decision model" },
-                    ]}
-                  />
-                </div>
-              </Section>
-            </Reveal>
-
-            {/* RISK */}
-            <Reveal delayMs={175}>
-              <Section
-                id="risk"
-                eyebrow="Controls"
-                title="Risk Controls"
-                subtitle="Risk posture is explicit. When regime risk rises, exposure and aggression fall."
-              >
-                <div className="grid gap-4 lg:grid-cols-3">
-                  <Card
-                    title="Posture ladder"
-                    desc="A simple regime→behavior mapping."
-                    rows={[
-                      { k: "Empire", v: "Participate / hold posture" },
-                      { k: "Rebellion", v: "Reduce aggression / tighten rules" },
-                      { k: "Uprising", v: "Survival mode / reduce exposure" },
-                      { k: "Revolution", v: "Reset assumptions / rebuild" },
-                    ]}
-                  />
-                  <Card
-                    title="Drawdown discipline"
-                    desc="Focus on avoiding avoidable drawdowns."
-                    rows={[
-                      { k: "Goal", v: "Prevent phase-mismatch losses" },
-                      { k: "Method", v: "Regime awareness + exposure control" },
-                      { k: "Bias", v: "Higher TF clarity preferred" },
-                    ]}
-                  />
-                  <Card
-                    title="What this is not"
-                    desc="Clear anti-hype boundaries."
-                    rows={[
-                      { k: "Not", v: "A promise of returns" },
-                      { k: "Not", v: "A buy/sell signal service" },
-                      { k: "Not", v: "A magic entry system" },
-                    ]}
-                  />
-                </div>
-              </Section>
-            </Reveal>
-
-            {/* GOVERNANCE */}
-            <Reveal delayMs={200}>
-              <Section
-                id="governance"
-                eyebrow="Process"
-                title="Governance"
-                subtitle="A clean audit trail: what was believed, what changed, and why."
-              >
-                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <div className="grid gap-4 lg:grid-cols-3">
-                    <Card
-                      title="Audit trail"
-                      desc="Every update is time-stamped."
-                      rows={[
-                        { k: "Artifacts", v: "Factsheet + posture notes" },
-                        { k: "Deltas", v: "Week-to-week changes" },
-                        { k: "Archive", v: "Indexed proof cards" },
-                      ]}
-                    />
-                    <Card
-                      title="Change policy"
-                      desc="Avoid moving goalposts."
-                      rows={[
-                        { k: "Indicator logic", v: "Not edited to fit outcomes" },
-                        { k: "Reporting", v: "Format tightens over time" },
-                        { k: "Disclosure", v: "Construction stays internal" },
-                      ]}
-                    />
-                    <Card
-                      title="Communication"
-                      desc="Designed to be readable without hype."
-                      rows={[
-                        { k: "Tone", v: "Evidence-first" },
-                        { k: "Focus", v: "Survivability + behavior" },
-                        { k: "Scope", v: "Cross-market applicability" },
-                      ]}
-                    />
-                  </div>
-                </div>
-              </Section>
-            </Reveal>
-
-            {/* REPORTING */}
-            <Reveal delayMs={230}>
-              <Section
-                id="reporting"
-                eyebrow="IR cadence"
-                title="Reporting & Evidence"
-                subtitle="A repeatable evidence trail designed for review."
-              >
-                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-sm font-semibold text-white">
-                        Portfolio Lab (deep detail)
-                      </p>
-                      <p className="mt-1 text-xs text-neutral-400 leading-relaxed">
-                        Factsheet-style archive: holdings, regime context,
-                        exposure posture, and week-by-week deltas.
-                      </p>
-                    </div>
-
-                    <a
-                      href={PORTFOLIO_LAB_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="premium-card is-clickable inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
-                    >
-                      Open Portfolio Lab →
-                    </a>
-                  </div>
-
-                  <p className="mt-4 text-[11px] text-neutral-500">
-                    Not financial advice. Public documentation for transparency
-                    and process.
-                  </p>
-                </div>
-              </Section>
-            </Reveal>
-
-            {/* PROOF ARCHIVE */}
-            <Reveal delayMs={260}>
-              <section id="proof" className="scroll-mt-24 space-y-4">
-                <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-neutral-400">
-                      Proof Archive
-                    </p>
-                    <h2 className="mt-2 text-xl font-semibold tracking-tight text-white">
-                      Time-stamped weekly index
-                    </h2>
-                    <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-                      Weekly updates are indexed here. Platform-agnostic. No
-                      embeds. Designed to be easy to audit.
-                    </p>
-                  </div>
-
-                  <div className="text-xs text-neutral-500">
-                    Updated weekly • low-noise • context-first
-                  </div>
-                </div>
-
-                <div className="grid gap-4 lg:grid-cols-2">
-                  {PROOFS.map((p) => (
-                    <ProofCardLite
-                      key={p.week}
-                      week={p.week}
-                      date={p.date}
-                      title={p.title}
-                      summary={p.summary}
-                      tags={p.tags}
-                      notionUrl={p.links.notion}
-                    />
-                  ))}
-                </div>
-              </section>
-            </Reveal>
-
-            {/* PORTFOLIO LAB */}
-            <Reveal delayMs={290}>
-              <Section
-                id="portfolio"
-                eyebrow="Deep archive"
-                title="Portfolio Lab"
-                subtitle="One place for the full proof trail: holdings, context, posture, and deltas."
-              >
-                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-sm font-semibold text-white">
-                        Open the full archive
-                      </p>
-                      <p className="mt-1 text-xs text-neutral-400 leading-relaxed">
-                        If you only read one thing: read Week 1, then compare
-                        weekly deltas.
-                      </p>
-                    </div>
-
-                    <a
-                      href={PORTFOLIO_LAB_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="premium-card is-clickable inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
-                    >
-                      Open Portfolio Lab →
-                    </a>
-                  </div>
-
-                  <div className="mt-4 grid gap-3 sm:grid-cols-3">
-                    {[
-                      ["Holdings", "What is held and why."],
-                      ["Regime context", "Engine/Sync notes for the week."],
-                      ["Posture", "Risk stance and adjustments."],
-                    ].map(([t, d]) => (
-                      <div
-                        key={t}
-                        className="calm-block rounded-xl border border-white/10 bg-black/30 p-4"
-                      >
-                        <div className="text-xs uppercase tracking-widest text-neutral-400">
-                          {t}
-                        </div>
-                        <div className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                          {d}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Section>
-            </Reveal>
-
-            {/* STATUS */}
-            <Reveal delayMs={320}>
-              <Section
-                id="status"
-                eyebrow="Now"
-                title="Current Status"
-                subtitle="What is live today, what is being built, and what changes next."
-              >
-                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <div className="space-y-2 text-sm text-neutral-300 leading-relaxed">
-                    <p>
-                      <span className="font-semibold text-white">Live:</span>{" "}
-                      weekly proof index and Portfolio Lab archive.
-                    </p>
-                    <p>
-                      <span className="font-semibold text-white">In build:</span>{" "}
-                      standardized factsheet template and public regime-strip
-                      proofs.
-                    </p>
-                    <p>
-                      <span className="font-semibold text-white">Next:</span>{" "}
-                      tighten reporting format and expand case studies under
-                      Operator.
-                    </p>
-                  </div>
-                </div>
-              </Section>
-            </Reveal>
           </div>
         </section>
       </Reveal>
+
+      {/* WHY THIS EXISTS */}
+      <Reveal delayMs={80}>
+        <Section
+          id="why"
+          eyebrow="Purpose"
+          title="Why Portfolio Lab exists"
+          subtitle="Because most trading damage comes from behavior, not strategy."
+        >
+          <div className="grid gap-4 lg:grid-cols-3">
+            <Card
+              title="What is documented"
+              desc="The environment, the posture taken, and the reasoning."
+              rows={[
+                { k: "Focus", v: "Regime awareness" },
+                { k: "Output", v: "Exposure posture" },
+                { k: "Style", v: "Low-noise documentation" },
+              ]}
+            />
+            <Card
+              title="What is NOT shown"
+              desc="This is not signal marketing."
+              rows={[
+                { k: "Not", v: "Entry/exit alerts" },
+                { k: "Not", v: "Prediction claims" },
+                { k: "Not", v: "Hype reporting" },
+              ]}
+            />
+            <Card
+              title="Core idea"
+              desc="Reduce avoidable losses first. Let time do the rest."
+              rows={[
+                { k: "Step 1", v: "Avoid phase mismatch" },
+                { k: "Step 2", v: "Stay aligned with regime" },
+                { k: "Step 3", v: "Let edge compound" },
+              ]}
+            />
+          </div>
+        </Section>
+      </Reveal>
+
+      {/* PROOF ARCHIVE */}
+      <Reveal delayMs={120}>
+        <section id="proof" className="scroll-mt-24 space-y-4">
+          <div>
+            <p className="text-xs uppercase tracking-widest text-neutral-400">
+              Weekly Proof Index
+            </p>
+            <h2 className="mt-2 text-xl font-semibold text-white">
+              Time-stamped process trail
+            </h2>
+            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+              Each week records environment, posture, and behavioral decisions — not just outcomes.
+            </p>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-2">
+            {PROOFS.map((p) => (
+              <ProofCardLite
+                key={p.week}
+                week={p.week}
+                date={p.date}
+                title={p.title}
+                summary={p.summary}
+                tags={p.tags}
+                notionUrl={p.links.notion}
+              />
+            ))}
+          </div>
+        </section>
+      </Reveal>
+
+      {/* PORTFOLIO LAB LINK */}
+      <Reveal delayMs={160}>
+        <Section
+          id="portfolio"
+          eyebrow="Deep archive"
+          title="Full Portfolio Lab"
+          subtitle="All weekly snapshots live here."
+        >
+          <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 flex justify-between items-center">
+            <div>
+              <p className="text-sm text-neutral-300">
+                Holdings, regime notes, posture changes, and weekly deltas.
+              </p>
+            </div>
+            <a
+              href={PORTFOLIO_LAB_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="premium-card is-clickable rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
+            >
+              Open Portfolio Lab →
+            </a>
+          </div>
+        </Section>
+      </Reveal>
+
     </div>
   );
 }

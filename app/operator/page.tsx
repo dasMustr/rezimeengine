@@ -98,18 +98,23 @@ export default function OperatorPage() {
           <div className="flex flex-wrap gap-2">
             <Pill>Map, not signals</Pill>
             <Pill>Regimes → posture</Pill>
-            <Pill>Time-in-market behavior</Pill>
+            <Pill>Behavioral rules</Pill>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            Tools + rules for reading regimes.
+            Not entries.
+            <br className="hidden sm:block" /> Posture rules.
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
             Operator is for practitioners. It explains how to interpret REZIME
-            Engine, Sync, and Battle Lines — turning regime context into posture
-            and risk behavior. REZIME can sit above any execution style:
-            discretionary, systematic, macro, or signal-based workflows.
+            Engine, Sync, and Battle Lines — so you can translate regime context
+            into posture and risk behavior.
+            <br />
+            <br />
+            REZIME can sit above any execution style: discretionary, systematic,
+            macro, or even signal-based workflows. The point is simple:
+            <span className="text-white font-semibold"> stop behaving the same in every regime</span>.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -180,8 +185,9 @@ export default function OperatorPage() {
             Context first. Execution second.
           </h2>
           <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            REZIME is a context layer. It helps you know what battle you are in.
-            Then you apply your own entries, sizing, and discipline.
+            The playbook is intentionally entry-agnostic. It tells you what the
+            environment is doing and what posture is rational inside that environment.
+            Your own method decides entries — REZIME governs tempo, aggression, and risk.
           </p>
         </section>
       </Reveal>
@@ -205,8 +211,7 @@ export default function OperatorPage() {
             </div>
 
             <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              Tip: Observer explains the worldview. Operator explains how to apply
-              the map.
+              Tip: Learn explains the worldview. Playbook explains how to apply the map.
             </div>
           </aside>
 
@@ -305,8 +310,8 @@ export default function OperatorPage() {
                   </div>
 
                   <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-                    Best operator habit: never be contrarian inside Full Alignment.
-                    Wait until cracks appear.
+                    Operator habit: never be contrarian inside Full Alignment.
+                    Wait until cracks appear — then reduce risk before you seek opportunity.
                   </p>
                 </div>
               </Section>
@@ -327,11 +332,11 @@ export default function OperatorPage() {
                   />
                   <RuleRow
                     label="Rule 2"
-                    text="Rebellion is a warning, not a command. It means volatility and counterpressure increased. Reduce overconfidence and tighten your personal execution rules."
+                    text="Rebellion is a warning, not a command. Volatility and counterpressure increased. Reduce overconfidence and tighten your personal execution rules."
                   />
                   <RuleRow
                     label="Rule 3"
-                    text="Uprising is when you shift into survival mode. Do less, not more. Reduce exposure. Avoid forcing new trades in messy structure."
+                    text="Uprising is survival mode. Do less, not more. Reduce exposure. Avoid forcing new trades in messy structure."
                   />
                   <RuleRow
                     label="Rule 4"
@@ -466,8 +471,7 @@ export default function OperatorPage() {
                       Want the proof archive?
                     </p>
                     <p className="text-xs text-neutral-400">
-                      Allocator portal = factsheet archive + reporting cadence +
-                      governance tone.
+                      Portfolio Lab = factsheet archive + cadence + governance tone.
                     </p>
                   </div>
 

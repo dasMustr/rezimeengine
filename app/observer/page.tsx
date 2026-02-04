@@ -50,9 +50,7 @@ function PlaceholderShot({ title, desc }: { title: string; desc: string }) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-sm font-semibold text-white">{title}</p>
-          <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-            {desc}
-          </p>
+          <p className="mt-2 text-sm text-neutral-300 leading-relaxed">{desc}</p>
         </div>
         <span className="text-xs text-neutral-500">Placeholder</span>
       </div>
@@ -62,8 +60,8 @@ function PlaceholderShot({ title, desc }: { title: string; desc: string }) {
           Screenshot slot
         </p>
         <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
-          Later: add a single chart image + 1–2 sentences explaining the regime and
-          the correct behavior (no internal formulas).
+          Later: add a single chart image + 1–2 sentences explaining the regime
+          and the correct behavior (no internal formulas).
         </p>
       </div>
     </div>
@@ -87,13 +85,22 @@ export default function ObserverPage() {
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            Learn the regime. Stop fighting the wrong environment.
+            I’m not teaching you how to win.
+            <br className="hidden sm:block" /> I’m teaching you how to not die.
           </h1>
 
           <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-            Learn is a plain-language introduction to REZIME Engine.
-            It teaches a simple regime vocabulary so you can name what you’re seeing,
-            reduce confusion, and make calmer decisions in markets.
+            Most traders don’t fail because they chose the wrong strategy. They
+            fail because they apply the same behavior in the wrong market
+            environment.
+            <br />
+            <br />
+            REZIME doesn’t tell you what to buy or sell. It helps you understand
+            when to participate, when to reduce activity, and when the market
+            itself is changing.
+            <br />
+            <br />
+            Survival first. Strategy comes after.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -112,6 +119,13 @@ export default function ObserverPage() {
             </Link>
 
             <Link
+              href="/allocator"
+              className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
+            >
+              See Proof →
+            </Link>
+
+            <Link
               href="/faq"
               className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
             >
@@ -127,7 +141,52 @@ export default function ObserverPage() {
             <ul className="mt-3 space-y-2 text-sm text-neutral-300 leading-relaxed">
               <li>1) Name the regime: Empire / Siege / Revolution</li>
               <li>2) Match your activity to the environment</li>
-              <li>3) If you’re confused, reduce activity (you’re probably in Siege)</li>
+              <li>
+                3) If you’re confused, reduce activity (you’re probably in Siege)
+              </li>
+            </ul>
+          </div>
+
+          {/* Proof strip (fast credibility for referrals) */}
+          <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-white">
+                  Proof exists (public, time-stamped)
+                </p>
+                <p className="mt-1 text-sm text-neutral-300 leading-relaxed">
+                  Portfolio Lab is a simple weekly archive showing how a survival posture
+                  survives real regimes — and why profit comes after survival.
+                </p>
+              </div>
+
+              <Link
+                href="/allocator"
+                className="premium-card is-clickable inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
+              >
+                Open Portfolio Lab →
+              </Link>
+            </div>
+
+            <p className="mt-4 text-[11px] text-neutral-500 leading-relaxed">
+              Not financial advice. This is public documentation for transparency and process.
+            </p>
+          </div>
+
+          {/* What it is / isn't */}
+          <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
+            <p className="text-sm font-semibold text-white">What REZIME is NOT</p>
+            <ul className="mt-3 space-y-2 text-sm text-neutral-300 leading-relaxed">
+              <li>• Not a buy/sell signal system</li>
+              <li>• Not a shortcut to profits</li>
+              <li>• Not a replacement for your method</li>
+            </ul>
+
+            <p className="mt-5 text-sm font-semibold text-white">What REZIME IS</p>
+            <ul className="mt-3 space-y-2 text-sm text-neutral-300 leading-relaxed">
+              <li>• A market environment map</li>
+              <li>• A behavioral guardrail</li>
+              <li>• A context layer that protects you while you build your edge</li>
             </ul>
           </div>
         </section>
@@ -154,7 +213,7 @@ export default function ObserverPage() {
             </div>
 
             <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              This portal is for people with zero market context. It explains the map — not execution rules.
+              This portal is public and beginner-safe. It explains the map — not execution rules.
             </div>
           </aside>
 
@@ -170,13 +229,18 @@ export default function ObserverPage() {
               >
                 <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 space-y-3 text-sm leading-relaxed text-neutral-300">
                   <p>
-                    People don’t blow up because they “entered wrong.” They blow up because they{" "}
-                    <span className="font-semibold text-white">stayed active in the wrong regime</span>.
+                    People don’t blow up because they “entered wrong.” They blow
+                    up because they{" "}
+                    <span className="font-semibold text-white">
+                      stayed active in the wrong regime
+                    </span>
+                    .
                   </p>
                   <p>
                     REZIME Engine doesn’t replace your method. It{" "}
                     <span className="font-semibold text-white">supplements</span>{" "}
-                    it by adding context: is the environment stable, conflicted, or resetting?
+                    it by adding context: is the environment stable, conflicted,
+                    or resetting?
                   </p>
                 </div>
               </Section>
@@ -192,22 +256,20 @@ export default function ObserverPage() {
               >
                 <div className="grid gap-4 lg:grid-cols-2">
                   <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-                    <p className="text-sm font-semibold text-white">
-                      The core problem
-                    </p>
+                    <p className="text-sm font-semibold text-white">The core problem</p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Stress comes from not understanding the environment.
-                      If you can name the regime, decisions become calmer, more structured, and less reactive.
+                      Stress comes from not understanding the environment. If
+                      you can name the regime, decisions become calmer, more
+                      structured, and less reactive.
                     </p>
                   </div>
 
                   <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
-                    <p className="text-sm font-semibold text-white">
-                      The core benefit
-                    </p>
+                    <p className="text-sm font-semibold text-white">The core benefit</p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
                       REZIME Engine helps you avoid phase-mismatch mistakes:
-                      being “right” while the environment is wrong for your behavior.
+                      being “right” while the environment is wrong for your
+                      behavior.
                     </p>
                   </div>
                 </div>
@@ -234,20 +296,23 @@ export default function ObserverPage() {
                     <div className="rounded-xl border border-white/10 bg-black/30 p-4">
                       <p className="text-sm">
                         <span className="font-semibold text-white">Siege:</span>{" "}
-                        conflict and uncertainty. Chop increases. Participation should become selective and smaller.
+                        conflict and uncertainty. Chop increases. Participation
+                        should become selective and smaller.
                       </p>
                     </div>
 
                     <div className="rounded-xl border border-white/10 bg-black/30 p-4">
                       <p className="text-sm">
                         <span className="font-semibold text-white">Revolution:</span>{" "}
-                        reset / regime change. Old assumptions break. The map re-anchors.
+                        reset / regime change. Old assumptions break. The map
+                        re-anchors.
                       </p>
                     </div>
                   </div>
 
                   <p className="pt-2 text-xs text-neutral-500 leading-relaxed">
-                    This is the public vocabulary. Tool mechanics and advanced interpretation live in Playbook.
+                    This is the public vocabulary. Tool mechanics and advanced
+                    interpretation live in Playbook.
                   </p>
                 </div>
               </Section>
@@ -283,11 +348,12 @@ export default function ObserverPage() {
                   <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
                     If you are confused, you are probably in{" "}
                     <span className="text-white font-semibold">Siege</span>.
-                    Confusion is a signal to reduce activity — not a reason to “try harder.”
+                    Confusion is a signal to reduce activity — not a reason to
+                    “try harder.”
                   </p>
                   <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
-                    Playbook adds the detailed interpretation rules and the indicator behavior.
-                    Learn stays intentionally simple.
+                    Playbook adds the detailed interpretation rules and the
+                    indicator behavior. Learn stays intentionally simple.
                   </p>
                 </div>
               </Section>
@@ -321,7 +387,8 @@ export default function ObserverPage() {
                 </div>
 
                 <p className="text-xs text-neutral-500 leading-relaxed">
-                  Rule for Learn examples: show behavior + regime labels, not internal construction.
+                  Rule for Learn examples: show behavior + regime labels, not
+                  internal construction.
                 </p>
               </Section>
             </Reveal>
@@ -364,7 +431,8 @@ export default function ObserverPage() {
                         Step 2
                       </div>
                       <div className="mt-1">
-                        Match behavior: hold in Empire, reduce activity in Siege, re-anchor after Revolution.
+                        Match behavior: hold in Empire, reduce activity in Siege,
+                        re-anchor after Revolution.
                       </div>
                     </div>
 
@@ -373,7 +441,8 @@ export default function ObserverPage() {
                         Step 3
                       </div>
                       <div className="mt-1">
-                        Avoid “being right” in the wrong environment. Let the map decide the tempo.
+                        Avoid “being right” in the wrong environment. Let the map
+                        decide the tempo.
                       </div>
                     </div>
 
@@ -432,10 +501,10 @@ export default function ObserverPage() {
                       Portfolio Lab
                     </div>
                     <div className="mt-2 text-base font-semibold text-white">
-                      Proof + risk posture + reporting cadence
+                      Proof + posture + weekly deltas
                     </div>
                     <div className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Time-stamped documentation across real regimes. Survivability first.
+                      A public archive showing why survivability comes before profitability.
                     </div>
                   </Link>
                 </div>
