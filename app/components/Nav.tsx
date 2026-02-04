@@ -7,7 +7,7 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-sm font-semibold tracking-wide">
+        <Link href="/" className="text-sm font-semibold tracking-wide text-white">
           REZIME Engine
         </Link>
 
@@ -15,7 +15,6 @@ export default function Nav() {
           {/* Single source of truth for navigation */}
           <PortalMenu />
 
-          {/* Keep these as simple top-level utilities */}
           <Link href="/faq" className="text-sm text-neutral-300 hover:text-white transition">
             FAQ
           </Link>

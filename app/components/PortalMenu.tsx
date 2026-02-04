@@ -11,10 +11,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-/**
- * Premium stagger for mobile sheet items
- * Uses rezime-pop (tighter than rezime-reveal)
- */
 function StaggerItem({
   open,
   i,
@@ -26,8 +22,8 @@ function StaggerItem({
 }) {
   return (
     <div
-      className={`rezime-pop ${open ? "is-in" : ""}`}
-      style={{ transitionDelay: open ? `${60 + i * 55}ms` : "0ms" }}
+      className={`rezime-reveal ${open ? "is-in" : ""}`}
+      style={{ transitionDelay: open ? `${80 + i * 70}ms` : "0ms" }}
     >
       {children}
     </div>
@@ -49,13 +45,11 @@ function MenuItem({
     <Link
       href={href}
       onClick={onPick}
-      className="menu-focus group block rounded-xl border border-transparent px-4 py-3 transition hover:bg-white/5 active:bg-white/10"
+      className="block rounded-xl px-4 py-3 hover:bg-white/5 transition"
     >
       <div className="flex items-center justify-between gap-4">
         <div className="text-sm font-semibold text-white">{label}</div>
-        <div className="text-neutral-400 group-hover:text-neutral-200 transition">
-          →
-        </div>
+        <div className="text-neutral-400">→</div>
       </div>
       <div className="mt-1 text-xs text-neutral-400">{sub}</div>
     </Link>
@@ -75,34 +69,16 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 export default function PortalMenu() {
   const pathname = usePathname();
 
-  /**
-   * IMPORTANT UX FIX:
-   * The button label should not say "Active Participant" on home.
-   * It should act like a clean "Navigate" control.
-   */
   const current = useMemo(() => {
-    // Home
-    if (pathname === "/") return { label: "Navigate", sub: "Start • Learn • Proof" };
-
-    // Start path
-    if (pathname.startsWith("/start"))
-      return { label: "Curious Cat 🐾", sub: "Beginner • Basics • Survival-first" };
-
-    // Portals
-    if (pathname.startsWith("/observer"))
-      return { label: "Learn", sub: "Public • Beginner • Survival-first" };
-    if (pathname.startsWith("/operator"))
-      return { label: "Playbook", sub: "Interpretation • Rules • Usage" };
-    if (pathname.startsWith("/allocator"))
-      return { label: "Portfolio Lab", sub: "Proof • Posture • Reporting" };
-
-    // Utility pages
-    if (pathname.startsWith("/pricing"))
-      return { label: "Pricing", sub: "Tiers • Waitlist • Coming soon" };
-    if (pathname.startsWith("/faq"))
-      return { label: "FAQ", sub: "Clear answers • No hype" };
-
-    return { label: "Navigate", sub: "Learn • Playbook • Proof" };
+    if (pathname === "/") return { label: "Home", sub: "Survival-first market map" };
+    if (pathname.startsWith("/start")) return { label: "Start", sub: "Beginner • Basics • Survival-first" };
+    if (pathname.startsWith("/observer")) return { label: "Learn", sub: "Regime map • Public version" };
+    if (pathname.startsWith("/operator")) return { label: "Playbook", sub: "Interpretation • Rules • Usage" };
+    if (pathname.startsWith("/allocator")) return { label: "Proof", sub: "Portfolio Lab • Process trail" };
+    if (pathname.startsWith("/pricing")) return { label: "Pricing", sub: "Tiers • Waitlist • Coming soon" };
+    if (pathname.startsWith("/faq")) return { label: "FAQ", sub: "Clear answers • No hype" };
+    if (pathname.startsWith("/contact")) return { label: "Contact", sub: "Reach out" };
+    return { label: "Explore", sub: "Learn • Playbook • Proof" };
   }, [pathname]);
 
   // Mobile (Sheet)
@@ -156,27 +132,27 @@ export default function PortalMenu() {
           <SheetContent side="bottom" className="border-white/10 bg-black text-white">
             <SheetHeader>
               <SheetTitle className="text-left text-sm font-semibold text-white">
-                REZIME Engine
+                Navigate
               </SheetTitle>
             </SheetHeader>
 
             <div className="mt-4 max-h-[70vh] overflow-auto pr-1 space-y-2">
-              <SectionLabel>Start here</SectionLabel>
+              <SectionLabel>Start</SectionLabel>
 
               <StaggerItem open={mobileOpen} i={0}>
                 <MenuItem
-                  href="/start"
-                  label="Curious Cat 🐾"
-                  sub="Beginner basics • What markets are • What indicators mean"
+                  href="/"
+                  label="Home"
+                  sub="Survival-first market map"
                   onPick={() => setMobileOpen(false)}
                 />
               </StaggerItem>
 
               <StaggerItem open={mobileOpen} i={1}>
                 <MenuItem
-                  href="/observer"
-                  label="Learn"
-                  sub="Regime map overview (public)"
+                  href="/start"
+                  label="Start"
+                  sub="Beginner basics • Plain language • No hype"
                   onPick={() => setMobileOpen(false)}
                 />
               </StaggerItem>
@@ -187,6 +163,15 @@ export default function PortalMenu() {
 
               <StaggerItem open={mobileOpen} i={2}>
                 <MenuItem
+                  href="/observer"
+                  label="Learn"
+                  sub="Regime map • Public version"
+                  onPick={() => setMobileOpen(false)}
+                />
+              </StaggerItem>
+
+              <StaggerItem open={mobileOpen} i={3}>
+                <MenuItem
                   href="/operator"
                   label="Playbook"
                   sub="Interpretation • Rules • Usage"
@@ -194,33 +179,33 @@ export default function PortalMenu() {
                 />
               </StaggerItem>
 
-              <StaggerItem open={mobileOpen} i={3}>
+              <StaggerItem open={mobileOpen} i={4}>
                 <MenuItem
                   href="/allocator"
-                  label="Portfolio Lab"
-                  sub="Proof • Posture • Reporting"
+                  label="Proof"
+                  sub="Portfolio Lab • Process trail"
                   onPick={() => setMobileOpen(false)}
                 />
               </StaggerItem>
 
               <div className="my-2 border-t border-white/10" />
 
-              <SectionLabel>More</SectionLabel>
-
-              <StaggerItem open={mobileOpen} i={4}>
-                <MenuItem
-                  href="/pricing"
-                  label="Pricing"
-                  sub="Tiers • Waitlist • Coming soon"
-                  onPick={() => setMobileOpen(false)}
-                />
-              </StaggerItem>
+              <SectionLabel>Info</SectionLabel>
 
               <StaggerItem open={mobileOpen} i={5}>
                 <MenuItem
                   href="/faq"
                   label="FAQ"
                   sub="Clear answers • No hype"
+                  onPick={() => setMobileOpen(false)}
+                />
+              </StaggerItem>
+
+              <StaggerItem open={mobileOpen} i={6}>
+                <MenuItem
+                  href="/pricing"
+                  label="Pricing"
+                  sub="Tiers • Waitlist • Coming soon"
                   onPick={() => setMobileOpen(false)}
                 />
               </StaggerItem>
@@ -243,6 +228,7 @@ export default function PortalMenu() {
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
+          title={current.sub}
         >
           <span className="text-neutral-200">{current.label}</span>
           <span className="text-neutral-400">{open ? "▲" : "▼"}</span>
@@ -250,24 +236,24 @@ export default function PortalMenu() {
 
         {open && (
           <div
-            className="rezime-menu-in absolute right-0 mt-2 w-[520px] max-w-[92vw] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-xl backdrop-blur"
+            className="absolute left-0 mt-2 w-[520px] max-w-[92vw] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-xl backdrop-blur"
             role="menu"
-            aria-label="Navigate"
+            aria-label="Navigation"
           >
             <div className="p-2">
-              <SectionLabel>Start here</SectionLabel>
+              <SectionLabel>Start</SectionLabel>
 
               <MenuItem
-                href="/start"
-                label="Curious Cat 🐾"
-                sub="Beginner basics • What markets are • What indicators mean"
+                href="/"
+                label="Home"
+                sub="Survival-first market map"
                 onPick={() => setOpen(false)}
               />
 
               <MenuItem
-                href="/observer"
-                label="Learn"
-                sub="Regime map overview (public)"
+                href="/start"
+                label="Start"
+                sub="Beginner basics • Plain language • No hype"
                 onPick={() => setOpen(false)}
               />
 
@@ -276,34 +262,38 @@ export default function PortalMenu() {
               <SectionLabel>Portals</SectionLabel>
 
               <MenuItem
+                href="/observer"
+                label="Learn"
+                sub="Regime map • Public version"
+                onPick={() => setOpen(false)}
+              />
+              <MenuItem
                 href="/operator"
                 label="Playbook"
                 sub="Interpretation • Rules • Usage"
                 onPick={() => setOpen(false)}
               />
-
               <MenuItem
                 href="/allocator"
-                label="Portfolio Lab"
-                sub="Proof • Posture • Reporting"
+                label="Proof"
+                sub="Portfolio Lab • Process trail"
                 onPick={() => setOpen(false)}
               />
 
               <div className="my-2 border-t border-white/10" />
 
-              <SectionLabel>More</SectionLabel>
-
-              <MenuItem
-                href="/pricing"
-                label="Pricing"
-                sub="Tiers • Waitlist • Coming soon"
-                onPick={() => setOpen(false)}
-              />
+              <SectionLabel>Info</SectionLabel>
 
               <MenuItem
                 href="/faq"
                 label="FAQ"
                 sub="Clear answers • No hype"
+                onPick={() => setOpen(false)}
+              />
+              <MenuItem
+                href="/pricing"
+                label="Pricing"
+                sub="Tiers • Waitlist • Coming soon"
                 onPick={() => setOpen(false)}
               />
             </div>
