@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import PortalMenu from "./PortalMenu";
+import PortalMenu from "@/app/components/PortalMenu";
 
 export default function Nav() {
   return (
@@ -12,7 +12,6 @@ export default function Nav() {
         </Link>
 
         <div className="flex items-center gap-4">
-          {/* Single source of truth for navigation */}
           <PortalMenu />
 
           <Link href="/faq" className="text-sm text-neutral-300 hover:text-white transition">
