@@ -85,22 +85,19 @@ export default function ObserverPage() {
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            I’m not teaching you how to win.
-            <br className="hidden sm:block" /> I’m teaching you how to not die.
+            Before you build an edge,
+            you must survive long enough for it to matter.
           </h1>
 
           <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-            Most traders don’t fail because they chose the wrong strategy. They
-            fail because they apply the same behavior in the wrong market
-            environment.
-            <br />
-            <br />
-            REZIME doesn’t tell you what to buy or sell. It helps you understand
-            when to participate, when to reduce activity, and when the market
-            itself is changing.
-            <br />
-            <br />
-            Survival first. Strategy comes after.
+            Most traders don’t fail because they chose the wrong strategy.
+            They fail because they stayed active in the wrong environment — long enough to self-destruct.
+            <br /><br />
+            REZIME is a regime map that tells you what kind of market you’re in,
+            so your behavior matches reality: participate when it’s stable, reduce activity when it’s conflicted,
+            and reset when the environment changes.
+            <br /><br />
+            Survival first. Skill second. Performance last.
           </p>
 
           <div className="flex flex-wrap gap-3">
