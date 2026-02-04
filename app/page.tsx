@@ -61,3 +61,19 @@ export default function HomePage() {
     </section>
   );
 }
+
+<div className="flex flex-wrap gap-3 pt-2">
+  <Link
+    href="/start"
+    className="premium-card is-clickable inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
+  >
+    I'm completely new to markets →
+  </Link>
+
+  <Link
+    href="/observer"
+    className="premium-card is-clickable inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
+  >
+    I already trade →
+  </Link>
+</div>
