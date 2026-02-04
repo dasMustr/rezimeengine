@@ -322,3 +322,66 @@ html,
 body {
   overflow-x: hidden;
 }
+
+/* =============================== */
+/* Premium dropdown + menu motion  */
+/* =============================== */
+
+@keyframes rezimeMenuIn {
+  0% {
+    transform: translateY(6px) scale(0.98);
+    opacity: 0;
+    filter: blur(6px);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.rezime-menu-in {
+  animation: rezimeMenuIn 180ms ease-out forwards;
+  transform-origin: top right;
+}
+
+/* Pop-in reveal (tight) */
+.rezime-pop {
+  transform: translateY(8px) scale(0.99);
+  opacity: 0;
+  filter: blur(4px);
+  transition: opacity 420ms ease, transform 420ms ease, filter 520ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.rezime-pop.is-in {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Hover sheen: run ONCE per hover, not infinite */
+@keyframes sheenMoveOnce {
+  0% {
+    transform: translateX(-60%) rotate(12deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(180%) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+.group:hover .sheen-once {
+  animation: sheenMoveOnce 900ms ease-out 1;
+}
+
+/* Premium keyboard focus */
+.menu-focus:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+}
