@@ -72,30 +72,34 @@ export default function OrientationPage() {
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Market Orientation
+            Start here
           </p>
 
           <div className="flex flex-wrap gap-2">
-            <Tag>Briefing room</Tag>
-            <Tag>Survivability</Tag>
-            <Tag>Regimes</Tag>
+            <Tag>New to markets</Tag>
+            <Tag>ELI5</Tag>
+            <Tag>Survive first</Tag>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            Before strategy, understand the battlefield.
+            New to all this?
+            <br />
+            Good. Let’s make sure you survive long enough to get good.
           </h1>
 
           <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-            Markets aren’t a puzzle to solve — they’re an environment to survive.
+            Most beginners don’t lose because they’re “bad at charts.”
+            They lose because they don’t know what kind of market they’re in —
+            so they do the wrong thing at the wrong time.
             <br />
             <br />
-            Most people don’t lose because they lack intelligence.
-            They lose because they act without understanding what kind of market they’re inside.
+            This page is beginner-friendly on purpose.
+            No jargon. No hype. Just the mental model that stops early damage.
             <br />
             <br />
             This applies to{" "}
             <span className="text-white font-semibold">
-              investing, trading, systematic, macro
+              investing, trading, long-term, short-term
             </span>{" "}
             — anything that touches markets.
           </p>
@@ -107,7 +111,7 @@ export default function OrientationPage() {
               className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
             >
               <Sheen className="rounded-full" />
-              Start briefing →
+              Start (ELI5) →
             </a>
 
             <Link
@@ -126,12 +130,12 @@ export default function OrientationPage() {
             </Link>
           </div>
 
-          {/* QUICK JUMP STRIP (briefing-room feel) */}
+          {/* QUICK JUMP STRIP */}
           <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
             <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-400">
               <span className="text-neutral-300">Jump to:</span>
-              <JumpLink href="#reality" label="Reality" />
-              <JumpLink href="#why" label="Why people struggle" />
+              <JumpLink href="#reality" label="What markets really are" />
+              <JumpLink href="#why" label="Why beginners get wrecked" />
               <JumpLink href="#what" label="What REZIME changes" />
               <JumpLink href="#flow" label="Your route" />
             </div>
@@ -144,18 +148,18 @@ export default function OrientationPage() {
             </div>
             <ul className="mt-3 space-y-2 text-sm text-neutral-300 leading-relaxed">
               <li>• You’ll stop treating every market like the same market.</li>
-              <li>• You’ll know when to reduce activity (and why).</li>
-              <li>• You’ll survive longer — long enough to develop real edge.</li>
+              <li>• You’ll know when to do less (and why that’s smart).</li>
+              <li>• You’ll stay in the game long enough to build real skill.</li>
             </ul>
 
             <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 p-5">
               <div className="text-sm font-semibold text-white">
-                One rule to remember
+                The #1 beginner rule
               </div>
               <div className="mt-2 text-sm leading-relaxed text-neutral-300">
                 If you’re confused, you’re probably in{" "}
-                <span className="text-white font-semibold">Siege</span>.
-                Confusion is a signal to reduce activity — not to “try harder.”
+                <span className="text-white font-semibold">chop</span>.
+                Confusion = reduce activity. Not “try harder.”
               </div>
             </div>
           </div>
@@ -167,34 +171,35 @@ export default function OrientationPage() {
         <section id="reality" className="scroll-mt-28 space-y-4">
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-widest text-neutral-400">
-              Reality
+              Reality (ELI5)
             </p>
             <h2 className="text-xl font-semibold tracking-tight text-white">
-              The reality of markets
+              What markets really are
             </h2>
             <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-              Markets are not built to reward participation.
-              They are built to transfer capital from the unprepared to the prepared.
+              Markets aren’t built to reward participation.
+              They reward preparation.
               <br />
               <br />
-              The danger is not price movement.
-              The danger is misunderstanding the environment.
+              The danger isn’t movement.
+              The danger is doing “trend behavior” inside a choppy market —
+              or doing “chop behavior” inside a trend.
             </p>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-3">
             <Block
-              title="Markets change character"
-              desc="The same behavior does not work everywhere. A method that thrives in trends can get destroyed in chop."
+              title="Markets change personality"
+              desc="Sometimes they trend cleanly. Sometimes they chop and fake you out. Same behavior won’t work in both."
               tone="hard"
             />
             <Block
-              title="Activity ≠ progress"
-              desc="Doing more often causes more damage. When uncertainty rises, the correct move is usually less activity — not more."
+              title="Doing more can be worse"
+              desc="Beginners often trade more when unsure. That’s usually when damage happens fastest."
             />
             <Block
-              title="Survival is the first edge"
-              desc="You can only develop skill if you are still in the game. Staying alive comes first."
+              title="Survival is the first win"
+              desc="You can’t learn if you’re out of the game. Staying alive is the first edge."
               tone="hard"
             />
           </div>
@@ -206,28 +211,29 @@ export default function OrientationPage() {
         <section id="why" className="scroll-mt-28 space-y-4">
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-widest text-neutral-400">
-              The common failure
+              The common trap
             </p>
             <h2 className="text-xl font-semibold tracking-tight text-white">
-              Why most participants struggle
+              Why beginners get wrecked
             </h2>
             <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-              The problem is not effort. The problem is context.
+              The mistake isn’t “wrong entry.”
+              The mistake is acting like the environment doesn’t matter.
             </p>
           </div>
 
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <ul className="space-y-2 text-sm text-neutral-300 leading-relaxed">
-              <li>• They try to predict instead of reading the environment</li>
-              <li>• They increase activity when uncertainty rises</li>
-              <li>• They treat all market conditions the same</li>
-              <li>• They measure success by excitement, not survivability</li>
+              <li>• They chase certainty in an uncertain environment</li>
+              <li>• They increase activity when they should reduce it</li>
+              <li>• They treat every day like it requires action</li>
+              <li>• They confuse excitement with progress</li>
             </ul>
 
             <div className="mt-5 rounded-2xl border border-white/10 bg-black/30 p-5">
               <div className="text-sm font-semibold text-white">The shift</div>
               <div className="mt-2 text-sm leading-relaxed text-neutral-300">
-                Stop asking: “Where will price go?”
+                Stop asking: “What should I buy?”
                 <br />
                 Start asking:{" "}
                 <span className="text-white font-semibold">
@@ -244,16 +250,16 @@ export default function OrientationPage() {
         <section id="what" className="scroll-mt-28 space-y-4">
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-widest text-neutral-400">
-              What’s different
+              What changes
             </p>
             <h2 className="text-xl font-semibold tracking-tight text-white">
-              What REZIME does differently
+              What REZIME does for you
             </h2>
             <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-              REZIME is not your strategy.
+              REZIME isn’t your strategy.
               <br />
               <span className="text-white font-semibold">
-                It protects you while you build one.
+                It’s the safety layer that keeps you alive while you build one.
               </span>
             </p>
           </div>
@@ -261,16 +267,16 @@ export default function OrientationPage() {
           <div className="grid gap-4 lg:grid-cols-3">
             <Block
               title="It names the environment"
-              desc="You stop guessing what kind of market this is. You can name the regime instead of inventing explanations."
+              desc="So you stop guessing. You can identify the market’s ‘mode’ instead of forcing a story."
               tone="hard"
             />
             <Block
-              title="It changes your activity level"
-              desc="You learn when to participate, when to reduce activity, and when to step back and re-anchor."
+              title="It adjusts your activity level"
+              desc="When the environment is messy, you learn to do less — smaller, slower, more selective."
             />
             <Block
-              title="It protects time-in-market"
-              desc="You stay alive long enough to gain real experience — without self-inflicted blowups."
+              title="It protects your time-in-market"
+              desc="So you’re still here after 6–12 months, when most beginners quit."
               tone="hard"
             />
           </div>
@@ -282,16 +288,17 @@ export default function OrientationPage() {
         <section className="space-y-4">
           <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-8 sm:p-10">
             <div className="text-xs uppercase tracking-widest text-neutral-400">
-              Core shift
+              Core idea
             </div>
             <div className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
-              Winning comes later.
+              Profit is later.
               <br />
-              <span className="text-neutral-200">Not dying comes first.</span>
+              <span className="text-neutral-200">Survival is now.</span>
             </div>
             <div className="mt-4 max-w-3xl text-sm leading-relaxed text-neutral-300">
-              Most systems teach entries. This framework teaches survivability —
-              matching behavior to environment so you stop donating capital during the wrong phase.
+              If you survive long enough, experience builds.
+              And when experience builds, edge eventually appears.
+              REZIME is built to protect that timeline.
             </div>
           </div>
         </section>
@@ -305,34 +312,18 @@ export default function OrientationPage() {
               Your route
             </p>
             <h2 className="text-xl font-semibold tracking-tight text-white">
-              Your orientation route
+              Your route from beginner → resilient
             </h2>
             <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-              A clean sequence: orient → learn the map → use the tools → audit the proof.
+              A clean sequence: start here → learn the map → use the tools → audit the proof.
             </p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            <Step
-              n="1"
-              title="Orientation"
-              desc="Understand what markets are and why survivability matters."
-            />
-            <Step
-              n="2"
-              title="Learn the regime map"
-              desc="Name the environment (stable / conflicted / reset)."
-            />
-            <Step
-              n="3"
-              title="Use the tools"
-              desc="Turn context into posture and behavior rules."
-            />
-            <Step
-              n="4"
-              title="Audit the proof"
-              desc="See weekly posture in real conditions (no hype)."
-            />
+            <Step n="1" title="New to Markets" desc="Get the survival model first." />
+            <Step n="2" title="Learn the map" desc="Name the environment (stable / messy / reset)." />
+            <Step n="3" title="Use the tools" desc="Turn context into posture rules." />
+            <Step n="4" title="See proof" desc="Watch weekly posture in real conditions." />
           </div>
 
           <div className="flex flex-wrap gap-3 pt-2">
@@ -341,7 +332,7 @@ export default function OrientationPage() {
               className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
             >
               <Sheen className="rounded-full" />
-              Go to Learn (Regime Map) →
+              Go to Learn (Map) →
             </Link>
 
             <Link
@@ -362,7 +353,7 @@ export default function OrientationPage() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            REZIME is a context layer. Your method decides entries. REZIME decides the environment.
+            Your method decides entries. REZIME decides the environment.
           </p>
         </section>
       </Reveal>
