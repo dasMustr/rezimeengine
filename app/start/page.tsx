@@ -37,11 +37,11 @@ export default function StartPage() {
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-8 sm:p-12">
           <div className="relative space-y-5">
             <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
-              Curious Cat 🐾 • Start here
+              New to markets? • Orientation
             </p>
 
             <h1 className="max-w-4xl text-3xl font-semibold leading-[1.08] tracking-tight sm:text-4xl">
-              Markets aren’t magic — they’re competitive.
+              Before strategy, learn how people blow up.
             </h1>
 
             <p className="max-w-2xl text-sm leading-relaxed text-neutral-300">

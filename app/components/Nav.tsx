@@ -15,25 +15,19 @@ export default function Nav() {
           {/* Beginner entry point (always visible) */}
           <Link
             href="/start"
-            className="premium-card is-clickable inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs text-white transition hover:bg-white/15"
+            className="premium-card is-clickable inline-flex items-center rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs text-white transition hover:bg-white/15"
           >
-            New <span className="opacity-90">to Markets?</span>
+            New to markets?
           </Link>
 
           {/* Portal switcher */}
           <PortalMenu />
 
-          <Link
-            href="/faq"
-            className="text-sm text-neutral-300 hover:text-white transition"
-          >
+          <Link href="/faq" className="text-sm text-neutral-300 hover:text-white transition">
             FAQ
           </Link>
 
-          <Link
-            href="/contact"
-            className="text-sm text-neutral-300 hover:text-white transition"
-          >
+          <Link href="/contact" className="text-sm text-neutral-300 hover:text-white transition">
             Contact
           </Link>
         </div>
