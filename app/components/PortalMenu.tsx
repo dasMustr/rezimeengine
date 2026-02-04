@@ -56,13 +56,13 @@ export default function PortalMenu() {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const current = useMemo(() => {
+    if (pathname.startsWith("/orientation")) return "New to Markets";
     if (pathname.startsWith("/observer")) return "Learn";
     if (pathname.startsWith("/operator")) return "Playbook";
     if (pathname.startsWith("/allocator")) return "Portfolio Lab";
-    if (pathname.startsWith("/orientation")) return "Orientation";
     if (pathname.startsWith("/faq")) return "FAQ";
-    if (pathname === "/") return "Portals";
-    return "Portals";
+    if (pathname === "/") return "Navigate";
+    return "Navigate";
   }, [pathname]);
 
   useEffect(() => {
@@ -87,65 +87,74 @@ export default function PortalMenu() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  const onPick = () => {
+    setOpen(false);
+    setMobileOpen(false);
+  };
+
   const MENU = (
     <>
-      <SectionLabel>Portals</SectionLabel>
+      <SectionLabel>Start here</SectionLabel>
+
+      <MenuItem
+        href="/orientation"
+        label="New to Markets (ELI5)"
+        sub="No jargon • Survival-first • The beginner doorway"
+        onPick={onPick}
+      />
+
+      <div className="my-2 border-t border-white/10" />
+
+      <SectionLabel>Core system</SectionLabel>
 
       <MenuItem
         href="/observer"
         label="Learn"
-        sub="Regime map • Public overview"
-        onPick={() => {
-          setOpen(false);
-          setMobileOpen(false);
-        }}
+        sub="Regime map • Public overview • Safe behavior"
+        onPick={onPick}
       />
 
       <MenuItem
         href="/operator"
         label="Playbook"
-        sub="Interpretation rules • How to use REZIME"
-        onPick={() => {
-          setOpen(false);
-          setMobileOpen(false);
-        }}
+        sub="Interpretation rules • How to use the tools"
+        onPick={onPick}
       />
 
       <MenuItem
         href="/allocator"
         label="Portfolio Lab"
         sub="Proof trail • Posture • Weekly deltas"
-        onPick={() => {
-          setOpen(false);
-          setMobileOpen(false);
-        }}
+        onPick={onPick}
       />
 
       <div className="my-2 border-t border-white/10" />
 
-      <SectionLabel>New here?</SectionLabel>
+      <SectionLabel>Support</SectionLabel>
 
       <MenuItem
-        href="/orientation"
-        label="Orientation (New to Markets)"
-        sub="New to markets • Understand the battlefield first"
-        onPick={() => {
-          setOpen(false);
-          setMobileOpen(false);
-        }}
+        href="/faq"
+        label="FAQ"
+        sub="Clear answers • No hype"
+        onPick={onPick}
+      />
+
+      <MenuItem
+        href="/pricing"
+        label="Access"
+        sub="Tiers • Waitlist • Coming soon"
+        onPick={onPick}
       />
 
       <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
-        Learn → Playbook → Portfolio Lab
+        New to Markets → Learn → Playbook → Portfolio Lab
       </div>
     </>
   );
 
   return (
     <>
-      {/* ===================== */}
-      {/* MOBILE = SHEET        */}
-      {/* ===================== */}
+      {/* MOBILE = SHEET */}
       <div className="sm:hidden">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
@@ -155,7 +164,7 @@ export default function PortalMenu() {
               aria-expanded={mobileOpen}
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
             >
-              {current}
+              <span>{current}</span>
               <span className="text-neutral-400">▼</span>
             </button>
           </SheetTrigger>
@@ -166,7 +175,7 @@ export default function PortalMenu() {
           >
             <SheetHeader>
               <SheetTitle className="text-left text-sm font-semibold text-white">
-                REZIME Portals
+                Navigate REZIME
               </SheetTitle>
             </SheetHeader>
 
@@ -179,9 +188,7 @@ export default function PortalMenu() {
         </Sheet>
       </div>
 
-      {/* ===================== */}
-      {/* DESKTOP = DROPDOWN    */}
-      {/* ===================== */}
+      {/* DESKTOP = DROPDOWN */}
       <div ref={ref} className="relative hidden sm:block">
         <button
           type="button"
@@ -190,7 +197,7 @@ export default function PortalMenu() {
           onClick={() => setOpen((v) => !v)}
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
         >
-          {current}
+          <span>{current}</span>
           <span className="text-neutral-400">{open ? "▲" : "▼"}</span>
         </button>
 
@@ -198,7 +205,7 @@ export default function PortalMenu() {
           <div
             className="absolute left-0 mt-2 w-[520px] max-w-[92vw] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-xl backdrop-blur"
             role="menu"
-            aria-label="Portals"
+            aria-label="Navigate"
           >
             <div className="p-2">{MENU}</div>
           </div>
