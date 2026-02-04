@@ -59,7 +59,7 @@ export default function PortalMenu() {
     if (pathname.startsWith("/observer")) return "Learn";
     if (pathname.startsWith("/operator")) return "Playbook";
     if (pathname.startsWith("/allocator")) return "Portfolio Lab";
-    if (pathname.startsWith("/start")) return "Orientation";
+    if (pathname.startsWith("/orientation")) return "Orientation";
     if (pathname.startsWith("/faq")) return "FAQ";
     if (pathname === "/") return "Portals";
     return "Portals";
@@ -126,9 +126,9 @@ export default function PortalMenu() {
       <SectionLabel>New here?</SectionLabel>
 
       <MenuItem
-        href="/start"
+        href="/orientation"
         label="Orientation (New to Markets)"
-        sub="Beginner basics • No hype • Start safely"
+        sub="New to markets • Understand the battlefield first"
         onPick={() => {
           setOpen(false);
           setMobileOpen(false);
