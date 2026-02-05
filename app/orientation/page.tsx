@@ -349,6 +349,45 @@ export default function OrientationPage() {
           </Callout>
         </section>
       </Reveal>
+      
+      {/* TURNING POINT */}
+      <Reveal delayMs={360}>
+        <section className="scroll-mt-28 space-y-5">
+          <SectionHeader
+            eyebrow="The turning point"
+            title="The problem was never intelligence"
+            subtitle="Most beginners do not struggle because they are incapable. They struggle because they use the same behavior in every regime."
+          />
+
+          <div className="grid gap-4 lg:grid-cols-3">
+            <Card
+              tone="hard"
+              title="What beginners assume"
+              desc="If I try harder, trade more, analyze more, I will figure it out."
+              note="Effort feels like the solution."
+            />
+            <Card
+              title="What actually happens"
+              desc="During unstable regimes, more activity usually means more mistakes. Noise increases, clarity drops, and emotional reactions take over."
+              note="More effort in the wrong regime increases damage."
+            />
+            <Card
+              tone="hard"
+              title="What changes everything"
+              desc="Behavior must change with the regime. Sometimes the correct move is slower action, smaller exposure, or doing nothing."
+              note="Skill includes knowing when not to interfere."
+            />
+          </div>
+
+          <Callout title="A quiet but important truth">
+            Markets are not tests of intelligence.  
+            They are tests of behavior under different regimes.  
+            <br /><br />
+            Most people did not fail because they lacked ability.  
+            They failed because they stayed active in regimes that punished activity.
+          </Callout>
+        </section>
+      </Reveal>
 
       {/* WHAT REZIME DOES */}
       <Reveal delayMs={400}>
