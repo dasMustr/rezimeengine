@@ -24,9 +24,9 @@ function Card({
   return (
     <a
       href={href}
-      className="premium-card group relative rounded-2xl border border-white/10 bg-white/5 p-6 transition"
+      className="premium-card is-clickable group relative rounded-2xl border border-white/10 bg-white/5 p-6 transition"
     >
-      <Sheen />
+      <Sheen className="rounded-2xl" />
       <div className="flex items-start justify-between gap-4">
         <div className="space-y-2">
           {meta && (
@@ -47,8 +47,7 @@ function Card({
 
 function InfoBlock({ title, desc }: { title: string; desc: string }) {
   return (
-    <div className="premium-card relative rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-      <Sheen />
+    <div className="calm-block relative rounded-2xl border border-white/10 bg-white/[0.03] p-6">
       <h4 className="text-sm font-semibold text-white">{title}</h4>
       <p className="mt-3 text-sm leading-relaxed text-neutral-300">{desc}</p>
     </div>
@@ -68,37 +67,47 @@ export default function ContactPage() {
 
           <div className="relative space-y-6">
             <div className="flex flex-wrap gap-2">
-              <Pill>Research documentation</Pill>
+              <Pill>Survival-first</Pill>
               <Pill>Map, not signals</Pill>
-              <Pill>Long-horizon tone</Pill>
+              <Pill>Calm education</Pill>
             </div>
 
             <h1 className="max-w-3xl text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-              Contact
+              Contact & Early Access
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              Reach out for collaboration, tooling discussions, or general notes.
-              REZIME is a mapping framework and documentation layer, not a signal service.
+              If you want early access, collaboration, or just want to ask a question —
+              this is the place.
+              <br />
+              <br />
+              REZIME is market survival infrastructure: educational + analytical tools.
+              Not financial advice. Not signals.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-1">
-              <Link
-                href="/observer"
-                className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-neutral-200 hover:bg-white/10 transition"
+              {/* Primary CTA */}
+              <a
+                href="mailto:hello@rezimeengine.com?subject=Early%20Access%20Request&body=Hi%20REZIME%20team%2C%0A%0A1)%20Where%20did%20you%20find%20REZIME%3F%0A2)%20What%20market%20do%20you%20want%20to%20use%20it%20for%20(stocks%2Fcrypto%2Fforex%2Fother)%3F%0A3)%20What%20is%20your%20experience%20level%20(beginner%2Fintermediate%2Fadvanced)%3F%0A%0AThanks!"
+                className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Start with Observer
-              </Link>
+                Request Early Access →
+              </a>
 
+              {/* Secondary */}
               <Link
-                href="/allocator"
-                className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 hover:bg-white/[0.06] transition"
+                href="/orientation"
+                className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 hover:bg-white/[0.06] transition"
               >
                 <Sheen className="rounded-full" />
-                Allocator Portal
+                New to Markets → Start Here
               </Link>
             </div>
+
+            <p className="text-xs text-neutral-500 leading-relaxed">
+              We’ll reply as fast as we can. This is a small team build.
+            </p>
           </div>
         </div>
       </Reveal>
@@ -116,28 +125,28 @@ export default function ContactPage() {
               </h2>
             </div>
             <p className="hidden text-sm text-neutral-400 sm:block">
-              Collaboration → General
+              Early access → Collaboration → General
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
             <Card
-              meta="Collaboration"
-              title="Research / Partnerships"
-              desc="Aligned long-horizon projects, tooling, education, or institutional-facing work."
-              href="mailto:hello@rezimeengine.com?subject=Collaboration%20/%20Partnership%20Inquiry"
+              meta="Access"
+              title="Early Access Request"
+              desc="If you want to be among the first users. Beginner-friendly onboarding is part of this."
+              href="mailto:hello@rezimeengine.com?subject=Early%20Access%20Request"
             />
             <Card
-              meta="Allocator"
-              title="Allocator / IR"
-              desc="Factsheets, reporting cadence, mandate fit, or diligence-style questions."
-              href="mailto:hello@rezimeengine.com?subject=Allocator%20/%20IR%20Inquiry"
+              meta="Collaboration"
+              title="Partnership / Writing / Community"
+              desc="If you want to collaborate on content, education, community, or distribution."
+              href="mailto:hello@rezimeengine.com?subject=Collaboration%20Inquiry"
             />
             <Card
               meta="General"
-              title="Questions / Notes"
-              desc="Short messages, feedback, or clarifications about the framework."
-              href="mailto:hello@rezimeengine.com?subject=General%20Inquiry"
+              title="Questions / Feedback"
+              desc="Short notes, questions, or suggestions to improve clarity and safety."
+              href="mailto:hello@rezimeengine.com?subject=General%20Question%20/%20Feedback"
             />
           </div>
         </section>
@@ -151,12 +160,12 @@ export default function ContactPage() {
             desc="Email: hello@rezimeengine.com (recommended)."
           />
           <InfoBlock
-            title="Identity"
-            desc="REZIME by paeteon (dasMustr). Links can be added later without turning this page into a linktree."
+            title="What to include"
+            desc="Experience level + market (stocks/crypto/forex) + what you’re trying to avoid (blowups, confusion, overtrading)."
           />
           <InfoBlock
             title="Response expectations"
-            desc="Replies may be slow. This is a solo-operated research + build project."
+            desc="Replies may be slow. This is an early-stage product built with care, not rushed hype."
           />
         </section>
       </Reveal>
@@ -166,9 +175,9 @@ export default function ContactPage() {
         <section className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-white">Disclosures</h2>
           <p className="mt-3 text-sm text-neutral-300 leading-relaxed">
-            REZIME is educational documentation and research tooling. It does not provide
-            investment advice. This website is not an offer to sell or a solicitation to
-            buy any securities or services.
+            REZIME provides educational and analytical tools only. Nothing on this website
+            is investment advice, and this website is not an offer to sell or a solicitation
+            to buy any securities or services.
           </p>
         </section>
       </Reveal>
@@ -179,25 +188,25 @@ export default function ContactPage() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="text-sm font-semibold text-white">
-                Want the framing first?
+                Want the framework first?
               </div>
               <div className="text-xs text-neutral-400">
-                Observer explains the worldview. Operator explains interpretation rules.
+                Orientation is beginner ELI5. Observer explains the regime map.
               </div>
             </div>
 
             <div className="flex flex-wrap gap-2">
               <Link
-                href="/observer"
+                href="/orientation"
                 className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
               >
-                Observer
+                Orientation
               </Link>
               <Link
-                href="/operator"
+                href="/observer"
                 className="inline-flex justify-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
               >
-                Operator
+                Observer
               </Link>
             </div>
           </div>
