@@ -45,13 +45,10 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
-body {
-  background: #000;
-}
-
-/* ---------- REZIME Premium Motion (lightweight) ---------- */
+/* ---------- REZIME Ambient Layer ---------- */
 
 .rezime-vignette {
   background: radial-gradient(
@@ -97,61 +94,9 @@ body {
     opacity: 0.55;
   }
 }
+
 .rezime-float {
   animation: rezimeFloat 8s ease-in-out infinite;
-}
-
-/* Reveal-on-scroll */
-.rezime-reveal {
-  transform: translateY(10px);
-  opacity: 0;
-  filter: blur(2px);
-  transition: opacity 600ms ease, transform 600ms ease, filter 700ms ease;
-  will-change: opacity, transform, filter;
-}
-
-.rezime-reveal.is-in {
-  transform: translateY(0px);
-  opacity: 1;
-  filter: blur(0);
-}
-
-/* Pop-in reveal (for Sheet items / menus) */
-.rezime-pop {
-  transform: translateY(10px) scale(0.98);
-  opacity: 0;
-  filter: blur(3px);
-  transition: opacity 520ms ease, transform 520ms ease, filter 620ms ease;
-  will-change: opacity, transform, filter;
-}
-
-.rezime-pop.is-in {
-  transform: translateY(0px) scale(1);
-  opacity: 1;
-  filter: blur(0);
-}
-
-/* Premium hover sheen utility (apply to cards/buttons if you want) */
-.rezime-sheen {
-  position: relative;
-  overflow: hidden;
-}
-.rezime-sheen::after {
-  content: "";
-  position: absolute;
-  inset: -40%;
-  background: radial-gradient(
-    closest-side,
-    rgba(255, 255, 255, 0.1),
-    transparent 60%
-  );
-  transform: translateX(-30%) translateY(-10%) rotate(10deg);
-  opacity: 0;
-  transition: opacity 250ms ease;
-  pointer-events: none;
-}
-.rezime-sheen:hover::after {
-  opacity: 1;
 }
 
 /* Respect reduced motion */
@@ -159,61 +104,27 @@ body {
   .rezime-float {
     animation: none;
   }
-  .rezime-reveal {
-    transition: none;
-    transform: none;
-    opacity: 1;
-    filter: none;
-  }
-  .rezime-pop {
-    transition: none;
-    transform: none;
-    opacity: 1;
-    filter: none;
-  }
-}
-
-@keyframes sheenMove {
-  0% {
-    transform: translateX(-40%) rotate(12deg);
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(180%) rotate(12deg);
-    opacity: 0;
-  }
-}
-
-.animate-sheen {
-  animation: sheenMove 3.8s ease-in-out infinite;
 }
 
 /* =============================== */
 /* Premium card + Calm block styles */
 /* =============================== */
 
-/* Base card (NO hover behavior by default) */
 .premium-card {
   position: relative;
   overflow: hidden;
   transition: transform 220ms ease, border-color 220ms ease;
 }
 
-/* Mark clickable surfaces explicitly */
 .premium-card.is-clickable {
   cursor: pointer;
 }
 
-/* Only clickable cards should lift on hover */
 .premium-card.is-clickable:hover {
   transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.16);
 }
 
-/* Only clickable cards should lift on keyboard focus */
 .premium-card.is-clickable:focus-visible {
   outline: none;
   transform: translateY(-2px);
@@ -221,12 +132,10 @@ body {
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
 }
 
-/* Optional: tiny press feedback */
 .premium-card.is-clickable:active {
   transform: translateY(-1px);
 }
 
-/* Calm block: looks premium, does NOT hover-lift */
 .calm-block {
   position: relative;
   overflow: hidden;
@@ -316,11 +225,6 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-}
-
-html,
-body {
-  overflow-x: hidden;
 }
 
 /* =============================== */

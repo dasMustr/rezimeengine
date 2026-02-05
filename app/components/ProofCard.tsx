@@ -40,29 +40,28 @@ export default function ProofCard({
   links?: ProofLinks;
 }) {
   const items: { key: keyof ProofLinks; label: string; href?: string }[] = [
-  { key: "youtube" as const, label: "YouTube", href: links.youtube },
-  { key: "instagram" as const, label: "Instagram", href: links.instagram },
-  { key: "x" as const, label: "X", href: links.x },
-  { key: "tradingview" as const, label: "TradingView", href: links.tradingview },
-  { key: "substack" as const, label: "Substack", href: links.substack },
-  { key: "notion" as const, label: "Lab", href: links.notion },
-  { key: "pdf" as const, label: "PDF", href: links.pdf },
-  { key: "tiktok" as const, label: "TikTok", href: links.tiktok },
-].filter((x) => !!x.href);
-
+    { key: "notion" as const, label: "Lab", href: links.notion },
+    { key: "pdf" as const, label: "PDF", href: links.pdf },
+    { key: "tradingview" as const, label: "TradingView", href: links.tradingview },
+    { key: "youtube" as const, label: "YouTube", href: links.youtube },
+    { key: "instagram" as const, label: "Instagram", href: links.instagram },
+    { key: "tiktok" as const, label: "TikTok", href: links.tiktok },
+    { key: "x" as const, label: "X", href: links.x },
+    { key: "substack" as const, label: "Substack", href: links.substack },
+  ].filter((x) => !!x.href);
 
   return (
     <div className="premium-card relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <div className="text-xs uppercase tracking-widest text-neutral-400">
+          <div className="text-xs uppercase tracking-[0.18em] text-neutral-400">
             Week {week} • {date}
           </div>
           <h3 className="mt-2 text-base font-semibold text-white">{title}</h3>
         </div>
 
         <span className="inline-flex items-center rounded-full border border-white/10 bg-black/30 px-3 py-1 text-[11px] text-neutral-300">
-          Proof
+          Lab
         </span>
       </div>
 
@@ -88,7 +87,7 @@ export default function ProofCard({
 
         {items.length === 0 && (
           <span className="text-xs text-neutral-500">
-            Links pending — will populate after Week 1 post.
+            References pending — will populate after Week 1 post.
           </span>
         )}
       </div>
