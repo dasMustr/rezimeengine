@@ -11,8 +11,8 @@ const tiers = [
       "Works on any charted market",
       "Core documentation",
     ],
-    cta: "Join waitlist",
-    href: "/pricing#waitlist",
+    cta: "Subscribe",
+    href: "/checkout?plan=engine",
   },
   {
     name: "Sync",
@@ -24,8 +24,8 @@ const tiers = [
       "3–5 gap rule guidance",
       "Operator portal framework",
     ],
-    cta: "Join waitlist",
-    href: "/pricing#waitlist",
+    cta: "Subscribe",
+    href: "/checkout?plan=sync",
     featured: true,
   },
   {
@@ -38,26 +38,36 @@ const tiers = [
       "Optional fog badge",
       "Advanced interpretation notes",
     ],
-    cta: "Join waitlist",
-    href: "/pricing#waitlist",
+    cta: "Subscribe",
+    href: "/checkout?plan=battlelines",
   },
 ];
 
 export default function PricingPage() {
   return (
-    <main className="mx-auto max-w-5xl px-5 py-10">
-      <header className="mb-8">
-        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
-          Placeholder checkout • real tiers • launch-ready
-        </div>
-        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-white">
-          Pricing
-        </h1>
-        <p className="mt-2 max-w-2xl text-white/70">
-          REZIME is a map, not signals. Subscriptions will unlock indicators and portals.
-          Checkout is not live yet — you can join the waitlist to get first access.
+    <main className="mx-auto max-w-5xl px-5 py-12">
+      <header className="mb-10">
+        <h1 className="text-3xl font-semibold tracking-tight text-white">Pricing</h1>
+        <p className="mt-3 max-w-2xl text-white/70">
+          REZIME is a <strong>market structure education platform</strong> providing
+          analytical chart tools, documentation, and framework materials.
+          It does <strong>not</strong> provide trading signals, financial advice, or portfolio management.
         </p>
       </header>
+
+      {/* WHAT YOU ARE BUYING — important for payment review */}
+      <section className="mb-10 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm text-white/70">
+        <p className="font-semibold text-white mb-2">What your subscription includes:</p>
+        <ul className="list-disc ml-5 space-y-1">
+          <li>Access to educational documentation</li>
+          <li>Research-based market regime explanations</li>
+          <li>Analytical chart indicators and interpretation guides</li>
+          <li>Framework-based decision support materials</li>
+        </ul>
+        <p className="mt-3 text-xs text-white/50">
+          REZIME does not provide investment advice, trading signals, or financial recommendations.
+        </p>
+      </section>
 
       <section className="grid gap-4 md:grid-cols-3">
         {tiers.map((t) => (
@@ -98,41 +108,25 @@ export default function PricingPage() {
 
             <Link
               href={t.href}
-              className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-white/10 px-4 py-2 text-sm font-medium text-white hover:bg-white/15"
+              className="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black hover:opacity-90"
             >
               {t.cta}
             </Link>
 
             <p className="mt-3 text-xs text-white/45">
-              Checkout inactive • joining the waitlist is the current path.
+              Educational access only. No financial advice or trading signals.
             </p>
           </div>
         ))}
       </section>
 
-      <section className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-5" id="waitlist">
-        <h3 className="text-lg font-semibold text-white">Join the waitlist</h3>
-        <p className="mt-1 text-sm text-white/70">
-          Get notified when subscriptions go live. No spam.
-        </p>
-
-        <form className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]">
-          <input
-            type="email"
-            required
-            placeholder="you@email.com"
-            className="h-11 rounded-xl border border-white/10 bg-black/30 px-4 text-white placeholder:text-white/30 outline-none focus:border-white/20"
-          />
-          <button
-            type="submit"
-            className="h-11 rounded-xl bg-white px-4 text-sm font-semibold text-black hover:opacity-90"
-          >
-            Notify me
-          </button>
-        </form>
-
-        <p className="mt-2 text-xs text-white/45">
-          (For now this can submit to email, a Google Form, or your backend later.)
+      {/* LEGAL SAFETY BLOCK */}
+      <section className="mt-12 text-xs text-white/50 leading-relaxed">
+        <p>
+          By subscribing, you agree to our{" "}
+          <Link href="/terms" className="underline hover:text-white">Terms of Use</Link>,{" "}
+          <Link href="/privacy" className="underline hover:text-white">Privacy Policy</Link>, and{" "}
+          <Link href="/refunds" className="underline hover:text-white">Refund Policy</Link>.
         </p>
       </section>
     </main>
