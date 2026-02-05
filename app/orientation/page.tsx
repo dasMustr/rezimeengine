@@ -87,8 +87,39 @@ function JumpPill({ href, label }: { href: string; label: string }) {
       href={href}
       className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
     >
-      {label} →
+      {label}
     </a>
+  );
+}
+
+function VisualSlot({
+  title,
+  desc,
+}: {
+  title: string;
+  desc: string;
+}) {
+  return (
+    <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="text-sm font-semibold text-white">{title}</p>
+          <p className="mt-2 text-sm text-neutral-300 leading-relaxed">{desc}</p>
+        </div>
+        <span className="text-xs text-neutral-500">Visual</span>
+      </div>
+
+      <div className="mt-4 rounded-xl border border-dashed border-white/15 bg-black/40 p-6">
+        <p className="text-xs uppercase tracking-widest text-neutral-400">
+          Screenshot slot
+        </p>
+        <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
+          Add a TradingView screenshot here. Keep it simple. One chart, one symbol,
+          and a clean layout. Optional later: small labels for “price”, “candles”,
+          and “timeframe”.
+        </p>
+      </div>
+    </div>
   );
 }
 
@@ -107,53 +138,27 @@ export default function OrientationPage() {
             <Tag>Beginner-safe</Tag>
             <Tag>No hype</Tag>
             <Tag>Survival first</Tag>
-            <Tag>Regimes → behavior</Tag>
+            <Tag>Regimes and behavior</Tag>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
             The fear is valid.
             <br />
-            But markets aren’t mystical.
+            Markets are not mystical.
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            When you’re new, markets feel like a secret world where “professionals”
-            know something you don’t.
+            When you are new, markets can feel like a secret world.
+            It can look like professionals know something you do not.
             <br />
             <br />
-            Reality: you see the same prices they see. Same candles. Same news.
-            The difference isn’t secret information — it’s{" "}
-            <span className="text-white font-semibold">survivability</span>.
+            Reality is calmer. You see the same prices they see. You play the same game.
+            The difference is not secret information. The difference is survivability.
             <br />
             <br />
-            REZIME exists to help you survive the early phase long enough to develop your edge —
-            whatever your style is: charts, fundamentals, macro, narratives, order book, anything.
+            REZIME exists to help you survive the early phase long enough to develop your edge.
+            That edge can come from charts, fundamentals, macro, narratives, order flow, or anything.
           </p>
-
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="#prices"
-              className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
-            >
-              <Sheen className="rounded-full" />
-              Start →
-            </a>
-
-            <Link
-              href="/operator"
-              className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-200 transition hover:bg-white/[0.06]"
-            >
-              <Sheen className="rounded-full" />
-              Skip to Playbook →
-            </Link>
-
-            <Link
-              href="/"
-              className="text-sm text-neutral-400 hover:text-white transition self-center"
-            >
-              Back to Home
-            </Link>
-          </div>
 
           <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
             <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-400">
@@ -161,280 +166,251 @@ export default function OrientationPage() {
               <JumpPill href="#prices" label="Prices in real life" />
               <JumpPill href="#headlines" label="Why headlines scare you" />
               <JumpPill href="#mismatch" label="Regime mismatch" />
-              <JumpPill href="#tools" label="Charts & tools" />
+              <JumpPill href="#charting" label="Charting and TradingView" />
               <JumpPill href="#rezime" label="What REZIME does" />
-              <JumpPill href="#route" label="Your route" />
+              <JumpPill href="#next" label="Next step" />
             </div>
           </div>
         </section>
       </Reveal>
 
-      {/* SECTION — PRICES */}
-      <Reveal delayMs={70}>
+      {/* PRICES */}
+      <Reveal delayMs={80}>
         <section id="prices" className="scroll-mt-28 space-y-5">
           <SectionHeader
             eyebrow="Beginner layer"
             title="You already understand price movement"
-            subtitle="Markets are just prices changing because people decide what things are worth. You’ve seen this your whole life — outside finance."
+            subtitle="Markets are just prices changing because people decide what things are worth. You have seen this your whole life outside finance."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
             <Card
               tone="hard"
-              title="Food & daily goods"
-              desc="Eggs, rice, coffee, cooking oil — sometimes prices rise, sometimes they fall."
-              note="That’s not “chaos.” That’s supply, demand, and emotion."
+              title="Food and daily goods"
+              desc="Eggs, rice, coffee, cooking oil. Prices rise and fall based on supply, demand, and sentiment."
+              note="That is price movement. It is not a special finance event."
             />
             <Card
-              title="Flights, hotels, surge pricing"
-              desc="Holiday season → prices spike. Low demand → discounts appear."
-              note="Same idea: buyers and sellers adjusting in real time."
+              title="Flights, hotels, and tickets"
+              desc="Holiday season pushes prices up. Low demand creates discounts. Resale markets jump when something is scarce."
+              note="Same idea. Buyers and sellers constantly reprice."
             />
             <Card
               tone="hard"
-              title="Currency exchange"
-              desc="Sometimes USD/IDR feels expensive, sometimes cheaper."
-              note="That’s a market too — just a different product."
+              title="In game economies"
+              desc="Rare items get expensive. A patch changes drop rates and prices move fast. Players react and prices follow."
+              note="It feels like chaos, but it is still supply and demand."
             />
           </div>
 
-          <Callout title="The simple translation">
+          <Callout title="Simple translation">
             If you can accept that prices change in daily life, you can accept markets.
-            The scary part isn’t movement — it’s{" "}
-            <span className="text-white font-semibold">
-              not knowing how to behave during different kinds of movement
-            </span>
-            .
+            The scary part is not movement.
+            The scary part is not knowing how to behave in different regimes.
           </Callout>
         </section>
       </Reveal>
 
-      {/* SECTION — HEADLINES */}
-      <Reveal delayMs={140}>
+      {/* HEADLINES */}
+      <Reveal delayMs={160}>
         <section id="headlines" className="scroll-mt-28 space-y-5">
           <SectionHeader
             eyebrow="The headline effect"
             title="Why “billions wiped out” feels terrifying"
-            subtitle="Headlines are written to trigger emotion. Calm doesn’t get clicks. Fear does."
+            subtitle="Headlines are designed to trigger emotion. Calm does not get clicks. Fear does."
           />
 
-          <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
             <p className="text-sm text-neutral-300 leading-relaxed">
-              You’ll see headlines like:{" "}
-              <span className="text-white font-semibold">
-                “$2 trillion wiped from markets.”
-              </span>
-              <br />
-              <br />
-              But what usually happened is simple:{" "}
-              <span className="text-white font-semibold">prices moved down</span>.
-              <br />
-              <br />
-              The goal isn’t to ignore news. The goal is to stop letting news make normal
-              movement feel like danger.
+              You will see headlines like “trillions wiped out.”
+              It sounds like disaster.
+              Most of the time the core event is simple.
+              Prices moved down.
             </p>
 
-            <div className="mt-5 grid gap-4 lg:grid-cols-2">
+            <div className="grid gap-4 lg:grid-cols-2">
               <Card
                 title="What your brain hears"
-                desc="“This is unsafe. I need to act now.”"
+                desc="This is unsafe. I need to act now."
               />
               <Card
                 tone="hard"
-                title="What’s actually happening"
-                desc="“The market is repricing. This is normal. The question is: what regime are we in?”"
+                title="What is actually happening"
+                desc="The market is repricing. This is normal. The real question is which regime we are in."
               />
             </div>
+
+            <p className="text-xs text-neutral-500 leading-relaxed">
+              The goal is not to ignore news. The goal is to stop letting news make normal movement feel like danger.
+            </p>
           </div>
         </section>
       </Reveal>
 
-      {/* SECTION — REGIME MISMATCH */}
-      <Reveal delayMs={210}>
+      {/* MISMATCH */}
+      <Reveal delayMs={240}>
         <section id="mismatch" className="scroll-mt-28 space-y-5">
           <SectionHeader
             eyebrow="Reality layer"
-            title="What you felt wasn’t failure — it was regime mismatch"
-            subtitle="Most beginners don’t lose because they’re stupid. They lose because they stay active when the regime is unstable."
+            title="What you felt was not failure"
+            subtitle="Most beginners do not lose because they are stupid. They lose because they stay active when the regime is unstable."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
             <Card
-              title="Confusion isn’t a flaw"
+              title="Confusion is not a flaw"
               desc="When regimes conflict, clarity disappears. Your brain tries to force certainty where none exists."
-              note="That’s not weakness — it’s mismatch."
+              note="That is mismatch, not weakness."
             />
             <Card
               tone="hard"
               title="Urgency is a trap"
-              desc="The more unstable it gets, the more you feel like you must do something."
+              desc="Instability triggers action bias. The more unstable it gets, the more you feel like you must do something."
               note="That impulse causes most beginner damage."
             />
             <Card
               title="Exhaustion is a signal"
               desc="Cognitive overload is common in unstable regimes."
-              note="Your system is telling you: reduce activity."
+              note="Your system is telling you to reduce activity."
             />
           </div>
 
           <Callout title="The beginner safety rule">
-            If you’re confused, reduce activity.
-            <br />
-            Confusion usually means the{" "}
-            <span className="text-white font-semibold">regime is unstable</span> —
-            not that you should “try harder.”
+            If you are confused, reduce activity.
+            Confusion usually means the regime is unstable.
+            It does not mean you should try harder.
           </Callout>
         </section>
       </Reveal>
 
-      {/* SECTION — TOOLS BRIDGE */}
-      <Reveal delayMs={280}>
-        <section id="tools" className="scroll-mt-28 space-y-5">
+      {/* CHARTING + TRADINGVIEW */}
+      <Reveal delayMs={320}>
+        <section id="charting" className="scroll-mt-28 space-y-5">
           <SectionHeader
-            eyebrow="Bridge"
-            title="Charts, tools, and the “professional screen” illusion"
-            subtitle="The first time you see someone with six monitors, it’s easy to think: “They know something I don’t.”"
+            eyebrow="Bridge to the tools"
+            title="Charting and TradingView"
+            subtitle="Before you learn rules, you should recognize the basic interface. This reduces intimidation and makes Playbook feel natural."
           />
 
-          <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
-            <p className="text-sm text-neutral-300 leading-relaxed">
-              Here’s the truth:
-              <br />
-              <span className="text-white font-semibold">
-                what you see is what they see too.
-              </span>{" "}
-              Same prices. Same market. Same information.
-              <br />
-              <br />
-              Tools don’t create certainty. Tools create{" "}
-              <span className="text-white font-semibold">a lens</span>.
-              Different people use different lenses:
-            </p>
-
-            <div className="mt-5 grid gap-4 lg:grid-cols-3">
-              <Card
-                tone="hard"
-                title="Charting"
-                desc="A visual way to see price history and rhythm."
-                note="It can help. It can also tempt people into overtrading."
-              />
-              <Card
-                title="Fundamentals"
-                desc="Reports, earnings, valuation, narratives about the real world."
-                note="Different lens, same market."
-              />
-              <Card
-                tone="hard"
-                title="Other lenses"
-                desc="Order flow, macro, sentiment, on-chain, social narratives."
-                note="Everyone has a lens. The real constraint is time."
-              />
-            </div>
+          <div className="grid gap-4 lg:grid-cols-2">
+            <Card
+              tone="hard"
+              title="What a chart is"
+              desc="A chart is price history, visualized. It is not prediction. It is a way to see how price has been moving."
+              note="Think of it like a timeline. You are looking at a story of movement."
+            />
+            <Card
+              title="Why charts feel intimidating"
+              desc="People think charts are secret codes. They are not. Most of what looks complex is just tools and layout."
+              note="You and professionals see the same chart. Experience is the difference."
+            />
           </div>
 
-          <Callout title="Why this matters">
-            Timing can work — but only if you survive long enough to learn.
-            <br />
-            REZIME is the safety layer that helps you stay in the game while you build skill.
+          <VisualSlot
+            title="See it once, then it stops feeling scary"
+            desc="Add a TradingView screenshot. The goal is not to teach strategy here. The goal is to make the screen feel familiar."
+          />
+
+          <div className="grid gap-4 lg:grid-cols-3">
+            <Card
+              title="Candles"
+              desc="A candle shows movement in a time slice. Price moved up, down, or sideways in that slice."
+              note="Later, Playbook explains how regimes show up on candles."
+            />
+            <Card
+              tone="hard"
+              title="Timeframe"
+              desc="Timeframe means how big each candle is. One minute, one hour, one day. Same price, different zoom level."
+              note="Beginners get hurt by switching timeframes emotionally."
+            />
+            <Card
+              title="Indicators"
+              desc="Indicators are overlays that summarize price behavior. They are tools, not truth."
+              note="REZIME is not a signal. It is a regime map."
+            />
+          </div>
+
+          <Callout title="Important point">
+            Your edge can come from any lens.
+            Charts are one lens. Fundamentals are another lens. Macro is another lens.
+            REZIME sits above all of them.
+            It helps you adjust behavior to the regime so you survive long enough to learn.
           </Callout>
         </section>
       </Reveal>
 
-      {/* SECTION — WHAT REZIME DOES */}
-      <Reveal delayMs={350}>
+      {/* WHAT REZIME DOES */}
+      <Reveal delayMs={400}>
         <section id="rezime" className="scroll-mt-28 space-y-5">
           <SectionHeader
             eyebrow="What REZIME is"
-            title="A regime map — not a signal service"
-            subtitle="REZIME doesn’t tell you what to buy or sell. It tells you what kind of market you’re in — so your behavior matches reality."
+            title="A regime map, not a signal service"
+            subtitle="REZIME does not tell you what to buy or sell. It tells you what kind of market you are in so your behavior matches reality."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
             <Card
               tone="hard"
               title="It names the regime"
-              desc="So you stop guessing what kind of market this is."
-              note="Before you act, you know the mode."
+              desc="So you stop guessing what kind of market this is before you act."
+              note="Name first. Act second."
             />
             <Card
               title="It changes your posture"
               desc="Stable regimes reward patience. Conflict regimes demand smaller, slower, more selective behavior."
-              note="Less stable → less interference."
+              note="Less stable means less interference."
             />
             <Card
               tone="hard"
               title="It protects your timeline"
-              desc="So you’re still here after 6–12 months — when most beginners quietly disappear."
+              desc="So you are still here after 6 to 12 months, when most beginners quietly disappear."
               note="Survival creates the chance for mastery."
             />
           </div>
 
           <div className="calm-block rounded-3xl border border-white/10 bg-white/[0.04] p-10">
-            <div className="text-xs uppercase tracking-widest text-neutral-400">
+            <p className="text-xs uppercase tracking-widest text-neutral-400">
               The real problem
-            </div>
-            <div className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
-              Most people don’t lack talent.
+            </p>
+            <p className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
+              Most people do not lack talent.
               <br />
               They lack survivability.
-            </div>
-            <div className="mt-3 text-sm text-neutral-300">
+            </p>
+            <p className="mt-3 text-sm text-neutral-300">
               REZIME buys you that time.
-            </div>
+            </p>
           </div>
         </section>
       </Reveal>
 
-      {/* SECTION — ROUTE */}
-      <Reveal delayMs={420}>
-        <section id="route" className="scroll-mt-28 space-y-5">
-          <SectionHeader
-            eyebrow="Your route"
-            title="Start → Playbook → Proof"
-            subtitle="A calm route into markets: build survivability first, then learn the regime system, then watch it unfold in real time."
-          />
+      {/* BOTTOM CTA ONLY */}
+      <Reveal delayMs={480}>
+        <section id="next" className="scroll-mt-28">
+          <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-white">
+                  Next step: enter Playbook
+                </p>
+                <p className="text-xs text-neutral-400">
+                  Playbook explains the system rules and how REZIME tools behave on charts.
+                </p>
+              </div>
 
-          <div className="grid gap-4 lg:grid-cols-3">
-            <Card
-              tone="hard"
-              title="Step 1 — Start"
-              desc="Demystify markets and learn the survivability posture."
-              note="You are here."
-            />
-            <Card
-              title="Step 2 — Playbook"
-              desc="Learn how regimes work, how escalation builds, and how REZIME tools are applied."
-              note="Interpretation rules — not signals."
-            />
-            <Card
-              tone="hard"
-              title="Step 3 — Proof"
-              desc="Portfolio Lab: time-stamped snapshots that show survivability in real markets."
-              note="No hype. Just process."
-            />
+              <Link
+                href="/operator"
+                className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
+              >
+                <Sheen className="rounded-full" />
+                Enter Playbook →
+              </Link>
+            </div>
+
+            <p className="mt-4 text-[11px] text-neutral-500 leading-relaxed">
+              Not financial advice. This is education and survivability framing. No signals.
+            </p>
           </div>
-
-          <div className="flex flex-wrap gap-3 pt-2">
-            <Link
-              href="/operator"
-              className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
-            >
-              <Sheen className="rounded-full" />
-              Enter Playbook →
-            </Link>
-
-            <Link
-              href="/allocator"
-              className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-neutral-200 transition hover:bg-white/10"
-            >
-              <Sheen className="rounded-full" />
-              See Proof →
-            </Link>
-          </div>
-
-          <p className="text-xs text-neutral-500 leading-relaxed">
-            Your method decides entries. REZIME governs regime awareness, posture, and survivability.
-          </p>
         </section>
       </Reveal>
     </div>
