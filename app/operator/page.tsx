@@ -318,6 +318,66 @@ export default function OperatorPage() {
                 </div>
               </Section>
             </Reveal>
+            
+            {/* ENGINE EXPLAINED */}
+            <Reveal delayMs={40}>
+              <Section
+                id="engine"
+                eyebrow="Core signal"
+                title="REZIME Engine Explained"
+                subtitle="The Engine tells you who rules the market right now."
+              >
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 space-y-6">
+                  <p className="text-sm text-neutral-300 leading-relaxed">
+                    The Engine is the foundation. It does not give entries. It tells you
+                    which regime currently dominates behavior.
+                  </p>
+
+                  <div className="grid gap-4 lg:grid-cols-3">
+                    <MiniCard
+                      tone="hard"
+                      title="Bull Empire"
+                      desc="Buyers dominate structure. Pullbacks are usually continuation until escalation proves otherwise."
+                    />
+                    <MiniCard
+                      tone="hard"
+                      title="Bear Empire"
+                      desc="Sellers dominate structure. Rallies are usually counter-moves unless regime pressure changes."
+                    />
+                    <MiniCard
+                      title="Revolution"
+                      desc="The Empire flips. Control changes hands. Old assumptions are invalid."
+                    />
+                  </div>
+
+                  <div className="calm-block rounded-xl border border-white/10 bg-black/30 p-5">
+                    <p className="text-sm font-semibold text-white">
+                      What the strip actually represents
+                    </p>
+                    <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                      The colored strip is not momentum, not signal arrows, and not timing.
+                      It is a simplified display of who currently has structural control.
+                      It shows dominance, not entry.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <MiniCard
+                      title="Why this matters"
+                      desc="Most mistakes happen when traders act the same in every regime. The Engine stops that habit. Behavior must match the ruling Empire."
+                    />
+                    <MiniCard
+                      title="What it does NOT do"
+                      desc="It does not tell you where to enter. It does not predict tops or bottoms. It defines the battlefield you are operating in."
+                    />
+                  </div>
+
+                  <p className="text-xs text-neutral-500 leading-relaxed">
+                    Rule: If you don't know who rules, you are gambling. The Engine answers that first.
+                  </p>
+                </div>
+              </Section>
+            </Reveal>
 
             {/* ALIGNMENT VS ESCALATION */}
             <Reveal delayMs={90}>
