@@ -5,26 +5,50 @@ import PortalMenu from "./PortalMenu";
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="text-sm font-semibold tracking-wide">
-          REZIME Engine
+    <header className="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/70 backdrop-blur">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+        {/* Brand */}
+        <Link href="/" className="text-sm font-semibold tracking-[0.18em] text-neutral-100">
+          REZIME
         </Link>
 
+        {/* Right side */}
         <div className="flex items-center gap-4">
-          <PortalMenu />
+          {/* Public navigation */}
+          <nav className="hidden items-center gap-4 md:flex">
+            <Link
+              href="/orientation"
+              className="text-sm text-neutral-300 hover:text-neutral-100"
+            >
+              Start Here
+            </Link>
 
-          {/* Optional: keep these OR move them into PortalMenu only */}
-          <Link href="/faq" className="text-sm text-neutral-300 hover:text-white">
-            FAQ
-          </Link>
+            <Link
+              href="/allocator"
+              className="text-sm text-neutral-300 hover:text-neutral-100"
+            >
+              Proof
+            </Link>
 
-          <Link
-            href="/contact"
-            className="text-sm text-neutral-300 hover:text-white"
-          >
-            Contact
-          </Link>
+            <Link
+              href="/faq"
+              className="text-sm text-neutral-300 hover:text-neutral-100"
+            >
+              FAQ
+            </Link>
+
+            <Link
+              href="/contact"
+              className="text-sm text-neutral-300 hover:text-neutral-100"
+            >
+              Contact
+            </Link>
+          </nav>
+
+          {/* Portal is separate (decision-state) */}
+          <div className="flex items-center gap-3">
+            <PortalMenu />
+          </div>
         </div>
       </div>
     </header>

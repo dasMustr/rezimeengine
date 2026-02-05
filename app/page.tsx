@@ -38,7 +38,8 @@ function HomeCard({
       <div className="text-sm font-semibold text-white">{title}</div>
       <div className="mt-2 text-sm leading-relaxed text-neutral-300">{desc}</div>
       <div className="mt-4 text-xs text-neutral-300">
-        <span className="text-neutral-400">Open</span> <span className="text-white">→</span> {cta}
+        <span className="text-neutral-400">Open</span>{" "}
+        <span className="text-white">→</span> {cta}
       </div>
     </Link>
   );
@@ -52,50 +53,47 @@ export default function HomePage() {
           <div className="space-y-6">
             {/* TAGS */}
             <div className="flex flex-wrap gap-2">
-              <Tag>Market regimes</Tag>
-              <Tag>Behavior over prediction</Tag>
-              <Tag>Survival infrastructure</Tag>
+              <Tag>Survival-first</Tag>
+              <Tag>Markets as environments</Tag>
+              <Tag>Calm learning</Tag>
             </div>
 
             {/* HERO */}
             <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-white">
-              Most people don’t lose because they lack skill.
+              Markets aren’t dangerous.
               <br />
-              They lose because they don’t survive long enough to develop it.
+              Entering without a map is.
             </h1>
 
             {/* SUBTEXT */}
             <p className="max-w-2xl text-base text-neutral-300">
-              REZIME is not a strategy.
+              REZIME is a calm framework for understanding market environments —
+              so you can learn without being broken by early mistakes.
               <br />
-              It’s market survival infrastructure.
               <br />
-              <br />
-              It helps you stop donating capital to the wrong environment —
-              so you stay in the game long enough for real edge to emerge.
+              No hype. No shortcuts. No signals.
+              Just the safety layer that helps you stay in the game long enough to
+              understand yourself.
             </p>
 
-            {/* PRIMARY CTAs (NO "I already trade") */}
+            {/* PRIMARY CTAs */}
             <div className="flex flex-wrap gap-3 pt-2">
-              {/* Primary: beginner-friendly */}
               <Link
                 href="/orientation"
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                New to Markets? Start here →
+                Start Here → 
               </Link>
 
-              {/* Secondary: map */}
               <Link
                 href="/observer"
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
               >
                 <Sheen className="rounded-full" />
-                Learn the Regime Map →
+                See the Environment Map →
               </Link>
 
-              {/* Quiet secondary */}
               <div className="flex items-center gap-4 pl-1">
                 <Link
                   href="/allocator"
@@ -114,55 +112,52 @@ export default function HomePage() {
 
             {/* MICRO PROMISE */}
             <p className="text-xs text-neutral-500">
-              Survive → Understand → Build edge → Then performance follows.
+              Survival → understanding → self-mastery → profit as a byproduct.
             </p>
           </div>
         </div>
       </Reveal>
 
-      {/* PORTAL GRID (makes it feel “new to the market” — clear structure) */}
+      {/* SYSTEM GRID */}
       <Reveal delayMs={80}>
         <section className="space-y-4">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <p className="text-xs uppercase tracking-widest text-neutral-400">
-                The REZIME system
-              </p>
-              <h2 className="mt-2 text-xl font-semibold text-white">
-                A survival-first route through markets
-              </h2>
-              <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-                Pick the doorway that fits you. Same framework works for investing,
-                trading, discretionary, systematic — anything that touches markets.
-              </p>
-            </div>
+          <div>
+            <p className="text-xs uppercase tracking-widest text-neutral-400">
+              The REZIME path
+            </p>
+            <h2 className="mt-2 text-xl font-semibold text-white">
+              A calm route into markets
+            </h2>
+            <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
+              Start where you are. Move slowly. Build clarity before complexity.
+            </p>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-4">
             <HomeCard
               tone="hard"
-              title="New to Markets"
-              desc="ELI5. No jargon. Learn what markets are, why people get hurt, and how survivability actually works."
+              title="Start Here"
+              desc="Beginner-friendly. No jargon. Learn why people get hurt and how to avoid early trauma."
               href="/orientation"
-              cta="Start (ELI5)"
+              cta="Orientation"
             />
             <HomeCard
               title="Learn"
-              desc="Public explanation of the regime map: Empire / Siege / Revolution — and the safe behavior in each."
+              desc="Understand environments (stable / tense / chaotic) and what each one demands from your behavior."
               href="/observer"
-              cta="Read the map"
+              cta="Environment map"
             />
             <HomeCard
               title="Playbook"
-              desc="How to interpret Engine / Sync / Battle Lines. Context → posture. Rules, not signals."
+              desc="How to interpret REZIME tools without turning them into signals. Posture rules, not predictions."
               href="/operator"
-              cta="Use the tools"
+              cta="Behavior rules"
             />
             <HomeCard
-              title="Portfolio Lab"
-              desc="A time-stamped proof trail: posture and weekly deltas through real market conditions (no hype)."
+              title="Proof"
+              desc="Portfolio Lab: a time-stamped archive of environments, decisions, and learning over time."
               href="/allocator"
-              cta="See proof"
+              cta="See the Lab"
             />
           </div>
         </section>

@@ -55,12 +55,17 @@ export default function PortalMenu() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
-  const current = useMemo(() => {
-    if (pathname.startsWith("/orientation")) return "New to Markets";
+  // What label should the button show?
+  // Desktop: keep it stable as "Portal" so it feels like a "deeper" doorway.
+  // Mobile: show context ("Start Here", "Learn", etc.)
+  const currentMobile = useMemo(() => {
+    if (pathname.startsWith("/orientation")) return "Start Here";
     if (pathname.startsWith("/observer")) return "Learn";
     if (pathname.startsWith("/operator")) return "Playbook";
-    if (pathname.startsWith("/allocator")) return "Portfolio Lab";
+    if (pathname.startsWith("/allocator")) return "Proof";
+    if (pathname.startsWith("/pricing")) return "Access";
     if (pathname.startsWith("/faq")) return "FAQ";
+    if (pathname.startsWith("/contact")) return "Contact";
     if (pathname === "/") return "Navigate";
     return "Navigate";
   }, [pathname]);
@@ -92,20 +97,75 @@ export default function PortalMenu() {
     setMobileOpen(false);
   };
 
-  const MENU = (
+  // Mobile: one place to navigate everything
+  const MOBILE_MENU = (
     <>
-      <SectionLabel>Start here</SectionLabel>
-
+      <SectionLabel>Start</SectionLabel>
       <MenuItem
         href="/orientation"
-        label="New to Markets (ELI5)"
-        sub="No jargon • Survival-first • The beginner doorway"
+        label="Start Here"
+        sub="No jargon • Survival-first • Calm entry"
         onPick={onPick}
       />
 
       <div className="my-2 border-t border-white/10" />
 
-      <SectionLabel>Core system</SectionLabel>
+      <SectionLabel>Core</SectionLabel>
+      <MenuItem
+        href="/observer"
+        label="Learn"
+        sub="Regime map • What each state means"
+        onPick={onPick}
+      />
+      <MenuItem
+        href="/operator"
+        label="Playbook"
+        sub="How to read it • Rules • Discipline"
+        onPick={onPick}
+      />
+      <MenuItem
+        href="/allocator"
+        label="Proof"
+        sub="Portfolio Lab • Weekly snapshots • Posture"
+        onPick={onPick}
+      />
+
+      <div className="my-2 border-t border-white/10" />
+
+      <SectionLabel>Support</SectionLabel>
+      <MenuItem
+        href="/faq"
+        label="FAQ"
+        sub="Clear answers • No hype"
+        onPick={onPick}
+      />
+      <MenuItem
+        href="/contact"
+        label="Contact"
+        sub="Questions • Partnerships • Notes"
+        onPick={onPick}
+      />
+
+      <div className="my-2 border-t border-white/10" />
+
+      <SectionLabel>Access</SectionLabel>
+      <MenuItem
+        href="/pricing"
+        label="Access"
+        sub="Waitlist • Tiers • Coming soon"
+        onPick={onPick}
+      />
+
+      <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
+        Start Here → Learn → Playbook → Proof
+      </div>
+    </>
+  );
+
+  // Desktop: portal-only, so the top nav stays calm and “public”
+  const DESKTOP_MENU = (
+    <>
+      <SectionLabel>Portal</SectionLabel>
 
       <MenuItem
         href="/observer"
@@ -123,31 +183,22 @@ export default function PortalMenu() {
 
       <MenuItem
         href="/allocator"
-        label="Portfolio Lab"
-        sub="Proof trail • Posture • Weekly deltas"
+        label="Proof"
+        sub="Portfolio Lab • Weekly snapshots • Process trail"
         onPick={onPick}
       />
 
       <div className="my-2 border-t border-white/10" />
 
-      <SectionLabel>Support</SectionLabel>
-
-      <MenuItem
-        href="/faq"
-        label="FAQ"
-        sub="Clear answers • No hype"
-        onPick={onPick}
-      />
-
       <MenuItem
         href="/pricing"
         label="Access"
-        sub="Tiers • Waitlist • Coming soon"
+        sub="Waitlist • Future tiers • Not a signal service"
         onPick={onPick}
       />
 
       <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
-        New to Markets → Learn → Playbook → Portfolio Lab
+        Upgrade only when your skill upgrades.
       </div>
     </>
   );
@@ -164,7 +215,7 @@ export default function PortalMenu() {
               aria-expanded={mobileOpen}
               className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
             >
-              <span>{current}</span>
+              <span>{currentMobile}</span>
               <span className="text-neutral-400">▼</span>
             </button>
           </SheetTrigger>
@@ -181,7 +232,7 @@ export default function PortalMenu() {
 
             <div className="mt-4 max-h-[70vh] overflow-auto pr-1">
               <div className="rounded-2xl border border-white/10 bg-black/30 p-2">
-                {MENU}
+                {MOBILE_MENU}
               </div>
             </div>
           </SheetContent>
@@ -197,7 +248,7 @@ export default function PortalMenu() {
           onClick={() => setOpen((v) => !v)}
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
         >
-          <span>{current}</span>
+          <span>Portal</span>
           <span className="text-neutral-400">{open ? "▲" : "▼"}</span>
         </button>
 
@@ -205,9 +256,9 @@ export default function PortalMenu() {
           <div
             className="absolute left-0 mt-2 w-[520px] max-w-[92vw] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-xl backdrop-blur"
             role="menu"
-            aria-label="Navigate"
+            aria-label="Portal"
           >
-            <div className="p-2">{MENU}</div>
+            <div className="p-2">{DESKTOP_MENU}</div>
           </div>
         )}
       </div>
