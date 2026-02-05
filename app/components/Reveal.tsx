@@ -16,7 +16,6 @@ export default function Reveal({ children, className = "", delayMs = 0 }: Props)
     const el = ref.current;
     if (!el) return;
 
-    // Respect reduced motion (nice polish)
     const prefersReduced =
       typeof window !== "undefined" &&
       window.matchMedia &&
@@ -27,11 +26,12 @@ export default function Reveal({ children, className = "", delayMs = 0 }: Props)
       return;
     }
 
-    // Mobile tends to be stricter; reveal earlier to avoid "blank page" feeling
     const isMobile =
       typeof window !== "undefined" &&
       window.matchMedia &&
       window.matchMedia("(max-width: 768px)").matches;
+
+    let t: number | null = null;
 
     const obs = new IntersectionObserver(
       (entries) => {
@@ -40,23 +40,25 @@ export default function Reveal({ children, className = "", delayMs = 0 }: Props)
 
         if (entry.isIntersecting) {
           if (delayMs > 0) {
-            const t = window.setTimeout(() => setShown(true), delayMs);
-            return () => window.clearTimeout(t);
+            t = window.setTimeout(() => setShown(true), delayMs);
+          } else {
+            setShown(true);
           }
-          setShown(true);
           obs.disconnect();
         }
       },
       {
-        // Trigger sooner
         threshold: isMobile ? 0.01 : 0.1,
-        // Reveal *before* it enters fully (prevents blank blocks)
         rootMargin: isMobile ? "20% 0px 20% 0px" : "10% 0px 10% 0px",
       }
     );
 
     obs.observe(el);
-    return () => obs.disconnect();
+
+    return () => {
+      obs.disconnect();
+      if (t) window.clearTimeout(t);
+    };
   }, [delayMs]);
 
   return (
@@ -64,11 +66,8 @@ export default function Reveal({ children, className = "", delayMs = 0 }: Props)
       ref={ref}
       className={[
         "transition-all ease-out will-change-transform",
-        // slightly faster on mobile feels better
         "duration-500 sm:duration-700",
-        shown
-          ? "opacity-100 translate-y-0 blur-0"
-          : "opacity-0 translate-y-3 blur-[1px]",
+        shown ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-3 blur-[1px]",
         className,
       ].join(" ")}
     >

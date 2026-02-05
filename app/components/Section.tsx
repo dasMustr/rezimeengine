@@ -8,28 +8,27 @@ type Props = {
   children?: React.ReactNode;
 };
 
-export default function Section({
-  id,
-  eyebrow,
-  title,
-  subtitle,
-  children,
-}: Props) {
+export default function Section({ id, eyebrow, title, subtitle, children }: Props) {
   return (
-    <section id={id} className="space-y-6 scroll-mt-24">
+    <section id={id} className="space-y-6 scroll-mt-28">
       <div className="space-y-2">
         {eyebrow && (
-          <p className="text-xs uppercase tracking-widest text-neutral-400">
+          <p className="text-xs uppercase tracking-[0.18em] text-neutral-400">
             {eyebrow}
           </p>
         )}
-        <h2 className="text-2xl font-semibold text-white">{title}</h2>
+
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-neutral-100">
+          {title}
+        </h2>
+
         {subtitle && (
-          <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
+          <p className="max-w-3xl text-sm sm:text-base text-neutral-300 leading-relaxed">
             {subtitle}
           </p>
         )}
       </div>
+
       {children}
     </section>
   );
