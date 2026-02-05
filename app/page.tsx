@@ -76,22 +76,14 @@ export default function HomePage() {
               build real skill.
             </p>
 
-            {/* PRIMARY CTAs (minimal, non-redundant) */}
-            <div className="flex flex-wrap gap-3 pt-2">
+            {/* HERO ENTRY (single doorway, non-redundant) */}
+            <div className="pt-2">
               <Link
                 href="/orientation"
-                className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
+                className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-6 py-2 text-sm font-medium text-white transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Beginner? Start →
-              </Link>
-
-              <Link
-                href="/observer"
-                className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
-              >
-                <Sheen className="rounded-full" />
-                See the Regime Map →
+                New to Markets? Start Calm →
               </Link>
             </div>
 
