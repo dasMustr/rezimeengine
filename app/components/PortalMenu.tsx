@@ -55,11 +55,9 @@ export default function PortalMenu() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // What label should the button show?
-  // Desktop: keep it stable as "Portal" so it feels like a "deeper" doorway.
-  // Mobile: show context ("Start Here", "Learn", etc.)
+  // Mobile button label (context-aware)
   const currentMobile = useMemo(() => {
-    if (pathname.startsWith("/orientation")) return "Start Here";
+    if (pathname.startsWith("/orientation")) return "New to Markets";
     if (pathname.startsWith("/observer")) return "Learn";
     if (pathname.startsWith("/operator")) return "Playbook";
     if (pathname.startsWith("/allocator")) return "Proof";
@@ -103,8 +101,8 @@ export default function PortalMenu() {
       <SectionLabel>Start</SectionLabel>
       <MenuItem
         href="/orientation"
-        label="Start Here"
-        sub="No jargon • Survival-first • Calm entry"
+        label="New to Markets"
+        sub="Beginner-friendly • Survival-first • Calm entry"
         onPick={onPick}
       />
 
@@ -157,7 +155,7 @@ export default function PortalMenu() {
       />
 
       <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
-        Start Here → Learn → Playbook → Proof
+        New to Markets → Learn → Playbook → Proof
       </div>
     </>
   );
