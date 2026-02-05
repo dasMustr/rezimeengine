@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Reveal from "../components/Reveal";
 import Sheen from "../components/Sheen";
+import Image from "next/image";
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
@@ -92,33 +93,44 @@ function JumpPill({ href, label }: { href: string; label: string }) {
   );
 }
 
-function VisualSlot({
-  title,
-  desc,
+function ChartScreenshot({
+  src = "/images/example-chart.png",
+  alt = "Example market chart",
 }: {
-  title: string;
-  desc: string;
+  src?: string;
+  alt?: string;
 }) {
   return (
     <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm font-semibold text-white">{title}</p>
-          <p className="mt-2 text-sm text-neutral-300 leading-relaxed">{desc}</p>
+          <p className="text-sm font-semibold text-white">
+            See it once, then it stops feeling scary
+          </p>
+          <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+            This is a real market chart. The goal is not to teach strategy here.
+            The goal is to make the screen feel familiar.
+          </p>
         </div>
-        <span className="text-xs text-neutral-500">Visual</span>
+        <span className="text-xs text-neutral-500">TradingView</span>
       </div>
 
-      <div className="mt-4 rounded-xl border border-dashed border-white/15 bg-black/40 p-6">
-        <p className="text-xs uppercase tracking-widest text-neutral-400">
-          Screenshot slot
-        </p>
-        <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
-          Add a TradingView screenshot here. Keep it simple. One chart, one symbol,
-          and a clean layout. Optional later: small labels for “price”, “candles”,
-          and “timeframe”.
-        </p>
+      <div className="mt-4 overflow-hidden rounded-xl border border-white/10 bg-black/40">
+        <Image
+          src={src}
+          alt={alt}
+          width={1600}
+          height={900}
+          priority
+          className="h-auto w-full"
+        />
       </div>
+
+      <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
+        You are not looking at secret information. You are looking at price
+        movement. Everyone sees this. The difference is how people behave inside
+        different regimes.
+      </p>
     </div>
   );
 }
@@ -126,7 +138,6 @@ function VisualSlot({
 export default function OrientationPage() {
   return (
     <div className="space-y-20">
-
       {/* HERO */}
       <Reveal delayMs={0}>
         <section className="space-y-6">
@@ -152,12 +163,14 @@ export default function OrientationPage() {
             It can look like professionals know something you do not.
             <br />
             <br />
-            Reality is calmer. You see the same prices they see. You play the same game.
-            The difference is not secret information. The difference is survivability.
+            Reality is calmer. You see the same prices they see. You play the
+            same game. The difference is not secret information. The difference
+            is survivability.
             <br />
             <br />
-            REZIME exists to help you survive the early phase long enough to develop your edge.
-            That edge can come from charts, fundamentals, macro, narratives, order flow, or anything.
+            REZIME exists to help you survive the early phase long enough to
+            develop your edge. That edge can come from charts, fundamentals,
+            macro, narratives, order flow, or anything.
           </p>
 
           <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
@@ -199,14 +212,14 @@ export default function OrientationPage() {
               tone="hard"
               title="In game economies"
               desc="Rare items get expensive. A patch changes drop rates and prices move fast. Players react and prices follow."
-              note="It feels like chaos, but it is still supply and demand."
+              note="It feels chaotic, but it is still supply and demand."
             />
           </div>
 
           <Callout title="Simple translation">
-            If you can accept that prices change in daily life, you can accept markets.
-            The scary part is not movement.
-            The scary part is not knowing how to behave in different regimes.
+            If you can accept that prices change in daily life, you can accept
+            markets. The scary part is not movement. The scary part is not
+            knowing how to behave in different regimes.
           </Callout>
         </section>
       </Reveal>
@@ -241,7 +254,8 @@ export default function OrientationPage() {
             </div>
 
             <p className="text-xs text-neutral-500 leading-relaxed">
-              The goal is not to ignore news. The goal is to stop letting news make normal movement feel like danger.
+              The goal is not to ignore news. The goal is to stop letting news
+              make normal movement feel like danger.
             </p>
           </div>
         </section>
@@ -276,9 +290,8 @@ export default function OrientationPage() {
           </div>
 
           <Callout title="The beginner safety rule">
-            If you are confused, reduce activity.
-            Confusion usually means the regime is unstable.
-            It does not mean you should try harder.
+            If you are confused, reduce activity. Confusion usually means the
+            regime is unstable. It does not mean you should try harder.
           </Callout>
         </section>
       </Reveal>
@@ -306,10 +319,8 @@ export default function OrientationPage() {
             />
           </div>
 
-          <VisualSlot
-            title="See it once, then it stops feeling scary"
-            desc="Add a TradingView screenshot. The goal is not to teach strategy here. The goal is to make the screen feel familiar."
-          />
+          {/* Screenshot */}
+          <ChartScreenshot src="/images/example-chart.png" alt="TradingView chart screenshot example" />
 
           <div className="grid gap-4 lg:grid-cols-3">
             <Card
@@ -331,10 +342,10 @@ export default function OrientationPage() {
           </div>
 
           <Callout title="Important point">
-            Your edge can come from any lens.
-            Charts are one lens. Fundamentals are another lens. Macro is another lens.
-            REZIME sits above all of them.
-            It helps you adjust behavior to the regime so you survive long enough to learn.
+            Your edge can come from any lens. Charts are one lens. Fundamentals
+            are another lens. Macro is another lens. REZIME sits above all of
+            them. It helps you adjust behavior to the regime so you survive long
+            enough to learn.
           </Callout>
         </section>
       </Reveal>
@@ -394,7 +405,8 @@ export default function OrientationPage() {
                   Next step: enter Playbook
                 </p>
                 <p className="text-xs text-neutral-400">
-                  Playbook explains the system rules and how REZIME tools behave on charts.
+                  Playbook explains the system rules and how REZIME tools behave
+                  on charts.
                 </p>
               </div>
 
@@ -408,7 +420,8 @@ export default function OrientationPage() {
             </div>
 
             <p className="mt-4 text-[11px] text-neutral-500 leading-relaxed">
-              Not financial advice. This is education and survivability framing. No signals.
+              Not financial advice. This is education and survivability framing.
+              No signals.
             </p>
           </div>
         </section>
