@@ -97,7 +97,7 @@ export default function OperatorPage() {
 
           <div className="flex flex-wrap gap-2">
             <Pill>Map, not signals</Pill>
-            <Pill>Regimes → decisions</Pill>
+            <Pill>Regimes shape behavior</Pill>
             <Pill>Survival first</Pill>
           </div>
 
@@ -108,27 +108,22 @@ export default function OperatorPage() {
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
             Operator is for practitioners. It explains how to interpret REZIME
-            Engine, Sync, and Battle Lines — so you can identify{" "}
-            <span className="text-white font-semibold">
-              which Empire is ruling
-            </span>{" "}
+            Engine, Sync, and Battle Lines, so you can identify{" "}
+            <span className="text-white font-semibold">which Empire is ruling</span>{" "}
             and how instability is escalating across timeframes.
             <br />
             <br />
-            REZIME is compatible with any execution style. It does not promise
-            alpha. It gives you the baseline:{" "}
-            <span className="text-white font-semibold">
-              stop acting the same inside every regime
-            </span>{" "}
-            — because survival comes first.
+            REZIME works with any execution style. It does not promise alpha.
+            It gives you the baseline, stop acting the same inside every regime,
+            because survival comes first.
           </p>
 
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/observer"
+              href="/orientation"
               className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
-              ← Learn (Observer)
+              ← Start (Beginner)
             </Link>
             <Link
               href="/allocator"
@@ -142,6 +137,13 @@ export default function OperatorPage() {
           <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-neutral-300">Jump to:</span>
+              <a
+                href="#foundation"
+                className="underline decoration-white/20 transition hover:decoration-white/50"
+              >
+                Foundation
+              </a>
+              <span className="text-neutral-600">•</span>
               <a
                 href="#stack"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
@@ -193,8 +195,8 @@ export default function OperatorPage() {
           <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
             The playbook is intentionally entry-agnostic. It tells you which
             Empire is ruling (Bull or Bear) and how stable that rule is. Your own
-            method decides entries; REZIME gives you the regime context so you
-            don’t confuse pullbacks for reversals, or stability for danger.
+            method decides entries. REZIME gives you regime context so you do not
+            confuse pullbacks for reversals, or stability for danger.
           </p>
         </section>
       </Reveal>
@@ -209,6 +211,7 @@ export default function OperatorPage() {
             </p>
 
             <div className="grid gap-2">
+              <TocLink href="#foundation" label="Foundation: What a regime is" />
               <TocLink href="#stack" label="The Stack (Engine / Sync / Lines)" />
               <TocLink href="#alignment" label="Alignment & Escalation" />
               <TocLink href="#rules" label="Interpretation Rules" />
@@ -218,13 +221,64 @@ export default function OperatorPage() {
             </div>
 
             <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              Tip: Learn explains the worldview. Playbook explains how to read
+              Tip: Start explains the emotions. Playbook explains how to read
               the map in real time.
             </div>
           </aside>
 
           {/* CONTENT */}
           <div className="space-y-12">
+            {/* FOUNDATION */}
+            <Reveal delayMs={0}>
+              <Section
+                id="foundation"
+                eyebrow="Foundation"
+                title="Markets move in regimes, not randomness"
+                subtitle="A regime is the behavioral state of the market. It tells you what kind of activity is rewarded or punished."
+              >
+                <div className="grid gap-4 lg:grid-cols-3">
+                  <MiniCard
+                    tone="hard"
+                    title="Stable regime"
+                    desc="Price behavior is cleaner. Structure holds more often. Patience and alignment are rewarded."
+                  />
+                  <MiniCard
+                    title="Conflict regime"
+                    desc="Buyers and sellers fight. Signals disagree. Fakeouts increase. Smaller size and fewer decisions win."
+                  />
+                  <MiniCard
+                    tone="hard"
+                    title="Reset regime"
+                    desc="After a big move, the market digests and re-anchors. Old assumptions weaken and new structure forms."
+                  />
+                </div>
+
+                <div className="calm-block mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
+                  <p className="text-sm font-semibold text-white">
+                    Why it feels random
+                  </p>
+                  <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                    What feels like randomness is often transition. When regimes
+                    shift, structure temporarily breaks, confidence drops, and
+                    people overreact. REZIME helps you name the state before your
+                    emotions write a story.
+                  </p>
+                </div>
+
+                <div className="calm-block mt-4 rounded-2xl border border-white/10 bg-black/30 p-6">
+                  <p className="text-sm font-semibold text-white">
+                    What Playbook teaches next
+                  </p>
+                  <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                    Engine shows who is ruling. Sync shows escalation across
+                    timeframes. Battle Lines show territory and compression. The
+                    tools do not predict price. They reveal regime structure so
+                    your behavior matches reality.
+                  </p>
+                </div>
+              </Section>
+            </Reveal>
+
             {/* STACK */}
             <Reveal delayMs={0}>
               <Section
@@ -240,7 +294,7 @@ export default function OperatorPage() {
                     bullets={[
                       "Bull Empire vs Bear Empire dominance",
                       "Shows whether the ruling regime is stable or under challenge",
-                      "Revolution = confirmed regime flip (Empire changes)",
+                      "Revolution is confirmed regime flip, Empire changes",
                     ]}
                   />
                   <ToolCard
@@ -248,7 +302,7 @@ export default function OperatorPage() {
                     subtitle="How is the challenge escalating?"
                     bullets={[
                       "Shows how regimes relate across timeframes (2TF or 3TF)",
-                      "Revolution rarely happens on one timeframe — it builds",
+                      "Revolution rarely happens on one timeframe, it builds",
                       "Helps you read escalation instead of reacting to noise",
                     ]}
                   />
@@ -256,9 +310,9 @@ export default function OperatorPage() {
                     title="REZIME Battle Lines"
                     subtitle="How strong is the battle?"
                     bullets={[
-                      "Territory walls (rolling bounds) show compression vs runway",
-                      "Wide walls = cleaner behavior / clearer runway",
-                      "Tight walls = compression; timing becomes advanced and risky",
+                      "Territory walls show compression vs runway",
+                      "Wide walls usually mean cleaner behavior and clearer runway",
+                      "Tight walls mean compression, timing becomes advanced and risky",
                     ]}
                   />
                 </div>
@@ -277,11 +331,11 @@ export default function OperatorPage() {
                   <MiniCard
                     tone="hard"
                     title="Full Alignment"
-                    desc="This is a strong ruling Empire. If you’re already aligned with the ruling regime, the best move is often to do nothing. If you’re not in, avoid late entries — wait for the next clean setup."
+                    desc="This is a strong ruling Empire. If you’re aligned with the ruling regime, the best move is often to do nothing. If you are not in, avoid late entries and wait for the next clean setup."
                   />
                   <MiniCard
                     title="Escalation (2TF vs 3TF)"
-                    desc="Regime conflict usually begins on the lower timeframe and climbs upward. The exact ladder depends on whether you’re using 2TF or 3TF. Most people should treat escalation as a survival alert, not a ‘trade more’ signal."
+                    desc="Regime conflict usually begins on the lower timeframe and climbs upward. The ladder depends on whether you use 2TF or 3TF. Most people should treat escalation as a survival alert, not a trade-more signal."
                   />
                 </div>
 
@@ -295,8 +349,8 @@ export default function OperatorPage() {
                       {" "}
                       Standoff → Uprising → Deadlock → Rebellion → Siege → Revolution
                     </span>
-                    . Timing opportunities exist early, but they’re noisy and
-                    advanced. REZIME’s default is survival: understand what’s
+                    . Timing opportunities exist early, but they are noisy and
+                    advanced. REZIME defaults to survival, understand what is
                     building before it becomes obvious.
                   </p>
 
@@ -308,19 +362,19 @@ export default function OperatorPage() {
                       ],
                       [
                         "Uprising",
-                        "LTF Revolution. Lower timeframe flips first — early signal, high noise.",
+                        "LTF Revolution. Lower timeframe flips first, early signal, high noise.",
                       ],
                       [
                         "Deadlock",
-                        "MTF uncertainty. Conflict spreads upward; chop and fakeouts increase.",
+                        "MTF uncertainty. Conflict spreads upward, chop and fakeouts increase.",
                       ],
                       [
                         "Rebellion",
-                        "MTF Revolution. The challenge is now real and visible to more participants.",
+                        "MTF Revolution. The challenge is now visible to more participants.",
                       ],
                       [
                         "Siege",
-                        "HTF uncertainty. The old Empire is pressured; safety is decreasing.",
+                        "HTF uncertainty. The old Empire is pressured, safety decreases.",
                       ],
                       [
                         "Revolution",
@@ -360,8 +414,8 @@ export default function OperatorPage() {
                         Operator habit
                       </p>
                       <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                        Don’t be contrarian inside Full Alignment. If escalation
-                        appears, prepare defensive actions first (trim / exit),
+                        Do not be contrarian inside Full Alignment. If escalation
+                        appears, prepare defensive actions first, trim or exit,
                         and only attempt timing if you truly understand the
                         timeframe correlation.
                       </p>
@@ -386,15 +440,15 @@ export default function OperatorPage() {
                   />
                   <RuleRow
                     label="Rule 2"
-                    text="Use Sync to identify escalation. Regime flips rarely happen on one timeframe — they build from LTF to MTF to HTF (3TF), or from LTF to HTF (2TF)."
+                    text="Use Sync to identify escalation. Regime flips rarely happen on one timeframe. They build from LTF to MTF to HTF on 3TF, or from LTF to HTF on 2TF."
                   />
                   <RuleRow
                     label="Rule 3"
-                    text="Treat Standoff/Deadlock as uncertainty. Uncertainty is not a command to act — it’s a warning that your usual confidence should be reduced."
+                    text="Treat Standoff and Deadlock as uncertainty. Uncertainty is not a command to act. It is a warning that your usual confidence should be reduced."
                   />
                   <RuleRow
                     label="Rule 4"
-                    text="Treat Uprising/Rebellion as a serious alert. This is where defensive actions become rational: prepare trims, tighten your participation, and stop assuming the old Empire is ‘safe’."
+                    text="Treat Uprising and Rebellion as a serious alert. Defensive actions become rational: prepare trims, tighten participation, and stop assuming the old Empire is safe."
                   />
                   <RuleRow
                     label="Rule 5"
@@ -402,7 +456,7 @@ export default function OperatorPage() {
                   />
                   <RuleRow
                     label="Rule 6"
-                    text="Battle Lines describe battle strength. Wide walls usually mean cleaner behavior; tight walls mean compression, chop, and an approaching decision point."
+                    text="Battle Lines describe battle strength. Wide walls usually mean cleaner behavior. Tight walls mean compression, chop, and an approaching decision point."
                   />
 
                   <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
@@ -425,20 +479,20 @@ export default function OperatorPage() {
                   <MiniCard
                     tone="hard"
                     title="If aligned, do less"
-                    desc="Full Alignment means the ruling Empire is strong. If you’re already aligned, the default is to hold. Don’t micromanage pullbacks into panic decisions."
+                    desc="Full Alignment means the ruling Empire is strong. If you are already aligned, the default is to hold. Do not micromanage pullbacks into panic decisions."
                   />
                   <MiniCard
                     tone="hard"
                     title="If not aligned, stay out"
-                    desc="Late involvement inside a strong Empire often creates bad risk-reward. Patience is a position. Wait for the next clean setup instead of chasing stability."
+                    desc="Late involvement inside a strong Empire often creates poor risk and reward. Patience is a position. Wait for the next clean setup instead of chasing stability."
                   />
                   <MiniCard
-                    title="Escalation = prepare defense"
-                    desc="When escalation appears (Standoff → … → Siege), treat it as a survival alert. Prepare trims or full exits. Don’t let uncertainty bait you into emotional activity."
+                    title="Escalation means prepare defense"
+                    desc="When escalation appears, treat it as a survival alert. Prepare trims or full exits. Do not let uncertainty bait you into emotional activity."
                   />
                   <MiniCard
                     title="Timing is earned"
-                    desc="Early phases can offer timing opportunities, but only if you understand timeframe correlation deeply. REZIME is built for survival first — thrive later."
+                    desc="Early phases can offer timing opportunities, but only if you understand timeframe correlation deeply. REZIME is built for survival first, thrive later."
                   />
                 </div>
 
@@ -447,10 +501,10 @@ export default function OperatorPage() {
                     Why the doctrine exists
                   </p>
                   <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                    Most stress comes from not knowing which regime you’re in.
+                    Most stress comes from not knowing which regime you are in.
                     REZIME gives you the regime map: who rules, how stable the
-                    rule is, and how the challenge is escalating. When you
-                    understand the regime, the mind calms down — and discipline
+                    rule is, and how the challenge escalates. When you
+                    understand the regime, the mind calms down, and discipline
                     becomes possible.
                   </p>
                 </div>
@@ -463,7 +517,7 @@ export default function OperatorPage() {
                 id="cases"
                 eyebrow="Proof library"
                 title="Case Library"
-                subtitle="A public pattern library: regime behavior, escalation, and survival posture — without exposing construction."
+                subtitle="A public pattern library: regime behavior, escalation, and survival posture, without exposing construction."
               >
                 <div className="grid gap-4 lg:grid-cols-3">
                   <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
@@ -532,7 +586,7 @@ export default function OperatorPage() {
                       Want the proof archive?
                     </p>
                     <p className="text-xs text-neutral-400">
-                      Portfolio Lab = factsheet archive + cadence + governance tone.
+                      Portfolio Lab is a factsheet archive with cadence and governance tone.
                     </p>
                   </div>
 
