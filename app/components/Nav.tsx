@@ -7,6 +7,7 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/70 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+        
         {/* Brand */}
         <Link
           href="/"
@@ -17,8 +18,9 @@ export default function Nav() {
 
         {/* Right side */}
         <div className="flex items-center gap-4">
-          {/* Public navigation (kept calm + minimal) */}
-          <nav className="hidden items-center gap-4 md:flex">
+          
+          {/* Public navigation — NOW VISIBLE ON ALL SCREEN SIZES */}
+          <nav className="flex items-center gap-4">
             <Link
               href="/faq"
               className="text-sm text-neutral-300 hover:text-neutral-100 transition"
@@ -34,10 +36,8 @@ export default function Nav() {
             </Link>
           </nav>
 
-          {/* Portal (Beginner/Learn/Playbook/Proof/Access) */}
-          <div className="flex items-center gap-3">
-            <PortalMenu />
-          </div>
+          {/* Portal (system section) */}
+          <PortalMenu />
         </div>
       </div>
     </header>
