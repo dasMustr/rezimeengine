@@ -54,8 +54,8 @@ export default function HomePage() {
             {/* TAGS */}
             <div className="flex flex-wrap gap-2">
               <Tag>Survival-first</Tag>
-              <Tag>Markets as environments</Tag>
-              <Tag>Calm learning</Tag>
+              <Tag>Regime map</Tag>
+              <Tag>Map, not signals</Tag>
             </div>
 
             {/* HERO */}
@@ -67,13 +67,14 @@ export default function HomePage() {
 
             {/* SUBTEXT */}
             <p className="max-w-2xl text-base text-neutral-300">
-              REZIME is a calm framework for understanding market environments —
-              so you can learn without being broken by early mistakes.
+              REZIME is a calm regime framework — built to protect beginners from
+              early damage, and to help you stay in the game long enough to build
+              real skill.
               <br />
               <br />
               No hype. No shortcuts. No signals.
-              Just the safety layer that helps you stay in the game long enough to
-              build real skill.
+              Just a safety layer that teaches you how to behave differently in
+              different regimes.
             </p>
 
             {/* MICRO PROMISE */}
@@ -95,7 +96,9 @@ export default function HomePage() {
               A calm route into markets
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Beginner first (avoid early damage), then learn the map, then rules, then proof.
+              Beginner first (avoid early damage), then Reality (why fear is
+              normal), then Playbook (posture rules), then Proof (time-stamped
+              practice).
             </p>
           </div>
 
@@ -103,25 +106,25 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Beginner"
-              desc="No jargon. Learn what markets are, why beginners get hurt, and the one rule that prevents early damage."
+              desc="No jargon. Learn why beginners get hurt, what ‘blowups’ really are, and the one rule that prevents early damage."
               href="/orientation"
               cta="Start"
             />
             <HomeCard
-              title="Learn (Map)"
-              desc="Understand environments (stable / tense / chaotic) and what each one demands from your behavior."
+              title="Reality"
+              desc="Your fear is valid. Understand why confusion happens, how regimes create mismatch, and what ‘survival posture’ looks like."
               href="/observer"
-              cta="Regime map"
+              cta="Read"
             />
             <HomeCard
-              title="Playbook (Rules)"
+              title="Playbook"
               desc="Interpret Engine / Sync / Battle Lines without turning them into signals. Posture rules, not predictions."
               href="/operator"
-              cta="Behavior rules"
+              cta="Apply"
             />
             <HomeCard
-              title="Proof (Portfolio Lab)"
-              desc="A time-stamped archive of environments, posture, and learning over time (no hype)."
+              title="Proof"
+              desc="Portfolio Lab: a time-stamped archive of regimes, posture, and learning over time (no hype)."
               href="/allocator"
               cta="See the Lab"
             />
