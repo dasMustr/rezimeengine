@@ -73,17 +73,17 @@ export default function HomePage() {
               <br />
               No hype. No shortcuts. No signals.
               Just the safety layer that helps you stay in the game long enough to
-              understand yourself.
+              build real skill.
             </p>
 
-            {/* PRIMARY CTAs */}
+            {/* PRIMARY CTAs (minimal, non-redundant) */}
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
                 href="/orientation"
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Start Here → 
+                Beginner? Start →
               </Link>
 
               <Link
@@ -91,23 +91,8 @@ export default function HomePage() {
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
               >
                 <Sheen className="rounded-full" />
-                See the Environment Map →
+                See the Regime Map →
               </Link>
-
-              <div className="flex items-center gap-4 pl-1">
-                <Link
-                  href="/allocator"
-                  className="text-sm text-neutral-400 hover:text-white transition"
-                >
-                  Proof →
-                </Link>
-                <Link
-                  href="/pricing"
-                  className="text-sm text-neutral-400 hover:text-white transition"
-                >
-                  Access →
-                </Link>
-              </div>
             </div>
 
             {/* MICRO PROMISE */}
@@ -129,33 +114,33 @@ export default function HomePage() {
               A calm route into markets
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Start where you are. Move slowly. Build clarity before complexity.
+              Beginner first (avoid early damage), then learn the map, then rules, then proof.
             </p>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-4">
             <HomeCard
               tone="hard"
-              title="Start Here"
-              desc="Beginner-friendly. No jargon. Learn why people get hurt and how to avoid early trauma."
+              title="Beginner"
+              desc="No jargon. Learn what markets are, why beginners get hurt, and the one rule that prevents early damage."
               href="/orientation"
-              cta="Orientation"
+              cta="Start"
             />
             <HomeCard
-              title="Learn"
+              title="Learn (Map)"
               desc="Understand environments (stable / tense / chaotic) and what each one demands from your behavior."
               href="/observer"
-              cta="Environment map"
+              cta="Regime map"
             />
             <HomeCard
-              title="Playbook"
-              desc="How to interpret REZIME tools without turning them into signals. Posture rules, not predictions."
+              title="Playbook (Rules)"
+              desc="Interpret Engine / Sync / Battle Lines without turning them into signals. Posture rules, not predictions."
               href="/operator"
               cta="Behavior rules"
             />
             <HomeCard
-              title="Proof"
-              desc="Portfolio Lab: a time-stamped archive of environments, decisions, and learning over time."
+              title="Proof (Portfolio Lab)"
+              desc="A time-stamped archive of environments, posture, and learning over time (no hype)."
               href="/allocator"
               cta="See the Lab"
             />
