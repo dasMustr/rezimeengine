@@ -318,7 +318,7 @@ export default function OperatorPage() {
                 </div>
               </Section>
             </Reveal>
-            
+
             {/* ENGINE EXPLAINED */}
             <Reveal delayMs={40}>
               <Section
@@ -378,7 +378,94 @@ export default function OperatorPage() {
                 </div>
               </Section>
             </Reveal>
+            
+            {/* SYNC EXPLAINED */}
+            <Reveal delayMs={70}>
+              <Section
+                id="sync"
+                eyebrow="Timeframe reality"
+                title="REZIME Sync Explained"
+                subtitle="Sync shows whether timeframes agree — and how conflict is climbing."
+              >
+                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 space-y-6">
+                  <p className="text-sm text-neutral-300 leading-relaxed">
+                    Most beginners lose money in one specific situation:
+                    <span className="text-white font-semibold">
+                      {" "}
+                      they act like the market is stable while timeframes are fighting.
+                    </span>{" "}
+                    Sync makes that fight visible.
+                  </p>
 
+                  <div className="grid gap-4 lg:grid-cols-3">
+                    <MiniCard
+                      tone="hard"
+                      title="Full Alignment"
+                      desc="Timeframes agree on the ruling Empire. This is usually cleaner behavior and lower cognitive load."
+                    />
+                    <MiniCard
+                      title="Mixed / Conflict"
+                      desc="Lower timeframe disagrees with higher timeframe. This is where fakeouts, chop, and emotional mistakes increase."
+                    />
+                    <MiniCard
+                      tone="hard"
+                      title="Escalation"
+                      desc="Conflict spreads upward over time. This is the real danger zone for beginners."
+                    />
+                  </div>
+
+                  <div className="calm-block rounded-xl border border-white/10 bg-black/30 p-5 space-y-4">
+                    <div>
+                      <p className="text-sm font-semibold text-white">How escalation actually happens</p>
+                      <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                        Regime flips rarely happen instantly on the higher timeframe.
+                        They usually begin on the lower timeframe, then climb upward.
+                        Sync helps you see the climb early — without needing prediction.
+                      </p>
+                    </div>
+
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="calm-block rounded-xl border border-white/10 bg-black/30 p-4">
+                        <p className="text-xs uppercase tracking-widest text-neutral-400">3TF ladder</p>
+                        <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                          LTF conflict → MTF conflict → HTF pressure → HTF Revolution.
+                        </p>
+                        <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
+                          Early = noisy. Late = obvious. The cost of obvious is usually volatility.
+                        </p>
+                      </div>
+
+                      <div className="calm-block rounded-xl border border-white/10 bg-black/30 p-4">
+                        <p className="text-xs uppercase tracking-widest text-neutral-400">2TF ladder</p>
+                        <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                          LTF conflict → HTF pressure → HTF Revolution.
+                        </p>
+                        <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
+                          Simpler to operate. Less nuance. Better for survival.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <MiniCard
+                      tone="hard"
+                      title="What Sync is FOR"
+                      desc="To warn you when the battlefield is changing. If conflict appears, slow down, reduce frequency, and prepare defense."
+                    />
+                    <MiniCard
+                      title="What Sync is NOT"
+                      desc="It is not a trade trigger. Conflict does not mean ‘opportunity’ by default. For beginners, it usually means ‘danger’."
+                    />
+                  </div>
+
+                  <p className="text-xs text-neutral-500 leading-relaxed">
+                    Rule: When timeframes disagree, your confidence should shrink — not your activity increase.
+                  </p>
+                </div>
+              </Section>
+            </Reveal>
+                      
             {/* ALIGNMENT VS ESCALATION */}
             <Reveal delayMs={90}>
               <Section
