@@ -58,7 +58,7 @@ export default function PortalMenu() {
   // Context label (used for BOTH mobile + desktop button)
   const currentLabel = useMemo(() => {
     if (pathname.startsWith("/orientation")) return "Beginner";
-    if (pathname.startsWith("/observer")) return "Learn";
+    if (pathname.startsWith("/reality")) return "Reality";
     if (pathname.startsWith("/operator")) return "Playbook";
     if (pathname.startsWith("/allocator")) return "Proof";
     if (pathname.startsWith("/pricing")) return "Access";
@@ -95,10 +95,16 @@ export default function PortalMenu() {
   };
 
   // One unified menu (mobile + desktop)
-  // Proof is inside Portal. Beginner is inside Portal.
+  // Reality is the psychological entry point. Playbook is mechanics. Proof is evidence.
   const MENU = (
     <>
       <SectionLabel>Start</SectionLabel>
+      <MenuItem
+        href="/reality"
+        label="Reality"
+        sub="Validation • Why fear is normal • Regime mismatch clarity"
+        onPick={onPick}
+      />
       <MenuItem
         href="/orientation"
         label="Beginner"
@@ -110,15 +116,9 @@ export default function PortalMenu() {
 
       <SectionLabel>Core</SectionLabel>
       <MenuItem
-        href="/observer"
-        label="Learn"
-        sub="Regime map • Public overview • Safe behavior"
-        onPick={onPick}
-      />
-      <MenuItem
         href="/operator"
         label="Playbook"
-        sub="Interpretation rules • How to use the tools"
+        sub="Regime escalation • Interpretation rules • How to use the tools"
         onPick={onPick}
       />
       <MenuItem
@@ -139,7 +139,7 @@ export default function PortalMenu() {
       />
 
       <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
-        Beginner → Learn → Playbook → Proof
+        Reality → Playbook → Proof
       </div>
     </>
   );

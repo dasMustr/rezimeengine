@@ -19,8 +19,15 @@ export default function Nav() {
         {/* Right side */}
         <div className="flex items-center gap-4">
           
-          {/* Public navigation — NOW VISIBLE ON ALL SCREEN SIZES */}
+          {/* Public navigation */}
           <nav className="flex items-center gap-4">
+            <Link
+              href="/reality"
+              className="text-sm text-neutral-300 hover:text-neutral-100 transition"
+            >
+              Reality
+            </Link>
+
             <Link
               href="/faq"
               className="text-sm text-neutral-300 hover:text-neutral-100 transition"
