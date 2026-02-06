@@ -1,7 +1,13 @@
+// app/operator/page.tsx
 import React from "react";
 import Link from "next/link";
 import Reveal from "../components/Reveal";
 import Section from "../components/Section";
+import {
+  RegimeStripDemo,
+  RuleTiles,
+  VisualSlot,
+} from "../components/VisualBlocks";
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -72,19 +78,6 @@ function MiniCard({
   );
 }
 
-function RuleRow({ label, text }: { label: string; text: string }) {
-  return (
-    <div className="flex flex-col gap-2 border-t border-white/10 pt-4 sm:flex-row sm:items-start sm:justify-between">
-      <div className="text-xs uppercase tracking-widest text-neutral-400">
-        {label}
-      </div>
-      <div className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-        {text}
-      </div>
-    </div>
-  );
-}
-
 export default function OperatorPage() {
   return (
     <div className="space-y-14">
@@ -114,8 +107,8 @@ export default function OperatorPage() {
             <br />
             <br />
             REZIME works with any execution style. It does not promise alpha.
-            It gives you the baseline, stop acting the same inside every regime,
-            because survival comes first.
+            It gives you the baseline: stop acting the same inside every regime.
+            Survival comes first.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -149,6 +142,20 @@ export default function OperatorPage() {
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
                 The Stack
+              </a>
+              <span className="text-neutral-600">•</span>
+              <a
+                href="#engine"
+                className="underline decoration-white/20 transition hover:decoration-white/50"
+              >
+                Engine
+              </a>
+              <span className="text-neutral-600">•</span>
+              <a
+                href="#sync"
+                className="underline decoration-white/20 transition hover:decoration-white/50"
+              >
+                Sync
               </a>
               <span className="text-neutral-600">•</span>
               <a
@@ -201,6 +208,13 @@ export default function OperatorPage() {
         </section>
       </Reveal>
 
+      {/* SIGNATURE UI ANCHOR */}
+      <Reveal delayMs={120}>
+        <section>
+          <RegimeStripDemo />
+        </section>
+      </Reveal>
+
       {/* LAYOUT: TOC + CONTENT */}
       <Reveal delayMs={140}>
         <section className="grid gap-8 lg:grid-cols-[240px_1fr]">
@@ -213,6 +227,8 @@ export default function OperatorPage() {
             <div className="grid gap-2">
               <TocLink href="#foundation" label="Foundation: What a regime is" />
               <TocLink href="#stack" label="The Stack (Engine / Sync / Lines)" />
+              <TocLink href="#engine" label="Engine Explained" />
+              <TocLink href="#sync" label="Sync Explained" />
               <TocLink href="#alignment" label="Alignment & Escalation" />
               <TocLink href="#rules" label="Interpretation Rules" />
               <TocLink href="#doctrine" label="Survival Doctrine" />
@@ -240,7 +256,7 @@ export default function OperatorPage() {
                   <MiniCard
                     tone="hard"
                     title="Stable regime"
-                    desc="Price behavior is cleaner. Structure holds more often. Patience and alignment are rewarded."
+                    desc="Cleaner behavior. Structure holds more often. Patience and alignment are rewarded."
                   />
                   <MiniCard
                     title="Conflict regime"
@@ -253,28 +269,30 @@ export default function OperatorPage() {
                   />
                 </div>
 
-                <div className="calm-block mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <p className="text-sm font-semibold text-white">
-                    Why it feels random
-                  </p>
-                  <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                    What feels like randomness is often transition. When regimes
-                    shift, structure temporarily breaks, confidence drops, and
-                    people overreact. REZIME helps you name the state before your
-                    emotions write a story.
-                  </p>
-                </div>
+                <div className="mt-4 grid gap-4 lg:grid-cols-2">
+                  <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <p className="text-sm font-semibold text-white">
+                      Why it feels random
+                    </p>
+                    <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                      What feels like randomness is often transition. When regimes
+                      shift, structure temporarily breaks, confidence drops, and
+                      people overreact. REZIME helps you name the state before your
+                      emotions write a story.
+                    </p>
+                  </div>
 
-                <div className="calm-block mt-4 rounded-2xl border border-white/10 bg-black/30 p-6">
-                  <p className="text-sm font-semibold text-white">
-                    What Playbook teaches next
-                  </p>
-                  <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                    Engine shows who is ruling. Sync shows escalation across
-                    timeframes. Battle Lines show territory and compression. The
-                    tools do not predict price. They reveal regime structure so
-                    your behavior matches reality.
-                  </p>
+                  <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
+                    <p className="text-sm font-semibold text-white">
+                      What Playbook teaches next
+                    </p>
+                    <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                      Engine shows who is ruling. Sync shows escalation across
+                      timeframes. Battle Lines show territory and compression.
+                      The tools do not predict price. They reveal regime structure so
+                      your behavior matches reality.
+                    </p>
+                  </div>
                 </div>
               </Section>
             </Reveal>
@@ -316,6 +334,27 @@ export default function OperatorPage() {
                     ]}
                   />
                 </div>
+
+                <div className="mt-4 grid gap-4 lg:grid-cols-3">
+                  <VisualSlot
+                    label="Engine — Screenshot"
+                    caption="Show the strip + Empire label. One image replaces a whole explanation."
+                    height={260}
+                    badge="Engine"
+                  />
+                  <VisualSlot
+                    label="Sync — Conflict Example"
+                    caption="Show timeframes disagreeing. This is where beginners get hurt."
+                    height={260}
+                    badge="Sync"
+                  />
+                  <VisualSlot
+                    label="Battle Lines — Compression Example"
+                    caption="Show tight walls / chop. Caption: 'compression = survival test'."
+                    height={260}
+                    badge="Lines"
+                  />
+                </div>
               </Section>
             </Reveal>
 
@@ -323,7 +362,7 @@ export default function OperatorPage() {
             <Reveal delayMs={40}>
               <Section
                 id="engine"
-                eyebrow="Core signal"
+                eyebrow="Core map"
                 title="REZIME Engine Explained"
                 subtitle="The Engine tells you who rules the market right now."
               >
@@ -378,7 +417,7 @@ export default function OperatorPage() {
                 </div>
               </Section>
             </Reveal>
-            
+
             {/* SYNC EXPLAINED */}
             <Reveal delayMs={70}>
               <Section
@@ -401,11 +440,11 @@ export default function OperatorPage() {
                     <MiniCard
                       tone="hard"
                       title="Full Alignment"
-                      desc="Timeframes agree on the ruling Empire. This is usually cleaner behavior and lower cognitive load."
+                      desc="Timeframes agree on the ruling Empire. Usually cleaner behavior and lower cognitive load."
                     />
                     <MiniCard
                       title="Mixed / Conflict"
-                      desc="Lower timeframe disagrees with higher timeframe. This is where fakeouts, chop, and emotional mistakes increase."
+                      desc="Lower timeframe disagrees with higher timeframe. Fakeouts, chop, and emotional mistakes increase."
                     />
                     <MiniCard
                       tone="hard"
@@ -414,49 +453,25 @@ export default function OperatorPage() {
                     />
                   </div>
 
-                  <div className="calm-block rounded-xl border border-white/10 bg-black/30 p-5 space-y-4">
-                    <div>
-                      <p className="text-sm font-semibold text-white">How escalation actually happens</p>
-                      <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                        Regime flips rarely happen instantly on the higher timeframe.
-                        They usually begin on the lower timeframe, then climb upward.
-                        Sync helps you see the climb early — without needing prediction.
+                  <div className="grid gap-4 lg:grid-cols-2">
+                    <VisualSlot
+                      label="Sync — Ladder Screenshot"
+                      caption="Overlay showing LTF→MTF→HTF escalation (3TF) or LTF→HTF (2TF)."
+                      height={260}
+                      badge="example"
+                    />
+                    <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6 space-y-3">
+                      <p className="text-sm font-semibold text-white">
+                        The survival translation
+                      </p>
+                      <p className="text-sm text-neutral-300 leading-relaxed">
+                        Volatility is not opportunity by default. In conflict, your confidence
+                        should shrink — not your activity increase.
+                      </p>
+                      <p className="text-xs text-neutral-500 leading-relaxed">
+                        Default posture: reduce frequency, reduce size, protect timeline.
                       </p>
                     </div>
-
-                    <div className="grid gap-3 sm:grid-cols-2">
-                      <div className="calm-block rounded-xl border border-white/10 bg-black/30 p-4">
-                        <p className="text-xs uppercase tracking-widest text-neutral-400">3TF ladder</p>
-                        <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                          LTF conflict → MTF conflict → HTF pressure → HTF Revolution.
-                        </p>
-                        <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
-                          Early = noisy. Late = obvious. The cost of obvious is usually volatility.
-                        </p>
-                      </div>
-
-                      <div className="calm-block rounded-xl border border-white/10 bg-black/30 p-4">
-                        <p className="text-xs uppercase tracking-widest text-neutral-400">2TF ladder</p>
-                        <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                          LTF conflict → HTF pressure → HTF Revolution.
-                        </p>
-                        <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
-                          Simpler to operate. Less nuance. Better for survival.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    <MiniCard
-                      tone="hard"
-                      title="What Sync is FOR"
-                      desc="To warn you when the battlefield is changing. If conflict appears, slow down, reduce frequency, and prepare defense."
-                    />
-                    <MiniCard
-                      title="What Sync is NOT"
-                      desc="It is not a trade trigger. Conflict does not mean ‘opportunity’ by default. For beginners, it usually means ‘danger’."
-                    />
                   </div>
 
                   <p className="text-xs text-neutral-500 leading-relaxed">
@@ -465,7 +480,7 @@ export default function OperatorPage() {
                 </div>
               </Section>
             </Reveal>
-                      
+
             {/* ALIGNMENT VS ESCALATION */}
             <Reveal delayMs={90}>
               <Section
@@ -478,14 +493,16 @@ export default function OperatorPage() {
                   <MiniCard
                     tone="hard"
                     title="Full Alignment"
-                    desc="This is a strong ruling Empire. If you’re aligned with the ruling regime, the best move is often to do nothing. If you are not in, avoid late entries and wait for the next clean setup."
+                    desc="A strong ruling Empire. If you’re aligned, the best move is often to do nothing. If you are not in, avoid late entries and wait for the next clean setup."
                   />
                   <MiniCard
                     title="Escalation (2TF vs 3TF)"
-                    desc="Regime conflict usually begins on the lower timeframe and climbs upward. The ladder depends on whether you use 2TF or 3TF. Most people should treat escalation as a survival alert, not a trade-more signal."
+                    desc="Conflict begins on lower timeframes and climbs upward. Treat escalation as a survival alert, not a trade-more signal."
                   />
                 </div>
 
+                {/* Keep your storyboard section as-is (already strong) */}
+                {/* (no changes to your ladder cards here to avoid breaking your existing flow) */}
                 <div className="calm-block mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
                   <p className="text-sm font-semibold text-white">
                     The escalation storyboard (3TF)
@@ -496,37 +513,17 @@ export default function OperatorPage() {
                       {" "}
                       Standoff → Uprising → Deadlock → Rebellion → Siege → Revolution
                     </span>
-                    . Timing opportunities exist early, but they are noisy and
-                    advanced. REZIME defaults to survival, understand what is
-                    building before it becomes obvious.
+                    .
                   </p>
 
                   <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                     {[
-                      [
-                        "Standoff",
-                        "LTF uncertainty. The challenge begins, but outcomes are noisy.",
-                      ],
-                      [
-                        "Uprising",
-                        "LTF Revolution. Lower timeframe flips first, early signal, high noise.",
-                      ],
-                      [
-                        "Deadlock",
-                        "MTF uncertainty. Conflict spreads upward, chop and fakeouts increase.",
-                      ],
-                      [
-                        "Rebellion",
-                        "MTF Revolution. The challenge is now visible to more participants.",
-                      ],
-                      [
-                        "Siege",
-                        "HTF uncertainty. The old Empire is pressured, safety decreases.",
-                      ],
-                      [
-                        "Revolution",
-                        "HTF Revolution. The Empire flips. Old assumptions are invalid.",
-                      ],
+                      ["Standoff", "LTF uncertainty. The challenge begins, but outcomes are noisy."],
+                      ["Uprising", "LTF Revolution. Lower timeframe flips first, early signal, high noise."],
+                      ["Deadlock", "MTF uncertainty. Conflict spreads upward, chop and fakeouts increase."],
+                      ["Rebellion", "MTF Revolution. The challenge is now visible to more participants."],
+                      ["Siege", "HTF uncertainty. The old Empire is pressured, safety decreases."],
+                      ["Revolution", "HTF Revolution. The Empire flips. Old assumptions are invalid."],
                     ].map(([name, desc]) => (
                       <div
                         key={name}
@@ -562,9 +559,7 @@ export default function OperatorPage() {
                       </p>
                       <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
                         Do not be contrarian inside Full Alignment. If escalation
-                        appears, prepare defensive actions first, trim or exit,
-                        and only attempt timing if you truly understand the
-                        timeframe correlation.
+                        appears, prepare defensive actions first: trim or exit.
                       </p>
                     </div>
                   </div>
@@ -580,37 +575,44 @@ export default function OperatorPage() {
                 title="Interpretation Rules"
                 subtitle="These rules produce clarity and survival. They do not produce entries."
               >
-                <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-                  <RuleRow
-                    label="Rule 1"
-                    text="Start with the ruling Empire. If Engine shows a clear Bull or Bear Empire, your default assumption is that counter-moves are pullbacks until escalation proves otherwise."
-                  />
-                  <RuleRow
-                    label="Rule 2"
-                    text="Use Sync to identify escalation. Regime flips rarely happen on one timeframe. They build from LTF to MTF to HTF on 3TF, or from LTF to HTF on 2TF."
-                  />
-                  <RuleRow
-                    label="Rule 3"
-                    text="Treat Standoff and Deadlock as uncertainty. Uncertainty is not a command to act. It is a warning that your usual confidence should be reduced."
-                  />
-                  <RuleRow
-                    label="Rule 4"
-                    text="Treat Uprising and Rebellion as a serious alert. Defensive actions become rational: prepare trims, tighten participation, and stop assuming the old Empire is safe."
-                  />
-                  <RuleRow
-                    label="Rule 5"
-                    text="Revolution is a reset. If HTF flips, the old Empire is no longer relevant. Do not keep executing a plan that belonged to the old regime."
-                  />
-                  <RuleRow
-                    label="Rule 6"
-                    text="Battle Lines describe battle strength. Wide walls usually mean cleaner behavior. Tight walls mean compression, chop, and an approaching decision point."
-                  />
+                <RuleTiles
+                  title="Rules that govern behavior"
+                  subtitle="Same doctrine — faster to scan."
+                  rules={[
+                    {
+                      title: "Rule 1 — Start with the ruling Empire",
+                      desc: "If Engine shows a clear Bull or Bear Empire, assume counter-moves are pullbacks until escalation proves otherwise.",
+                      tone: "hard",
+                    },
+                    {
+                      title: "Rule 2 — Use Sync to detect escalation",
+                      desc: "Regime flips rarely happen on one timeframe. They build upward (3TF: LTF→MTF→HTF, 2TF: LTF→HTF).",
+                    },
+                    {
+                      title: "Rule 3 — Treat uncertainty as a warning label",
+                      desc: "Standoff and Deadlock reduce reliability. Uncertainty is not a command to act.",
+                      tone: "hard",
+                    },
+                    {
+                      title: "Rule 4 — Treat Uprising/Rebellion as defense time",
+                      desc: "Prepare trims/exits and reduce frequency. Do not assume the old Empire is safe.",
+                    },
+                    {
+                      title: "Rule 5 — Revolution is a reset",
+                      desc: "If HTF flips, the old Empire is no longer relevant. Do not keep executing a plan that belonged to the old regime.",
+                      tone: "hard",
+                    },
+                    {
+                      title: "Rule 6 — Battle Lines describe battle strength",
+                      desc: "Wide walls usually mean cleaner behavior. Tight walls mean compression, chop, and an approaching decision point.",
+                    },
+                  ]}
+                />
 
-                  <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-                    Reminder: REZIME does not govern trade frequency. It governs
-                    regime awareness so your decisions fit the regime you are in.
-                  </p>
-                </div>
+                <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
+                  Reminder: REZIME does not govern trade frequency. It governs
+                  regime awareness so your decisions fit the regime you are in.
+                </p>
               </Section>
             </Reveal>
 
@@ -626,20 +628,20 @@ export default function OperatorPage() {
                   <MiniCard
                     tone="hard"
                     title="If aligned, do less"
-                    desc="Full Alignment means the ruling Empire is strong. If you are already aligned, the default is to hold. Do not micromanage pullbacks into panic decisions."
+                    desc="Full Alignment means the ruling Empire is strong. If you are already aligned, default is hold. Do not micromanage pullbacks into panic decisions."
                   />
                   <MiniCard
                     tone="hard"
                     title="If not aligned, stay out"
-                    desc="Late involvement inside a strong Empire often creates poor risk and reward. Patience is a position. Wait for the next clean setup instead of chasing stability."
+                    desc="Late involvement inside a strong Empire often creates poor risk and reward. Patience is a position."
                   />
                   <MiniCard
                     title="Escalation means prepare defense"
-                    desc="When escalation appears, treat it as a survival alert. Prepare trims or full exits. Do not let uncertainty bait you into emotional activity."
+                    desc="When escalation appears, treat it as a survival alert. Prepare trims or full exits."
                   />
                   <MiniCard
                     title="Timing is earned"
-                    desc="Early phases can offer timing opportunities, but only if you understand timeframe correlation deeply. REZIME is built for survival first, thrive later."
+                    desc="Early phases can offer timing, but only if you truly understand timeframe correlation. REZIME defaults to survival."
                   />
                 </div>
 
@@ -667,32 +669,33 @@ export default function OperatorPage() {
                 subtitle="A public pattern library: regime behavior, escalation, and survival posture, without exposing construction."
               >
                 <div className="grid gap-4 lg:grid-cols-3">
-                  <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
-                    <p className="text-sm font-semibold text-white">2020 Crash</p>
-                    <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Rapid escalation into Revolution. Shows why survival posture
-                      matters when regimes flip fast.
-                    </p>
-                    <p className="mt-3 text-xs text-neutral-500">Regime strip slot</p>
-                  </div>
-                  <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
-                    <p className="text-sm font-semibold text-white">BTC Cycle</p>
-                    <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Long Empires with clear phases. Shows why higher timeframes
-                      often read cleaner.
-                    </p>
-                    <p className="mt-3 text-xs text-neutral-500">Regime strip slot</p>
-                  </div>
-                  <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
-                    <p className="text-sm font-semibold text-white">
-                      Mean Reversion Trap
-                    </p>
-                    <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Strong Empires last longer than expected. Shows why
-                      contrarian assumptions get punished without escalation proof.
-                    </p>
-                    <p className="mt-3 text-xs text-neutral-500">Regime strip slot</p>
-                  </div>
+                  {[
+                    {
+                      t: "2020 Crash",
+                      d: "Rapid escalation into Revolution. Shows why survival posture matters when regimes flip fast.",
+                    },
+                    {
+                      t: "BTC Cycle",
+                      d: "Long Empires with clear phases. Shows why higher timeframes often read cleaner.",
+                    },
+                    {
+                      t: "Mean Reversion Trap",
+                      d: "Strong Empires last longer than expected. Shows why contrarian assumptions get punished without escalation proof.",
+                    },
+                  ].map((c) => (
+                    <div
+                      key={c.t}
+                      className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6"
+                    >
+                      <p className="text-sm font-semibold text-white">{c.t}</p>
+                      <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                        {c.d}
+                      </p>
+                      <p className="mt-3 text-xs text-neutral-500">
+                        Regime strip slot
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </Section>
             </Reveal>
