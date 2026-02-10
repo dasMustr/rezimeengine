@@ -25,6 +25,7 @@ const tiers = [
     name: "Engine",
     price: "$19.99",
     note: "Beginner (single timeframe).",
+    bundleLine: "Includes: Engine",
     features: [
       "Empire / Siege / Revolution regime map (simple posture lens)",
       "Safer participation rules per regime (reduce early damage)",
@@ -35,25 +36,28 @@ const tiers = [
     href: "/checkout?plan=engine",
   },
   {
-    name: "Sync",
+    name: "Engine + Sync",
     price: "$29.99",
-    note: "Intermediate (alignment across timeframes).",
+    note: "Bundle upgrade (adds timeframe alignment + safety modes).",
+    bundleLine: "Bundle includes: Engine + Sync",
     features: [
-      "2TF safety mode: HTF + MTF alignment (default)",
-      "3TF timing mode: HTF + MTF + LTF context (toggle on when ready)",
+      "Everything in Engine",
+      "Sync 2TF safety mode: HTF + MTF alignment (default)",
+      "Optional Sync 3TF timing mode: HTF + MTF + LTF context (toggle)",
       "Rebellion / Deadlock / Tension / Uprising states (behavior control)",
       "Operator notes (interpretation rules + anti-overtrade guardrails)",
     ],
     cta: "Request Access",
     href: "/checkout?plan=sync",
-    featured: true,
   },
   {
-    name: "Battle Lines",
+    name: "Engine + Sync + Battle Lines",
     price: "$34.99",
-    note: "Advanced (territory walls for management).",
+    note: "Full bundle (adds territory walls for management).",
+    bundleLine: "Bundle includes: Engine + Sync + Battle Lines",
     features: [
-      "3TF territory walls: HTF / MTF / LTF support & resistance ranges",
+      "Everything in Engine + Sync",
+      "Battle Lines 3TF territory walls: HTF / MTF / LTF support & resistance ranges",
       "Designed for management: protect decisions, reduce chasing",
       "Universal color system (readable on dark, light, or gray charts)",
       "Optional layer toggles (show/hide HTF, MTF, LTF)",
@@ -67,41 +71,27 @@ function TierCard({
   name,
   price,
   note,
+  bundleLine,
   features,
   cta,
   href,
-  featured,
 }: {
   name: string;
   price: string;
   note: string;
+  bundleLine: string;
   features: string[];
   cta: string;
   href: string;
-  featured?: boolean;
 }) {
   return (
-    <div
-      className={[
-        "premium-card relative overflow-hidden rounded-2xl border p-6",
-        featured
-          ? "border-white/20 bg-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
-          : "border-white/10 bg-white/5",
-      ].join(" ")}
-    >
+    <div className="premium-card relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6">
       <Sheen className="rounded-2xl" />
 
-      <div className="flex items-start justify-between gap-3">
-        <div>
-          <h3 className="text-base font-semibold text-white">{name}</h3>
-          <p className="mt-1 text-sm text-neutral-400">{note}</p>
-        </div>
-
-        {featured && (
-          <span className="rounded-full bg-white/10 px-2 py-1 text-[11px] text-neutral-200">
-            Recommended start
-          </span>
-        )}
+      <div className="space-y-1">
+        <h3 className="text-base font-semibold text-white">{name}</h3>
+        <p className="text-sm text-neutral-400">{note}</p>
+        <p className="text-xs text-neutral-300/80">{bundleLine}</p>
       </div>
 
       <div className="mt-5">
@@ -152,12 +142,12 @@ export default function PricingPage() {
           </h1>
 
           <p className="max-w-3xl text-sm sm:text-base text-neutral-300 leading-relaxed">
-            Most people don’t need more entries.
-            They need fewer mistakes in the wrong environment.
+            Most people don’t need more entries. They need fewer mistakes in the
+            wrong environment.
             <br />
             <br />
-            REZIME is designed to keep you calm, selective, and alive long enough
-            to build real skill.
+            REZIME is designed to keep you calm, selective, and alive long
+            enough to build real skill.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-1">
@@ -194,7 +184,8 @@ export default function PricingPage() {
               tools to recognize market regimes and adjust behavior safely.
               <br />
               <span className="text-neutral-400">
-                It’s a map and a discipline layer — not a signal service.
+                The higher tiers are bundles — you keep Engine, then add Sync,
+                then add Battle Lines.
               </span>
             </p>
           </div>
@@ -243,17 +234,11 @@ export default function PricingPage() {
               Start small. Add complexity only when you’ve earned it.
             </h2>
             <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Engine is the first safety lens. Sync is the next step —{" "}
-              <span className="text-neutral-200">
-                2TF safety by default
-              </span>{" "}
-              with an optional{" "}
-              <span className="text-neutral-200">
-                3TF timing mode
-              </span>{" "}
-              when you’re ready. Battle Lines is advanced: it gives you
-              HTF/MTF/LTF territory walls to manage risk and avoid emotional
-              chasing.
+              Engine is the foundation. The next tiers are{" "}
+              <span className="text-neutral-200">bundles</span>: you keep Engine
+              and add Sync for timeframe alignment (2TF safety by default, with
+              an optional 3TF timing mode). The full bundle adds Battle Lines —
+              territory walls designed for trade management and discipline.
             </p>
           </div>
 
