@@ -77,12 +77,12 @@ export default function ContactPage() {
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              If you want early access, collaboration, or just want to ask a question —
-              this is the place.
+              If you want early access, collaboration, or just want to ask a
+              question — this is the place.
               <br />
               <br />
-              REZIME is market survival infrastructure: educational + analytical tools.
-              Not financial advice. Not signals.
+              REZIME is market survival infrastructure: educational + analytical
+              tools. Not financial advice. Not signals.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-1">
@@ -175,9 +175,9 @@ export default function ContactPage() {
         <section className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-white">Disclosures</h2>
           <p className="mt-3 text-sm text-neutral-300 leading-relaxed">
-            REZIME provides educational and analytical tools only. Nothing on this website
-            is investment advice, and this website is not an offer to sell or a solicitation
-            to buy any securities or services.
+            REZIME provides educational and analytical tools only. Nothing on
+            this website is investment advice, and this website is not an offer
+            to sell or a solicitation to buy any securities or services.
           </p>
         </section>
       </Reveal>
@@ -191,7 +191,8 @@ export default function ContactPage() {
                 Want the framework first?
               </div>
               <div className="text-xs text-neutral-400">
-                Orientation is beginner ELI5. Observer explains the regime map.
+                Orientation is beginner ELI5. Playbook shows how to interpret
+                the tools.
               </div>
             </div>
 
@@ -202,7 +203,13 @@ export default function ContactPage() {
               >
                 Orientation
               </Link>
+
               <Link
+                href="/operator"
+                className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white hover:bg-white/15 transition"
+              >
+                Playbook
+              </Link>
             </div>
           </div>
         </section>
