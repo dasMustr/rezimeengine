@@ -26,10 +26,10 @@ const tiers = [
     price: "$19.99",
     note: "Beginner (single timeframe).",
     features: [
-      "Empire / Siege / Revolution regime map",
-      "Safer participation rules per regime",
-      "Works on any charted market",
-      "Core documentation & onboarding",
+      "Empire / Siege / Revolution regime map (simple posture lens)",
+      "Safer participation rules per regime (reduce early damage)",
+      "Works on any charted market (forex, metals, crypto, equities)",
+      "Core documentation & onboarding (interpretation, not advice)",
     ],
     cta: "Request Access",
     href: "/checkout?plan=engine",
@@ -39,10 +39,10 @@ const tiers = [
     price: "$29.99",
     note: "Intermediate (alignment across timeframes).",
     features: [
-      "HTF/LTF alignment mapping",
-      "Ages + rebellion context (timing support)",
-      "Gap-rule guidance (reduce overtrading)",
-      "Operator notes (interpretation rules)",
+      "2TF safety mode: HTF + MTF alignment (default)",
+      "3TF timing mode: HTF + MTF + LTF context (toggle on when ready)",
+      "Rebellion / Deadlock / Tension / Uprising states (behavior control)",
+      "Operator notes (interpretation rules + anti-overtrade guardrails)",
     ],
     cta: "Request Access",
     href: "/checkout?plan=sync",
@@ -53,10 +53,10 @@ const tiers = [
     price: "$34.99",
     note: "Advanced (territory walls for management).",
     features: [
-      "HTF/LTF territory walls",
-      "Timing + management layer",
-      "Optional fog badge (risk awareness)",
-      "Advanced interpretation notes",
+      "3TF territory walls: HTF / MTF / LTF support & resistance ranges",
+      "Designed for management: protect decisions, reduce chasing",
+      "Universal color system (readable on dark, light, or gray charts)",
+      "Optional layer toggles (show/hide HTF, MTF, LTF)",
     ],
     cta: "Request Access",
     href: "/checkout?plan=battlelines",
@@ -192,6 +192,10 @@ export default function PricingPage() {
             <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
               Access gives you the documentation, interpretation rules, and chart
               tools to recognize market regimes and adjust behavior safely.
+              <br />
+              <span className="text-neutral-400">
+                It’s a map and a discipline layer — not a signal service.
+              </span>
             </p>
           </div>
 
@@ -222,8 +226,8 @@ export default function PricingPage() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            If you want a “get rich quick” product, this is not it.
-            REZIME is built for survivability and self-mastery.
+            If you want a “get rich quick” product, this is not it. REZIME is
+            built for survivability and self-mastery.
           </p>
         </section>
       </Reveal>
@@ -239,9 +243,17 @@ export default function PricingPage() {
               Start small. Add complexity only when you’ve earned it.
             </h2>
             <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Beginners usually start with Engine. Sync and Battle Lines are for
-              people who already have screen-time and want structure for timing
-              and management.
+              Engine is the first safety lens. Sync is the next step —{" "}
+              <span className="text-neutral-200">
+                2TF safety by default
+              </span>{" "}
+              with an optional{" "}
+              <span className="text-neutral-200">
+                3TF timing mode
+              </span>{" "}
+              when you’re ready. Battle Lines is advanced: it gives you
+              HTF/MTF/LTF territory walls to manage risk and avoid emotional
+              chasing.
             </p>
           </div>
 
@@ -252,8 +264,8 @@ export default function PricingPage() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            Tip: Start with the smallest layer that makes you safer.
-            Complexity is a privilege earned through time-in-market.
+            Tip: Start with the smallest layer that makes you safer. Complexity
+            is a privilege earned through time-in-market.
           </p>
         </section>
       </Reveal>
