@@ -85,30 +85,28 @@ export default function OperatorPage() {
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Playbook Portal
+            Playbook
           </p>
 
           <div className="flex flex-wrap gap-2">
             <Pill>Map, not signals</Pill>
             <Pill>Regimes shape behavior</Pill>
-            <Pill>Survival first</Pill>
+            <Pill>Survival → clarity → confidence</Pill>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
             Not entries.
-            <br className="hidden sm:block" /> Regime awareness.
+            <br className="hidden sm:block" /> A new lens.
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            Operator is for practitioners. It explains how to interpret REZIME
-            Engine, Sync, and Battle Lines, so you can identify{" "}
-            <span className="text-white font-semibold">which Empire is ruling</span>{" "}
-            and how instability is escalating across timeframes.
+            This page teaches how to <span className="text-white font-semibold">think</span>{" "}
+            with REZIME: read the environment first, then decide how much (or how little)
+            you should do inside it.
             <br />
             <br />
-            REZIME works with any execution style. It does not promise alpha.
-            It gives you the baseline: stop acting the same inside every regime.
-            Survival comes first.
+            REZIME works with any execution style. It does not promise alpha. It gives you
+            the baseline: stop acting the same inside every regime.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -116,13 +114,13 @@ export default function OperatorPage() {
               href="/orientation"
               className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
-              ← Start (Beginner)
+              ← Orientation
             </Link>
             <Link
               href="/allocator"
               className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
             >
-              Proof (Portfolio Lab) →
+              Portfolio Lab →
             </Link>
           </div>
 
@@ -130,6 +128,13 @@ export default function OperatorPage() {
           <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-neutral-300">Jump to:</span>
+              <a
+                href="#lens"
+                className="underline decoration-white/20 transition hover:decoration-white/50"
+              >
+                How to Think
+              </a>
+              <span className="text-neutral-600">•</span>
               <a
                 href="#foundation"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
@@ -190,6 +195,61 @@ export default function OperatorPage() {
         </section>
       </Reveal>
 
+      {/* HOW TO THINK (DOCTRINE ANCHOR) */}
+      <Reveal delayMs={60}>
+        <Section
+          id="lens"
+          eyebrow="How to think with REZIME"
+          title="Markets are an environment, not a puzzle"
+          subtitle="REZIME doesn’t predict price. It clarifies the environment your decisions live inside."
+        >
+          <div className="grid gap-4 lg:grid-cols-3">
+            <MiniCard
+              tone="hard"
+              title="1) Name the regime"
+              desc="Start with Engine. Who rules right now? If you can’t name the ruler, your confidence should shrink."
+            />
+            <MiniCard
+              title="2) Check structure agreement"
+              desc="Sync shows whether timeframes cooperate or fight. Conflict is where beginners get hurt."
+            />
+            <MiniCard
+              tone="hard"
+              title="3) Respect territory"
+              desc="Battle Lines show compression vs runway. Tight walls mean advanced timing; wide walls mean cleaner behavior."
+            />
+          </div>
+
+          <div className="mt-4 grid gap-4 lg:grid-cols-2">
+            <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
+              <p className="text-sm font-semibold text-white">
+                What REZIME changes
+              </p>
+              <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                Most stress comes from acting the same in every environment. REZIME
+                gives you regime awareness so your behavior matches reality.
+              </p>
+              <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
+                Survival builds clarity. Clarity builds confidence. Profits are a byproduct.
+              </p>
+            </div>
+
+            <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
+              <p className="text-sm font-semibold text-white">
+                What REZIME does not do
+              </p>
+              <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+                No entry arrows. No “must go up/down.” REZIME is a map: you still choose
+                your method, size, and execution — but with environmental context.
+              </p>
+              <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
+                If you’re unsure, waiting is also a decision.
+              </p>
+            </div>
+          </div>
+        </Section>
+      </Reveal>
+
       {/* OPERATING PRINCIPLES */}
       <Reveal delayMs={90}>
         <section className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
@@ -200,10 +260,10 @@ export default function OperatorPage() {
             Regime first. Execution second.
           </h2>
           <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            The playbook is intentionally entry-agnostic. It tells you which
-            Empire is ruling (Bull or Bear) and how stable that rule is. Your own
-            method decides entries. REZIME gives you regime context so you do not
-            confuse pullbacks for reversals, or stability for danger.
+            The playbook is intentionally entry-agnostic. It tells you which Empire is
+            ruling (Bull or Bear) and how stable that rule is. Your method decides entries.
+            REZIME gives you regime context so you do not confuse pullbacks for reversals,
+            or stability for danger.
           </p>
         </section>
       </Reveal>
@@ -225,6 +285,7 @@ export default function OperatorPage() {
             </p>
 
             <div className="grid gap-2">
+              <TocLink href="#lens" label="How to Think with REZIME" />
               <TocLink href="#foundation" label="Foundation: What a regime is" />
               <TocLink href="#stack" label="The Stack (Engine / Sync / Lines)" />
               <TocLink href="#engine" label="Engine Explained" />
@@ -237,8 +298,7 @@ export default function OperatorPage() {
             </div>
 
             <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
-              Tip: Start explains the emotions. Playbook explains how to read
-              the map in real time.
+              Tip: Orientation calms the fear. Playbook teaches how to read the map in real time.
             </div>
           </aside>
 
@@ -275,10 +335,9 @@ export default function OperatorPage() {
                       Why it feels random
                     </p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      What feels like randomness is often transition. When regimes
-                      shift, structure temporarily breaks, confidence drops, and
-                      people overreact. REZIME helps you name the state before your
-                      emotions write a story.
+                      What feels like randomness is often transition. When regimes shift,
+                      structure temporarily breaks, confidence drops, and people overreact.
+                      REZIME helps you name the state before your emotions write a story.
                     </p>
                   </div>
 
@@ -287,10 +346,9 @@ export default function OperatorPage() {
                       What Playbook teaches next
                     </p>
                     <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                      Engine shows who is ruling. Sync shows escalation across
-                      timeframes. Battle Lines show territory and compression.
-                      The tools do not predict price. They reveal regime structure so
-                      your behavior matches reality.
+                      Engine shows who is ruling. Sync shows escalation across timeframes.
+                      Battle Lines show territory and compression. The tools do not predict
+                      price. They reveal regime structure so your behavior matches reality.
                     </p>
                   </div>
                 </div>
@@ -501,8 +559,6 @@ export default function OperatorPage() {
                   />
                 </div>
 
-                {/* Keep your storyboard section as-is (already strong) */}
-                {/* (no changes to your ladder cards here to avoid breaking your existing flow) */}
                 <div className="calm-block mt-4 rounded-2xl border border-white/10 bg-white/5 p-6">
                   <p className="text-sm font-semibold text-white">
                     The escalation storyboard (3TF)
@@ -558,8 +614,8 @@ export default function OperatorPage() {
                         Operator habit
                       </p>
                       <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-                        Do not be contrarian inside Full Alignment. If escalation
-                        appears, prepare defensive actions first: trim or exit.
+                        Do not be contrarian inside Full Alignment. If escalation appears,
+                        prepare defensive actions first: trim or exit.
                       </p>
                     </div>
                   </div>
@@ -652,9 +708,8 @@ export default function OperatorPage() {
                   <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
                     Most stress comes from not knowing which regime you are in.
                     REZIME gives you the regime map: who rules, how stable the
-                    rule is, and how the challenge escalates. When you
-                    understand the regime, the mind calms down, and discipline
-                    becomes possible.
+                    rule is, and how the challenge escalates. When you understand
+                    the regime, the mind calms down, and discipline becomes possible.
                   </p>
                 </div>
               </Section>
@@ -712,16 +767,15 @@ export default function OperatorPage() {
                   <p>
                     Public proofs focus on the{" "}
                     <span className="text-white font-semibold">regime strip</span>{" "}
-                    and labels only (Empire / Standoff / Uprising / Deadlock /
-                    Rebellion / Siege / Revolution).
+                    and labels only (Empire / Standoff / Uprising / Deadlock / Rebellion /
+                    Siege / Revolution).
                   </p>
                   <p>
-                    Construction details (MA blends, internal logic, territory
-                    math) remain internal until access is released.
+                    Construction details (MA blends, internal logic, territory math) remain
+                    internal until access is released.
                   </p>
                   <p className="text-xs text-neutral-500">
-                    Clear message: REZIME is a map. You can audit regime behavior
-                    without reverse-engineering the tool.
+                    Clear message: REZIME is a map. You can audit regime behavior without reverse-engineering the tool.
                   </p>
                 </div>
               </Section>
