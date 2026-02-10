@@ -98,14 +98,6 @@ export default function FaqPage() {
               </Link>
 
               <Link
-                href="/observer"
-                className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
-              >
-                <Sheen className="rounded-full" />
-                Start with Learn →
-              </Link>
-
-              <Link
                 href="/allocator"
                 className="premium-card relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
               >
@@ -139,12 +131,6 @@ export default function FaqPage() {
               </div>
 
               <div className="flex gap-2">
-                <Link
-                  href="/observer"
-                  className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
-                >
-                  Learn →
-                </Link>
                 <Link
                   href="/operator"
                   className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
@@ -496,11 +482,6 @@ export default function FaqPage() {
       {/* NEXT STEPS */}
       <Reveal delayMs={160}>
         <div className="grid gap-4 sm:grid-cols-3">
-          <MiniCard
-            title="Learn"
-            desc="Start with the map: regimes, transitions, and survival-first thinking."
-            href="/observer"
-          />
           <MiniCard
             title="Playbook"
             desc="Interpretation rules for Engine / Sync / Battle Lines."

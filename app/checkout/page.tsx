@@ -57,9 +57,6 @@ export default function CheckoutPlaceholder() {
             <Link href="/orientation" className="text-sm text-neutral-400 hover:text-white transition">
               New to Markets →
             </Link>
-            <Link href="/observer" className="text-sm text-neutral-400 hover:text-white transition">
-              Learn the Map →
-            </Link>
             <Link href="/pricing" className="text-sm text-neutral-400 hover:text-white transition">
               Back to Access →
             </Link>
