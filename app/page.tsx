@@ -111,12 +111,6 @@ export default function HomePage() {
               cta="Start"
             />
             <HomeCard
-              title="Reality"
-              desc="Your fear is valid. Understand why confusion happens, how regimes create mismatch, and what ‘survival posture’ looks like."
-              href="/observer"
-              cta="Read"
-            />
-            <HomeCard
               title="Playbook"
               desc="Interpret Engine / Sync / Battle Lines without turning them into signals. Posture rules, not predictions."
               href="/operator"

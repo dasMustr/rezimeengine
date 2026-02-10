@@ -58,7 +58,6 @@ export default function PortalMenu() {
   // Context label (used for BOTH mobile + desktop button)
   const currentLabel = useMemo(() => {
     if (pathname.startsWith("/orientation")) return "Beginner";
-    if (pathname.startsWith("/observer")) return "Reality"; // label shift only
     if (pathname.startsWith("/operator")) return "Playbook";
     if (pathname.startsWith("/allocator")) return "Proof";
     if (pathname.startsWith("/pricing")) return "Access";
@@ -95,7 +94,6 @@ export default function PortalMenu() {
   };
 
   // One unified menu (mobile + desktop)
-  // Reality is inside Portal and below Beginner (per your call).
   const MENU = (
     <>
       <SectionLabel>Start</SectionLabel>
@@ -103,12 +101,6 @@ export default function PortalMenu() {
         href="/orientation"
         label="Beginner"
         sub="Calm entry • No jargon • Avoid early damage"
-        onPick={onPick}
-      />
-      <MenuItem
-        href="/observer"
-        label="Reality"
-        sub="Your fear is valid • Why confusion happens • Regime mismatch clarity"
         onPick={onPick}
       />
 
@@ -139,7 +131,7 @@ export default function PortalMenu() {
       />
 
       <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
-        Beginner → Reality → Playbook → Proof
+        Beginner → Playbook → Proof
       </div>
     </>
   );

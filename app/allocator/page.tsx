@@ -178,12 +178,6 @@ export default function AllocatorPage() {
             >
               ← Playbook
             </Link>
-            <Link
-              href="/observer"
-              className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
-            >
-              Learn (Overview) →
-            </Link>
           </div>
         </section>
       </Reveal>

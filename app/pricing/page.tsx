@@ -170,14 +170,6 @@ export default function PricingPage() {
             </Link>
 
             <Link
-              href="/observer"
-              className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
-            >
-              <Sheen className="rounded-full" />
-              Learn the Map →
-            </Link>
-
-            <Link
               href="/contact"
               className="text-sm text-neutral-400 hover:text-white transition self-center"
             >
