@@ -57,9 +57,9 @@ export default function PortalMenu() {
 
   // Context label (used for BOTH mobile + desktop button)
   const currentLabel = useMemo(() => {
-    if (pathname.startsWith("/orientation")) return "Beginner";
+    if (pathname.startsWith("/orientation")) return "Orientation";
     if (pathname.startsWith("/operator")) return "Playbook";
-    if (pathname.startsWith("/allocator")) return "Proof";
+    if (pathname.startsWith("/allocator")) return "Portfolio Lab";
     if (pathname.startsWith("/pricing")) return "Access";
     if (pathname.startsWith("/faq")) return "FAQ";
     if (pathname.startsWith("/contact")) return "Contact";
@@ -96,27 +96,27 @@ export default function PortalMenu() {
   // One unified menu (mobile + desktop)
   const MENU = (
     <>
-      <SectionLabel>Start</SectionLabel>
+      <SectionLabel>Foundation</SectionLabel>
       <MenuItem
         href="/orientation"
-        label="Beginner"
-        sub="Calm entry • No jargon • Avoid early damage"
+        label="Orientation"
+        sub="Your first lens • What markets are • Why fear is normal • Avoid early damage"
         onPick={onPick}
       />
 
       <div className="my-2 border-t border-white/10" />
 
-      <SectionLabel>Core</SectionLabel>
+      <SectionLabel>Framework</SectionLabel>
       <MenuItem
         href="/operator"
         label="Playbook"
-        sub="Regimes → posture • Interpretation rules • How to use the tools"
+        sub="Regimes → posture • How to read Engine/Sync/Battle Lines (no signals)"
         onPick={onPick}
       />
       <MenuItem
         href="/allocator"
-        label="Proof"
-        sub="Portfolio Lab • Weekly snapshots • Process trail"
+        label="Portfolio Lab"
+        sub="Time-stamped proof • Weekly snapshots • Process over hype"
         onPick={onPick}
       />
 
@@ -126,12 +126,12 @@ export default function PortalMenu() {
       <MenuItem
         href="/pricing"
         label="Access"
-        sub="Tiers • Coming soon • Not a signal service"
+        sub="Membership tiers • Invite-only tools • Education, not signals"
         onPick={onPick}
       />
 
       <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
-        Beginner → Playbook → Proof
+        Orientation → Playbook → Proof
       </div>
     </>
   );
@@ -159,7 +159,7 @@ export default function PortalMenu() {
           >
             <SheetHeader>
               <SheetTitle className="text-left text-sm font-semibold text-white">
-                Navigate REZIME
+                Choose your lens
               </SheetTitle>
             </SheetHeader>
 
