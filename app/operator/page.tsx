@@ -185,6 +185,105 @@ function KeyIdeaBlock({
   );
 }
 
+/**
+ * Color guide for the strip. These are “UI teaching colors” (not logic),
+ * chosen to match your screenshot defaults:
+ * - Bull: green
+ * - Bear: blue
+ * - Siege: orange
+ * - Revolution: red
+ * - Neutral: gray
+ *
+ * If you ever want perfect matching, we can wire these to CSS variables
+ * that you reuse across the site (e.g. --rez-bull, --rez-bear...).
+ */
+function StripLegend() {
+  const items = [
+    {
+      name: "Bull Empire",
+      note: "Dominant buyers (baseline bullish environment)",
+      color: "#22c55e",
+    },
+    {
+      name: "Bear Empire",
+      note: "Dominant sellers (baseline bearish environment)",
+      color: "#3b82f6",
+    },
+    {
+      name: "Siege",
+      note: "Pressure / instability (reduce confidence)",
+      color: "#f59e0b",
+    },
+    {
+      name: "Revolution",
+      note: "Confirmed regime flip (reset assumptions)",
+      color: "#ef4444",
+    },
+    {
+      name: "Neutral",
+      note: "No clear dominance (shrink activity)",
+      color: "#6b7280",
+    },
+  ];
+
+  return (
+    <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-5">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="text-xs uppercase tracking-widest text-neutral-400">
+            Strip color guide
+          </p>
+          <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+            This is what to look for at a glance. Colors are{" "}
+            <span className="text-white font-semibold">environment labels</span>{" "}
+            — not entry triggers.
+          </p>
+        </div>
+
+        {/* Tiny sample strip */}
+        <div className="rounded-xl border border-white/10 bg-black/40 p-2">
+          <div className="flex h-3 w-[220px] overflow-hidden rounded-lg border border-white/10">
+            <div style={{ background: "#3b82f6" }} className="w-[26%]" />
+            <div style={{ background: "#f59e0b" }} className="w-[10%]" />
+            <div style={{ background: "#ef4444" }} className="w-[6%]" />
+            <div style={{ background: "#22c55e" }} className="w-[40%]" />
+            <div style={{ background: "#6b7280" }} className="w-[18%]" />
+          </div>
+          <p className="mt-2 text-[11px] uppercase tracking-widest text-neutral-500">
+            demo strip
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((it) => (
+          <div
+            key={it.name}
+            className="calm-block rounded-xl border border-white/10 bg-black/40 p-4"
+          >
+            <div className="flex items-center gap-3">
+              <span
+                className="h-3 w-3 rounded-sm border border-white/20"
+                style={{ background: it.color }}
+                aria-hidden
+              />
+              <p className="text-sm font-semibold text-white">{it.name}</p>
+            </div>
+            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+              {it.note}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
+        Tip: If the color story conflicts across timeframes (Sync), treat it as a
+        warning label — your confidence should shrink.
+      </p>
+    </div>
+  );
+}
+
 export default function OperatorPage() {
   return (
     <div className="space-y-14">
@@ -207,16 +306,17 @@ export default function OperatorPage() {
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            REZIME is a calm market lens. It doesn&apos;t predict price. It helps you{" "}
+            REZIME is a calm market lens. It doesn&apos;t predict price. It helps
+            you{" "}
             <span className="text-white font-semibold">
               avoid the wrong environment
             </span>{" "}
-            — the regimes where being bullish (or bearish) is structurally punished.
+            — the regimes where being bullish (or bearish) is structurally
+            punished.
             <br />
             <br />
-            Your execution style is still yours. REZIME simply answers:
+            Your execution style is still yours. REZIME answers:{" "}
             <span className="text-white font-semibold">
-              {" "}
               “What kind of market is this?”
             </span>{" "}
             so your behavior matches reality.
@@ -249,6 +349,13 @@ export default function OperatorPage() {
               </a>
               <span className="text-neutral-600">•</span>
               <a
+                href="#strip"
+                className="underline decoration-white/20 transition hover:decoration-white/50"
+              >
+                Strip Colors
+              </a>
+              <span className="text-neutral-600">•</span>
+              <a
                 href="#stack"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
@@ -273,7 +380,7 @@ export default function OperatorPage() {
         </section>
       </Reveal>
 
-      {/* BIG IDEA — compress the doctrine early */}
+      {/* BIG IDEA */}
       <Reveal delayMs={60}>
         <Section
           id="big-idea"
@@ -304,7 +411,7 @@ export default function OperatorPage() {
               subtitle="A permission system for bias"
               bullets={[
                 "When regimes align, bullish/bearish bias is allowed (cleaner behavior).",
-                "When regimes flip or conflict escalates, reduce exposure or step aside.",
+                "When conflict escalates, reduce exposure or step aside.",
                 "You don’t need to predict bottoms — you avoid hostile environments.",
               ]}
             />
@@ -313,7 +420,7 @@ export default function OperatorPage() {
               subtitle="Not signals, not entry arrows"
               bullets={[
                 "No ‘must go up/down.’ No predictive calls.",
-                "REZIME does not replace your method; it stabilizes your environment awareness.",
+                "REZIME does not replace your method; it stabilizes environment awareness.",
                 "Waiting is a valid action when the map is hostile.",
               ]}
             />
@@ -321,14 +428,15 @@ export default function OperatorPage() {
         </Section>
       </Reveal>
 
-      {/* SIGNATURE UI ANCHOR */}
+      {/* STRIP DEMO + COLOR LEGEND */}
       <Reveal delayMs={90}>
-        <section>
+        <section id="strip" className="space-y-4">
           <RegimeStripDemo />
+          <StripLegend />
         </section>
       </Reveal>
 
-      {/* STACK (simplified + less wordy) */}
+      {/* STACK */}
       <Reveal delayMs={110}>
         <Section
           id="stack"
@@ -368,7 +476,7 @@ export default function OperatorPage() {
         </Section>
       </Reveal>
 
-      {/* RULES (keep, but tighten language) */}
+      {/* RULES */}
       <Reveal delayMs={140}>
         <Section
           id="rules"
@@ -410,13 +518,13 @@ export default function OperatorPage() {
             ]}
           />
           <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-            Reminder: REZIME doesn’t tell you to trade more. It tells you when the
-            environment deserves less confidence.
+            Reminder: REZIME doesn’t tell you to trade more. It tells you when
+            the environment deserves less confidence.
           </p>
         </Section>
       </Reveal>
 
-      {/* GOOG WALKTHROUGH — center of the page, with the “dead money + drawdown” narrative */}
+      {/* GOOG WALKTHROUGH */}
       <Reveal delayMs={170}>
         <Section
           id="example"
@@ -561,37 +669,6 @@ export default function OperatorPage() {
         </Section>
       </Reveal>
 
-      {/* DOCTRINE — short, not wordy */}
-      <Reveal delayMs={210}>
-        <Section
-          id="doctrine"
-          eyebrow="Default doctrine"
-          title="Survival Doctrine"
-          subtitle="The calmer you are, the longer you stay in the game."
-        >
-          <div className="grid gap-4 lg:grid-cols-2">
-            <MiniCard
-              tone="hard"
-              title="When the map is clean, do less"
-              desc="Alignment reduces noise. If you’re already in, hold and let structure work. If you’re not in, don’t chase."
-            />
-            <MiniCard
-              tone="hard"
-              title="When the map is hostile, do less"
-              desc="Conflict and Revolution phases punish activity. Reduce size, reduce frequency, protect timeline."
-            />
-            <MiniCard
-              title="Confidence is earned"
-              desc="REZIME improves your environment awareness first. Execution confidence comes after you survive enough cycles."
-            />
-            <MiniCard
-              title="Your method still matters"
-              desc="REZIME doesn’t replace entries/exits. It prevents you from applying the right method in the wrong regime."
-            />
-          </div>
-        </Section>
-      </Reveal>
-
       {/* CTA */}
       <Reveal delayMs={260}>
         <section className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
@@ -601,7 +678,8 @@ export default function OperatorPage() {
                 Want the factsheet archive?
               </p>
               <p className="text-xs text-neutral-400">
-                Portfolio Lab is a cadence-based archive (proof of process, not hype).
+                Portfolio Lab is a cadence-based archive (proof of process, not
+                hype).
               </p>
             </div>
 
