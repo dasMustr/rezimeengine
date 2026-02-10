@@ -37,7 +37,7 @@ const tiers = [
   },
   {
     name: "Engine + Sync",
-    price: "$29.99",
+    price: "$24.99",
     note: "Bundle upgrade (adds timeframe alignment + safety modes).",
     bundleLine: "Bundle includes: Engine + Sync",
     features: [
@@ -52,7 +52,7 @@ const tiers = [
   },
   {
     name: "Engine + Sync + Battle Lines",
-    price: "$34.99",
+    price: "$29.99",
     note: "Full bundle (adds territory walls for management).",
     bundleLine: "Bundle includes: Engine + Sync + Battle Lines",
     features: [
