@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Reveal from "../components/Reveal";
 import Section from "../components/Section";
-import { RegimeStripDemo, RuleTiles } from "../components/VisualBlocks";
+import { RuleTiles } from "../components/VisualBlocks";
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -38,17 +38,6 @@ function ToolCard({
         ))}
       </ul>
     </div>
-  );
-}
-
-function TocLink({ href, label }: { href: string; label: string }) {
-  return (
-    <a
-      href={href}
-      className="premium-card is-clickable block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 transition hover:text-white"
-    >
-      {label}
-    </a>
   );
 }
 
@@ -186,43 +175,41 @@ function KeyIdeaBlock({
 }
 
 /**
- * Color guide for the strip. These are “UI teaching colors” (not logic),
- * chosen to match your screenshot defaults:
- * - Bull: green
- * - Bear: blue
- * - Siege: orange
- * - Revolution: red
- * - Neutral: gray
- *
- * If you ever want perfect matching, we can wire these to CSS variables
- * that you reuse across the site (e.g. --rez-bull, --rez-bear...).
+ * Teaching colors (UI only, not logic).
+ * Matching your TradingView defaults:
+ * Bull: green
+ * Bear: blue
+ * Siege: orange
+ * Revolution: red
+ * Neutral: gray
  */
 function StripLegend() {
+  // Neutral first (newborn markets, often IPO era)
   const items = [
     {
+      name: "Neutral",
+      note: "Newborn or unclear structure (often IPO phase). Treat as low-confidence environment.",
+      color: "#6b7280",
+    },
+    {
       name: "Bull Empire",
-      note: "Dominant buyers (baseline bullish environment)",
+      note: "Dominant buyers. Baseline bullish environment.",
       color: "#22c55e",
     },
     {
       name: "Bear Empire",
-      note: "Dominant sellers (baseline bearish environment)",
+      note: "Dominant sellers. Baseline bearish environment.",
       color: "#3b82f6",
     },
     {
       name: "Siege",
-      note: "Pressure / instability (reduce confidence)",
+      note: "Pressure and instability. Reduce confidence and activity.",
       color: "#f59e0b",
     },
     {
       name: "Revolution",
-      note: "Confirmed regime flip (reset assumptions)",
+      note: "Confirmed regime flip. Reset assumptions.",
       color: "#ef4444",
-    },
-    {
-      name: "Neutral",
-      note: "No clear dominance (shrink activity)",
-      color: "#6b7280",
     },
   ];
 
@@ -234,20 +221,18 @@ function StripLegend() {
             Strip color guide
           </p>
           <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-            This is what to look for at a glance. Colors are{" "}
-            <span className="text-white font-semibold">environment labels</span>{" "}
-            — not entry triggers.
+            Colors are environment labels. They are not entry triggers.
           </p>
         </div>
 
         {/* Tiny sample strip */}
         <div className="rounded-xl border border-white/10 bg-black/40 p-2">
           <div className="flex h-3 w-[220px] overflow-hidden rounded-lg border border-white/10">
-            <div style={{ background: "#3b82f6" }} className="w-[26%]" />
+            <div style={{ background: "#6b7280" }} className="w-[18%]" />
+            <div style={{ background: "#3b82f6" }} className="w-[22%]" />
             <div style={{ background: "#f59e0b" }} className="w-[10%]" />
             <div style={{ background: "#ef4444" }} className="w-[6%]" />
-            <div style={{ background: "#22c55e" }} className="w-[40%]" />
-            <div style={{ background: "#6b7280" }} className="w-[18%]" />
+            <div style={{ background: "#22c55e" }} className="w-[44%]" />
           </div>
           <p className="mt-2 text-[11px] uppercase tracking-widest text-neutral-500">
             demo strip
@@ -277,8 +262,8 @@ function StripLegend() {
       </div>
 
       <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-        Tip: If the color story conflicts across timeframes (Sync), treat it as a
-        warning label — your confidence should shrink.
+        If the color story conflicts across timeframes (Sync), treat it as a
+        warning label. Confidence should shrink.
       </p>
     </div>
   );
@@ -306,16 +291,16 @@ export default function OperatorPage() {
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            REZIME is a calm market lens. It doesn&apos;t predict price. It helps
+            REZIME is a calm market lens. It does not predict price. It helps
             you{" "}
             <span className="text-white font-semibold">
               avoid the wrong environment
-            </span>{" "}
-            — the regimes where being bullish (or bearish) is structurally
+            </span>
+            , the regimes where being bullish (or bearish) is structurally
             punished.
             <br />
             <br />
-            Your execution style is still yours. REZIME answers:{" "}
+            Your execution style is still yours. REZIME answers{" "}
             <span className="text-white font-semibold">
               “What kind of market is this?”
             </span>{" "}
@@ -386,13 +371,13 @@ export default function OperatorPage() {
           id="big-idea"
           eyebrow="The big idea"
           title="The edge is avoiding the wrong regime"
-          subtitle="Most people don’t lose because they’re bad at entries. They lose because they trade every environment the same way."
+          subtitle="Most people do not lose because they are bad at entries. They lose because they trade every environment the same way."
         >
           <div className="grid gap-4 lg:grid-cols-3">
             <MiniCard
               tone="hard"
               title="1) Name who rules"
-              desc="Engine tells you which Empire has structural control. If you can’t name the ruler, reduce confidence."
+              desc="Engine tells you which Empire has structural control. If you cannot name the ruler, reduce confidence."
             />
             <MiniCard
               title="2) See conflict early"
@@ -401,7 +386,7 @@ export default function OperatorPage() {
             <MiniCard
               tone="hard"
               title="3) Respect terrain"
-              desc="Battle Lines show compression vs runway. Tight walls mean timing difficulty; wide walls mean cleaner behavior."
+              desc="Battle Lines show compression vs runway. Tight walls mean timing difficulty. Wide walls mean cleaner behavior."
             />
           </div>
 
@@ -410,17 +395,17 @@ export default function OperatorPage() {
               title="What REZIME is"
               subtitle="A permission system for bias"
               bullets={[
-                "When regimes align, bullish/bearish bias is allowed (cleaner behavior).",
+                "When regimes align, bullish or bearish bias is allowed (cleaner behavior).",
                 "When conflict escalates, reduce exposure or step aside.",
-                "You don’t need to predict bottoms — you avoid hostile environments.",
+                "You do not need to predict bottoms. You avoid hostile environments.",
               ]}
             />
             <KeyIdeaBlock
               title="What REZIME is not"
               subtitle="Not signals, not entry arrows"
               bullets={[
-                "No ‘must go up/down.’ No predictive calls.",
-                "REZIME does not replace your method; it stabilizes environment awareness.",
+                "No “must go up/down.” No predictive calls.",
+                "REZIME does not replace your method. It stabilizes environment awareness.",
                 "Waiting is a valid action when the map is hostile.",
               ]}
             />
@@ -428,10 +413,9 @@ export default function OperatorPage() {
         </Section>
       </Reveal>
 
-      {/* STRIP DEMO + COLOR LEGEND */}
+      {/* STRIP COLOR LEGEND */}
       <Reveal delayMs={90}>
         <section id="strip" className="space-y-4">
-          <RegimeStripDemo />
           <StripLegend />
         </section>
       </Reveal>
@@ -451,7 +435,7 @@ export default function OperatorPage() {
               bullets={[
                 "Bull Empire vs Bear Empire dominance",
                 "Regime stability vs pressure",
-                "Revolution = confirmed Empire flip",
+                "Revolution means confirmed Empire flip",
               ]}
             />
             <ToolCard
@@ -460,7 +444,7 @@ export default function OperatorPage() {
               bullets={[
                 "Shows alignment vs conflict across timeframes (2TF / 3TF)",
                 "Revolutions build upward over time",
-                "Conflict = shrink confidence, not increase activity",
+                "Conflict means shrink confidence, not increase activity",
               ]}
             />
             <ToolCard
@@ -468,8 +452,8 @@ export default function OperatorPage() {
               subtitle="Is terrain tight or wide?"
               bullets={[
                 "Walls show compression vs runway",
-                "Wide walls = cleaner behavior (easier holding)",
-                "Tight walls = chop / fakeouts (timing becomes advanced)",
+                "Wide walls mean cleaner behavior (easier holding)",
+                "Tight walls mean chop and fakeouts (timing becomes advanced)",
               ]}
             />
           </div>
@@ -503,7 +487,7 @@ export default function OperatorPage() {
                 tone: "hard",
               },
               {
-                title: "Rule 4 — Uprising/Rebellion = defense time",
+                title: "Rule 4 — Uprising and Rebellion mean defense time",
                 desc: "Reduce size, reduce frequency, protect timeline. Do not assume the old Empire is safe.",
               },
               {
@@ -513,12 +497,12 @@ export default function OperatorPage() {
               },
               {
                 title: "Rule 6 — Terrain changes difficulty",
-                desc: "Battle Lines don’t change bias — they change timing difficulty. Tight walls = fewer decisions.",
+                desc: "Battle Lines do not change bias. They change timing difficulty. Tight walls mean fewer decisions.",
               },
             ]}
           />
           <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-            Reminder: REZIME doesn’t tell you to trade more. It tells you when
+            Reminder: REZIME does not tell you to trade more. It tells you when
             the environment deserves less confidence.
           </p>
         </Section>
@@ -530,16 +514,16 @@ export default function OperatorPage() {
           id="example"
           eyebrow="Example"
           title="GOOG — Regime Life Cycle Walkthrough"
-          subtitle="The goal isn’t calling the bottom. It’s avoiding the wrong regime, then re-engaging when the map improves."
+          subtitle="The goal is not calling the bottom. The goal is avoiding the wrong regime, then re-engaging when the map improves."
         >
           <div className="grid gap-4">
             <CaseImage
               src="/playbook/engine-strip.png"
               alt="REZIME Engine strip example on GOOG"
               label="0) Baseline — Engine Context"
-              caption="Engine is the baseline: it names who has structural control. Before you care about entries, you care about the environment."
+              caption="Engine is the baseline. It names who has structural control. Before entries, you care about the environment."
               priority
-              dateRange="Apr 2022 → Apr 2024 (approx.)"
+              dateRange="Apr 2022 to Apr 2024 (approx.)"
             />
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -547,14 +531,14 @@ export default function OperatorPage() {
                 title="Key takeaway"
                 tone="hard"
                 lines={[
-                  "REZIME is a regime filter first — a permission system for bias.",
-                  "The edge is avoiding hostile environments (dead money + drawdowns).",
+                  "REZIME is a regime filter first. It is a permission system for bias.",
+                  "The edge is avoiding hostile environments (dead money plus drawdowns).",
                 ]}
               />
               <Takeaway
                 title="How to verify"
                 lines={[
-                  "Dates are visible on the chart timeline for double-checking.",
+                  "Dates are visible on the TradingView timeline for double-checking.",
                   "Numbers are stated roughly because screenshot quality varies.",
                 ]}
               />
@@ -565,7 +549,7 @@ export default function OperatorPage() {
               alt="REZIME Sync Bear Revolution example on GOOG"
               label="1) Bear Empire begins — ‘No Buy Zone’"
               dateRange="Around Apr 2022 (approx.)"
-              caption="This is the start of a Bear Empire environment. GOOG was roughly ~$115 at the beginning. The key is not ‘short it’ — the key is: avoid being structurally bullish inside a Bear Empire."
+              caption="This is the start of a Bear Empire environment. GOOG was roughly near 115 at the beginning. The key is not ‘short it.’ The key is avoiding bullish exposure inside Bear Empire conditions."
             />
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -573,8 +557,8 @@ export default function OperatorPage() {
                 title="What this saves you"
                 tone="hard"
                 lines={[
-                  "Avoid ~365+ days of dead money (low reward for time).",
-                  "Avoid a maximum drawdown of roughly ~25%+ (price went down to ~83.5).",
+                  "Avoid around 365 or more days of dead money (low reward for time).",
+                  "Avoid a maximum drawdown around 25% or more (price reached roughly 83.5).",
                 ]}
               />
               <Takeaway
@@ -592,7 +576,7 @@ export default function OperatorPage() {
               alt="REZIME Sync Bull Revolution example on GOOG"
               label="2) Bear Empire ends — regime resets"
               dateRange="Around May 2023 (approx.)"
-              caption="This is the transition: the structural danger phase ends. This is not ‘peak optimism’ — it’s the environment becoming valid for bullish participation again."
+              caption="This is the transition. The structural danger phase ends. This is not peak optimism. It is the environment becoming valid for bullish participation again."
             />
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -600,14 +584,14 @@ export default function OperatorPage() {
                 title="Translation"
                 tone="hard"
                 lines={[
-                  "You don’t need to predict the bottom.",
+                  "You do not need to predict the bottom.",
                   "You wait until the market stops being structurally hostile to bullish exposure.",
                 ]}
               />
               <Takeaway
                 title="Operator habit"
                 lines={[
-                  "Re-engage gradually. Don’t rush.",
+                  "Re-engage gradually. Do not rush.",
                   "Let structure prove itself before you scale confidence.",
                 ]}
               />
@@ -618,7 +602,7 @@ export default function OperatorPage() {
               alt="REZIME Sync Bull Alignment example on GOOG"
               label="3) Full alignment — clean holding zone"
               dateRange="Apr 2024 onward (approx.)"
-              caption="Full alignment across timeframes. Behavior is cleaner. This is where many ‘easy’ runs happen — not at the bottom — because the regime is stable. In this GOOG example, alignment could translate into ~+50% within ~365 days (roughly), simply by being on the right side of the environment."
+              caption="Full alignment across timeframes. Behavior is cleaner. This is where many easier runs happen, not at the bottom, because the regime is stable."
             />
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -634,7 +618,7 @@ export default function OperatorPage() {
               <Takeaway
                 title="If not aligned"
                 lines={[
-                  "Avoid late entries with poor risk/reward.",
+                  "Avoid late entries with poor risk and reward.",
                   "Wait for the next clean setup or reset.",
                 ]}
               />
@@ -644,8 +628,8 @@ export default function OperatorPage() {
               src="/playbook/battle lines.png"
               alt="REZIME Battle Lines example on GOOG"
               label="4) Terrain — timing difficulty meter"
-              dateRange="Apr 2022 → Apr 2024 (approx.)"
-              caption="Battle Lines show compression vs runway. Terrain affects timing difficulty, not bias. Wide walls usually mean cleaner behavior; tight walls mean compression, fakeouts, and higher timing difficulty."
+              dateRange="Apr 2022 to Apr 2024 (approx.)"
+              caption="Battle Lines show compression vs runway. Terrain affects timing difficulty, not bias. Wide walls usually mean cleaner behavior. Tight walls mean compression, fakeouts, and higher timing difficulty."
             />
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -653,15 +637,15 @@ export default function OperatorPage() {
                 title="Terrain rule"
                 tone="hard"
                 lines={[
-                  "Tight walls = fewer decisions. You will be baited into overtrading.",
-                  "Wide walls = easier holding. Fewer fakeouts.",
+                  "Tight walls mean fewer decisions. You will be baited into overtrading.",
+                  "Wide walls mean easier holding. Fewer fakeouts.",
                 ]}
               />
               <Takeaway
                 title="Final sentence"
                 lines={[
-                  "REZIME doesn’t tell you where to trade.",
-                  "It tells you what kind of market you’re inside — so you stop making phase-mismatched decisions.",
+                  "REZIME does not tell you where to trade.",
+                  "It tells you what kind of market you are inside so you stop making phase-mismatched decisions.",
                 ]}
               />
             </div>
