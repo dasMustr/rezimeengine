@@ -129,7 +129,7 @@ function ChartScreenshot({
 
       <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
         Everyone sees the same price movement. The difference is how people act
-        when things are calm versus messy.
+        when the battle is clear versus when the battle is chaotic.
       </p>
     </div>
   );
@@ -146,8 +146,14 @@ function StripPreview() {
         <div className="max-w-xl">
           <p className="text-sm font-semibold text-white">The REZIME strip</p>
           <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-            REZIME adds a small color strip to label the market’s “weather.”
-            It’s not a buy/sell button — it’s a context label.
+            REZIME adds a small color strip to label the current{" "}
+            <span className="text-white font-semibold">regime</span> —
+            who has control, whether control is breaking, or whether the market
+            is stuck in a messy fight.
+            <br />
+            <br />
+            It is not a buy/sell button. It is a{" "}
+            <span className="text-white font-semibold">battle label</span>.
           </p>
         </div>
 
@@ -170,7 +176,7 @@ function StripPreview() {
           href="/operator"
           className="premium-card is-clickable inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
         >
-          See the full color guide in Playbook →
+          See the full regime guide in Playbook →
         </Link>
         <p className="text-xs text-neutral-500">
           Orientation keeps it simple. Playbook explains how to read it.
@@ -181,34 +187,34 @@ function StripPreview() {
 }
 
 /**
- * Super simple strip legend (now placed later, after "What REZIME does").
- * Still keeps language beginner-safe.
+ * Super simple strip legend (placed later, after "What REZIME does").
+ * Beginner-safe language + battle framing.
  */
 function StripLegendSimple() {
   const items = [
     {
       name: "Neutral",
-      note: "New or unclear phase. Treat as low-confidence.",
+      note: "Early or unclear phase. Hard to tell who has control.",
       color: "#6b7280",
     },
     {
       name: "Bull Empire",
-      note: "Mostly smooth upward behavior. Usually easier to hold.",
+      note: "Buyers have control. Moves usually feel smoother and cleaner.",
       color: "#22c55e",
     },
     {
       name: "Bear Empire",
-      note: "Mostly heavy downward behavior. Usually harder for beginners.",
+      note: "Sellers have control. Drops can feel fast and heavy.",
       color: "#3b82f6",
     },
     {
       name: "Siege",
-      note: "Messy and unstable. Reduce activity and wait for clarity.",
+      note: "Stalemate / crossfire. More traps. Reduce decisions and wait.",
       color: "#f59e0b",
     },
     {
       name: "Revolution",
-      note: "A real shift. Old assumptions stop working for a while.",
+      note: "Control changed hands. Old assumptions need a reset.",
       color: "#ef4444",
     },
   ];
@@ -217,10 +223,14 @@ function StripLegendSimple() {
     <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="max-w-xl">
-          <p className="text-sm font-semibold text-white">Color meanings</p>
+          <p className="text-sm font-semibold text-white">Regime meanings</p>
           <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-            Think of this like a “weather label.” It helps you avoid acting the
-            same way in every condition.
+            Two Empires are always fighting. Your job is to{" "}
+            <span className="text-white font-semibold">name the ruler</span>{" "}
+            before you act.
+            <br />
+            <br />
+            If you cannot name the ruler, you do not get to be aggressive.
           </p>
         </div>
 
@@ -295,13 +305,17 @@ export default function OrientationPage() {
             <br />
             <br />
             Reality is simpler. You see the same prices they see. The difference
-            is not secrets — it’s how you behave when conditions are calm versus
-            unstable.
+            is not secrets — it’s knowing{" "}
+            <span className="text-white font-semibold">
+              what kind of battle you are stepping into
+            </span>
+            .
             <br />
             <br />
-            REZIME is a simple “context layer.” It does not replace your method.
-            It helps you reduce mistakes when the market is messy, and become
-            more patient when the market is calm.
+            REZIME is a simple{" "}
+            <span className="text-white font-semibold">regime layer</span>. It
+            does not replace your method. It helps you reduce mistakes when the
+            market is messy, and become more patient when the regime is clear.
           </p>
 
           <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
@@ -351,7 +365,7 @@ export default function OrientationPage() {
           <Callout title="Simple translation">
             If you accept that prices change in daily life, you can accept
             markets. The uncomfortable part is not movement — it’s not knowing
-            how to behave when conditions change.
+            how to behave when the regime changes.
           </Callout>
         </section>
       </Reveal>
@@ -373,11 +387,14 @@ export default function OrientationPage() {
             </p>
 
             <div className="grid gap-4 lg:grid-cols-2">
-              <Card title="What your brain hears" desc="This is unsafe. I need to act now." />
+              <Card
+                title="What your brain hears"
+                desc="This is unsafe. I need to act now."
+              />
               <Card
                 tone="hard"
                 title="What is actually happening"
-                desc="The market is repricing. This is normal. The real question is: is it calm or messy right now?"
+                desc="The market is repricing. This is normal. The real question is: is the regime clear or chaotic right now?"
               />
             </div>
 
@@ -395,14 +412,14 @@ export default function OrientationPage() {
           <SectionHeader
             eyebrow="Core risk"
             title="Most damage comes from phase mismatch"
-            subtitle="People get hurt when they stay active during messy conditions. Activity feels productive — but error rates rise."
+            subtitle="People get hurt when they stay active during chaotic regimes. Activity feels productive — but error rates rise."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
             <Card
               title="Confusion is information"
-              desc="Messy conditions reduce clarity. Your brain tries to force certainty where none exists."
-              note="That is not weakness. It is the environment."
+              desc="Chaotic regimes reduce clarity. Your brain tries to force certainty where none exists."
+              note="That is not weakness. It is the regime."
             />
             <Card
               tone="hard"
@@ -412,7 +429,7 @@ export default function OrientationPage() {
             />
             <Card
               title="Exhaustion is a signal"
-              desc="Overwhelm is common in messy markets."
+              desc="Overwhelm is common in chaotic markets."
               note="Your system is telling you to shrink activity."
             />
           </div>
@@ -423,12 +440,12 @@ export default function OrientationPage() {
             rules={[
               {
                 title: "If you are confused, reduce activity",
-                desc: "Confusion often means conditions are messy. Trying harder usually increases mistakes.",
+                desc: "Confusion often means the regime is chaotic. Trying harder usually increases mistakes.",
                 tone: "hard",
               },
               {
                 title: "Do not chase clarity inside chaos",
-                desc: "When conditions are messy, fakeouts increase and errors compound.",
+                desc: "When the regime is chaotic, fakeouts increase and errors compound.",
               },
               {
                 title: "Your job is safety, not prediction",
@@ -437,7 +454,7 @@ export default function OrientationPage() {
               },
               {
                 title: "Doing nothing is a valid move",
-                desc: "In messy conditions, restraint is often the highest skill.",
+                desc: "In chaotic regimes, restraint is often the highest skill.",
               },
             ]}
           />
@@ -449,8 +466,8 @@ export default function OrientationPage() {
         <section id="strip" className="scroll-mt-28 space-y-5">
           <SectionHeader
             eyebrow="The REZIME idea"
-            title="A simple label for market conditions"
-            subtitle="REZIME uses colors to label the environment, so you stop treating every day like the same day."
+            title="A simple label for the market regime"
+            subtitle="REZIME uses colors to label who has control, so you stop acting the same inside every fight."
           />
           <StripPreview />
         </section>
@@ -506,7 +523,7 @@ export default function OrientationPage() {
           <Callout title="Important point">
             Your method can come from any lens: charts, fundamentals, macro, or
             rules you learn over time. REZIME sits above the method as context.
-            It helps your behavior match the environment.
+            It helps your behavior match the regime.
           </Callout>
         </section>
       </Reveal>
@@ -517,20 +534,20 @@ export default function OrientationPage() {
           <SectionHeader
             eyebrow="What REZIME is"
             title="A regime map, not a signal service"
-            subtitle="REZIME does not tell you what to buy or sell. It clarifies the environment so you can act with less emotion."
+            subtitle="REZIME does not tell you what to buy or sell. It helps you name who has control, so your behavior becomes calmer and safer."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
             <Card
               tone="hard"
-              title="It names the environment"
+              title="It names who has control"
               desc="So you stop guessing before you act."
               note="Name first. Act second."
             />
             <Card
               title="It changes your behavior"
-              desc="Calm conditions reward patience. Messy conditions demand smaller, slower, more selective action."
-              note="Less stability means fewer decisions."
+              desc="Clear regimes reward patience. Chaotic regimes demand smaller, slower, more selective action."
+              note="Less clarity means fewer decisions."
             />
             <Card
               tone="hard"
@@ -540,7 +557,7 @@ export default function OrientationPage() {
             />
           </div>
 
-          {/* FULL LEGEND MOVED HERE (AFTER THEY UNDERSTAND WHAT REZIME IS) */}
+          {/* FULL LEGEND MOVED HERE */}
           <div className="pt-2">
             <StripLegendSimple />
           </div>
