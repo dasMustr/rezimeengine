@@ -39,7 +39,7 @@ export default function TermsPage() {
             Terms of Use
           </h1>
 
-          <p className="text-sm text-neutral-400">Last updated: [Insert date]</p>
+          <p className="text-sm text-neutral-400">Last updated: 11 February 2026</p>
 
           <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
             Welcome to REZIME (&quot;REZIME&quot;, &quot;we&quot;, &quot;our&quot;,
@@ -48,20 +48,7 @@ export default function TermsPage() {
             (collectively, the &quot;Service&quot;). By accessing or using the Service,
             you agree to these Terms. If you do not agree, you must not use the Service.
           </p>
-
-          <div className="calm-block rounded-2xl border border-white/10 bg-white/[0.04] p-5">
-            <p className="text-xs uppercase tracking-[0.18em] text-neutral-400">
-              Operator
-            </p>
-            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              REZIME is operated by <span className="text-white">[Your Legal Name / Entity]</span>{" "}
-              (Indonesia). If you have not formed an entity yet, use your legal name for now
-              and update later.
-            </p>
-          </div>
-        </header>
-      </Reveal>
-
+      
       {/* PLAIN SUMMARY */}
       <Reveal delayMs={60}>
         <div className="calm-block rounded-3xl border border-white/10 bg-white/5 p-6 space-y-3">
@@ -69,7 +56,7 @@ export default function TermsPage() {
             Summary (plain language)
           </div>
           <ul className="space-y-2 text-sm text-neutral-300 leading-relaxed">
-            <Bullet>REZIME is education and analytical tools — not advice.</Bullet>
+            <Bullet>REZIME is education and analytical tools, not advice.</Bullet>
             <Bullet>You remain fully responsible for your decisions and risk.</Bullet>
             <Bullet>No signals. No guarantees. Markets involve loss risk.</Bullet>
             <Bullet>Subscriptions grant access/use rights, not ownership.</Bullet>
@@ -130,7 +117,7 @@ export default function TermsPage() {
             <p>
               REZIME does not guarantee accuracy, completeness, timeliness, profitability,
               risk reduction, or performance. Tools represent interpretive frameworks and
-              context labels — not predictions.
+              context labels, not predictions.
             </p>
           </Section>
 
