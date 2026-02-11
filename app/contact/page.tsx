@@ -63,6 +63,47 @@ const mailto = (subject: string, body?: string) => {
   return `mailto:${MAIL}?subject=${s}${body ? `&body=${b}` : ""}`;
 };
 
+const EARLY_ACCESS_BODY = `Hi REZIME team,
+
+I want early access.
+
+Market: (stocks / crypto / forex / other)
+Experience: (beginner / intermediate / advanced)
+Primary goal: (avoid blowups / reduce noise / improve discipline / other)
+
+Where I found you:
+Link (optional):
+
+Thanks`;
+
+const RESEARCH_BODY = `Hi REZIME team,
+
+I’m reaching out re: REZIME.
+
+Context:
+Role / firm (optional):
+What you want to evaluate: (framework / Portfolio Lab / indicator access)
+
+Best link to review:
+1) Website: https://rezimeengine.com
+2) Portfolio Lab: (share the specific week or page)
+
+Questions:
+1)
+2)
+
+Thanks`;
+
+const COLLAB_BODY = `Hi REZIME team,
+
+I’m interested in collaborating.
+
+Area: (writing / distribution / community / education / other)
+What you have in mind:
+Timeline:
+
+Thanks`;
+
 export default function ContactPage() {
   return (
     <div className="space-y-14">
@@ -76,8 +117,8 @@ export default function ContactPage() {
 
           <div className="relative space-y-6">
             <div className="flex flex-wrap gap-2">
-              <Pill>Survival-first</Pill>
               <Pill>Map, not signals</Pill>
+              <Pill>Regime classification</Pill>
               <Pill>Education</Pill>
             </div>
 
@@ -86,25 +127,25 @@ export default function ContactPage() {
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              For early access, questions, or collaboration, email us.
+              Email is the fastest way to reach us. Choose an intent below and
+              you will get a clean template.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-1">
               <a
-                href={mailto(
-                  "Early Access",
-                  `Hi REZIME team,
-
-Market: (stocks / crypto / forex / other)
-Experience: (beginner / intermediate / advanced)
-Goal: what are you trying to avoid? (blowups / confusion / overtrading)
-
-Thanks`
-                )}
+                href={mailto("Early Access", EARLY_ACCESS_BODY)}
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Email for Early Access →
+                Request Early Access →
+              </a>
+
+              <a
+                href={mailto("Research / Evaluation", RESEARCH_BODY)}
+                className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
+              >
+                <Sheen className="rounded-full" />
+                Professional Inquiry →
               </a>
 
               <Link
@@ -117,7 +158,7 @@ Thanks`
             </div>
 
             <p className="text-xs text-neutral-500 leading-relaxed">
-              Small team. Replies can be slow.
+              Small team. Replies can be slow during trading sessions.
             </p>
           </div>
         </div>
@@ -131,8 +172,12 @@ Thanks`
               Quick links
             </p>
             <h2 className="mt-2 text-xl font-semibold tracking-tight text-white">
-              Pick one
+              Pick an intent
             </h2>
+            <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
+              This keeps messages structured and easy to answer. If you are a
+              professional evaluating the work, use Professional Inquiry.
+            </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3">
@@ -140,19 +185,19 @@ Thanks`
               meta="Access"
               title="Early Access"
               desc="Request access and onboarding."
-              href={mailto("Early Access")}
+              href={mailto("Early Access", EARLY_ACCESS_BODY)}
+            />
+            <Card
+              meta="Professional"
+              title="Professional Inquiry"
+              desc="Research, evaluation, or recruiting conversations."
+              href={mailto("Research / Evaluation", RESEARCH_BODY)}
             />
             <Card
               meta="Collab"
               title="Collaboration"
               desc="Writing, community, distribution."
-              href={mailto("Collaboration")}
-            />
-            <Card
-              meta="General"
-              title="Questions"
-              desc="Short questions or feedback."
-              href={mailto("Questions / Feedback")}
+              href={mailto("Collaboration", COLLAB_BODY)}
             />
           </div>
         </section>
@@ -164,9 +209,12 @@ Thanks`
           <InfoBlock title="Email" desc={MAIL} />
           <InfoBlock
             title="Include"
-            desc="Market, experience, and what you want to avoid."
+            desc="Your market, your level, and what you want to evaluate or improve."
           />
-          <InfoBlock title="Note" desc="Education only. Not advice. No signals." />
+          <InfoBlock
+            title="Scope"
+            desc="Education only. No advice, no signals, no guarantee language."
+          />
         </section>
       </Reveal>
 
@@ -176,10 +224,10 @@ Thanks`
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="text-sm font-semibold text-white">
-                Want the framework first?
+                Prefer to review first?
               </div>
               <div className="text-xs text-neutral-400">
-                Orientation is beginner ELI5. Playbook shows tool interpretation.
+                Start with Orientation, then Playbook, then Portfolio Lab.
               </div>
             </div>
 
@@ -196,6 +244,13 @@ Thanks`
                 className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
               >
                 Playbook
+              </Link>
+
+              <Link
+                href="/allocator"
+                className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
+              >
+                Portfolio Lab
               </Link>
             </div>
           </div>
