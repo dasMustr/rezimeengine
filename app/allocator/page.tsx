@@ -10,37 +10,37 @@ const PROOFS = [
   {
     week: 1,
     date: "Wk 1",
-    title: "Global Portfolio Lab — Week 1",
+    title: "Baseline Snapshot",
     summary:
-      "Kickoff snapshot: baseline holdings, initial regime map, and starting exposure posture.",
+      "Starting point: holdings, regime context, and initial exposure posture used as a reference anchor.",
     tags: ["Time-stamped", "Baseline", "Posture"],
     links: { notion: PORTFOLIO_LAB_URL },
   },
   {
     week: 2,
     date: "Wk 2",
-    title: "Week 2",
+    title: "Posture Adjustment Log",
     summary:
-      "First adjustment week: what changed, what stayed, and why posture shifted.",
-    tags: ["Weekly delta", "Regime notes"],
+      "What changed, what stayed, and the decision rationale behind any posture shift.",
+    tags: ["Weekly delta", "Rationale"],
     links: { notion: PORTFOLIO_LAB_URL },
   },
   {
     week: 3,
     date: "Wk 3",
-    title: "Week 3",
+    title: "Consistency Review",
     summary:
-      "Consistency check: behavior vs environment. No hype, just posture.",
+      "Behavior vs environment check. Focus on process integrity, not narrative.",
     tags: ["Consistency", "Low-noise"],
     links: { notion: PORTFOLIO_LAB_URL },
   },
   {
     week: 4,
     date: "Wk 4",
-    title: "Week 4",
+    title: "Process Evidence",
     summary:
-      "Proof of process: showing how surviving regimes precedes performance.",
-    tags: ["Process", "Proof-first"],
+      "Demonstrates how regime alignment and loss avoidance precede performance outcomes over time.",
+    tags: ["Process", "Record"],
     links: { notion: PORTFOLIO_LAB_URL },
   },
 ];
@@ -50,17 +50,6 @@ function Pill({ children }: { children: React.ReactNode }) {
     <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-neutral-300">
       {children}
     </span>
-  );
-}
-
-function TocLink({ href, label }: { href: string; label: string }) {
-  return (
-    <a
-      href={href}
-      className="premium-card is-clickable block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-300 transition hover:text-white"
-    >
-      {label}
-    </a>
   );
 }
 
@@ -144,7 +133,6 @@ function ProofCardLite({
 export default function AllocatorPage() {
   return (
     <div className="space-y-14">
-
       {/* HERO */}
       <Reveal delayMs={0}>
         <section className="space-y-6">
@@ -153,22 +141,25 @@ export default function AllocatorPage() {
           </p>
 
           <div className="flex flex-wrap gap-2">
-            <Pill>Proof of process</Pill>
-            <Pill>Survival-first</Pill>
+            <Pill>Time-stamped record</Pill>
+            <Pill>Risk-first</Pill>
             <Pill>Behavior over prediction</Pill>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            Proof that surviving the market comes before profiting from it.
+            A time-stamped record of regime context and exposure posture.
           </h1>
 
           <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
             This is not a performance showcase.
-            <br /><br />
-            Portfolio Lab documents posture, regime context, and behavior across real market conditions.
-            The purpose is simple: demonstrate how staying aligned with the environment reduces self-inflicted damage.
-            <br /><br />
-            Performance is a byproduct. Survivability is the foundation.
+            <br />
+            <br />
+            Portfolio Lab documents the environment, the posture taken, and the
+            reasoning — week by week — to show how reducing self-inflicted damage
+            comes before compounding.
+            <br />
+            <br />
+            Educational documentation only. No signals. No financial advice.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -188,12 +179,12 @@ export default function AllocatorPage() {
           id="why"
           eyebrow="Purpose"
           title="Why Portfolio Lab exists"
-          subtitle="Because most trading damage comes from behavior, not strategy."
+          subtitle="Because most trading damage comes from behavior, not tools."
         >
           <div className="grid gap-4 lg:grid-cols-3">
             <Card
               title="What is documented"
-              desc="The environment, the posture taken, and the reasoning."
+              desc="The environment, posture decisions, and decision rationale."
               rows={[
                 { k: "Focus", v: "Regime awareness" },
                 { k: "Output", v: "Exposure posture" },
@@ -201,12 +192,12 @@ export default function AllocatorPage() {
               ]}
             />
             <Card
-              title="What is NOT shown"
-              desc="This is not signal marketing."
+              title="What is intentionally excluded"
+              desc="This is not marketing-by-outcome."
               rows={[
-                { k: "Not", v: "Entry/exit alerts" },
-                { k: "Not", v: "Prediction claims" },
-                { k: "Not", v: "Hype reporting" },
+                { k: "Excluded", v: "Entry/exit alerts" },
+                { k: "Excluded", v: "Prediction claims" },
+                { k: "Excluded", v: "Selective performance screenshots" },
               ]}
             />
             <Card
@@ -222,18 +213,19 @@ export default function AllocatorPage() {
         </Section>
       </Reveal>
 
-      {/* PROOF ARCHIVE */}
+      {/* WEEKLY INDEX */}
       <Reveal delayMs={120}>
         <section id="proof" className="scroll-mt-24 space-y-4">
           <div>
             <p className="text-xs uppercase tracking-widest text-neutral-400">
-              Weekly Proof Index
+              Weekly Index
             </p>
             <h2 className="mt-2 text-xl font-semibold text-white">
               Time-stamped process trail
             </h2>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              Each week records environment, posture, and behavioral decisions — not just outcomes.
+              Each week records environment, posture, and behavioral decisions —
+              not just outcomes.
             </p>
           </div>
 
@@ -278,7 +270,6 @@ export default function AllocatorPage() {
           </div>
         </Section>
       </Reveal>
-
     </div>
   );
 }
