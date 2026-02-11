@@ -140,7 +140,7 @@ export default function HomePage() {
                 />
                 <TinyStep
                   n="2"
-                  label="Playbook: learn REZIME regimes and posture rules (context, not entries)."
+                  label="Framework: learn REZIME regimes and posture rules (context, not entries)."
                 />
                 <TinyStep
                   n="3"
@@ -167,7 +167,7 @@ export default function HomePage() {
               A calm route into markets
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Orientation defines the mental model. The Playbook defines interpretation rules.
+              Orientation defines the mental model. The Framework defines interpretation rules.
               The Portfolio Lab documents applied behavior under live conditions.
             </p>
           </div>
@@ -181,7 +181,7 @@ export default function HomePage() {
               cta="Start"
             />
             <HomeCard
-              title="Playbook"
+              title="Framework"
               desc="Learn the REZIME regimes (Empire, Siege, Revolution) and posture rules. The focus is environment conditioning, not calling tops."
               href="/operator"
               cta="Apply"
