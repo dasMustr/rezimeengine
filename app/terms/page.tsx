@@ -29,6 +29,7 @@ function Bullet({ children }: { children: React.ReactNode }) {
 export default function TermsPage() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-14 space-y-10">
+      {/* HEADER */}
       <Reveal delayMs={0}>
         <header className="space-y-4">
           <p className="text-xs uppercase tracking-[0.18em] text-neutral-400">
@@ -39,7 +40,9 @@ export default function TermsPage() {
             Terms of Use
           </h1>
 
-          <p className="text-sm text-neutral-400">Last updated: 11 February 2026</p>
+          <p className="text-sm text-neutral-400">
+            Last updated: 11 February 2026
+          </p>
 
           <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
             Welcome to REZIME (&quot;REZIME&quot;, &quot;we&quot;, &quot;our&quot;,
@@ -48,7 +51,9 @@ export default function TermsPage() {
             (collectively, the &quot;Service&quot;). By accessing or using the Service,
             you agree to these Terms. If you do not agree, you must not use the Service.
           </p>
-      
+        </header>
+      </Reveal>
+
       {/* PLAIN SUMMARY */}
       <Reveal delayMs={60}>
         <div className="calm-block rounded-3xl border border-white/10 bg-white/5 p-6 space-y-3">
@@ -66,6 +71,7 @@ export default function TermsPage() {
         </div>
       </Reveal>
 
+      {/* BODY */}
       <Reveal delayMs={110}>
         <div className="space-y-10">
           <Section title="1. Nature of the Service">
@@ -121,7 +127,15 @@ export default function TermsPage() {
             </p>
           </Section>
 
-          <Section title="5. Accounts & Access">
+          <Section title="5. Eligibility (Age Restriction)">
+            <p>
+              The Service is intended for adults. By using REZIME, you represent that you are at
+              least 18 years old (or the age of majority in your jurisdiction) and have the legal
+              capacity to agree to these Terms.
+            </p>
+          </Section>
+
+          <Section title="6. Accounts & Access">
             <ul className="mt-2 space-y-2">
               <Bullet>You are responsible for maintaining account confidentiality and security.</Bullet>
               <Bullet>You must notify us promptly of any suspected unauthorized access.</Bullet>
@@ -135,12 +149,13 @@ export default function TermsPage() {
             </ul>
           </Section>
 
-          <Section title="6. License & Acceptable Use">
+          <Section title="7. License & Acceptable Use">
             <p>
               Subject to these Terms and your active subscription (if applicable), we grant you a limited,
               non-exclusive, non-transferable, revocable license to access and use the Service for your personal
               educational and analytical use.
             </p>
+
             <p className="mt-3 font-semibold text-white">You may not:</p>
             <ul className="mt-2 space-y-2">
               <Bullet>Share, resell, sublicense, rent, or transfer access to the Service</Bullet>
@@ -151,7 +166,7 @@ export default function TermsPage() {
             </ul>
           </Section>
 
-          <Section title="7. Intellectual Property">
+          <Section title="8. Intellectual Property">
             <p>
               The Service and all associated materials (including scripts, logic, calculations, visuals,
               documentation, branding, and design) are owned by REZIME and/or its licensors and are protected
@@ -160,7 +175,7 @@ export default function TermsPage() {
             </p>
           </Section>
 
-          <Section title="8. Subscriptions, Payments, Cancellation & Refunds">
+          <Section title="9. Subscriptions, Payments, Cancellation & Refunds">
             <p>
               If the Service includes paid subscriptions, your subscription may renew automatically unless cancelled.
               You can cancel anytime to stop future billing. Unless otherwise stated at checkout, access continues
@@ -191,7 +206,7 @@ export default function TermsPage() {
             </p>
           </Section>
 
-          <Section title="9. Platform Dependency & Third-Party Services">
+          <Section title="10. Platform Dependency & Third-Party Services">
             <p>
               The Service may rely on third-party platforms and services (for example: hosting, analytics, email delivery,
               payment processors, or charting platforms). We do not control these third parties and are not responsible for:
@@ -203,7 +218,7 @@ export default function TermsPage() {
             </ul>
           </Section>
 
-          <Section title="10. Updates, Changes & Availability">
+          <Section title="11. Updates, Changes & Availability">
             <p>
               We may update, modify, improve, or discontinue any part of the Service at any time (including features,
               visuals, documentation, pricing, and access tiers). We do not guarantee continuous availability of any
@@ -211,7 +226,7 @@ export default function TermsPage() {
             </p>
           </Section>
 
-          <Section title="11. Limitation of Liability">
+          <Section title="12. Limitation of Liability">
             <p>
               To the maximum extent permitted by law, REZIME and its operators, affiliates, and service providers will not
               be liable for any trading losses, lost profits, missed opportunities, data loss, indirect damages, or
@@ -222,7 +237,7 @@ export default function TermsPage() {
             </p>
           </Section>
 
-          <Section title="12. Indemnification">
+          <Section title="13. Indemnification">
             <p>
               You agree to indemnify and hold harmless REZIME and its operators from any claims, losses, liabilities,
               damages, and expenses (including reasonable legal fees) arising from your use of the Service, your violation
@@ -230,24 +245,25 @@ export default function TermsPage() {
             </p>
           </Section>
 
-          <Section title="13. Governing Law">
+          <Section title="14. Governing Law">
             <p>
               These Terms are governed by the laws of Indonesia, without regard to conflict-of-law principles.
             </p>
           </Section>
 
-          <Section title="14. Changes to These Terms">
+          <Section title="15. Changes to These Terms">
             <p>
               We may update these Terms from time to time. The &quot;Last updated&quot; date at the top indicates when the
               latest changes were made. Continued use of the Service after changes means you accept the updated Terms.
             </p>
           </Section>
 
-          <Section title="15. Contact">
+          <Section title="16. Contact">
             <p>
               Questions regarding these Terms may be sent to{" "}
               <span className="text-white">hello@rezimeengine.com</span>.
             </p>
+
             <p className="mt-3 text-xs text-neutral-500">
               Related links:{" "}
               <Link href="/privacy" className="underline hover:text-white">
