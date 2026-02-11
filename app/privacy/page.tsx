@@ -40,16 +40,20 @@ export default function PrivacyPolicyPage() {
           <p className="text-xs uppercase tracking-[0.18em] text-neutral-400">
             Legal
           </p>
+
           <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
             Privacy Policy
           </h1>
-          <p className="text-sm text-neutral-400">Last updated: [Insert date]</p>
+
+          <p className="text-sm text-neutral-400">
+            Last updated: 11 February 2026
+          </p>
 
           <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-            REZIME ("REZIME", "we", "our", "us") respects your privacy. This
-            Privacy Policy explains what information we collect, why we collect
-            it, how we use it, and the choices you have when you use our website
-            and services.
+            REZIME (&quot;REZIME&quot;, &quot;we&quot;, &quot;our&quot;,
+            &quot;us&quot;) respects your privacy. This Privacy Policy explains
+            what information we collect, why we collect it, how we use it, and
+            the choices you have when you use our website and services.
           </p>
         </header>
       </Reveal>
@@ -62,12 +66,10 @@ export default function PrivacyPolicyPage() {
             <Bullet>We collect only what we need to run and secure the service.</Bullet>
             <Bullet>We do not sell your personal data.</Bullet>
             <Bullet>
-              Payments are processed by third parties (we don’t store full card
-              details).
+              Payments are processed by third parties (we don&apos;t store full
+              card details).
             </Bullet>
-            <Bullet>
-              You can request access, correction, or deletion of your data.
-            </Bullet>
+            <Bullet>You can request access, correction, or deletion of your data.</Bullet>
           </ul>
         </div>
       </Reveal>
@@ -78,7 +80,7 @@ export default function PrivacyPolicyPage() {
             <p>
               This policy applies to information collected through the REZIME
               website and any services, tools, gated materials, or support
-              channels we operate (collectively, the “Service”).
+              channels we operate (collectively, the &quot;Service&quot;).
             </p>
             <Note>
               For how you may use the Service, please see{" "}
@@ -89,7 +91,16 @@ export default function PrivacyPolicyPage() {
             </Note>
           </Section>
 
-          <Section title="2. Information We Collect">
+          <Section title="2. Who We Are (Data Controller)">
+            <p>
+              REZIME is responsible for deciding how and why personal
+              information is processed in connection with the Service. For
+              privacy-related questions, you can contact us at{" "}
+              <span className="text-white">hello@rezimeengine.com</span>.
+            </p>
+          </Section>
+
+          <Section title="3. Information We Collect">
             <p>We may collect the following categories of information:</p>
 
             <ul className="mt-3 space-y-2">
@@ -103,14 +114,14 @@ export default function PrivacyPolicyPage() {
               </Bullet>
               <Bullet>
                 <strong>Payment metadata</strong> from payment processors (e.g.,
-                payment status, billing history, the last 4 digits or payment
-                method type as provided by the processor — we do not store full
-                card numbers)
+                payment status, billing history, and payment method type or last
+                4 digits as provided by the processor — we do not store full card
+                numbers)
               </Bullet>
               <Bullet>
                 <strong>Usage and device data</strong> (e.g., pages viewed,
-                approximate timestamps, device/browser type, basic diagnostic
-                logs)
+                approximate timestamps, device/browser type, cookies needed for
+                session/authentication, and basic diagnostic logs)
               </Bullet>
             </ul>
 
@@ -122,28 +133,33 @@ export default function PrivacyPolicyPage() {
             </Note>
           </Section>
 
-          <Section title="3. How We Use Information">
+          <Section title="4. How We Use Information">
             <p>We use information to:</p>
             <ul className="mt-3 space-y-2">
               <Bullet>Provide access to the Service, tools, and documentation</Bullet>
               <Bullet>Maintain accounts and authenticate users</Bullet>
               <Bullet>Process subscriptions and billing through third-party providers</Bullet>
               <Bullet>
-                Send important service notices (access, policy, security,
-                downtime)
+                Send important service notices (access, policy, security, downtime)
               </Bullet>
               <Bullet>Respond to support requests and improve support quality</Bullet>
               <Bullet>Improve reliability, performance, and user experience</Bullet>
               <Bullet>Detect, prevent, and investigate abuse, fraud, or security issues</Bullet>
               <Bullet>Comply with legal obligations and enforce our terms</Bullet>
             </ul>
+
+            <Note>
+              If you opt in (or where permitted by law), we may also send
+              non-essential emails such as product updates. You can opt out of
+              non-essential communications at any time.
+            </Note>
           </Section>
 
-          <Section title="4. Legal Basis (plain language)">
+          <Section title="5. Legal Basis (plain language)">
             <p>
-              Depending on where you live, privacy laws may require a “legal
-              basis” for processing personal information. In simple terms, we
-              process information because it is necessary to:
+              Depending on where you live, privacy laws may require a
+              &quot;legal basis&quot; for processing personal information. In
+              simple terms, we process information because it is necessary to:
             </p>
             <ul className="mt-3 space-y-2">
               <Bullet>
@@ -159,13 +175,13 @@ export default function PrivacyPolicyPage() {
                 notices)
               </Bullet>
               <Bullet>
-                <strong>Comply with law</strong> (tax, accounting, regulatory,
-                or lawful requests)
+                <strong>Comply with law</strong> (tax, accounting, regulatory, or
+                lawful requests)
               </Bullet>
             </ul>
           </Section>
 
-          <Section title="5. Payments">
+          <Section title="6. Payments">
             <p>
               If you purchase a subscription, payments are processed by
               third-party payment providers. We do not store full payment card
@@ -179,21 +195,24 @@ export default function PrivacyPolicyPage() {
             </Note>
           </Section>
 
-          <Section title="6. Cookies & Analytics">
+          <Section title="7. Cookies & Analytics">
             <p>
-              We may use cookies and analytics tools to understand how the site
-              is used and to improve performance. This typically includes general
-              usage signals (like page views, session duration, and device type),
-              not personal financial data.
+              We use cookies for core site functionality (for example: keeping
+              you signed in and maintaining session security). We may also use
+              analytics tools to understand how the site is used and to improve
+              performance. This typically includes general usage signals (like
+              page views, session duration, and device type), not personal
+              financial data.
             </p>
 
             <p className="mt-3">
-              You can usually control cookies in your browser settings. Some
-              site features may not work properly if cookies are disabled.
+              You can usually control cookies in your browser settings. If you
+              disable essential cookies, some site features may not work
+              properly.
             </p>
           </Section>
 
-          <Section title="7. Sharing of Information">
+          <Section title="8. Sharing of Information">
             <p>
               We do <strong>not</strong> sell your personal data. We share
               information only in limited cases:
@@ -203,7 +222,8 @@ export default function PrivacyPolicyPage() {
               <Bullet>
                 <strong>Service providers</strong> that help run the platform
                 (hosting, authentication, email delivery, analytics, payment
-                processing)
+                processing). These providers process data on our behalf under
+                appropriate confidentiality and security obligations.
               </Bullet>
               <Bullet>
                 <strong>Legal requirements</strong> if we must comply with law,
@@ -219,9 +239,14 @@ export default function PrivacyPolicyPage() {
                 transaction, subject to appropriate safeguards
               </Bullet>
             </ul>
+
+            <Note>
+              The Service may contain links to third-party sites or services. We
+              are not responsible for the privacy practices of third parties.
+            </Note>
           </Section>
 
-          <Section title="8. Data Security">
+          <Section title="9. Data Security">
             <p>
               We use reasonable administrative and technical measures to protect
               information. However, no online service can guarantee absolute
@@ -234,7 +259,7 @@ export default function PrivacyPolicyPage() {
             </p>
           </Section>
 
-          <Section title="9. Data Retention">
+          <Section title="10. Data Retention">
             <p>
               We retain personal information only as long as necessary to provide
               the Service, maintain accounts, comply with legal obligations,
@@ -247,7 +272,7 @@ export default function PrivacyPolicyPage() {
             </Note>
           </Section>
 
-          <Section title="10. Your Choices & Rights">
+          <Section title="11. Your Choices & Rights">
             <p>You may request to:</p>
             <ul className="mt-3 space-y-2">
               <Bullet>Access the personal information we hold about you</Bullet>
@@ -264,11 +289,14 @@ export default function PrivacyPolicyPage() {
             <Note>
               We may need to verify your request (for example, by confirming you
               control the account email) to protect your privacy and prevent
-              unauthorized access.
+              unauthorized access. We generally respond within a reasonable
+              timeframe (typically within 30 days). We may decline requests where
+              required by law or where necessary to protect security and fraud
+              prevention.
             </Note>
           </Section>
 
-          <Section title="11. Children">
+          <Section title="12. Children">
             <p>
               REZIME is not intended for children under 18 (or the age of legal
               majority in your jurisdiction). If you are under the legal age in
@@ -281,7 +309,7 @@ export default function PrivacyPolicyPage() {
             </p>
           </Section>
 
-          <Section title="12. International Users">
+          <Section title="13. International Users">
             <p>
               If you access REZIME from outside Indonesia, you understand that
               your information may be processed in countries where our service
@@ -293,16 +321,16 @@ export default function PrivacyPolicyPage() {
             </Note>
           </Section>
 
-          <Section title="13. Changes to This Policy">
+          <Section title="14. Changes to This Policy">
             <p>
               We may update this Privacy Policy from time to time. We will post
-              the updated version on this page and update the “Last updated”
-              date. Continued use of REZIME after an update means you accept the
-              updated policy.
+              the updated version on this page and update the &quot;Last
+              updated&quot; date. Continued use of REZIME after an update means
+              you accept the updated policy.
             </p>
           </Section>
 
-          <Section title="14. Contact">
+          <Section title="15. Contact">
             <p>
               For privacy-related questions, contact:{" "}
               <span className="text-white">hello@rezimeengine.com</span>
