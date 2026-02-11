@@ -94,7 +94,7 @@ export default function PortalMenu() {
   // One unified menu (mobile + desktop)
   const MENU = (
     <>
-      <SectionLabel>Foundation</SectionLabel>
+      <SectionLabel>Learn</SectionLabel>
       <MenuItem
         href="/orientation"
         label="Orientation"
@@ -104,11 +104,11 @@ export default function PortalMenu() {
 
       <div className="my-2 border-t border-white/10" />
 
-      <SectionLabel>Framework</SectionLabel>
+      <SectionLabel>Apply</SectionLabel>
       <MenuItem
         href="/operator"
         label="Framework"
-        sub="Regimes → posture • How to read Engine/Sync/Battle Lines (no signals)"
+        sub="Regimes → posture • How to read Engine/Sync/Battle Lines"
         onPick={onPick}
       />
       <MenuItem
@@ -120,17 +120,13 @@ export default function PortalMenu() {
 
       <div className="my-2 border-t border-white/10" />
 
-      <SectionLabel>Access</SectionLabel>
+      <SectionLabel>Join</SectionLabel>
       <MenuItem
         href="/pricing"
         label="Access"
-        sub="Membership tiers • Invite-only tools • Education, not signals"
+        sub="Membership tiers • Invite-only tools"
         onPick={onPick}
       />
-
-      <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
-        Orientation → Framework → Proof
-      </div>
     </>
   );
 
@@ -151,10 +147,7 @@ export default function PortalMenu() {
             </button>
           </SheetTrigger>
 
-          <SheetContent
-            side="bottom"
-            className="border-white/10 bg-black text-white"
-          >
+          <SheetContent side="bottom" className="border-white/10 bg-black text-white">
             <SheetHeader>
               <SheetTitle className="text-left text-sm font-semibold text-white">
                 Choose your route
