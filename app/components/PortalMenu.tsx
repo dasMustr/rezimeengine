@@ -58,11 +58,9 @@ export default function PortalMenu() {
   // Context label (used for BOTH mobile + desktop button)
   const currentLabel = useMemo(() => {
     if (pathname.startsWith("/orientation")) return "Orientation";
-    if (pathname.startsWith("/operator")) return "Playbook";
+    if (pathname.startsWith("/operator")) return "Framework";
     if (pathname.startsWith("/allocator")) return "Portfolio Lab";
     if (pathname.startsWith("/pricing")) return "Access";
-    if (pathname.startsWith("/faq")) return "FAQ";
-    if (pathname.startsWith("/contact")) return "Contact";
     return "Portal";
   }, [pathname]);
 
@@ -109,7 +107,7 @@ export default function PortalMenu() {
       <SectionLabel>Framework</SectionLabel>
       <MenuItem
         href="/operator"
-        label="Playbook"
+        label="Framework"
         sub="Regimes → posture • How to read Engine/Sync/Battle Lines (no signals)"
         onPick={onPick}
       />
@@ -131,7 +129,7 @@ export default function PortalMenu() {
       />
 
       <div className="border-t border-white/10 px-4 py-3 text-[11px] text-neutral-400">
-        Orientation → Playbook → Proof
+        Orientation → Framework → Proof
       </div>
     </>
   );
@@ -159,7 +157,7 @@ export default function PortalMenu() {
           >
             <SheetHeader>
               <SheetTitle className="text-left text-sm font-semibold text-white">
-                Choose your lens
+                Choose your route
               </SheetTitle>
             </SheetHeader>
 
