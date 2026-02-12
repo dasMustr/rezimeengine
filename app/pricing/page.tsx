@@ -252,13 +252,9 @@ export default function PricingPage() {
             <Link href="/terms" className="underline hover:text-white">
               Terms of Use
             </Link>
-            ,{" "}
+            , and{" "}
             <Link href="/privacy" className="underline hover:text-white">
               Privacy Policy
-            </Link>
-            , and{" "}
-            <Link href="/refunds" className="underline hover:text-white">
-              Refund Policy
             </Link>
             .
           </p>

@@ -7,7 +7,7 @@ export default function Footer() {
         
         <div className="space-y-2">
           <p className="text-white font-semibold tracking-[0.18em]">REZIME</p>
-          <p>A calm market survival framework — education and analytical tools.</p>
+          <p>A calm market survival framework.</p>
         </div>
 
         <div className="flex flex-col gap-2">
