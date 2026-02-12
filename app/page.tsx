@@ -56,21 +56,6 @@ function TinyStep({ n, label }: { n: string; label: string }) {
   );
 }
 
-function LightPill({
-  label,
-  desc,
-}: {
-  label: string;
-  desc: string;
-}) {
-  return (
-    <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
-      <p className="text-xs uppercase tracking-widest text-neutral-400">{label}</p>
-      <p className="mt-2 text-xs text-neutral-500 leading-relaxed">{desc}</p>
-    </div>
-  );
-}
-
 export default function HomePage() {
   return (
     <section className="space-y-12">
@@ -81,42 +66,66 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-2">
               <Tag>Risk-first</Tag>
               <Tag>Map, not signals</Tag>
-              <Tag>Red / Yellow awareness</Tag>
-              <Tag>Beginner-friendly</Tag>
+              <Tag>Beginner-safe</Tag>
+              <Tag>Calm by design</Tag>
             </div>
 
             {/* HERO */}
             <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-white">
-              A traffic light for markets.
+              A traffic light for market risk.
               <br />
-              Focused on yellow and red.
+              Built for the yellow and red.
             </h1>
 
-            {/* SUBTEXT */}
+            {/* SUBTEXT (traffic light) */}
             <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
               REZIME helps you avoid the two environments that wipe people out:
               <strong className="text-white"> Siege (yellow)</strong> and{" "}
               <strong className="text-white">Revolution (red)</strong>.
               <br />
               <br />
-              Green is personal — it depends on your edge. REZIME doesn&apos;t tell you when to
-              &quot;go&quot;. It helps you recognize when you should slow down or stop.
+              Green is personal. It depends on your edge. REZIME doesn&apos;t tell
+              you when to &quot;go&quot;. It helps you recognize when you should slow
+              down or stop.
             </p>
 
-            {/* MICRO PROMISE */}
+            {/* MICRO PROMISE (simpler) */}
             <div className="grid gap-3 sm:grid-cols-3">
-              <LightPill
-                label="Yellow = Siege"
-                desc="Slow down. Reduce exposure. Be selective. Conditions are noisy and punish forcing."
-              />
-              <LightPill
-                label="Red = Revolution"
-                desc="Stop. No matter your edge, this is where habits get margin-called sooner or later."
-              />
-              <LightPill
-                label="No green claims"
-                desc="REZIME is not a signal service. It&apos;s a clarity layer: read the environment first."
-              />
+              <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
+                <p className="text-xs uppercase tracking-widest text-neutral-400">
+                  What it does
+                </p>
+                <p className="mt-2 text-sm text-neutral-200">
+                  Labels the environment
+                </p>
+                <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
+                  So you stop treating every market like it&apos;s the same day.
+                </p>
+              </div>
+
+              <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
+                <p className="text-xs uppercase tracking-widest text-neutral-400">
+                  Why it matters
+                </p>
+                <p className="mt-2 text-sm text-neutral-200">
+                  Fewer avoidable mistakes
+                </p>
+                <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
+                  Chaos creates traps. REZIME helps you reduce decisions when clarity is low.
+                </p>
+              </div>
+
+              <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
+                <p className="text-xs uppercase tracking-widest text-neutral-400">
+                  The outcome
+                </p>
+                <p className="mt-2 text-sm text-neutral-200">
+                  Stay in the game
+                </p>
+                <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
+                  Safety buys time. Time builds skill. Skill creates advantage.
+                </p>
+              </div>
             </div>
 
             <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-5">
@@ -126,21 +135,21 @@ export default function HomePage() {
               <div className="mt-3 grid gap-3 sm:grid-cols-3">
                 <TinyStep
                   n="1"
-                  label="Orientation: learn how markets move, and why fear is normal."
+                  label="Orientation: get comfortable with charts and the idea of “market environments.”"
                 />
                 <TinyStep
                   n="2"
-                  label="Framework: read regimes (especially Siege/Revolution) and choose the right posture."
+                  label="Framework: learn how the REZIME map behaves and how to use it safely."
                 />
                 <TinyStep
                   n="3"
-                  label="Portfolio Lab: see the process applied in real time — record-first, not hype."
+                  label="Portfolio Lab: see the map applied over time — record-first, not hype."
                 />
               </div>
             </div>
 
             <p className="text-xs text-neutral-500">
-              Clarity first → smaller mistakes → staying in the game.
+              Educational tools. No signals. No guarantees.
             </p>
           </div>
         </div>
@@ -154,11 +163,10 @@ export default function HomePage() {
               Start here
             </p>
             <h2 className="mt-2 text-xl font-semibold text-white">
-              Learn the map. Then decide your pace.
+              Learn safely, then go deeper
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              REZIME is built for survivability: spot the red/yellow environments early, and
-              avoid unnecessary damage.
+              Orientation is the calm entry. Framework is the map. Portfolio Lab is the proof trail.
             </p>
           </div>
 
@@ -166,19 +174,19 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Orientation"
-              desc="A friendly start. What markets are, why uncertainty feels intense, and how to avoid early mistakes."
+              desc="A gentle start. Understand what charts are and why fear is normal. No jargon."
               href="/orientation"
               cta="Start"
             />
             <HomeCard
               title="Framework"
-              desc="Learn the REZIME regimes and posture rules. Especially Siege (yellow) and Revolution (red)."
+              desc="The REZIME map: regimes, meaning, and how to use it without turning it into signals."
               href="/operator"
-              cta="Apply"
+              cta="Learn"
             />
             <HomeCard
               title="Portfolio Lab"
-              desc="A time-stamped record of the process in action. Context, posture, and learning over time."
+              desc="Time-stamped snapshots of applied process. Context and decisions, not marketing."
               href="/allocator"
               cta="See the Lab"
             />
@@ -187,8 +195,8 @@ export default function HomePage() {
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">Scope boundaries</p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              REZIME is educational and analytical tools — not financial advice, not signals, and
-              no guarantees. You choose when to participate.
+              REZIME is not a signal service. It&apos;s a risk map that helps you slow down or stop
+              when the environment is unstable.
             </p>
             <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
               Educational documentation only. Not financial advice.

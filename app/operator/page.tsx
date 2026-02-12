@@ -196,12 +196,12 @@ function StripLegend() {
       color: "#3b82f6",
     },
     {
-      name: "Siege",
-      note: "Conflict and instability. Reduce activity and tighten criteria.",
+      name: "Siege (Yellow)",
+      note: "Conflict and traps. Reduce activity and tighten criteria.",
       color: "#f59e0b",
     },
     {
-      name: "Revolution",
+      name: "Revolution (Red)",
       note: "Confirmed regime transition. Reset assumptions and re-evaluate posture.",
       color: "#ef4444",
     },
@@ -269,34 +269,29 @@ export default function OperatorPage() {
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Playbook
+            Framework
           </p>
 
           <div className="flex flex-wrap gap-2">
             <Pill>Map, not signals</Pill>
-            <Pill>Regime classification</Pill>
             <Pill>Risk containment</Pill>
+            <Pill>Traffic-light logic</Pill>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            Not entries.
-            <br className="hidden sm:block" /> Environment control.
+            Green is personal.
+            <br className="hidden sm:block" /> Yellow and red are not.
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            REZIME is a calm market lens. It does not predict price. It helps you{" "}
-            <span className="text-white font-semibold">
-              avoid phase-mismatched participation
-            </span>
-            , the regimes where a bullish (or bearish) posture is structurally
-            punished.
+            Your edge decides when to “go.” REZIME doesn&apos;t replace that.
             <br />
             <br />
-            Your execution style stays yours. REZIME answers{" "}
-            <span className="text-white font-semibold">
-              “What kind of market is this?”
-            </span>{" "}
-            so sizing, frequency, and expectations match reality.
+            REZIME is built for the moments that wipe people out:
+            <span className="text-white font-semibold"> Siege (yellow)</span> and{" "}
+            <span className="text-white font-semibold">Revolution (red)</span>.
+            It helps you slow down or stop when the environment becomes hostile,
+            so you don&apos;t learn the hard way.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -318,17 +313,17 @@ export default function OperatorPage() {
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-neutral-300">Jump to:</span>
               <a
-                href="#big-idea"
+                href="#traffic"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                The Big Idea
+                Traffic-light rules
               </a>
               <span className="text-neutral-600">•</span>
               <a
                 href="#strip"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                Strip Colors
+                Strip colors
               </a>
               <span className="text-neutral-600">•</span>
               <a
@@ -349,54 +344,54 @@ export default function OperatorPage() {
                 href="#example"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                GOOG Walkthrough
+                GOOG walkthrough
               </a>
             </div>
           </div>
         </section>
       </Reveal>
 
-      {/* BIG IDEA */}
-      <Reveal delayMs={60}>
+      {/* TRAFFIC LIGHT RULES (NEW FIRST SECTION) */}
+      <Reveal delayMs={50}>
         <Section
-          id="big-idea"
-          eyebrow="The big idea"
-          title="The edge is avoiding hostile regimes"
-          subtitle="Losses often come from consistent activity in the wrong environment, not from a single bad entry."
+          id="traffic"
+          eyebrow="The simplest model"
+          title="Traffic-light rules"
+          subtitle="REZIME is strict about yellow and red. Green is your edge."
         >
           <div className="grid gap-4 lg:grid-cols-3">
             <MiniCard
               tone="hard"
-              title="1) Identify control"
-              desc="Engine shows which Empire has structural control. If control is unclear, confidence should shrink."
+              title="Green (personal)"
+              desc="Your edge decides when to go. REZIME does not give entries."
             />
             <MiniCard
-              title="2) Detect escalation"
-              desc="Sync shows whether timeframes agree or fight. Conflict increases fakeouts and reduces reliability."
+              title="Siege (yellow)"
+              desc="Slow down. Reduce size and decisions. Traps increase when the market is stuck in conflict."
             />
             <MiniCard
               tone="hard"
-              title="3) Read terrain"
-              desc="Battle Lines show compression versus runway. Terrain changes timing difficulty, not directional bias."
+              title="Revolution (red)"
+              desc="Stop. Reset. If you run red lights often enough, eventually the truck arrives."
             />
           </div>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-2">
             <KeyIdeaBlock
               title="What REZIME is"
-              subtitle="A permission system for posture"
+              subtitle="A safety system for behavior"
               bullets={[
-                "When regimes align, bias is allowed and behavior is cleaner.",
-                "When conflict escalates, shrink exposure or pause.",
-                "You do not need to predict turning points to avoid hostile phases.",
+                "It labels the environment so your behavior matches reality.",
+                "It helps you reduce activity when conditions become hostile.",
+                "It keeps you alive long enough to develop edge.",
               ]}
             />
             <KeyIdeaBlock
-              title="Scope boundaries"
-              subtitle="Environment classification only"
+              title="What REZIME is not"
+              subtitle="Not a signal service"
               bullets={[
-                "No entry alerts, no profit guarantees, no predictive calls.",
-                "REZIME does not replace your method. It conditions when your method should be used.",
+                "No entry alerts. No profit guarantees. No prediction theater.",
+                "REZIME conditions when your method should be used.",
                 "Waiting is a valid posture when the map is unstable.",
               ]}
             />
