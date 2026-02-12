@@ -56,6 +56,21 @@ function TinyStep({ n, label }: { n: string; label: string }) {
   );
 }
 
+function LightPill({
+  label,
+  desc,
+}: {
+  label: string;
+  desc: string;
+}) {
+  return (
+    <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
+      <p className="text-xs uppercase tracking-widest text-neutral-400">{label}</p>
+      <p className="mt-2 text-xs text-neutral-500 leading-relaxed">{desc}</p>
+    </div>
+  );
+}
+
 export default function HomePage() {
   return (
     <section className="space-y-12">
@@ -65,68 +80,43 @@ export default function HomePage() {
             {/* TAGS */}
             <div className="flex flex-wrap gap-2">
               <Tag>Risk-first</Tag>
-              <Tag>Regime classification</Tag>
               <Tag>Map, not signals</Tag>
-              <Tag>Behavior over prediction</Tag>
+              <Tag>Red / Yellow awareness</Tag>
+              <Tag>Beginner-friendly</Tag>
             </div>
 
             {/* HERO */}
             <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-white">
-              Markets aren&apos;t dangerous.
+              A traffic light for markets.
               <br />
-              Unstructured participation is.
+              Focused on yellow and red.
             </h1>
 
             {/* SUBTEXT */}
             <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-              REZIME is a calm decision-structure framework that classifies market
-              regimes so participation can be conditioned by environment, not conviction.
+              REZIME helps you avoid the two environments that wipe people out:
+              <strong className="text-white"> Siege (yellow)</strong> and{" "}
+              <strong className="text-white">Revolution (red)</strong>.
               <br />
               <br />
-              You do not need secret information. You need a process that reduces
-              avoidable exposure mistakes. Different conditions require different posture.
-              REZIME makes the environment legible so you stop acting the same inside every regime.
+              Green is personal — it depends on your edge. REZIME doesn&apos;t tell you when to
+              &quot;go&quot;. It helps you recognize when you should slow down or stop.
             </p>
 
             {/* MICRO PROMISE */}
             <div className="grid gap-3 sm:grid-cols-3">
-              <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
-                <p className="text-xs uppercase tracking-widest text-neutral-400">
-                  Objective
-                </p>
-                <p className="mt-2 text-sm text-neutral-200">
-                  Reduce phase mismatch
-                </p>
-                <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
-                  Avoid environments that punish activity, then re-engage when structure stabilizes.
-                </p>
-              </div>
-
-              <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
-                <p className="text-xs uppercase tracking-widest text-neutral-400">
-                  Design
-                </p>
-                <p className="mt-2 text-sm text-neutral-200">
-                  Calm, not performative
-                </p>
-                <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
-                  No prediction theater. No signal arrows. Clear labels and posture rules that
-                  reduce confusion under volatility.
-                </p>
-              </div>
-
-              <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
-                <p className="text-xs uppercase tracking-widest text-neutral-400">
-                  Outcome
-                </p>
-                <p className="mt-2 text-sm text-neutral-200">
-                  Capital continuity
-                </p>
-                <p className="mt-2 text-xs text-neutral-500 leading-relaxed">
-                  Staying operational builds skill. Skill builds confidence. Performance is a byproduct,
-                  not the pitch.
-                </p>
-              </div>
+              <LightPill
+                label="Yellow = Siege"
+                desc="Slow down. Reduce exposure. Be selective. Conditions are noisy and punish forcing."
+              />
+              <LightPill
+                label="Red = Revolution"
+                desc="Stop. No matter your edge, this is where habits get margin-called sooner or later."
+              />
+              <LightPill
+                label="No green claims"
+                desc="REZIME is not a signal service. It&apos;s a clarity layer: read the environment first."
+              />
             </div>
 
             <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-5">
@@ -136,21 +126,21 @@ export default function HomePage() {
               <div className="mt-3 grid gap-3 sm:grid-cols-3">
                 <TinyStep
                   n="1"
-                  label="Orientation: understand price behavior, uncertainty, and the phase mismatch trap."
+                  label="Orientation: learn how markets move, and why fear is normal."
                 />
                 <TinyStep
                   n="2"
-                  label="Framework: learn REZIME regimes and posture rules (context, not entries)."
+                  label="Framework: read regimes (especially Siege/Revolution) and choose the right posture."
                 />
                 <TinyStep
                   n="3"
-                  label="Portfolio Lab: time-stamped record of context, posture, and learning over time."
+                  label="Portfolio Lab: see the process applied in real time — record-first, not hype."
                 />
               </div>
             </div>
 
             <p className="text-xs text-neutral-500">
-              Risk control → clarity → discipline → performance as a byproduct.
+              Clarity first → smaller mistakes → staying in the game.
             </p>
           </div>
         </div>
@@ -164,11 +154,11 @@ export default function HomePage() {
               Start here
             </p>
             <h2 className="mt-2 text-xl font-semibold text-white">
-              A calm route into markets
+              Learn the map. Then decide your pace.
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Orientation defines the mental model. The Framework defines interpretation rules.
-              The Portfolio Lab documents applied behavior under live conditions.
+              REZIME is built for survivability: spot the red/yellow environments early, and
+              avoid unnecessary damage.
             </p>
           </div>
 
@@ -176,19 +166,19 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Orientation"
-              desc="No jargon. Understand how price behaves, why uncertainty feels chaotic, and the core error: staying active when the environment is structurally unstable."
+              desc="A friendly start. What markets are, why uncertainty feels intense, and how to avoid early mistakes."
               href="/orientation"
               cta="Start"
             />
             <HomeCard
               title="Framework"
-              desc="Learn the REZIME regimes (Empire, Siege, Revolution) and posture rules. The focus is environment conditioning, not calling tops."
+              desc="Learn the REZIME regimes and posture rules. Especially Siege (yellow) and Revolution (red)."
               href="/operator"
               cta="Apply"
             />
             <HomeCard
               title="Portfolio Lab"
-              desc="A time-stamped archive of applied process. Regimes, posture shifts, and reasoning over time. Record-first, not performance marketing."
+              desc="A time-stamped record of the process in action. Context, posture, and learning over time."
               href="/allocator"
               cta="See the Lab"
             />
@@ -197,8 +187,8 @@ export default function HomePage() {
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">Scope boundaries</p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              You will not find entry alerts, profit guarantees, or influencer energy.
-              REZIME is a map that supports smaller, slower, or zero participation when conditions are unstable.
+              REZIME is educational and analytical tools — not financial advice, not signals, and
+              no guarantees. You choose when to participate.
             </p>
             <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
               Educational documentation only. Not financial advice.
