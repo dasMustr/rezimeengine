@@ -180,14 +180,13 @@ function KeyIdeaBlock({
  *
  * Notes applied:
  * - No "Stable → Green" concept. Green = Bullish Empire control.
- * - Market is framed as a perpetual battle between two Empires (Bullish vs Bearish).
+ * - Market is a perpetual battle between two Empires (Bullish vs Bearish).
  * - Use the word "Regime" (not environment).
  * - Timeframes change the meaning of Yellow/Red in Sync:
  *   HTF Yellow = Siege, HTF Red = Revolution
  *   MTF Yellow = Deadlock, MTF Red = Rebellion
  *   LTF Yellow = Tension, LTF Red = Uprising
- * - Advanced logic: escalation often builds upward, but priority is simple:
- *   HTF Revolution = Reset → reconsider the prior Empire thesis.
+ * - Priority: HTF Revolution = Reset → reconsider the prior Empire thesis.
  */
 function StripLegend() {
   const items = [
@@ -383,11 +382,17 @@ export default function OperatorPage() {
           title="Posture rules"
           subtitle="The map helps you change posture as the regime changes."
         >
-          <div className="grid gap-4 lg:grid-cols-3">
+          {/* CHANGED: show BOTH Empires + Yellow + Red */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <MiniCard
               tone="hard"
               title="Bull Empire (green)"
-              desc="Bullish Empire controls the regime. Use your normal learning and participation rules."
+              desc="Bullish Empire controls the regime. Participate with your normal rules, but keep your posture aligned with the winning Empire."
+            />
+            <MiniCard
+              tone="hard"
+              title="Bear Empire (blue)"
+              desc="Bearish Empire controls the regime. Participate with your normal rules, but do not force bullish posture inside a bearish regime."
             />
             <MiniCard
               title="Messy (yellow)"
@@ -396,7 +401,7 @@ export default function OperatorPage() {
             <MiniCard
               tone="hard"
               title="Reset (red)"
-              desc="If HTF prints Revolution, treat it as a reset and pause before re-engaging."
+              desc="If HTF prints Revolution, treat it as a reset. Pause and rebuild your thesis for the new Empire."
             />
           </div>
 
