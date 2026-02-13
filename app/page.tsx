@@ -55,29 +55,30 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-2">
               <Tag>Beginner-safe</Tag>
               <Tag>Risk-first</Tag>
-              <Tag>Map, not signals</Tag>
+              <Tag>Method-neutral</Tag>
               <Tag>Calm by design</Tag>
             </div>
 
             {/* HERO */}
             <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-white">
-              If markets feel stressful,
+              If markets feel overwhelming,
               <br />
               start here.
             </h1>
 
             {/* SUBTEXT */}
             <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-              Fear is normal. Confusion is normal. Most people are not “bad at trading”.
-              They are simply learning in the most dangerous conditions.
+              Confusion is normal. Stress is normal. Most people are not failing
+              because they lack intelligence. They are simply exposed to unstable
+              conditions too early.
               <br />
               <br />
-              REZIME teaches a simple priority. First, learn to survive. Then you can
-              build skill. Profit is later.
+              REZIME teaches one priority. Learn to survive first. Build skill
+              in stable environments. Let results come later.
             </p>
 
             <p className="text-xs text-neutral-500">
-              Educational tools. No signals. No guarantees.
+              Educational framework. No signals. No predictions. No guarantees.
             </p>
           </div>
         </div>
@@ -88,13 +89,13 @@ export default function HomePage() {
         <section className="space-y-6">
           <div>
             <p className="text-xs uppercase tracking-widest text-neutral-400">
-              A calm path
+              A simple structure
             </p>
             <h2 className="mt-2 text-xl font-semibold text-white">
               Why. How. Proof.
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              You do not need hype. You need a safe order of learning.
+              Understand survival. Learn the framework. Examine the record.
             </p>
           </div>
 
@@ -102,19 +103,19 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Why"
-              desc="Learn why beginners lose. Understand market environments and when it is smarter to slow down."
+              desc="Understand how market environments affect risk and why survival must come before performance."
               href="/orientation"
               cta="Orientation"
             />
             <HomeCard
               title="How"
-              desc="Learn the REZIME framework step by step. Use it to reduce risk and make fewer rushed decisions."
+              desc="Learn the REZIME framework and how to read conditions without relying on signals."
               href="/operator"
               cta="Framework"
             />
             <HomeCard
               title="Proof"
-              desc="See the framework applied over time. A record of context, decisions, and outcomes."
+              desc="Review time-stamped applications of the framework. Context, decisions, and outcomes."
               href="/allocator"
               cta="Portfolio Lab"
             />
@@ -123,7 +124,8 @@ export default function HomePage() {
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">Scope</p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              REZIME is a risk framework. It does not provide trade signals or financial advice.
+              REZIME is a risk framework designed to help you manage exposure
+              across different market methods. It does not provide signals or financial advice.
             </p>
           </div>
         </section>
