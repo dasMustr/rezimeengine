@@ -176,10 +176,18 @@ function KeyIdeaBlock({
 
 /**
  * Teaching colors (UI only, not logic).
- * Bullish Empire: green | Bearish Empire: blue | Messy/Conflict: yellow | Reset/Revolution: red | Neutral: gray
+ * Bullish Empire: green | Bearish Empire: blue | Messy/Conflict: yellow | Reset: red | Neutral: gray
  *
- * NOTE: There is no "Stable → Green" concept here.
- * Green is simply Bullish Empire control.
+ * Notes applied:
+ * - No "Stable → Green" concept. Green = Bullish Empire control.
+ * - Market is framed as a perpetual battle between two Empires (Bullish vs Bearish).
+ * - Use the word "Regime" (not environment).
+ * - Timeframes change the meaning of Yellow/Red in Sync:
+ *   HTF Yellow = Siege, HTF Red = Revolution
+ *   MTF Yellow = Deadlock, MTF Red = Rebellion
+ *   LTF Yellow = Tension, LTF Red = Uprising
+ * - Advanced logic: escalation often builds upward, but priority is simple:
+ *   HTF Revolution = Reset → reconsider the prior Empire thesis.
  */
 function StripLegend() {
   const items = [
@@ -289,14 +297,15 @@ export default function OperatorPage() {
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
             You can use any method over time. REZIME sits above the method. It
-            helps you read the <span className="text-white font-semibold">regime</span>{" "}
-            so your behavior matches what the market is doing.
+            helps you read the{" "}
+            <span className="text-white font-semibold">regime</span> so your
+            behavior matches what the market is doing.
             <br />
             <br />
-            The market is a perpetual battle between two Empires:
+            The market is a perpetual battle between two Empires:{" "}
             <span className="text-white font-semibold">
-              {" "}Bullish Empire vs Bearish Empire.
-            </span>
+              Bullish Empire vs Bearish Empire.
+            </span>{" "}
             Green and blue are simply “who controls the regime.” Yellow means the
             regime is messy and conflicted. Red means the regime has reset — your
             prior Empire thesis should be reconsidered.
@@ -387,7 +396,7 @@ export default function OperatorPage() {
             <MiniCard
               tone="hard"
               title="Reset (red)"
-              desc="Revolution on the main timeframe. Treat as a reset and pause before re-engaging."
+              desc="If HTF prints Revolution, treat it as a reset and pause before re-engaging."
             />
           </div>
 
@@ -441,7 +450,7 @@ export default function OperatorPage() {
               Why this matters (advanced)
             </p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              Revolutions don’t typically happen instantly on the highest timeframe.
+              Revolutions don’t typically appear instantly on the highest timeframe.
               There is often a build-up that climbs upward across timeframes:
               <br />
               <span className="text-white font-semibold">
@@ -449,10 +458,10 @@ export default function OperatorPage() {
               </span>
               <br />
               <br />
-              This is advanced (and closer to timing the market). The first priority is simpler:
+              This is advanced (and closer to timing the market). The first priority is simpler:{" "}
               <span className="text-white font-semibold">
-                {" "}when HTF prints Revolution, treat it as a reset.
-              </span>
+                when HTF prints Revolution, treat it as a reset.
+              </span>{" "}
               All thesis assumptions about the previous Empire should be reconsidered.
             </p>
           </div>
