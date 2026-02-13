@@ -176,15 +176,17 @@ function KeyIdeaBlock({
 
 /**
  * Teaching colors (UI only, not logic).
- * Empires: green/blue | Messy/Conflict: yellow | Reset: red | Neutral: gray
+ * Empires: green/blue | Instability: yellow | Reset: red | Neutral: gray
  *
  * Notes applied:
  * - No "Stable → Green" concept.
  * - Market is a perpetual battle between two Empires (Bullish vs Bearish).
  * - Use the word "Regime" (not environment).
+ * - Rename "Messy" → "Instability"
  * - Two segments:
- *   1) Survival = 1 timeframe focus (yellow = messy, red = reset)
+ *   1) Survival = 1 timeframe focus (Instability + Reset)
  *   2) Timing   = multi-timeframe escalation language (Sync)
+ * - Remove em dashes from copy
  */
 function StripLegend() {
   const items = [
@@ -195,18 +197,18 @@ function StripLegend() {
     },
     {
       name: "Empire control (Green / Blue)",
-      note: "The regime is controlled by one Empire. Green = Bullish Empire. Blue = Bearish Empire.",
+      note: "The regime is controlled by one Empire. Green is Bullish Empire. Blue is Bearish Empire.",
       color: "#22c55e",
       color2: "#3b82f6",
     } as any,
     {
-      name: "Messy (Yellow)",
+      name: "Instability (Yellow)",
       note: "Conflict and traps. Reduce exposure and tighten criteria.",
       color: "#f59e0b",
     },
     {
       name: "Reset (Red)",
-      note: "Revolution / reset. Reconsider the prior Empire thesis.",
+      note: "Revolution and reset. Reconsider the prior Empire thesis.",
       color: "#ef4444",
     },
   ];
@@ -309,13 +311,11 @@ export default function OperatorPage() {
             behavior matches what the market is doing.
             <br />
             <br />
-            The market is a perpetual battle between two Empires:{" "}
+            The market is a perpetual battle between two Empires:
             <span className="text-white font-semibold">
-              Bullish Empire vs Bearish Empire.
+              {" "}Bullish Empire and Bearish Empire.
             </span>{" "}
-            Green and blue are simply “who controls the regime.” Yellow means the
-            regime is messy and conflicted. Red means the regime has reset — your
-            prior Empire thesis should be reconsidered.
+            The strip explains the colors. This page explains how to use them.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -393,17 +393,17 @@ export default function OperatorPage() {
           <div className="grid gap-4 lg:grid-cols-3">
             <MiniCard
               tone="hard"
-              title="Empire control (green / blue)"
-              desc="One Empire controls the regime. Green = Bullish Empire. Blue = Bearish Empire. This is not “stable” — it’s simply control."
+              title="Empire control"
+              desc="On one timeframe, this is enough. Identify who controls the regime, then respect the warning states."
             />
             <MiniCard
-              title="Messy (yellow)"
-              desc="Instability and traps. Reduce exposure and reduce decisions."
+              title="Instability"
+              desc="Yellow means instability. Conflict and traps increase. Reduce exposure and reduce decisions."
             />
             <MiniCard
               tone="hard"
-              title="Reset (red)"
-              desc="Revolution / reset on your main timeframe. Treat it as a full thesis reset before re-engaging."
+              title="Reset"
+              desc="Red means reset. Treat it as a full thesis reset before re-engaging."
             />
           </div>
 
@@ -413,7 +413,7 @@ export default function OperatorPage() {
               subtitle="A safer way to participate"
               bullets={[
                 "A simple label for regime so behavior matches reality.",
-                "Clear warning states: messy (yellow) and reset (red).",
+                "Clear warning states: instability (yellow) and reset (red).",
                 "Permission to pause instead of forcing activity.",
               ]}
             />
@@ -422,7 +422,7 @@ export default function OperatorPage() {
               subtitle="Overconfidence"
               bullets={[
                 "No entry alerts. No prediction theater. No performance promises.",
-                "No need to time transitions — you only need to respect instability.",
+                "No need to time transitions. You only need to respect instability.",
                 "Less damage from hostile or unstable regimes.",
               ]}
             />
@@ -436,39 +436,36 @@ export default function OperatorPage() {
           id="timing"
           eyebrow="Segment 2"
           title="Timing"
-          subtitle="Same colors. Different words. Escalation builds across timeframes."
+          subtitle="Multi-timeframe language. Instability builds. Reset confirms."
         >
           <div className="grid gap-4 lg:grid-cols-3">
             <MiniCard
               tone="hard"
               title="HTF (primary)"
-              desc="HTF Yellow = Siege. HTF Red = Revolution."
+              desc="HTF Yellow is Siege. HTF Red is Revolution."
             />
-            <MiniCard title="MTF" desc="MTF Yellow = Deadlock. MTF Red = Rebellion." />
+            <MiniCard title="MTF" desc="MTF Yellow is Deadlock. MTF Red is Rebellion." />
             <MiniCard
               tone="hard"
               title="LTF"
-              desc="LTF Yellow = Tension. LTF Red = Uprising."
+              desc="LTF Yellow is Tension. LTF Red is Uprising."
             />
           </div>
 
           <div className="mt-4 calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">
-              The escalation idea (advanced)
+              Escalation (advanced)
             </p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              Timing is the multi-timeframe view. Revolutions don’t typically appear
-              instantly on the highest timeframe. There is often a build-up that climbs upward:
+              Timing is the multi-timeframe view. Revolutions do not usually appear
+              instantly on the highest timeframe. There is often a build-up that climbs upward.
               <br />
               <span className="text-white font-semibold">
-                Tension → Deadlock → Siege → Revolution.
+                Tension → Deadlock → Siege → Revolution
               </span>
               <br />
               <br />
-              Still, the priority stays the same:
-              <span className="text-white font-semibold">
-                {" "}when HTF prints Revolution, treat it as a reset.
-              </span>{" "}
+              The priority stays the same. When HTF prints Revolution, treat it as a reset.
               Reconsider your entire previous Empire thesis.
             </p>
           </div>
@@ -497,15 +494,15 @@ export default function OperatorPage() {
               bullets={[
                 "Bullish Empire versus Bearish Empire dominance",
                 "Who is controlling the regime (no prediction required)",
-                "Red confirms a regime reset / control transition",
+                "Red confirms a regime reset and control transition",
               ]}
             />
             <ToolCard
               title="REZIME Sync"
-              subtitle="Is conflict building across timeframes?"
+              subtitle="Is instability building across timeframes?"
               bullets={[
                 "Timing view: HTF / MTF / LTF translation of yellow and red",
-                "Escalation can build upward (LTF → MTF → HTF)",
+                "Instability can climb upward (LTF → MTF → HTF)",
                 "Conflict means shrink confidence, not increase activity",
               ]}
             />
@@ -541,11 +538,11 @@ export default function OperatorPage() {
               },
               {
                 title: "Rule 2 — Survival first, timing second",
-                desc: "Survival needs one timeframe: respect messy (yellow) and reset (red). Timing uses multi-timeframes (Sync).",
+                desc: "Survival uses one timeframe. Respect instability (yellow) and reset (red). Timing uses multi-timeframes (Sync).",
               },
               {
-                title: "Rule 3 — Treat uncertainty as reduced confidence",
-                desc: "Siege and conflict reduce reliability. Uncertainty is a warning label, not a command to act.",
+                title: "Rule 3 — Treat instability as reduced confidence",
+                desc: "Siege and conflict reduce reliability. Instability is a warning label, not a command to act.",
                 tone: "hard",
               },
               {
@@ -594,7 +591,7 @@ export default function OperatorPage() {
                 tone="hard"
                 lines={[
                   "REZIME is a regime filter first. It is a posture system.",
-                  "Survival is respecting messy (yellow) and reset (red). Timing is optional.",
+                  "Survival is respecting instability (yellow) and reset (red). Timing is optional.",
                 ]}
               />
               <Takeaway
