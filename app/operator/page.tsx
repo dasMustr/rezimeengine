@@ -176,17 +176,15 @@ function KeyIdeaBlock({
 
 /**
  * Teaching colors (UI only, not logic).
- * Bullish Empire: green | Bearish Empire: blue | Messy/Conflict: yellow | Reset: red | Neutral: gray
+ * Empires: green/blue | Messy/Conflict: yellow | Reset: red | Neutral: gray
  *
  * Notes applied:
- * - No "Stable → Green" concept. Green = Bullish Empire control.
+ * - No "Stable → Green" concept.
  * - Market is a perpetual battle between two Empires (Bullish vs Bearish).
  * - Use the word "Regime" (not environment).
- * - Timeframes change the meaning of Yellow/Red in Sync:
- *   HTF Yellow = Siege, HTF Red = Revolution
- *   MTF Yellow = Deadlock, MTF Red = Rebellion
- *   LTF Yellow = Tension, LTF Red = Uprising
- * - Priority: HTF Revolution = Reset → reconsider the prior Empire thesis.
+ * - Two segments:
+ *   1) Survival = 1 timeframe focus (yellow = messy, red = reset)
+ *   2) Timing   = multi-timeframe escalation language (Sync)
  */
 function StripLegend() {
   const items = [
@@ -196,15 +194,11 @@ function StripLegend() {
       color: "#6b7280",
     },
     {
-      name: "Bull Empire (Green)",
-      note: "Bullish Empire controls the regime. One side is winning the battle.",
+      name: "Empire control (Green / Blue)",
+      note: "The regime is controlled by one Empire. Green = Bullish Empire. Blue = Bearish Empire.",
       color: "#22c55e",
-    },
-    {
-      name: "Bear Empire (Blue)",
-      note: "Bearish Empire controls the regime. The other side is winning the battle.",
-      color: "#3b82f6",
-    },
+      color2: "#3b82f6",
+    } as any,
     {
       name: "Messy (Yellow)",
       note: "Conflict and traps. Reduce exposure and tighten criteria.",
@@ -245,17 +239,31 @@ function StripLegend() {
       </div>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((it) => (
+        {items.map((it: any) => (
           <div
             key={it.name}
             className="calm-block rounded-xl border border-white/10 bg-black/40 p-4"
           >
             <div className="flex items-center gap-3">
-              <span
-                className="h-3 w-3 rounded-sm border border-white/20"
-                style={{ background: it.color }}
-                aria-hidden
-              />
+              {it.color2 ? (
+                <span className="flex items-center gap-1" aria-hidden>
+                  <span
+                    className="h-3 w-3 rounded-sm border border-white/20"
+                    style={{ background: it.color }}
+                  />
+                  <span
+                    className="h-3 w-3 rounded-sm border border-white/20"
+                    style={{ background: it.color2 }}
+                  />
+                </span>
+              ) : (
+                <span
+                  className="h-3 w-3 rounded-sm border border-white/20"
+                  style={{ background: it.color }}
+                  aria-hidden
+                />
+              )}
+
               <p className="text-sm font-semibold text-white">{it.name}</p>
             </div>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
@@ -266,7 +274,7 @@ function StripLegend() {
       </div>
 
       <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-        If the color story conflicts across timeframes (Sync), treat it as reduced
+        If the color story conflicts across timeframes (Timing), treat it as reduced
         confidence. Shrink exposure or pause.
       </p>
     </div>
@@ -329,17 +337,17 @@ export default function OperatorPage() {
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-neutral-300">Jump to:</span>
               <a
-                href="#traffic"
+                href="#survival"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                Posture rules
+                Survival
               </a>
               <span className="text-neutral-600">•</span>
               <a
-                href="#timeframes"
+                href="#timing"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                Timeframes
+                Timing
               </a>
               <span className="text-neutral-600">•</span>
               <a
@@ -374,73 +382,67 @@ export default function OperatorPage() {
         </section>
       </Reveal>
 
-      {/* POSTURE RULES */}
+      {/* SURVIVAL */}
       <Reveal delayMs={50}>
         <Section
-          id="traffic"
-          eyebrow="Start simple"
-          title="Posture rules"
-          subtitle="The map helps you change posture as the regime changes."
+          id="survival"
+          eyebrow="Segment 1"
+          title="Survival"
+          subtitle="One timeframe. Two warnings. Protect yourself first."
         >
-          {/* CHANGED: show BOTH Empires + Yellow + Red */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 lg:grid-cols-3">
             <MiniCard
               tone="hard"
-              title="Bull Empire (green)"
-              desc="Bullish Empire controls the regime. Participate with your normal rules, but keep your posture aligned with the winning Empire."
-            />
-            <MiniCard
-              tone="hard"
-              title="Bear Empire (blue)"
-              desc="Bearish Empire controls the regime. Participate with your normal rules, but do not force bullish posture inside a bearish regime."
+              title="Empire control (green / blue)"
+              desc="One Empire controls the regime. Green = Bullish Empire. Blue = Bearish Empire. This is not “stable” — it’s simply control."
             />
             <MiniCard
               title="Messy (yellow)"
-              desc="The regime is conflicted. Reduce exposure and reduce decisions."
+              desc="Instability and traps. Reduce exposure and reduce decisions."
             />
             <MiniCard
               tone="hard"
               title="Reset (red)"
-              desc="If HTF prints Revolution, treat it as a reset. Pause and rebuild your thesis for the new Empire."
+              desc="Revolution / reset on your main timeframe. Treat it as a full thesis reset before re-engaging."
             />
           </div>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-2">
             <KeyIdeaBlock
-              title="What this framework gives you"
-              subtitle="A safer way to learn"
+              title="What survival gives you"
+              subtitle="A safer way to participate"
               bullets={[
                 "A simple label for regime so behavior matches reality.",
-                "Less urgency in messy phases and fewer avoidable mistakes.",
-                "More time inside clear Empires where skill builds faster.",
+                "Clear warning states: messy (yellow) and reset (red).",
+                "Permission to pause instead of forcing activity.",
               ]}
             />
             <KeyIdeaBlock
-              title="What this framework avoids"
-              subtitle="False certainty"
+              title="What survival avoids"
+              subtitle="Overconfidence"
               bullets={[
                 "No entry alerts. No prediction theater. No performance promises.",
-                "Clear separation between regime and your method.",
-                "Permission to pause when the map is unstable.",
+                "No need to time transitions — you only need to respect instability.",
+                "Less damage from hostile or unstable regimes.",
               ]}
             />
           </div>
         </Section>
       </Reveal>
 
-      {/* TIMEFRAMES */}
+      {/* TIMING */}
       <Reveal delayMs={75}>
         <Section
-          id="timeframes"
-          eyebrow="Sync"
-          title="Timeframes change the meaning"
-          subtitle="Same colors. Different words. HTF is the main story."
+          id="timing"
+          eyebrow="Segment 2"
+          title="Timing"
+          subtitle="Same colors. Different words. Escalation builds across timeframes."
         >
           <div className="grid gap-4 lg:grid-cols-3">
             <MiniCard
               tone="hard"
               title="HTF (primary)"
-              desc="HTF Yellow = Siege. HTF Red = Revolution. This is the main regime story."
+              desc="HTF Yellow = Siege. HTF Red = Revolution."
             />
             <MiniCard title="MTF" desc="MTF Yellow = Deadlock. MTF Red = Rebellion." />
             <MiniCard
@@ -452,22 +454,22 @@ export default function OperatorPage() {
 
           <div className="mt-4 calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">
-              Why this matters (advanced)
+              The escalation idea (advanced)
             </p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              Revolutions don’t typically appear instantly on the highest timeframe.
-              There is often a build-up that climbs upward across timeframes:
+              Timing is the multi-timeframe view. Revolutions don’t typically appear
+              instantly on the highest timeframe. There is often a build-up that climbs upward:
               <br />
               <span className="text-white font-semibold">
                 Tension → Deadlock → Siege → Revolution.
               </span>
               <br />
               <br />
-              This is advanced (and closer to timing the market). The first priority is simpler:{" "}
+              Still, the priority stays the same:
               <span className="text-white font-semibold">
-                when HTF prints Revolution, treat it as a reset.
+                {" "}when HTF prints Revolution, treat it as a reset.
               </span>{" "}
-              All thesis assumptions about the previous Empire should be reconsidered.
+              Reconsider your entire previous Empire thesis.
             </p>
           </div>
         </Section>
@@ -502,8 +504,8 @@ export default function OperatorPage() {
               title="REZIME Sync"
               subtitle="Is conflict building across timeframes?"
               bullets={[
-                "Alignment versus conflict across timeframes (2TF / 3TF)",
-                "Escalation often builds upward (LTF → MTF → HTF)",
+                "Timing view: HTF / MTF / LTF translation of yellow and red",
+                "Escalation can build upward (LTF → MTF → HTF)",
                 "Conflict means shrink confidence, not increase activity",
               ]}
             />
@@ -534,12 +536,12 @@ export default function OperatorPage() {
             rules={[
               {
                 title: "Rule 1 — Start with control (Engine)",
-                desc: "If Bull or Bear Empire is clear, treat counter-moves as pullbacks until escalation proves otherwise.",
+                desc: "If one Empire is clearly controlling the regime, treat counter-moves as pullbacks until escalation proves otherwise.",
                 tone: "hard",
               },
               {
-                title: "Rule 2 — Track escalation (Sync)",
-                desc: "Major transitions rarely appear on one timeframe. They typically build upward (LTF → MTF → HTF).",
+                title: "Rule 2 — Survival first, timing second",
+                desc: "Survival needs one timeframe: respect messy (yellow) and reset (red). Timing uses multi-timeframes (Sync).",
               },
               {
                 title: "Rule 3 — Treat uncertainty as reduced confidence",
@@ -552,7 +554,7 @@ export default function OperatorPage() {
               },
               {
                 title: "Rule 5 — Revolution resets assumptions",
-                desc: "If HTF flips into Revolution, treat it as a reset. Pause and stop executing a plan that belonged to the prior Empire.",
+                desc: "If HTF flips into Revolution, treat it as a reset. Pause and rebuild your thesis for the new Empire.",
                 tone: "hard",
               },
               {
@@ -592,7 +594,7 @@ export default function OperatorPage() {
                 tone="hard"
                 lines={[
                   "REZIME is a regime filter first. It is a posture system.",
-                  "The edge is avoiding hostile regimes, then re-engaging when the map clears.",
+                  "Survival is respecting messy (yellow) and reset (red). Timing is optional.",
                 ]}
               />
               <Takeaway
