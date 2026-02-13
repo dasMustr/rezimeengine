@@ -20,15 +20,18 @@ function Bullet({ children }: { children: React.ReactNode }) {
   );
 }
 
+// Pricing stays the same. We improve clarity, doctrine fit, and naming.
 const tiers = [
   {
+    layer: "Survival",
     name: "Engine",
     price: "$19.99",
-    note: "Single timeframe. The base layer.",
+    note: "One main timeframe. Built for survival first.",
     bundleLine: "Includes: Engine",
     features: [
-      "Regime map: Neutral, Bull Empire, Bear Empire, Siege, Revolution",
-      "Simple posture rules per regime",
+      "Single-timeframe regime map (your main timeframe)",
+      "Two warnings that matter most: Instability (yellow) and Revolution (red)",
+      "Posture rules per regime so behavior matches reality",
       "Works on any charted market",
       "Docs and onboarding (education, not advice)",
     ],
@@ -37,15 +40,19 @@ const tiers = [
     highlight: false,
   },
   {
+    layer: "Timing",
     name: "Engine + Sync",
     price: "$24.99",
-    note: "Adds timeframe alignment and conflict states.",
+    note: "Adds multi-timeframe context. Advanced and optional.",
     bundleLine: "Includes: Engine + Sync",
     features: [
       "Everything in Engine",
       "2TF safety mode (default)",
       "Optional 3TF mode (toggle)",
-      "Conflict ladder: Tension, Uprising, Deadlock, Rebellion, Siege",
+      "Timeframe language for Instability and Revolutions:",
+      "HTF Instability = Siege | HTF Revolution = Revolution",
+      "MTF Instability = Deadlock | MTF Revolution = Rebellion",
+      "LTF Instability = Tension | LTF Revolution = Uprising",
       "Operator notes and guardrails",
     ],
     cta: "Request Access",
@@ -53,16 +60,17 @@ const tiers = [
     highlight: true,
   },
   {
+    layer: "Management",
     name: "Engine + Sync + Battle Lines",
     price: "$29.99",
-    note: "Adds territory walls for management.",
+    note: "Adds territory walls for cleaner management.",
     bundleLine: "Includes: Engine + Sync + Battle Lines",
     features: [
       "Everything in Engine + Sync",
       "Territory walls across HTF, MTF, LTF",
-      "Better management and less chasing",
-      "Layer toggles (show/hide HTF, MTF, LTF)",
-      "Clear color system for quick reading",
+      "Cleaner management and less chasing",
+      "Layer toggles (show or hide HTF, MTF, LTF)",
+      "Clear visual structure for quick reading",
     ],
     cta: "Request Access",
     href: "/checkout?plan=battlelines",
@@ -71,6 +79,7 @@ const tiers = [
 ];
 
 function TierCard({
+  layer,
   name,
   price,
   note,
@@ -80,6 +89,7 @@ function TierCard({
   href,
   highlight,
 }: {
+  layer: string;
   name: string;
   price: string;
   note: string;
@@ -93,9 +103,7 @@ function TierCard({
     <div
       className={[
         "premium-card relative overflow-hidden rounded-2xl border p-6",
-        highlight
-          ? "border-white/20 bg-white/10"
-          : "border-white/10 bg-white/5",
+        highlight ? "border-white/20 bg-white/10" : "border-white/10 bg-white/5",
       ].join(" ")}
     >
       <Sheen className="rounded-2xl" />
@@ -103,6 +111,9 @@ function TierCard({
       <div className="flex h-full flex-col">
         {/* Header */}
         <div className="space-y-1">
+          <p className="text-[11px] uppercase tracking-[0.18em] text-neutral-400">
+            {layer} layer
+          </p>
           <h3 className="text-base font-semibold text-white">{name}</h3>
           <p className="text-sm text-neutral-400">{note}</p>
           <p className="text-xs text-neutral-300/80">{bundleLine}</p>
@@ -173,7 +184,7 @@ export default function PricingPage() {
               className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
             >
               <Sheen className="rounded-full" />
-              New to Markets? Start here →
+              Start with Orientation →
             </Link>
 
             <Link
@@ -183,6 +194,10 @@ export default function PricingPage() {
               Questions? Contact →
             </Link>
           </div>
+
+          <p className="text-xs text-neutral-500 leading-relaxed">
+            Pricing is benchmarked to a gym membership. The goal is consistency and staying in the game.
+          </p>
         </header>
       </Reveal>
 
@@ -223,11 +238,11 @@ export default function PricingPage() {
               Choose your layer
             </p>
             <h2 className="text-xl sm:text-2xl font-semibold text-white">
-              Start small. Add complexity when you are ready.
+              Survive first. Add complexity when you are ready.
             </h2>
             <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Engine is the base. Sync adds timeframe agreement and conflict
-              states. Battle Lines adds territory walls for management.
+              Survival uses one main timeframe. Timing uses multiple timeframes and
+              is advanced. Battle Lines supports management once you already have stability.
             </p>
           </div>
 
@@ -238,8 +253,7 @@ export default function PricingPage() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            Tip: pick the smallest layer that makes you safer. Complexity is
-            optional.
+            Tip: pick the smallest layer that makes you safer. Complexity is optional.
           </p>
         </section>
       </Reveal>
@@ -261,7 +275,7 @@ export default function PricingPage() {
           <p>
             Not sure yet? Read{" "}
             <Link href="/orientation" className="underline hover:text-white">
-              New to Markets
+              Orientation
             </Link>{" "}
             first.
           </p>
