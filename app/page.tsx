@@ -53,27 +53,27 @@ export default function HomePage() {
           <div className="space-y-6">
             {/* TAGS */}
             <div className="flex flex-wrap gap-2">
+              <Tag>Beginner-safe</Tag>
               <Tag>Risk-first</Tag>
               <Tag>Map, not signals</Tag>
-              <Tag>Beginner-safe</Tag>
               <Tag>Calm by design</Tag>
             </div>
 
             {/* HERO */}
             <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-white">
-              Learn to survive first.
+              If markets feel stressful,
               <br />
-              Profit comes later.
+              start here.
             </h1>
 
             {/* SUBTEXT */}
             <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-              Most beginners do not fail because they lack strategy.
-              They fail because they cannot survive unstable environments.
+              Fear is normal. Confusion is normal. Most people are not “bad at trading”.
+              They are simply learning in the most dangerous conditions.
               <br />
               <br />
-              REZIME helps you understand market conditions so you can reduce
-              exposure when clarity is low and build skill when conditions are stable.
+              REZIME teaches a simple priority. First, learn to survive. Then you can
+              build skill. Profit is later.
             </p>
 
             <p className="text-xs text-neutral-500">
@@ -88,13 +88,13 @@ export default function HomePage() {
         <section className="space-y-6">
           <div>
             <p className="text-xs uppercase tracking-widest text-neutral-400">
-              The structure
+              A calm path
             </p>
             <h2 className="mt-2 text-xl font-semibold text-white">
               Why. How. Proof.
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Start with survival. Learn the method. Then examine the record.
+              You do not need hype. You need a safe order of learning.
             </p>
           </div>
 
@@ -102,19 +102,19 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Why"
-              desc="Understand why survival must come before profit. Learn how market environments affect beginners."
+              desc="Learn why beginners lose. Understand market environments and when it is smarter to slow down."
               href="/orientation"
               cta="Orientation"
             />
             <HomeCard
               title="How"
-              desc="Study the REZIME framework. Learn how to read environments and manage exposure."
+              desc="Learn the REZIME framework step by step. Use it to reduce risk and make fewer rushed decisions."
               href="/operator"
               cta="Framework"
             />
             <HomeCard
               title="Proof"
-              desc="Review time-stamped applications of the framework. Decisions, context, and outcomes."
+              desc="See the framework applied over time. A record of context, decisions, and outcomes."
               href="/allocator"
               cta="Portfolio Lab"
             />
