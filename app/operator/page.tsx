@@ -183,9 +183,9 @@ function KeyIdeaBlock({
  * - Market is a perpetual battle between two Empires (Bullish vs Bearish).
  * - Use the word "Regime" (not environment).
  * - Rename "Messy" → "Instability"
- * - Two segments:
- *   1) Survival = 1 timeframe focus (Instability + Reset)
- *   2) Timing   = multi-timeframe escalation language (Sync)
+ * - Two modes:
+ *   1) Survival Mode = 1 timeframe focus (HTF only)
+ *   2) Timing Mode   = multi-timeframe escalation language (Sync)
  * - Remove em dashes from copy
  */
 function StripLegend() {
@@ -276,9 +276,40 @@ function StripLegend() {
       </div>
 
       <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-        If the color story conflicts across timeframes (Timing), treat it as reduced
+        If the color story conflicts across timeframes (Timing Mode), treat it as reduced
         confidence. Shrink exposure or pause.
       </p>
+    </div>
+  );
+}
+
+function ModeHeader({
+  eyebrow,
+  title,
+  subtitle,
+  badge,
+}: {
+  eyebrow: string;
+  title: string;
+  subtitle: string;
+  badge: string;
+}) {
+  return (
+    <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="text-xs uppercase tracking-widest text-neutral-400">
+            {eyebrow}
+          </p>
+          <p className="mt-2 text-2xl font-semibold text-white">{title}</p>
+          <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+            {subtitle}
+          </p>
+        </div>
+        <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-widest text-neutral-300">
+          {badge}
+        </span>
+      </div>
     </div>
   );
 }
@@ -300,22 +331,21 @@ export default function OperatorPage() {
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            Learn the map.
-            <br className="hidden sm:block" /> Reduce mistakes.
+            Survive first.
+            <br className="hidden sm:block" /> Then get better.
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            You can use any method over time. REZIME sits above the method. It
-            helps you read the{" "}
+            Profit is not the first job. Survival is.
+            You need to survive long enough to develop your own{" "}
+            <span className="text-white font-semibold">craft</span> and your own
+            decision-making instincts.
+            <br />
+            <br />
+            REZIME helps you read the{" "}
             <span className="text-white font-semibold">regime</span> so your
-            behavior matches what the market is doing.
-            <br />
-            <br />
-            The market is a perpetual battle between two Empires:
-            <span className="text-white font-semibold">
-              {" "}Bullish Empire and Bearish Empire.
-            </span>{" "}
-            The strip explains the colors. This page explains how to use them.
+            behavior matches reality. Start with one timeframe. Only later do you
+            add multi-timeframe timing.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -340,14 +370,14 @@ export default function OperatorPage() {
                 href="#survival"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                Survival
+                Survival Mode
               </a>
               <span className="text-neutral-600">•</span>
               <a
                 href="#timing"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                Timing
+                Timing Mode
               </a>
               <span className="text-neutral-600">•</span>
               <a
@@ -382,80 +412,95 @@ export default function OperatorPage() {
         </section>
       </Reveal>
 
-      {/* SURVIVAL */}
-      <Reveal delayMs={50}>
+      {/* SURVIVAL MODE */}
+      <Reveal delayMs={45}>
         <Section
           id="survival"
-          eyebrow="Segment 1"
-          title="Survival"
-          subtitle="One timeframe. Two warnings. Protect yourself first."
+          eyebrow="Mode 1"
+          title="Survival Mode"
+          subtitle="Non-negotiable. One main timeframe (HTF)."
         >
-          <div className="grid gap-4 lg:grid-cols-3">
+          <ModeHeader
+            eyebrow="First priority"
+            title="Survive the market first"
+            subtitle="Everyone starts here. You focus on one main timeframe, your HTF. You learn to respect instability and reset before you try to time anything."
+            badge="HTF only"
+          />
+
+          <div className="mt-4 grid gap-4 lg:grid-cols-3">
             <MiniCard
               tone="hard"
               title="Empire control"
-              desc="On one timeframe, this is enough. Identify who controls the regime, then respect the warning states."
+              desc="On HTF, identify who controls the regime. The market is a perpetual battle between Bullish Empire and Bearish Empire."
             />
             <MiniCard
               title="Instability"
-              desc="Yellow means instability. Conflict and traps increase. Reduce exposure and reduce decisions."
+              desc="Yellow on HTF means instability. Reduce exposure and reduce decisions."
             />
             <MiniCard
               tone="hard"
               title="Reset"
-              desc="Red means reset. Treat it as a full thesis reset before re-engaging."
+              desc="Red on HTF means reset. Treat it as a full thesis reset before re-engaging."
             />
           </div>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-2">
             <KeyIdeaBlock
-              title="What survival gives you"
-              subtitle="A safer way to participate"
+              title="What survival mode builds"
+              subtitle="Craft over time"
               bullets={[
-                "A simple label for regime so behavior matches reality.",
-                "Clear warning states: instability (yellow) and reset (red).",
-                "Permission to pause instead of forcing activity.",
+                "You survive long enough to build judgment and consistency.",
+                "You avoid forcing activity inside unstable regimes.",
+                "You learn posture. You do not chase outcomes.",
               ]}
             />
             <KeyIdeaBlock
-              title="What survival avoids"
-              subtitle="Overconfidence"
+              title="What survival mode avoids"
+              subtitle="Early ambition"
               bullets={[
-                "No entry alerts. No prediction theater. No performance promises.",
-                "No need to time transitions. You only need to respect instability.",
-                "Less damage from hostile or unstable regimes.",
+                "No timing pressure. No fast answers. No promises.",
+                "No obsession with perfect entries. You focus on staying alive.",
+                "No pretending you can outsmart instability.",
               ]}
             />
           </div>
         </Section>
       </Reveal>
 
-      {/* TIMING */}
-      <Reveal delayMs={75}>
+      {/* TIMING MODE */}
+      <Reveal delayMs={70}>
         <Section
           id="timing"
-          eyebrow="Segment 2"
-          title="Timing"
-          subtitle="Multi-timeframe language. Instability builds. Reset confirms."
+          eyebrow="Mode 2"
+          title="Timing Mode"
+          subtitle="Optional. Advanced. Multi-timeframe intuition."
         >
-          <div className="grid gap-4 lg:grid-cols-3">
+          <ModeHeader
+            eyebrow="Later, not now"
+            title="Timing comes after survival"
+            subtitle="If you survive long enough, you will start noticing patterns across timeframes. This is advanced. It needs experience, instinct, and intuition. It is not required to participate safely."
+            badge="HTF + MTF + LTF"
+          />
+
+          <div className="mt-4 grid gap-4 lg:grid-cols-3">
             <MiniCard
               tone="hard"
-              title="HTF (primary)"
-              desc="HTF Yellow is Siege. HTF Red is Revolution."
+              title="HTF"
+              desc="HTF Instability is Siege. HTF Reset is Revolution."
             />
-            <MiniCard title="MTF" desc="MTF Yellow is Deadlock. MTF Red is Rebellion." />
+            <MiniCard
+              title="MTF"
+              desc="MTF Instability is Deadlock. MTF Reset is Rebellion."
+            />
             <MiniCard
               tone="hard"
               title="LTF"
-              desc="LTF Yellow is Tension. LTF Red is Uprising."
+              desc="LTF Instability is Tension. LTF Reset is Uprising."
             />
           </div>
 
           <div className="mt-4 calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-            <p className="text-sm font-semibold text-white">
-              Escalation (advanced)
-            </p>
+            <p className="text-sm font-semibold text-white">Escalation idea</p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
               Timing is the multi-timeframe view. Revolutions do not usually appear
               instantly on the highest timeframe. There is often a build-up that climbs upward.
@@ -465,8 +510,8 @@ export default function OperatorPage() {
               </span>
               <br />
               <br />
-              The priority stays the same. When HTF prints Revolution, treat it as a reset.
-              Reconsider your entire previous Empire thesis.
+              Even in Timing Mode, the rule stays simple. When HTF prints Revolution,
+              treat it as a reset. Reconsider your entire previous Empire thesis.
             </p>
           </div>
         </Section>
@@ -532,13 +577,13 @@ export default function OperatorPage() {
             subtitle="Fast to scan. Hard to misread."
             rules={[
               {
-                title: "Rule 1 — Start with control (Engine)",
-                desc: "If one Empire is clearly controlling the regime, treat counter-moves as pullbacks until escalation proves otherwise.",
+                title: "Rule 1 — Survival Mode is mandatory",
+                desc: "Start with HTF only. Respect instability (yellow) and reset (red). Stay alive long enough to build craft.",
                 tone: "hard",
               },
               {
-                title: "Rule 2 — Survival first, timing second",
-                desc: "Survival uses one timeframe. Respect instability (yellow) and reset (red). Timing uses multi-timeframes (Sync).",
+                title: "Rule 2 — Timing Mode is optional",
+                desc: "Timing uses multiple timeframes and needs experience, instinct, and intuition. It is not required for safety.",
               },
               {
                 title: "Rule 3 — Treat instability as reduced confidence",
@@ -591,7 +636,7 @@ export default function OperatorPage() {
                 tone="hard"
                 lines={[
                   "REZIME is a regime filter first. It is a posture system.",
-                  "Survival is respecting instability (yellow) and reset (red). Timing is optional.",
+                  "Survival Mode is the foundation. Timing Mode is optional and advanced.",
                 ]}
               />
               <Takeaway
