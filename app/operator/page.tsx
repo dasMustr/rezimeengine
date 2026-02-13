@@ -176,7 +176,7 @@ function KeyIdeaBlock({
 
 /**
  * Teaching colors (UI only, not logic).
- * Bull Empire: green | Bear Empire: blue | Siege/Conflict: yellow | Revolution/Reset: red | Neutral: gray
+ * Bull Empire: green | Bear Empire: blue | Messy/Conflict: yellow | Reset/Revolution: red | Neutral: gray
  */
 function StripLegend() {
   const items = [
@@ -187,12 +187,12 @@ function StripLegend() {
     },
     {
       name: "Bull Empire",
-      note: "Bull Empire controls the regime. Baseline bullish conditions.",
+      note: "Bullish Empire controls the regime (baseline bullish conditions).",
       color: "#22c55e",
     },
     {
       name: "Bear Empire",
-      note: "Bear Empire controls the regime. Baseline bearish conditions.",
+      note: "Bearish Empire controls the regime (baseline bearish conditions).",
       color: "#3b82f6",
     },
     {
@@ -202,7 +202,7 @@ function StripLegend() {
     },
     {
       name: "Reset (Red)",
-      note: "Regime reset. Reconsider the prior Empire thesis.",
+      note: "Revolution / reset. Reconsider the prior Empire thesis.",
       color: "#ef4444",
     },
   ];
@@ -288,9 +288,12 @@ export default function OperatorPage() {
             helps you read the regime so your behavior matches what the market is doing.
             <br />
             <br />
-            Bull Empire and Bear Empire are always in contest. Yellow means the regime
-            is messy and conflicted. Red means the regime has reset and your prior thesis
-            should be reconsidered.
+            The market is a perpetual battle between two Empires:
+            <span className="text-white font-semibold">
+              {" "}Bullish Empire vs Bearish Empire.
+            </span>
+            Yellow means the regime is messy and conflicted. Red means the regime
+            has reset — your prior Empire thesis should be reconsidered.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -369,7 +372,7 @@ export default function OperatorPage() {
             <MiniCard
               tone="hard"
               title="Bull Empire (green)"
-              desc="Bull Empire controls the regime. Use your normal learning and participation rules."
+              desc="Bullish Empire controls the regime. Use your normal learning and participation rules."
             />
             <MiniCard
               title="Messy (yellow)"
@@ -378,7 +381,7 @@ export default function OperatorPage() {
             <MiniCard
               tone="hard"
               title="Reset (red)"
-              desc="The regime has flipped. Pause and let the new structure form before re-engaging."
+              desc="The regime has reset. Pause and let the new structure form before re-engaging."
             />
           </div>
 
@@ -417,36 +420,35 @@ export default function OperatorPage() {
             <MiniCard
               tone="hard"
               title="HTF (primary)"
-              desc="Yellow = Siege. Red = Revolution. This is the main regime story."
+              desc="HTF Yellow = Siege. HTF Red = Revolution. This is the main regime story."
             />
-            <MiniCard
-              title="MTF"
-              desc="Yellow = Deadlock. Red = Rebellion."
-            />
+            <MiniCard title="MTF" desc="MTF Yellow = Deadlock. MTF Red = Rebellion." />
             <MiniCard
               tone="hard"
               title="LTF"
-              desc="Yellow = Tension. Red = Uprising."
+              desc="LTF Yellow = Tension. LTF Red = Uprising."
             />
           </div>
 
           <div className="mt-4 calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">
-              The escalation idea
+              The escalation idea (advanced)
             </p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              Revolutions do not usually appear instantly on the highest timeframe.
-              They often build upward over time:
+              Revolutions usually do not appear “out of nowhere” on the highest
+              timeframe. There is often a build-up that climbs upward:
               <br />
-              Tension → Deadlock → Siege → Revolution.
+              <span className="text-white font-semibold">
+                Tension → Deadlock → Siege → Revolution.
+              </span>
               <br />
               <br />
-              This is advanced and can be used for timing.
-              The first priority is simpler:
+              This is advanced (and closer to timing the market). The first
+              priority is simpler:
               <span className="text-white font-semibold">
                 {" "}when HTF prints Revolution, treat it as a reset.
               </span>
-              Reconsider the prior Empire thesis before you continue.
+              All assumptions from the previous Empire should be reconsidered.
             </p>
           </div>
         </Section>
@@ -472,8 +474,8 @@ export default function OperatorPage() {
               title="REZIME Engine"
               subtitle="Who has control right now?"
               bullets={[
-                "Bull Empire versus Bear Empire dominance",
-                "Stability versus pressure",
+                "Bullish Empire versus Bearish Empire dominance",
+                "Pressure versus control (without prediction)",
                 "Reset confirms a control transition",
               ]}
             />
