@@ -1,4 +1,5 @@
 // app/contact/page.tsx
+import React from "react";
 import Link from "next/link";
 import Reveal from "../components/Reveal";
 import Sheen from "../components/Sheen";
@@ -11,50 +12,6 @@ function Pill({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Card({
-  title,
-  desc,
-  href,
-  meta,
-}: {
-  title: string;
-  desc: string;
-  href: string;
-  meta?: string;
-}) {
-  return (
-    <a
-      href={href}
-      className="premium-card is-clickable group relative block rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/10"
-    >
-      <Sheen className="rounded-2xl" />
-      <div className="flex items-start justify-between gap-4">
-        <div className="space-y-2">
-          {meta ? (
-            <p className="text-[11px] uppercase tracking-[0.18em] text-neutral-400">
-              {meta}
-            </p>
-          ) : null}
-          <h3 className="text-sm font-semibold text-white">{title}</h3>
-        </div>
-        <span className="mt-1 text-xs text-neutral-400 group-hover:text-neutral-200 transition">
-          Open →
-        </span>
-      </div>
-      <p className="mt-3 text-sm text-neutral-300 leading-relaxed">{desc}</p>
-    </a>
-  );
-}
-
-function InfoBlock({ title, desc }: { title: string; desc: string }) {
-  return (
-    <div className="calm-block rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-      <h4 className="text-sm font-semibold text-white">{title}</h4>
-      <p className="mt-3 text-sm leading-relaxed text-neutral-300">{desc}</p>
-    </div>
-  );
-}
-
 const MAIL = "hello@rezimeengine.com";
 
 const mailto = (subject: string, body?: string) => {
@@ -63,44 +20,16 @@ const mailto = (subject: string, body?: string) => {
   return `mailto:${MAIL}?subject=${s}${body ? `&body=${b}` : ""}`;
 };
 
-const EARLY_ACCESS_BODY = `Hi REZIME team,
+const GENERAL_BODY = `Hi REZIME,
 
-I want early access.
+I have an inquiry about:
 
-Market: (stocks / crypto / forex / other)
-Experience: (beginner / intermediate / advanced)
-Primary goal: (avoid blowups / reduce noise / improve discipline / other)
+Context (optional):
+Market:
+Experience level:
+Link or screenshot (optional):
 
-Where I found you:
-Link (optional):
-
-Thanks`;
-
-const RESEARCH_BODY = `Hi REZIME team,
-
-I’m reaching out re: REZIME.
-
-Context:
-Role / firm (optional):
-What you want to evaluate: (framework / Portfolio Lab / indicator access)
-
-Best link to review:
-1) Website: https://rezimeengine.com
-2) Portfolio Lab: (share the specific week or page)
-
-Questions:
-1)
-2)
-
-Thanks`;
-
-const COLLAB_BODY = `Hi REZIME team,
-
-I’m interested in collaborating.
-
-Area: (writing / distribution / community / education / other)
-What you have in mind:
-Timeline:
+Message:
 
 Thanks`;
 
@@ -127,25 +56,16 @@ export default function ContactPage() {
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-neutral-300">
-              Email is the fastest way to reach us. Choose an intent below and
-              you will get a clean template.
+              For any inquiries, email is the fastest way.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-1">
               <a
-                href={mailto("Early Access", EARLY_ACCESS_BODY)}
+                href={mailto("REZIME inquiry", GENERAL_BODY)}
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Request Early Access →
-              </a>
-
-              <a
-                href={mailto("Research / Evaluation", RESEARCH_BODY)}
-                className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
-              >
-                <Sheen className="rounded-full" />
-                Professional Inquiry →
+                Email us →
               </a>
 
               <Link
@@ -153,73 +73,33 @@ export default function ContactPage() {
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/10 bg-transparent px-5 py-2 text-sm text-neutral-300 transition hover:bg-white/[0.06]"
               >
                 <Sheen className="rounded-full" />
-                New to Markets
+                Start here
               </Link>
             </div>
 
             <p className="text-xs text-neutral-500 leading-relaxed">
-              Small team. Replies can be slow during trading sessions.
+              Educational only. No advice, no signals, no guarantees.
             </p>
           </div>
         </div>
       </Reveal>
 
-      {/* QUICK INTENTS */}
-      <Reveal delayMs={90}>
-        <section className="space-y-4">
-          <div>
-            <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
-              Quick links
-            </p>
-            <h2 className="mt-2 text-xl font-semibold tracking-tight text-white">
-              Pick an intent
-            </h2>
-            <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              This keeps messages structured and easy to answer. If you are a
-              professional evaluating the work, use Professional Inquiry.
-            </p>
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-3">
-            <Card
-              meta="Access"
-              title="Early Access"
-              desc="Request access and onboarding."
-              href={mailto("Early Access", EARLY_ACCESS_BODY)}
-            />
-            <Card
-              meta="Professional"
-              title="Professional Inquiry"
-              desc="Research, evaluation, or recruiting conversations."
-              href={mailto("Research / Evaluation", RESEARCH_BODY)}
-            />
-            <Card
-              meta="Collab"
-              title="Collaboration"
-              desc="Writing, community, distribution."
-              href={mailto("Collaboration", COLLAB_BODY)}
-            />
-          </div>
-        </section>
-      </Reveal>
-
-      {/* DETAILS */}
-      <Reveal delayMs={160}>
-        <section className="grid gap-4 sm:grid-cols-3">
-          <InfoBlock title="Email" desc={MAIL} />
-          <InfoBlock
-            title="Include"
-            desc="Your market, your level, and what you want to evaluate or improve."
-          />
-          <InfoBlock
-            title="Scope"
-            desc="Education only. No advice, no signals, no guarantee language."
-          />
+      {/* SIMPLE DETAILS */}
+      <Reveal delayMs={120}>
+        <section className="calm-block rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <p className="text-xs uppercase tracking-[0.22em] text-neutral-400">
+            Email
+          </p>
+          <p className="mt-2 text-sm text-neutral-200">{MAIL}</p>
+          <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
+            Any inquiries are welcome. If it helps, include your market, your
+            experience level, and what you are trying to understand or improve.
+          </p>
         </section>
       </Reveal>
 
       {/* FOOT CTA */}
-      <Reveal delayMs={240}>
+      <Reveal delayMs={200}>
         <section className="rounded-2xl border border-white/10 bg-black/30 p-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -227,7 +107,7 @@ export default function ContactPage() {
                 Prefer to review first?
               </div>
               <div className="text-xs text-neutral-400">
-                Start with Orientation, then Playbook, then Portfolio Lab.
+                Start with Orientation, then Framework, then Portfolio Lab.
               </div>
             </div>
 
@@ -243,7 +123,7 @@ export default function ContactPage() {
                 href="/operator"
                 className="inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
               >
-                Playbook
+                Framework
               </Link>
 
               <Link
