@@ -506,7 +506,7 @@ export default function OperatorPage() {
               instantly on the highest timeframe. There is often a build-up that climbs upward.
               <br />
               <span className="text-white font-semibold">
-                Tension → Deadlock → Siege → Revolution
+                Tension → Uprising → Deadlock → Rebellion → Siege → Revolution
               </span>
               <br />
               <br />
