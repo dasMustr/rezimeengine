@@ -176,7 +176,10 @@ function KeyIdeaBlock({
 
 /**
  * Teaching colors (UI only, not logic).
- * Bull Empire: green | Bear Empire: blue | Messy/Conflict: yellow | Reset/Revolution: red | Neutral: gray
+ * Bullish Empire: green | Bearish Empire: blue | Messy/Conflict: yellow | Reset/Revolution: red | Neutral: gray
+ *
+ * NOTE: There is no "Stable → Green" concept here.
+ * Green is simply Bullish Empire control.
  */
 function StripLegend() {
   const items = [
@@ -186,13 +189,13 @@ function StripLegend() {
       color: "#6b7280",
     },
     {
-      name: "Bull Empire",
-      note: "Bullish Empire controls the regime (baseline bullish conditions).",
+      name: "Bull Empire (Green)",
+      note: "Bullish Empire controls the regime. One side is winning the battle.",
       color: "#22c55e",
     },
     {
-      name: "Bear Empire",
-      note: "Bearish Empire controls the regime (baseline bearish conditions).",
+      name: "Bear Empire (Blue)",
+      note: "Bearish Empire controls the regime. The other side is winning the battle.",
       color: "#3b82f6",
     },
     {
@@ -215,7 +218,8 @@ function StripLegend() {
             Strip color guide
           </p>
           <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-            Colors classify regime. They are not action triggers.
+            Colors classify <span className="text-white font-semibold">regime</span>.
+            They are not action triggers.
           </p>
         </div>
 
@@ -275,7 +279,7 @@ export default function OperatorPage() {
           <div className="flex flex-wrap gap-2">
             <Pill>Map, not signals</Pill>
             <Pill>Method-neutral</Pill>
-            <Pill>Risk containment</Pill>
+            <Pill>Regime-first</Pill>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
@@ -285,15 +289,17 @@ export default function OperatorPage() {
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
             You can use any method over time. REZIME sits above the method. It
-            helps you read the regime so your behavior matches what the market is doing.
+            helps you read the <span className="text-white font-semibold">regime</span>{" "}
+            so your behavior matches what the market is doing.
             <br />
             <br />
             The market is a perpetual battle between two Empires:
             <span className="text-white font-semibold">
               {" "}Bullish Empire vs Bearish Empire.
             </span>
-            Yellow means the regime is messy and conflicted. Red means the regime
-            has reset — your prior Empire thesis should be reconsidered.
+            Green and blue are simply “who controls the regime.” Yellow means the
+            regime is messy and conflicted. Red means the regime has reset — your
+            prior Empire thesis should be reconsidered.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -381,7 +387,7 @@ export default function OperatorPage() {
             <MiniCard
               tone="hard"
               title="Reset (red)"
-              desc="The regime has reset. Pause and let the new structure form before re-engaging."
+              desc="Revolution on the main timeframe. Treat as a reset and pause before re-engaging."
             />
           </div>
 
@@ -392,7 +398,7 @@ export default function OperatorPage() {
               bullets={[
                 "A simple label for regime so behavior matches reality.",
                 "Less urgency in messy phases and fewer avoidable mistakes.",
-                "More time in Bull or Bear regimes where skill builds faster.",
+                "More time inside clear Empires where skill builds faster.",
               ]}
             />
             <KeyIdeaBlock
@@ -414,7 +420,7 @@ export default function OperatorPage() {
           id="timeframes"
           eyebrow="Sync"
           title="Timeframes change the meaning"
-          subtitle="Same colors. Different words. Escalation builds upward."
+          subtitle="Same colors. Different words. HTF is the main story."
         >
           <div className="grid gap-4 lg:grid-cols-3">
             <MiniCard
@@ -432,23 +438,22 @@ export default function OperatorPage() {
 
           <div className="mt-4 calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">
-              The escalation idea (advanced)
+              Why this matters (advanced)
             </p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              Revolutions usually do not appear “out of nowhere” on the highest
-              timeframe. There is often a build-up that climbs upward:
+              Revolutions don’t typically happen instantly on the highest timeframe.
+              There is often a build-up that climbs upward across timeframes:
               <br />
               <span className="text-white font-semibold">
                 Tension → Deadlock → Siege → Revolution.
               </span>
               <br />
               <br />
-              This is advanced (and closer to timing the market). The first
-              priority is simpler:
+              This is advanced (and closer to timing the market). The first priority is simpler:
               <span className="text-white font-semibold">
                 {" "}when HTF prints Revolution, treat it as a reset.
               </span>
-              All assumptions from the previous Empire should be reconsidered.
+              All thesis assumptions about the previous Empire should be reconsidered.
             </p>
           </div>
         </Section>
@@ -475,8 +480,8 @@ export default function OperatorPage() {
               subtitle="Who has control right now?"
               bullets={[
                 "Bullish Empire versus Bearish Empire dominance",
-                "Pressure versus control (without prediction)",
-                "Reset confirms a control transition",
+                "Who is controlling the regime (no prediction required)",
+                "Red confirms a regime reset / control transition",
               ]}
             />
             <ToolCard
@@ -484,7 +489,7 @@ export default function OperatorPage() {
               subtitle="Is conflict building across timeframes?"
               bullets={[
                 "Alignment versus conflict across timeframes (2TF / 3TF)",
-                "Transitions often build over time (LTF → MTF → HTF)",
+                "Escalation often builds upward (LTF → MTF → HTF)",
                 "Conflict means shrink confidence, not increase activity",
               ]}
             />
@@ -533,7 +538,7 @@ export default function OperatorPage() {
               },
               {
                 title: "Rule 5 — Revolution resets assumptions",
-                desc: "If HTF flips into Revolution, pause and stop executing a plan that belonged to the prior regime.",
+                desc: "If HTF flips into Revolution, treat it as a reset. Pause and stop executing a plan that belonged to the prior Empire.",
                 tone: "hard",
               },
               {
