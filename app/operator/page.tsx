@@ -215,7 +215,7 @@ function StripLegend() {
             Strip color guide
           </p>
           <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-            Colors classify environment. They are not entry triggers.
+            Colors classify conditions. They are not action triggers.
           </p>
         </div>
 
@@ -255,8 +255,8 @@ function StripLegend() {
       </div>
 
       <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-        If the color story conflicts across timeframes (Sync), treat it as reduced
-        confidence. Shrink size or pause.
+        If the color story conflicts across timeframes (Sync), treat it as
+        reduced confidence. Shrink exposure or pause.
       </p>
     </div>
   );
@@ -269,29 +269,28 @@ export default function OperatorPage() {
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Framework
+            How
           </p>
 
           <div className="flex flex-wrap gap-2">
             <Pill>Map, not signals</Pill>
+            <Pill>Method-neutral</Pill>
             <Pill>Risk containment</Pill>
-            <Pill>Traffic-light logic</Pill>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            Green is personal.
-            <br className="hidden sm:block" /> Yellow and red are not.
+            Learn the map.
+            <br className="hidden sm:block" /> Reduce mistakes.
           </h1>
 
           <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            Your edge decides when to “go.” REZIME doesn&apos;t replace that.
+            You can use any method over time. REZIME sits above the method. It
+            helps you read conditions so your behavior matches the environment.
             <br />
             <br />
-            REZIME is built for the moments that wipe people out:
-            <span className="text-white font-semibold"> Siege (yellow)</span> and{" "}
-            <span className="text-white font-semibold">Revolution (red)</span>.
-            It helps you slow down or stop when the environment becomes hostile,
-            so you don&apos;t learn the hard way.
+            When conditions are stable, you can learn safely. When conditions are
+            messy, you slow down. When conditions break and reset, you stop and
+            reassess.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -316,7 +315,7 @@ export default function OperatorPage() {
                 href="#traffic"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                Traffic-light rules
+                Posture rules
               </a>
               <span className="text-neutral-600">•</span>
               <a
@@ -337,7 +336,7 @@ export default function OperatorPage() {
                 href="#rules"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                Rules
+                Reading rules
               </a>
               <span className="text-neutral-600">•</span>
               <a
@@ -351,48 +350,48 @@ export default function OperatorPage() {
         </section>
       </Reveal>
 
-      {/* TRAFFIC LIGHT RULES (NEW FIRST SECTION) */}
+      {/* POSTURE RULES */}
       <Reveal delayMs={50}>
         <Section
           id="traffic"
-          eyebrow="The simplest model"
-          title="Traffic-light rules"
-          subtitle="REZIME is strict about yellow and red. Green is your edge."
+          eyebrow="Start simple"
+          title="Posture rules"
+          subtitle="The map helps you change posture as conditions change."
         >
           <div className="grid gap-4 lg:grid-cols-3">
             <MiniCard
               tone="hard"
-              title="Green (personal)"
-              desc="Your edge decides when to go. REZIME does not give entries."
+              title="Stable (green)"
+              desc="Conditions are stable. Learn, practice, and participate with normal rules."
             />
             <MiniCard
-              title="Siege (yellow)"
-              desc="Slow down. Reduce size and decisions. Traps increase when the market is stuck in conflict."
+              title="Messy (yellow)"
+              desc="Conditions are conflicted. Reduce exposure and reduce decisions."
             />
             <MiniCard
               tone="hard"
-              title="Revolution (red)"
-              desc="Stop. Reset. If you run red lights often enough, eventually the truck arrives."
+              title="Reset (red)"
+              desc="Conditions have broken and flipped. Pause. Let the new structure form."
             />
           </div>
 
           <div className="mt-4 grid gap-4 lg:grid-cols-2">
             <KeyIdeaBlock
-              title="What REZIME is"
-              subtitle="A safety system for behavior"
+              title="What this framework gives you"
+              subtitle="A safer way to learn"
               bullets={[
-                "It labels the environment so your behavior matches reality.",
-                "It helps you reduce activity when conditions become hostile.",
-                "It keeps you alive long enough to develop edge.",
+                "A simple label for conditions so behavior matches reality.",
+                "Less urgency in messy phases, fewer avoidable mistakes.",
+                "More time in stable phases where skill grows faster.",
               ]}
             />
             <KeyIdeaBlock
-              title="What REZIME is not"
-              subtitle="Not a signal service"
+              title="What this framework avoids"
+              subtitle="False certainty"
               bullets={[
-                "No entry alerts. No profit guarantees. No prediction theater.",
-                "REZIME conditions when your method should be used.",
-                "Waiting is a valid posture when the map is unstable.",
+                "No entry alerts. No prediction theater. No performance promises.",
+                "Clear separation between conditions and your method.",
+                "Permission to pause when the map is unstable.",
               ]}
             />
           </div>
@@ -410,35 +409,35 @@ export default function OperatorPage() {
       <Reveal delayMs={110}>
         <Section
           id="stack"
-          eyebrow="System architecture"
+          eyebrow="Tools"
           title="The Stack"
           subtitle="Three tools. Three questions. Minimal overlap."
         >
           <div className="grid gap-4 lg:grid-cols-3">
             <ToolCard
               title="REZIME Engine"
-              subtitle="Who has control?"
+              subtitle="Who has control right now?"
               bullets={[
                 "Bull Empire versus Bear Empire dominance",
                 "Stability versus pressure",
-                "Revolution signals confirmed control transition",
+                "Revolution confirms a control transition",
               ]}
             />
             <ToolCard
               title="REZIME Sync"
-              subtitle="Is conflict escalating?"
+              subtitle="Is conflict building across timeframes?"
               bullets={[
                 "Alignment versus conflict across timeframes (2TF / 3TF)",
-                "Regime transitions typically build upward over time",
+                "Transitions often build over time (LTF → MTF → HTF)",
                 "Conflict means shrink confidence, not increase activity",
               ]}
             />
             <ToolCard
               title="REZIME Battle Lines"
-              subtitle="Is terrain tight or wide?"
+              subtitle="Is the terrain tight or wide?"
               bullets={[
                 "Walls show compression versus runway",
-                "Wide walls usually mean cleaner holding behavior",
+                "Wide walls often mean cleaner holding behavior",
                 "Tight walls often mean chop and higher timing difficulty",
               ]}
             />
@@ -451,8 +450,8 @@ export default function OperatorPage() {
         <Section
           id="rules"
           eyebrow="How to read it"
-          title="Interpretation Rules"
-          subtitle="These rules govern posture and confidence. They are not entry instructions."
+          title="Reading rules"
+          subtitle="These rules govern posture and confidence. They are not action instructions."
         >
           <RuleTiles
             title="Rules that govern behavior"
@@ -465,7 +464,7 @@ export default function OperatorPage() {
               },
               {
                 title: "Rule 2 — Track escalation (Sync)",
-                desc: "Regime transitions rarely appear on one timeframe. They typically build upward (LTF → MTF → HTF).",
+                desc: "Transitions rarely appear on one timeframe. They typically build upward (LTF → MTF → HTF).",
               },
               {
                 title: "Rule 3 — Treat uncertainty as reduced confidence",
@@ -474,11 +473,11 @@ export default function OperatorPage() {
               },
               {
                 title: "Rule 4 — Defense posture during instability",
-                desc: "Reduce size, reduce frequency, tighten criteria. Do not assume the current Empire is safe.",
+                desc: "Reduce exposure, reduce frequency, tighten criteria. Do not assume the current Empire is safe.",
               },
               {
                 title: "Rule 5 — Revolution resets assumptions",
-                desc: "If HTF flips, stop executing a plan that belonged to the prior regime.",
+                desc: "If HTF flips, pause and stop executing a plan that belonged to the prior regime.",
                 tone: "hard",
               },
               {
@@ -488,7 +487,7 @@ export default function OperatorPage() {
             ]}
           />
           <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-            REZIME does not tell you to trade more. It tells you when conditions
+            REZIME does not tell you to do more. It tells you when conditions
             deserve less confidence.
           </p>
         </Section>
@@ -499,15 +498,15 @@ export default function OperatorPage() {
         <Section
           id="example"
           eyebrow="Example"
-          title="GOOG — Regime life cycle walkthrough"
-          subtitle="The goal is not calling the bottom. The goal is avoiding hostile regimes, then re-engaging as stability returns."
+          title="GOOG walkthrough"
+          subtitle="The goal is not predicting the bottom. The goal is avoiding hostile phases, then re-engaging as stability returns."
         >
           <div className="grid gap-4">
             <CaseImage
               src="/playbook/engine-strip.png"
               alt="REZIME Engine strip example on GOOG"
-              label="0) Baseline — Engine context"
-              caption="Engine is the baseline. It classifies control. Before entries, you care about environment."
+              label="0) Baseline context"
+              caption="Engine is the baseline. It classifies control. Before decisions, you care about conditions."
               priority
               dateRange="Apr 2022 to Apr 2024 (approx.)"
             />
@@ -517,14 +516,14 @@ export default function OperatorPage() {
                 title="Key takeaway"
                 tone="hard"
                 lines={[
-                  "REZIME is a regime filter first. It is a permission system for posture.",
-                  "The edge is avoiding hostile phases (dead time plus drawdowns).",
+                  "REZIME is a condition filter first. It is a posture system.",
+                  "The edge is avoiding hostile phases, then re-engaging when conditions return.",
                 ]}
               />
               <Takeaway
                 title="Notes"
                 lines={[
-                  "Dates are visible on the TradingView timeline for verification.",
+                  "Dates are visible on the timeline for verification.",
                   "Numbers are stated roughly because screenshot resolution varies.",
                 ]}
               />
@@ -533,9 +532,9 @@ export default function OperatorPage() {
             <CaseImage
               src="/playbook/sync-bear-revolution.png"
               alt="REZIME Sync Bear Revolution example on GOOG"
-              label="1) Bear Empire begins — avoid bullish exposure"
+              label="1) Bear Empire begins"
               dateRange="Around Apr 2022 (approx.)"
-              caption="This is a Bear Empire environment. The key is not “short it.” The key is avoiding bullish posture while the regime is structurally hostile."
+              caption="This is a Bear Empire environment. The key is avoiding bullish posture while conditions are structurally hostile."
             />
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -543,16 +542,16 @@ export default function OperatorPage() {
                 title="What this avoids"
                 tone="hard"
                 lines={[
-                  "Avoid long periods of low reward for time in a hostile regime.",
-                  "Avoid deep drawdowns during a structurally bearish phase.",
+                  "Long periods of low reward for time spent in a hostile phase.",
+                  "Deep drawdowns during a structurally bearish environment.",
                 ]}
               />
               <Takeaway
                 title="Defense posture"
                 lines={[
-                  "Reduce exposure and decision count.",
+                  "Reduce exposure and reduce decisions.",
                   "If participating, operate smaller and stricter.",
-                  "Do not force bullish narratives inside Bear Empire structure.",
+                  "Do not force optimistic narratives inside hostile structure.",
                 ]}
               />
             </div>
@@ -560,9 +559,9 @@ export default function OperatorPage() {
             <CaseImage
               src="/playbook/sync-bull-revolution.png"
               alt="REZIME Sync Bull Revolution example on GOOG"
-              label="2) Transition — regime resets"
+              label="2) Transition"
               dateRange="Around May 2023 (approx.)"
-              caption="This is the transition. Structural danger fades. This is not peak optimism. It is the environment becoming valid for bullish posture again."
+              caption="This is the transition. Structural danger fades. This is the environment becoming valid for bullish posture again."
             />
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -571,13 +570,13 @@ export default function OperatorPage() {
                 tone="hard"
                 lines={[
                   "You do not need to predict the bottom.",
-                  "You wait until the regime stops being structurally hostile to bullish exposure.",
+                  "You wait until conditions stop being structurally hostile to bullish exposure.",
                 ]}
               />
               <Takeaway
                 title="Operator habit"
                 lines={[
-                  "Re-engage gradually. Do not rush size.",
+                  "Re-engage gradually. Do not rush exposure.",
                   "Let structure prove itself before scaling confidence.",
                 ]}
               />
@@ -586,9 +585,9 @@ export default function OperatorPage() {
             <CaseImage
               src="/playbook/sync-bull-alignment.png"
               alt="REZIME Sync Bull Alignment example on GOOG"
-              label="3) Full alignment — cleaner holding zone"
+              label="3) Full alignment"
               dateRange="Apr 2024 onward (approx.)"
-              caption="Alignment across timeframes tends to produce cleaner behavior. Many easier runs happen here, not at the bottom, because the regime is stable."
+              caption="Alignment across timeframes tends to produce cleaner behavior. Many easier runs happen here because conditions are stable."
             />
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -613,7 +612,7 @@ export default function OperatorPage() {
             <CaseImage
               src="/playbook/battle-lines.png"
               alt="REZIME Battle Lines example on GOOG"
-              label="4) Terrain — timing difficulty meter"
+              label="4) Terrain"
               dateRange="Apr 2022 to Apr 2024 (approx.)"
               caption="Battle Lines show compression versus runway. Terrain affects timing difficulty, not bias. Wide walls tend to mean cleaner behavior. Tight walls often mean compression and fakeouts."
             />
@@ -623,15 +622,15 @@ export default function OperatorPage() {
                 title="Terrain rule"
                 tone="hard"
                 lines={[
-                  "Tight walls mean fewer decisions. Overtrading risk increases.",
+                  "Tight walls mean fewer decisions. Overactivity risk increases.",
                   "Wide walls mean easier holding. Fakeouts tend to reduce.",
                 ]}
               />
               <Takeaway
                 title="Final sentence"
                 lines={[
-                  "REZIME does not tell you where to trade.",
-                  "It tells you what kind of market you are inside so decisions stop becoming phase-mismatched.",
+                  "REZIME does not tell you what to do.",
+                  "It tells you what kind of environment you are inside so decisions stop becoming mismatched.",
                 ]}
               />
             </div>
@@ -645,7 +644,7 @@ export default function OperatorPage() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-sm font-semibold text-white">
-                Want the factsheet archive?
+                Want the record archive?
               </p>
               <p className="text-xs text-neutral-400">
                 Portfolio Lab is a cadence-based archive. Context and posture,
