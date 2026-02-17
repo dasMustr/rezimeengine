@@ -20,108 +20,68 @@ function Bullet({ children }: { children: React.ReactNode }) {
   );
 }
 
-// Pricing stays the same. We improve clarity, doctrine fit, and naming.
-const tiers = [
-  {
-    layer: "Survival",
-    name: "Engine",
-    price: "$19.99",
-    note: "One main timeframe. Built for survival first.",
-    bundleLine: "Includes: Engine",
-    features: [
-      "Single-timeframe regime map (your main timeframe)",
-      "Two warnings that matter most: Instability (yellow) and Revolution (red)",
-      "Posture rules per regime so behavior matches reality",
-      "Works on any charted market",
-      "Docs and onboarding (education, not advice)",
-    ],
-    cta: "Request Access",
-    href: "/checkout?plan=engine",
-    highlight: false,
-  },
-  {
-    layer: "Timing",
-    name: "Engine + Sync",
-    price: "$24.99",
-    note: "Adds multi-timeframe context. Advanced and optional.",
-    bundleLine: "Includes: Engine + Sync",
-    features: [
-      "Everything in Engine",
-      "2TF safety mode (default)",
-      "Optional 3TF mode (toggle)",
-      "Timeframe language for Instability and Revolutions:",
-      "HTF Instability = Siege | HTF Revolution = Revolution",
-      "MTF Instability = Deadlock | MTF Revolution = Rebellion",
-      "LTF Instability = Tension | LTF Revolution = Uprising",
-      "Operator notes and guardrails",
-    ],
-    cta: "Request Access",
-    href: "/checkout?plan=sync",
-    highlight: true,
-  },
-  {
-    layer: "Management",
-    name: "Engine + Sync + Battle Lines",
-    price: "$29.99",
-    note: "Adds territory walls for cleaner management.",
-    bundleLine: "Includes: Engine + Sync + Battle Lines",
-    features: [
-      "Everything in Engine + Sync",
-      "Territory walls across HTF, MTF, LTF",
-      "Cleaner management and less chasing",
-      "Layer toggles (show or hide HTF, MTF, LTF)",
-      "Clear visual structure for quick reading",
-    ],
-    cta: "Request Access",
-    href: "/checkout?plan=battlelines",
-    highlight: false,
-  },
-];
-
-function TierCard({
-  layer,
-  name,
-  price,
-  note,
-  bundleLine,
-  features,
-  cta,
-  href,
-  highlight,
+function InfoCard({
+  title,
+  tone = "soft",
+  children,
 }: {
-  layer: string;
-  name: string;
-  price: string;
-  note: string;
-  bundleLine: string;
-  features: string[];
-  cta: string;
-  href: string;
-  highlight?: boolean;
+  title: string;
+  tone?: "soft" | "hard";
+  children: React.ReactNode;
 }) {
   return (
     <div
       className={[
-        "premium-card relative overflow-hidden rounded-2xl border p-6",
-        highlight ? "border-white/20 bg-white/10" : "border-white/10 bg-white/5",
+        "calm-block rounded-2xl border p-6",
+        tone === "hard"
+          ? "border-white/10 bg-black/30"
+          : "border-white/10 bg-white/5",
       ].join(" ")}
     >
+      <p className="text-xs uppercase tracking-[0.18em] text-neutral-400">
+        {title}
+      </p>
+      <div className="mt-3 text-sm text-neutral-300 leading-relaxed">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function AccessCard() {
+  const features = [
+    "REZIME Engine access (Engine includes Sync as one tool)",
+    "Regime classification and posture cues on your chosen timeframe",
+    "Two warnings that matter most: Instability (yellow) and Reset (red)",
+    "Documentation, interpretation rules, and examples",
+    "Method-neutral, works on any charted market",
+    "Educational material only, not financial advice",
+  ];
+
+  return (
+    <div className="premium-card relative overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-6">
       <Sheen className="rounded-2xl" />
 
       <div className="flex h-full flex-col">
         {/* Header */}
-        <div className="space-y-1">
+        <div className="space-y-2">
           <p className="text-[11px] uppercase tracking-[0.18em] text-neutral-400">
-            {layer} layer
+            Access
           </p>
-          <h3 className="text-base font-semibold text-white">{name}</h3>
-          <p className="text-sm text-neutral-400">{note}</p>
-          <p className="text-xs text-neutral-300/80">{bundleLine}</p>
+          <h3 className="text-base font-semibold text-white">REZIME Engine</h3>
+          <p className="text-sm text-neutral-400">
+            One tool. One lens. Built to help you stay in the game long enough
+            to understand it.
+          </p>
+
+          <p className="text-xs text-neutral-300/80">
+            Includes: Engine + embedded Sync
+          </p>
         </div>
 
         {/* Price */}
         <div className="mt-5">
-          <div className="text-3xl font-semibold text-white">{price}</div>
+          <div className="text-3xl font-semibold text-white">$19.99</div>
           <div className="text-xs text-neutral-500">monthly</div>
         </div>
 
@@ -135,17 +95,18 @@ function TierCard({
         {/* CTA pinned */}
         <div className="mt-auto pt-6">
           <Link
-            href={href}
+            href="/checkout?plan=engine"
             className={[
               "inline-flex w-full items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition",
               "bg-white text-black hover:opacity-90",
             ].join(" ")}
           >
-            {cta}
+            Request Access
           </Link>
 
           <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
-            Educational access only. Not financial advice. No signals. No guarantees.
+            Educational access only. Not financial advice. No signals. No
+            predictions. No guarantees.
           </p>
         </div>
       </div>
@@ -165,17 +126,22 @@ export default function PricingPage() {
 
           <div className="flex flex-wrap gap-2">
             <Tag>Survival-first</Tag>
-            <Tag>Education</Tag>
-            <Tag>Analytical tools</Tag>
+            <Tag>Map, not signals</Tag>
+            <Tag>Method-neutral</Tag>
+            <Tag>Calm by design</Tag>
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
-            A safety layer for market participation.
+            Stay in the game long enough to understand it.
           </h1>
 
           <p className="max-w-3xl text-sm sm:text-base text-neutral-300 leading-relaxed">
-            REZIME helps you avoid the wrong regime. It does not give entries. It
-            gives context and rules so you make fewer mistakes.
+            REZIME is a decision lens for reading market regimes. The goal is to
+            reduce mismatched behavior in unstable conditions so you can learn
+            without blowing up.
+            <br />
+            <br />
+            The tool is optional assistance. The framework is the point.
           </p>
 
           <div className="flex flex-wrap gap-3 pt-1">
@@ -188,6 +154,13 @@ export default function PricingPage() {
             </Link>
 
             <Link
+              href="/operator"
+              className="self-center text-sm text-neutral-400 hover:text-white transition"
+            >
+              Read Framework →
+            </Link>
+
+            <Link
               href="/contact"
               className="self-center text-sm text-neutral-400 hover:text-white transition"
             >
@@ -196,7 +169,8 @@ export default function PricingPage() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            Pricing is benchmarked to a gym membership. The goal is consistency and staying in the game.
+            Priced like a gym membership. The goal is consistent exposure to
+            learning, not constant activity.
           </p>
         </header>
       </Reveal>
@@ -204,56 +178,52 @@ export default function PricingPage() {
       {/* WHAT THIS IS */}
       <Reveal delayMs={60}>
         <section className="grid gap-4 md:grid-cols-2">
-          <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-            <p className="text-xs uppercase tracking-[0.18em] text-neutral-400">
-              Included
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-neutral-300 leading-relaxed">
-              <Bullet>Indicator access (based on your tier)</Bullet>
-              <Bullet>Documentation and onboarding</Bullet>
+          <InfoCard title="What you are getting" tone="soft">
+            <ul className="space-y-2">
+              <Bullet>A simplified regime lens you can learn and reuse</Bullet>
+              <Bullet>One indicator tool that helps apply the lens faster</Bullet>
               <Bullet>Interpretation rules and examples</Bullet>
-              <Bullet>Beginner-safe posture principles</Bullet>
+              <Bullet>Posture guidance for instability and resets</Bullet>
             </ul>
-          </div>
+          </InfoCard>
 
-          <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
-            <p className="text-xs uppercase tracking-[0.18em] text-neutral-400">
-              Not included
-            </p>
-            <ul className="mt-3 space-y-2 text-sm text-neutral-300 leading-relaxed">
+          <InfoCard title="What this is not" tone="hard">
+            <ul className="space-y-2">
               <Bullet>Signals</Bullet>
               <Bullet>Financial advice</Bullet>
-              <Bullet>Portfolio management</Bullet>
-              <Bullet>Profit guarantees</Bullet>
+              <Bullet>Guaranteed outcomes</Bullet>
+              <Bullet>A substitute for judgment</Bullet>
             </ul>
-          </div>
+          </InfoCard>
         </section>
       </Reveal>
 
-      {/* TIERS */}
+      {/* SINGLE ACCESS CARD */}
       <Reveal delayMs={110}>
         <section className="space-y-4">
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-[0.18em] text-neutral-400">
-              Choose your layer
+              One option
             </p>
             <h2 className="text-xl sm:text-2xl font-semibold text-white">
-              Survive first. Add complexity when you are ready.
+              One tool, kept intentionally simple.
             </h2>
             <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Survival uses one main timeframe. Timing uses multiple timeframes and
-              is advanced. Battle Lines supports management once you already have stability.
+              Complexity is not the goal. Clarity is. If REZIME helps you slow
+              down in instability and reset cleanly when regimes flip, it is
+              doing its job.
             </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3 items-stretch">
-            {tiers.map((t) => (
-              <TierCard key={t.name} {...t} />
-            ))}
+            {/* center it nicely */}
+            <div className="md:col-start-2">
+              <AccessCard />
+            </div>
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            Tip: pick the smallest layer that makes you safer. Complexity is optional.
+            Tip: if you are new, read Orientation first. The tool is optional.
           </p>
         </section>
       </Reveal>
