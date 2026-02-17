@@ -1,4 +1,5 @@
 // app/page.tsx
+import React from "react";
 import Link from "next/link";
 import Reveal from "@/app/components/Reveal";
 import Sheen from "@/app/components/Sheen";
@@ -61,28 +62,28 @@ export default function HomePage() {
 
             {/* HERO */}
             <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-white">
-              Markets rarely destroy people because they are wrong.
+              Stay in the game long enough
               <br />
-              They destroy people because they act in the wrong conditions.
+              to understand it.
             </h1>
 
             {/* SUBTEXT */}
             <div className="space-y-4">
               <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-                Most decisions fail not from poor analysis, but from applying a
-                good idea inside the wrong environment. The problem is rarely
-                intelligence. It is timing, pressure, and instability.
+                Most damage is not caused by being wrong. It comes from acting
+                inside unstable conditions before you have the context to carry
+                risk.
               </p>
 
               <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-                REZIME documents a simplified way of seeing markets, so decisions
-                become more deliberate before you commit to action.
+                REZIME documents a simplified market worldview so you can see
+                the environment first, then decide what kind of action even
+                makes sense.
               </p>
 
               <p className="text-sm text-neutral-400 max-w-3xl leading-relaxed">
-                This site exists to share a decision lens, not to persuade and
-                not to promise results. The tools available simply help apply
-                the structure. They are optional.
+                This site exists to share a decision lens. The tools simply help
+                apply the structure. They are optional.
               </p>
             </div>
 
@@ -104,7 +105,7 @@ export default function HomePage() {
               Why. Lens. Proof.
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Understand the problem. Learn the structure. Examine the record.
+              Understand the problem. Learn the lens. Examine the record.
             </p>
           </div>
 
@@ -112,7 +113,7 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Why"
-              desc="Understand why survival must come before performance. Most damage happens during unstable phases, not obvious trends."
+              desc="Understand why people blow up. Most damage happens in unstable phases, not obvious trends."
               href="/orientation"
               cta="Orientation"
             />
@@ -124,7 +125,7 @@ export default function HomePage() {
             />
             <HomeCard
               title="Proof"
-              desc="A live portfolio documenting decisions under the framework, with context included, not just outcomes."
+              desc="A time-stamped record of decisions under the framework. Context included, not just outcomes."
               href="/allocator"
               cta="Portfolio Lab"
             />
