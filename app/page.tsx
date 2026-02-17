@@ -61,21 +61,30 @@ export default function HomePage() {
 
             {/* HERO */}
             <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-white">
-              If markets feel overwhelming,
+              Markets rarely destroy people because they are wrong.
               <br />
-              start here.
+              They destroy people because they act in the wrong conditions.
             </h1>
 
             {/* SUBTEXT */}
-            <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-              Confusion is normal. Stress is normal. Most people are not failing
-              because they lack intelligence. They are simply exposed to unstable
-              conditions too early.
-              <br />
-              <br />
-              REZIME teaches one priority. Learn to survive first. Build skill
-              in stable environments. Let results come later.
-            </p>
+            <div className="space-y-4">
+              <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
+                Most decisions fail not from poor analysis, but from applying a
+                good idea inside the wrong environment. The problem is rarely
+                intelligence. It is timing, pressure, and instability.
+              </p>
+
+              <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
+                REZIME documents a simplified way of seeing markets, so decisions
+                become more deliberate before you commit to action.
+              </p>
+
+              <p className="text-sm text-neutral-400 max-w-3xl leading-relaxed">
+                This site exists to share a decision lens, not to persuade and
+                not to promise results. The tools available simply help apply
+                the structure. They are optional.
+              </p>
+            </div>
 
             <p className="text-xs text-neutral-500">
               Educational framework. No signals. No predictions. No guarantees.
@@ -92,10 +101,10 @@ export default function HomePage() {
               A simple structure
             </p>
             <h2 className="mt-2 text-xl font-semibold text-white">
-              Why. How. Proof.
+              Why. Lens. Proof.
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Understand survival. Learn the framework. Examine the record.
+              Understand the problem. Learn the structure. Examine the record.
             </p>
           </div>
 
@@ -103,19 +112,19 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Why"
-              desc="Understand how market environments affect risk and why survival must come before performance."
+              desc="Understand why survival must come before performance. Most damage happens during unstable phases, not obvious trends."
               href="/orientation"
               cta="Orientation"
             />
             <HomeCard
-              title="How"
-              desc="Learn the REZIME framework and how to read conditions without relying on signals."
+              title="Lens"
+              desc="A simplified model for identifying stable and unstable environments before acting."
               href="/operator"
               cta="Framework"
             />
             <HomeCard
               title="Proof"
-              desc="Review time-stamped applications of the framework. Context, decisions, and outcomes."
+              desc="A live portfolio documenting decisions under the framework, with context included, not just outcomes."
               href="/allocator"
               cta="Portfolio Lab"
             />
@@ -123,10 +132,16 @@ export default function HomePage() {
 
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">Scope</p>
-            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              REZIME is a risk framework designed to help you manage exposure
-              across different market methods. It does not provide signals or financial advice.
-            </p>
+            <div className="mt-2 space-y-3 text-sm text-neutral-300 leading-relaxed">
+              <p>
+                REZIME is an educational framework describing decision
+                environments. It does not provide signals or financial advice.
+              </p>
+              <p>
+                The tools available are there to make the structure easier to
+                apply. They are optional, not required.
+              </p>
+            </div>
           </div>
         </section>
       </Reveal>
