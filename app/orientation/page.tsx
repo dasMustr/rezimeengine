@@ -163,7 +163,7 @@ function StripPreview() {
           <div className="flex h-3 w-[220px] overflow-hidden rounded-lg border border-white/10">
             <div style={{ background: "#6b7280" }} className="w-[16%]" />
             <div style={{ background: "#3b82f6" }} className="w-[24%]" />
-            <div style={{ background: "#f59e0b" }} className="w-[10%]" />
+            <div style={{ background: "#facc15" }} className="w-[10%]" />
             <div style={{ background: "#ef4444" }} className="w-[6%]" />
             <div style={{ background: "#22c55e" }} className="w-[44%]" />
           </div>
