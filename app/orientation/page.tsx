@@ -95,7 +95,7 @@ function JumpPill({ href, label }: { href: string; label: string }) {
   );
 }
 
-function ChartScreenshot({
+function ChartMini({
   src = "/images/example-chart.png",
   alt = "Example market chart",
 }: {
@@ -104,17 +104,20 @@ function ChartScreenshot({
 }) {
   return (
     <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <p className="text-sm font-semibold text-white">
-            Familiarity reduces fear
-          </p>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold text-white">A chart is history</p>
           <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-            This is a real market chart. You do not need to interpret it yet.
-            The first goal is to make the interface feel normal.
+            It shows what happened, not what will happen. For now, the goal is
+            comfort with the interface.
           </p>
         </div>
-        <span className="text-xs text-neutral-500">Chart view</span>
+        <Link
+          href="/operator"
+          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
+        >
+          Learn the lens in Framework →
+        </Link>
       </div>
 
       <div className="mt-4 overflow-hidden rounded-xl border border-white/10 bg-black/40">
@@ -129,8 +132,8 @@ function ChartScreenshot({
       </div>
 
       <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
-        Everyone sees the same movement. The difference is how people behave
-        when conditions are clear versus when conditions are messy.
+        Everyone sees the same movement. The difference is behavior when
+        conditions are clear versus messy.
       </p>
     </div>
   );
@@ -143,19 +146,17 @@ function ChartScreenshot({
 function StripPreview() {
   return (
     <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
-      <div className="flex flex-wrap items-start justify-between gap-3">
+      <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="max-w-xl">
-          <p className="text-sm font-semibold text-white">The REZIME strip</p>
+          <p className="text-sm font-semibold text-white">
+            A simple label for conditions
+          </p>
           <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-            REZIME adds a small color strip to label the current environment.
-            It helps you recognize when conditions are becoming{" "}
-            <span className="text-white font-semibold">messy</span> (yellow) or
-            when they may need a{" "}
-            <span className="text-white font-semibold">reset</span> (red).
-            <br />
-            <br />
-            It is not an instruction. It is a{" "}
-            <span className="text-white font-semibold">risk label</span>.
+            REZIME adds a small color strip to label the environment. It helps
+            you slow down in yellow and stop in red before mistakes compound.
+          </p>
+          <p className="mt-3 text-sm text-neutral-300 leading-relaxed">
+            It is not an instruction. It is a risk label.
           </p>
         </div>
 
@@ -191,7 +192,7 @@ function StripPreview() {
 
 export default function OrientationPage() {
   return (
-    <div className="space-y-20">
+    <div className="space-y-16">
       {/* HERO */}
       <Reveal delayMs={0}>
         <section className="space-y-6">
@@ -206,36 +207,33 @@ export default function OrientationPage() {
             <Tag>Calm by design</Tag>
           </div>
 
-          <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
+          <h1 className="text-4xl font-semibold leading-tight sm:text-5xl text-white">
             If you feel fear,
             <br />
             you are not behind.
           </h1>
 
-          <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            Markets can feel like a secret world. The screens look complex. The
-            movement looks fast. It can feel like everyone else knows something
-            you do not.
-            <br />
-            <br />
-            Reality is simpler. You see the same prices they see. The difference
-            is behavior. People make good decisions in clear conditions and make
-            costly decisions in messy conditions.
-            <br />
-            <br />
-            This page explains why survival comes first. You do not need a
-            perfect method yet. You need a safer order of learning so you can
-            stay in the game long enough to understand it.
-          </p>
+          <div className="max-w-3xl space-y-3 text-sm text-neutral-300 leading-relaxed">
+            <p>
+              Markets feel intimidating because feedback is immediate. Mistakes
+              can become permanent before understanding forms.
+            </p>
+            <p>
+              The goal is not to feel confident fast. The goal is to stay safe
+              long enough for the environment to make sense.
+            </p>
+            <p>
+              REZIME is built to label the condition first, so your behavior
+              matches what you are in.
+            </p>
+          </div>
 
           <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
             <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-400">
               <span className="text-neutral-300">Jump to:</span>
               <JumpPill href="#prices" label="Price movement" />
-              <JumpPill href="#headlines" label="Headlines and fear" />
-              <JumpPill href="#mismatch" label="The mismatch trap" />
-              <JumpPill href="#strip" label="Traffic light idea" />
-              <JumpPill href="#charting" label="What a chart is" />
+              <JumpPill href="#headlines" label="Headlines" />
+              <JumpPill href="#mismatch" label="Mismatch" />
               <JumpPill href="#rezime" label="What REZIME is" />
               <JumpPill href="#next" label="Next step" />
             </div>
@@ -273,9 +271,8 @@ export default function OrientationPage() {
           </div>
 
           <Callout title="Simple translation">
-            If you accept that prices change in daily life, you can accept
-            markets. The uncomfortable part is not movement. The uncomfortable
-            part is not knowing how to behave when conditions change.
+            Movement is not the scary part. The scary part is deciding how to act
+            when conditions change.
           </Callout>
         </section>
       </Reveal>
@@ -286,14 +283,13 @@ export default function OrientationPage() {
           <SectionHeader
             eyebrow="The headline effect"
             title="Why dramatic headlines feel terrifying"
-            subtitle="Headlines are designed to trigger emotion. Calm does not get clicks. Fear does."
+            subtitle="Fear gets attention. Calm does not. Headlines compress complexity into urgency."
           />
 
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 space-y-4">
             <p className="text-sm text-neutral-300 leading-relaxed">
-              You will see headlines like “trillions wiped out.” It sounds like
-              disaster. Most of the time, the core event is simple. Prices moved
-              down quickly.
+              You will see headlines that sound like disaster. Most of the time,
+              the core event is simple. Prices moved quickly.
             </p>
 
             <div className="grid gap-4 lg:grid-cols-2">
@@ -309,8 +305,8 @@ export default function OrientationPage() {
             </div>
 
             <p className="text-xs text-neutral-500 leading-relaxed">
-              The goal is not to ignore news. The goal is to stop letting
-              headlines turn normal movement into urgency.
+              The goal is not to ignore news. The goal is to stop turning normal
+              movement into urgency.
             </p>
           </div>
         </section>
@@ -322,7 +318,7 @@ export default function OrientationPage() {
           <SectionHeader
             eyebrow="Core risk"
             title="Most damage comes from mismatch"
-            subtitle="People get hurt when they stay active during messy environments. Activity feels productive, but error rates rise."
+            subtitle="People get hurt when they stay active in messy conditions. Activity feels productive, but error rates rise."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
@@ -371,102 +367,40 @@ export default function OrientationPage() {
         </section>
       </Reveal>
 
-      {/* STRIP PREVIEW */}
-      <Reveal delayMs={300}>
-        <section id="strip" className="scroll-mt-28 space-y-5">
-          <SectionHeader
-            eyebrow="Traffic light idea"
-            title="A simple label for conditions"
-            subtitle="REZIME uses colors to help you slow down in yellow and stop in red before avoidable mistakes compound."
-          />
-          <StripPreview />
-        </section>
-      </Reveal>
-
-      {/* CHARTING */}
-      <Reveal delayMs={340}>
-        <section id="charting" className="scroll-mt-28 space-y-5">
-          <SectionHeader
-            eyebrow="Interface"
-            title="What a chart is"
-            subtitle="Before rules, recognize the interface. Familiarity reduces intimidation."
-          />
-
-          <div className="grid gap-4 lg:grid-cols-2">
-            <Card
-              tone="hard"
-              title="A chart is a picture of history"
-              desc="A chart shows what price did in the past. It is not a prediction machine."
-              note="Think of it as a timeline of behavior."
-            />
-            <Card
-              title="Why charts feel intimidating"
-              desc="Charts look like secret codes. They are mostly layout and tools."
-              note="You and professionals see the same chart."
-            />
-          </div>
-
-          <ChartScreenshot
-            src="/images/example-chart.png"
-            alt="Chart screenshot example"
-          />
-
-          <div className="grid gap-4 lg:grid-cols-3">
-            <Card
-              title="Candles"
-              desc="Each candle is one time slice. Price moved up, down, or sideways in that slice."
-              note="You do not need to memorize this right now."
-            />
-            <Card
-              tone="hard"
-              title="Timeframe"
-              desc="Timeframe is zoom level. One minute, one hour, one day. Same movement, different zoom."
-              note="Switching timeframes emotionally creates noise."
-            />
-            <Card
-              title="Indicators"
-              desc="Indicators summarize behavior. They are tools, not truth."
-              note="REZIME is a label, not an instruction."
-            />
-          </div>
-
-          <Callout title="Method-neutral by design">
-            REZIME can sit above any method you choose over time. It gives
-            context so your behavior matches the environment.
-          </Callout>
-        </section>
-      </Reveal>
-
       {/* WHAT REZIME IS */}
-      <Reveal delayMs={400}>
+      <Reveal delayMs={320}>
         <section id="rezime" className="scroll-mt-28 space-y-5">
           <SectionHeader
             eyebrow="What REZIME is"
             title="A risk label, not an instruction"
-            subtitle="REZIME does not tell you what to do. It helps you recognize when conditions are stable, messy, or broken."
+            subtitle="REZIME does not tell you what to do. It helps you recognize when conditions are stable, messy, or changed."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
             <Card
               tone="hard"
-              title="It gives you permission to slow down"
-              desc="So you stop forcing decisions when clarity is low."
-              note="Less clarity means fewer decisions."
+              title="Stable"
+              desc="Actions have time to work. Mistakes stay small."
+              note="Learning feels slower, but safer."
             />
             <Card
-              title="It strengthens behavior"
-              desc="Stable conditions reward patience. Messy conditions demand smaller, slower, more selective action."
-              note="Slow is a skill."
+              title="Messy"
+              desc="Signals conflict. Activity increases error."
+              note="Smaller decisions. Fewer moves."
             />
             <Card
               tone="hard"
-              title="It protects your timeline"
-              desc="So you are still here months later, when most people quit after avoidable losses."
-              note="Staying gives you a real chance to learn."
+              title="Reset"
+              desc="Conditions changed. Old assumptions no longer apply."
+              note="Pause. Rebuild context."
             />
           </div>
 
-          <div className="calm-block rounded-3xl border border-white/10 bg-white/[0.04] p-10">
+          <StripPreview />
+
+          <ChartMini src="/images/example-chart.png" alt="Chart screenshot example" />
+
+          <div className="calm-block rounded-3xl border border-white/10 bg-white/[0.04] p-8 sm:p-10">
             <p className="text-xs uppercase tracking-widest text-neutral-400">
               The common failure mode
             </p>
@@ -475,16 +409,17 @@ export default function OrientationPage() {
               <br />
               They lack risk containment.
             </p>
-            <p className="mt-3 text-sm text-neutral-300">
-              REZIME is built to reinforce that foundation so you can learn
-              without one mistake becoming permanent.
+            <p className="mt-3 text-sm text-neutral-300 leading-relaxed max-w-3xl">
+              REZIME exists to slow down consequences so experience can catch up.
+              It helps you stay in the game long enough for the environment to
+              make sense.
             </p>
           </div>
         </section>
       </Reveal>
 
       {/* BOTTOM CTA */}
-      <Reveal delayMs={480}>
+      <Reveal delayMs={420}>
         <section id="next" className="scroll-mt-28">
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -493,8 +428,7 @@ export default function OrientationPage() {
                   Next step: Framework
                 </p>
                 <p className="text-xs text-neutral-400">
-                  Framework explains the full REZIME map and how to read it in
-                  real time.
+                  The full REZIME map, meanings, and how to read it calmly.
                 </p>
               </div>
 
@@ -509,6 +443,7 @@ export default function OrientationPage() {
 
             <p className="mt-4 text-[11px] text-neutral-500 leading-relaxed">
               Educational documentation only. Not financial advice. No signals.
+              No predictions. No guarantees.
             </p>
           </div>
         </section>
