@@ -70,24 +70,33 @@ export default function HomePage() {
             {/* SUBTEXT */}
             <div className="space-y-4">
               <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-                Most damage is not caused by being wrong. It comes from carrying
-                risk inside unstable conditions.
+                No one can hand you understanding. It only forms through time in
+                the arena — observing, experiencing, and learning how conditions
+                behave.
               </p>
 
               <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-                REZIME documents a simplified market worldview so you can
-                recognize the regime first, then decide what kind of action even
-                makes sense.
+                Most damage is not caused by being wrong. It happens when
+                ordinary behavior meets unstable conditions — and risk quietly
+                compounds faster than the learner can adapt.
+              </p>
+
+              <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
+                REZIME is a decision safety framework for market exposure. It
+                helps you recognize the condition first, then choose whether
+                action even makes sense.
               </p>
 
               <p className="max-w-3xl text-sm text-neutral-400 leading-relaxed">
-                Whether allocating personal capital or building structured
-                exposure, the goal is the same. Learn without blowing up.
+                Built for individuals — especially business owners — who want a
+                small exposure sleeve for resilience, without turning the
+                learning process into a self-inflicted crisis.
               </p>
 
               <p className="text-sm text-neutral-400 max-w-3xl leading-relaxed">
-                The site shares the lens. The optional tool makes the lens
-                easier to apply. One tool. One purpose. Fewer avoidable mistakes.
+                The site teaches the lens. The optional tool makes the lens
+                easier to apply. One tool. One purpose: fewer avoidable
+                blowups while experience does its work.
               </p>
             </div>
 
@@ -128,7 +137,7 @@ export default function HomePage() {
               Why. Lens. Proof.
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Understand the risk. Learn the lens. Examine the record.
+              Understand the mismatch. Learn the lens. Examine the record.
             </p>
           </div>
 
@@ -136,19 +145,19 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Why"
-              desc="Why people blow up. It is usually mismatch, not intelligence. Wrong posture in unstable conditions."
+              desc="Why people blow up. It is usually mismatch, not intelligence — carrying risk into unstable conditions."
               href="/orientation"
               cta="Orientation"
             />
             <HomeCard
               title="Lens"
-              desc="A regime-first decision lens you can apply to any method, including long-term investing and structured exposure."
+              desc="A condition-first lens you can apply to any approach, including long-horizon allocation and structured exposure for resilience."
               href="/operator"
               cta="Framework"
             />
             <HomeCard
               title="Proof"
-              desc="A time-stamped archive of decisions under the lens. Context included, not just outcomes."
+              desc="A time-stamped archive of decisions under the lens. Context included — the goal is clarity, not hype."
               href="/allocator"
               cta="Portfolio Lab"
             />
@@ -158,12 +167,13 @@ export default function HomePage() {
             <p className="text-sm font-semibold text-white">Scope</p>
             <div className="mt-2 space-y-3 text-sm text-neutral-300 leading-relaxed">
               <p>
-                REZIME is an educational framework describing decision regimes.
-                It does not provide signals or financial advice.
+                REZIME is an educational framework describing decision
+                conditions. It does not provide signals or personalized advice.
               </p>
               <p>
-                The optional tool exists to make the lens easier to apply. It is
-                support, not a substitute for judgment.
+                The optional tool exists to help you apply the lens more
+                consistently. It is support, not a substitute for judgment or
+                experience.
               </p>
             </div>
           </div>
