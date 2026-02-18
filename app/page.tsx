@@ -56,7 +56,6 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-2">
               <Tag>Beginner-safe</Tag>
               <Tag>Risk containment</Tag>
-              <Tag>Method-neutral</Tag>
               <Tag>Calm by design</Tag>
             </div>
 
@@ -68,35 +67,33 @@ export default function HomePage() {
             </h1>
 
             {/* SUBTEXT */}
-            <div className="space-y-4">
-              <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-                No one can hand you understanding. It only forms through time in
-                the arena — observing, experiencing, and learning how conditions
-                behave.
+            <div className="space-y-6">
+              <p className="max-w-2xl text-base text-neutral-300 leading-relaxed">
+                Understanding only forms through time in the arena. Experience
+                teaches. Survival allows experience.
               </p>
 
-              <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-                Most damage is not caused by being wrong. It happens when
-                ordinary behavior meets unstable conditions — and risk quietly
-                compounds faster than the learner can adapt.
+              <div className="max-w-2xl space-y-3">
+                <p className="text-sm text-neutral-400">
+                  Most damage is not caused by being wrong.
+                </p>
+                <p className="text-sm text-neutral-400">
+                  It happens when behavior does not match the condition.
+                </p>
+                <p className="text-sm text-neutral-400">
+                  REZIME helps you recognize the condition first.
+                </p>
+              </div>
+
+              <p className="max-w-2xl text-sm text-neutral-400 leading-relaxed">
+                Built for individuals and business owners who want a small
+                exposure sleeve for resilience, without turning the learning
+                process into a crisis.
               </p>
 
-              <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-                REZIME is a decision safety framework for market exposure. It
-                helps you recognize the condition first, then choose whether
-                action even makes sense.
-              </p>
-
-              <p className="max-w-3xl text-sm text-neutral-400 leading-relaxed">
-                Built for individuals — especially business owners — who want a
-                small exposure sleeve for resilience, without turning the
-                learning process into a self-inflicted crisis.
-              </p>
-
-              <p className="text-sm text-neutral-400 max-w-3xl leading-relaxed">
+              <p className="max-w-2xl text-sm text-neutral-400 leading-relaxed">
                 The site teaches the lens. The optional tool makes the lens
-                easier to apply. One tool. One purpose: fewer avoidable
-                blowups while experience does its work.
+                easier to apply. One tool. One purpose. Fewer avoidable blowups.
               </p>
             </div>
 
@@ -145,19 +142,19 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Why"
-              desc="Why people blow up. It is usually mismatch, not intelligence — carrying risk into unstable conditions."
+              desc="Why people blow up. It is usually mismatch, not intelligence. Wrong posture in unstable conditions."
               href="/orientation"
               cta="Orientation"
             />
             <HomeCard
               title="Lens"
-              desc="A condition-first lens you can apply to any approach, including long-horizon allocation and structured exposure for resilience."
+              desc="A condition-first decision lens you can apply to any approach. Personal learning, long-horizon ownership, or structured exposure for resilience."
               href="/operator"
               cta="Framework"
             />
             <HomeCard
               title="Proof"
-              desc="A time-stamped archive of decisions under the lens. Context included — the goal is clarity, not hype."
+              desc="A time-stamped archive of decisions under the lens. Context included. The goal is clarity, not hype."
               href="/allocator"
               cta="Portfolio Lab"
             />
