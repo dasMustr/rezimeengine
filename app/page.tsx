@@ -50,27 +50,26 @@ export default function HomePage() {
   return (
     <section className="space-y-12">
       <Reveal delayMs={0}>
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-8 sm:p-12">
-          <div className="space-y-6">
-            {/* TAGS */}
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-white/[0.015] p-6 sm:p-8">
+          <div className="space-y-5">
+            {/* TOP */}
             <div className="flex flex-wrap gap-2">
               <Tag>Beginner-safe</Tag>
               <Tag>Risk containment</Tag>
-              <Tag>Calm by design</Tag>
+              <Tag>Condition-first</Tag>
             </div>
 
-            {/* HERO */}
             <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-white">
               Stay in the game long enough
               <br />
               to understand it.
             </h1>
 
-            {/* SUBTEXT */}
+            {/* BODY */}
             <div className="space-y-6">
               <p className="max-w-2xl text-base text-neutral-300 leading-relaxed">
-                Understanding only forms through time in the arena. Experience
-                teaches. Survival allows experience.
+                Understanding forms through time in the arena. Survival makes
+                that time possible.
               </p>
 
               <div className="max-w-2xl space-y-3">
@@ -86,19 +85,13 @@ export default function HomePage() {
               </div>
 
               <p className="max-w-2xl text-sm text-neutral-400 leading-relaxed">
-                Built for individuals and business owners who want a small
-                exposure sleeve for resilience, without turning the learning
-                process into a crisis.
-              </p>
-
-              <p className="max-w-2xl text-sm text-neutral-400 leading-relaxed">
-                The site teaches the lens. The optional tool makes the lens
-                easier to apply. One tool. One purpose. Fewer avoidable blowups.
+                Built for individuals and business owners who want exposure for
+                resilience, without turning the learning process into a crisis.
               </p>
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap gap-3 pt-1">
+            <div className="flex flex-wrap gap-3 pt-3">
               <Link
                 href="/orientation"
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
