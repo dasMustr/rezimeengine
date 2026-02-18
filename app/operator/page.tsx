@@ -177,24 +177,18 @@ function KeyIdeaBlock({
 }
 
 /**
- * Teaching colors (UI only, not logic).
- * Empires: green/blue | Instability: yellow | Reset: red | Neutral: gray
- *
- * Notes applied:
- * - Market is a perpetual battle between two Empires (Bullish vs Bearish).
- * - Use the word "Regime" (not environment).
- * - "Messy" -> "Instability"
- * - Two modes:
- *   1) Survival Mode = 1 timeframe focus (HTF only)
- *   2) Timing Mode   = optional multi-timeframe escalation language
- * - Tools are optional. The site is the worldview.
- * - No em dashes in copy.
+ * Copy rules applied:
+ * - Calm, compact, non-sales tone
+ * - No em dashes
+ * - Keep your existing terms (Empire, Regime, Instability, Reset)
+ * - Survival Mode is the default. Timing Mode is optional.
+ * - Tool is optional. The lens is the point.
  */
 function StripLegend() {
   const items = [
     {
       name: "Neutral",
-      note: "Newborn or unclear structure. Treat as low-confidence participation.",
+      note: "Unclear structure. Treat as reduced confidence participation.",
       color: "#6b7280",
     },
     {
@@ -206,12 +200,11 @@ function StripLegend() {
     {
       name: "Instability (Yellow)",
       note: "Conflict and traps. Reduce exposure and tighten criteria.",
-      // True yellow (calmer than amber on dark UI)
       color: "#facc15",
     },
     {
       name: "Reset (Red)",
-      note: "Revolution and reset. Reconsider the prior Empire thesis.",
+      note: "Regime reset. Reconsider the prior Empire thesis.",
       color: "#ef4444",
     },
   ];
@@ -224,9 +217,8 @@ function StripLegend() {
             Strip color guide
           </p>
           <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-            Colors classify{" "}
-            <span className="text-white font-semibold">regime</span>. They are
-            not action triggers.
+            Colors classify <span className="text-white font-semibold">regime</span>.
+            They are not action triggers.
           </p>
         </div>
 
@@ -280,8 +272,8 @@ function StripLegend() {
       </div>
 
       <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-        If the color story conflicts across timeframes (Timing Mode), treat it
-        as reduced confidence. Shrink exposure or pause.
+        If the story conflicts across timeframes, treat it as reduced confidence.
+        Shrink exposure or pause.
       </p>
     </div>
   );
@@ -318,6 +310,36 @@ function ModeHeader({
   );
 }
 
+function SummaryCard({
+  title,
+  lines,
+  tone = "soft",
+}: {
+  title: string;
+  lines: string[];
+  tone?: "soft" | "hard";
+}) {
+  return (
+    <div
+      className={
+        tone === "hard"
+          ? "calm-block rounded-2xl border border-white/15 bg-white/10 p-6"
+          : "calm-block rounded-2xl border border-white/10 bg-black/30 p-6"
+      }
+    >
+      <p className="text-sm font-semibold text-white">{title}</p>
+      <ul className="mt-3 space-y-2 text-sm text-neutral-300">
+        {lines.map((t) => (
+          <li key={t} className="flex gap-2">
+            <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" />
+            <span>{t}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 export default function OperatorPage() {
   return (
     <div className="space-y-14">
@@ -334,25 +356,44 @@ export default function OperatorPage() {
             <Pill>Regime-first</Pill>
           </div>
 
-          <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            Stay in the game long enough
-            <br className="hidden sm:block" /> to understand it.
+          <h1 className="text-4xl font-semibold leading-tight sm:text-5xl text-white">
+            A condition label
+            <br className="hidden sm:block" /> before a decision.
           </h1>
 
-          <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-            REZIME is a simplified decision lens. It exists to help you match
-            your behavior to the regime you are in.
-            <br />
-            <br />
-            The core idea is simple. Most blowups are not from being wrong once.
-            They come from staying active when conditions are unstable.
-            <br />
-            <br />
-            This page teaches the model. The tool is optional. The worldview is
-            the point.
-          </p>
+          <div className="max-w-3xl space-y-3 text-sm text-neutral-300 leading-relaxed">
+            <p>
+              REZIME is a simplified lens. It helps you match your behavior to the
+              regime you are in.
+            </p>
+            <p>
+              Most damage is not caused by being wrong once. It comes from staying
+              active when conditions are unstable.
+            </p>
+            <p>
+              This page explains the map. The tool is optional. The posture is the
+              point.
+            </p>
+          </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="grid gap-4 pt-2 lg:grid-cols-3">
+            <MiniCard
+              tone="hard"
+              title="Stable"
+              desc="Conditions are clean enough to participate. Fewer surprises. Mistakes stay smaller."
+            />
+            <MiniCard
+              title="Instability"
+              desc="Conflict and traps increase. Reduce exposure and reduce decisions. Calm beats fast."
+            />
+            <MiniCard
+              tone="hard"
+              title="Reset"
+              desc="Conditions changed. Rebuild context before you re-engage. Old assumptions may not apply."
+            />
+          </div>
+
+          <div className="flex flex-wrap gap-3 pt-1">
             <Link
               href="/orientation"
               className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
@@ -395,7 +436,7 @@ export default function OperatorPage() {
                 href="#tool"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                The tool (optional)
+                Tool
               </a>
               <span className="text-neutral-600">•</span>
               <a
@@ -409,7 +450,7 @@ export default function OperatorPage() {
                 href="#example"
                 className="underline decoration-white/20 transition hover:decoration-white/50"
               >
-                GOOG walkthrough
+                Walkthrough
               </a>
             </div>
           </div>
@@ -422,12 +463,12 @@ export default function OperatorPage() {
           id="survival"
           eyebrow="Mode 1"
           title="Survival Mode"
-          subtitle="Non-negotiable. One main timeframe (HTF)."
+          subtitle="Default. One main timeframe."
         >
           <ModeHeader
             eyebrow="First priority"
-            title="Survive the market first"
-            subtitle="Everyone starts here. You focus on one main timeframe, your HTF. You learn to respect instability and reset before you try to time anything."
+            title="Survival first"
+            subtitle="You focus on one main timeframe, your HTF. You learn to respect instability and reset before you try to time anything."
             badge="HTF only"
           />
 
@@ -435,7 +476,7 @@ export default function OperatorPage() {
             <MiniCard
               tone="hard"
               title="Empire control"
-              desc="On HTF, identify who controls the regime. The market is a perpetual battle between Bullish Empire and Bearish Empire."
+              desc="On HTF, identify who has control. Bullish Empire or Bearish Empire."
             />
             <MiniCard
               title="Instability"
@@ -450,21 +491,41 @@ export default function OperatorPage() {
 
           <div className="mt-4 grid gap-4 lg:grid-cols-2">
             <KeyIdeaBlock
-              title="What survival mode builds"
+              title="What it builds"
               subtitle="Craft over time"
               bullets={[
-                "You survive long enough to build judgment and consistency.",
+                "You stay safe long enough for judgment to form.",
                 "You stop forcing activity inside unstable regimes.",
                 "You build posture before you chase outcomes.",
               ]}
             />
             <KeyIdeaBlock
-              title="What survival mode avoids"
+              title="What it avoids"
               subtitle="Early ambition"
               bullets={[
                 "No timing pressure. No fast answers. No promises.",
-                "No obsession with perfect entries. You focus on staying alive.",
+                "No obsession with perfect entries. Focus on staying alive.",
                 "No pretending you can outsmart instability.",
+              ]}
+            />
+          </div>
+
+          <div className="mt-4 grid gap-4 lg:grid-cols-2">
+            <SummaryCard
+              tone="hard"
+              title="If you only remember one thing"
+              lines={[
+                "Instability means reduced confidence.",
+                "Reduced confidence means fewer decisions.",
+                "Fewer decisions means fewer avoidable mistakes.",
+              ]}
+            />
+            <SummaryCard
+              title="What this feels like"
+              lines={[
+                "More waiting, less urgency.",
+                "Smaller participation when the strip turns yellow.",
+                "A clean pause when the strip turns red.",
               ]}
             />
           </div>
@@ -477,12 +538,12 @@ export default function OperatorPage() {
           id="timing"
           eyebrow="Mode 2"
           title="Timing Mode"
-          subtitle="Optional. Advanced. Multi-timeframe intuition."
+          subtitle="Optional. Multi-timeframe escalation language."
         >
           <ModeHeader
             eyebrow="Later, not now"
             title="Timing comes after survival"
-            subtitle="If you stay in the game, you will start noticing how instability builds across timeframes. This is advanced. It needs experience, instinct, and intuition. It is not required to participate safely."
+            subtitle="If you stay in the game, you start noticing how instability builds across timeframes. This is optional and advanced. It is not required to participate safely."
             badge="HTF + MTF + LTF"
           />
 
@@ -506,19 +567,22 @@ export default function OperatorPage() {
           <div className="mt-4 calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">Escalation idea</p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              Revolutions do not usually appear instantly on the highest
-              timeframe. There is often a build-up that climbs upward.
+              Instability often appears on smaller timeframes first, then climbs upward.
               <br />
               <span className="text-white font-semibold">
                 Tension → Uprising → Unrest → Rebellion → Siege → Revolution
               </span>
               <br />
               <br />
-              Even in Timing Mode, the rule stays simple. When HTF prints
-              Revolution, treat it as a reset. Reconsider your prior Empire
-              thesis.
+              Even in Timing Mode, the rule stays simple. When HTF prints Revolution,
+              treat it as a reset. Reconsider the prior Empire thesis.
             </p>
           </div>
+
+          <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
+            Timing Mode is not an upgrade. It is extra detail. If it creates urgency, return
+            to Survival Mode.
+          </p>
         </Section>
       </Reveal>
 
@@ -535,17 +599,17 @@ export default function OperatorPage() {
           id="tool"
           eyebrow="Tool"
           title="One tool, optional"
-          subtitle="The site teaches the lens. The tool helps you apply it faster."
+          subtitle="The site explains the map. The tool helps you see it faster."
         >
           <div className="grid gap-4 lg:grid-cols-1">
             <ToolCard
               title="REZIME Engine"
               subtitle="A regime label that helps you stop mismatching behavior to conditions."
               bullets={[
-                "Classifies Empire control (Bullish or Bearish) on your chosen timeframe",
-                "Labels Instability (yellow) so you reduce exposure and reduce decisions",
-                "Labels Reset (red) so you reconsider your prior thesis before re-engaging",
-                "Includes an optional Timing view to compare timeframes once you are ready",
+                "Classifies Empire control on your chosen timeframe",
+                "Labels Instability so you reduce exposure and reduce decisions",
+                "Labels Reset so you rebuild context before re-engaging",
+                "Includes an optional Timing view once you are ready",
               ]}
             />
           </div>
@@ -553,9 +617,8 @@ export default function OperatorPage() {
           <div className="mt-4 calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
             <p className="text-sm font-semibold text-white">Scope</p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              REZIME is educational documentation. It does not provide signals
-              or financial advice. Use it as a lens for posture and confidence.
-              The tool is optional.
+              REZIME is educational documentation. It does not provide signals or personalized advice.
+              Use it as a lens for posture and confidence. The tool is optional.
             </p>
           </div>
         </Section>
@@ -574,16 +637,16 @@ export default function OperatorPage() {
             subtitle="Fast to scan. Hard to misread."
             rules={[
               {
-                title: "Rule 1: Survival Mode is mandatory",
-                desc: "Start with HTF only. Respect Instability (yellow) and Reset (red). Stay alive long enough to build craft.",
+                title: "Rule 1: Survival Mode is the default",
+                desc: "Start with HTF only. Respect Instability and Reset. Stay safe long enough to build craft.",
                 tone: "hard",
               },
               {
                 title: "Rule 2: Timing Mode is optional",
-                desc: "Timing uses multiple timeframes and needs experience, instinct, and intuition. It is not required for safety.",
+                desc: "Timing uses multiple timeframes and needs experience. It is not required for safety.",
               },
               {
-                title: "Rule 3: Treat instability as reduced confidence",
+                title: "Rule 3: Instability means reduced confidence",
                 desc: "Conflict reduces reliability. Instability is a warning label, not a command to act.",
                 tone: "hard",
               },
@@ -592,33 +655,32 @@ export default function OperatorPage() {
                 desc: "Reduce exposure, reduce frequency, tighten criteria. Do not assume the current Empire remains safe.",
               },
               {
-                title: "Rule 5: Revolution resets assumptions",
-                desc: "If HTF flips into Revolution, treat it as a reset. Pause and rebuild your thesis for the new Empire.",
+                title: "Rule 5: Reset changes assumptions",
+                desc: "If HTF flips into Reset, pause and rebuild context before re-engaging.",
                 tone: "hard",
               },
             ]}
           />
           <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-            REZIME does not tell you to do more. It tells you when regimes
-            deserve less confidence.
+            REZIME does not tell you to do more. It tells you when regimes deserve less confidence.
           </p>
         </Section>
       </Reveal>
 
-      {/* GOOG WALKTHROUGH */}
+      {/* WALKTHROUGH */}
       <Reveal delayMs={170}>
         <Section
           id="example"
           eyebrow="Example"
           title="GOOG walkthrough"
-          subtitle="The goal is not predicting the bottom. The goal is avoiding hostile regimes, then re-engaging as regime clarity returns."
+          subtitle="The goal is avoiding hostile regimes, then re-engaging as clarity returns."
         >
           <div className="grid gap-4">
             <CaseImage
               src="/playbook/engine-strip.png"
               alt="REZIME Engine strip example on GOOG"
               label="0) Baseline context"
-              caption="Start with regime. Before decisions, you care about who has control and whether conditions are stable enough to participate."
+              caption="Start with regime. Before decisions, care about who has control and whether conditions are stable enough to participate."
               priority
               dateRange="Apr 2022 to Apr 2024 (approx.)"
               exampleTag="Example (GOOG)"
@@ -630,26 +692,24 @@ export default function OperatorPage() {
                 tone="hard"
                 lines={[
                   "REZIME is a regime filter first. It is a posture system.",
-                  "Survival Mode is the foundation. Timing Mode is optional and advanced.",
+                  "Survival Mode is the foundation. Timing Mode is optional.",
                 ]}
               />
               <Takeaway
                 title="Notes"
                 lines={[
                   "Dates are visible on the timeline for verification.",
-                  "Numbers are stated roughly because screenshot resolution varies.",
+                  "Numbers are approximate because screenshot resolution varies.",
                 ]}
               />
             </div>
 
-            {/* These images can stay even if the internal feature is now embedded.
-                If you rename files later, update src paths. */}
             <CaseImage
               src="/playbook/sync-bear-revolution.png"
               alt="REZIME Timing view example showing Bear control on GOOG"
               label="1) Bear Empire controls"
               dateRange="Around Apr 2022 (approx.)"
-              caption="When Bear Empire controls the regime, the key is avoiding bullish posture while structure is hostile."
+              caption="When Bear Empire controls, avoid bullish posture while structure is hostile."
               exampleTag="Example (GOOG)"
             />
 
@@ -659,7 +719,7 @@ export default function OperatorPage() {
                 tone="hard"
                 lines={[
                   "Long periods of low reward for time spent in a hostile regime.",
-                  "Deep drawdowns during a structurally bearish regime.",
+                  "Deep drawdowns during structurally bearish periods.",
                 ]}
               />
               <Takeaway
@@ -687,7 +747,7 @@ export default function OperatorPage() {
                 tone="hard"
                 lines={[
                   "You do not need to predict the bottom.",
-                  "You wait until the regime stops being structurally hostile to bullish posture.",
+                  "You wait until the regime stops being structurally hostile.",
                 ]}
               />
               <Takeaway
@@ -704,7 +764,7 @@ export default function OperatorPage() {
               alt="REZIME Timing view example showing alignment on GOOG"
               label="3) Cleaner regime"
               dateRange="Apr 2024 onward (approx.)"
-              caption="When timeframes align, behavior tends to become cleaner. It often becomes easier to hold and harder to overreact."
+              caption="When timeframes align, behavior often becomes cleaner. It can become easier to hold and harder to overreact."
               exampleTag="Example (GOOG)"
             />
 
@@ -733,7 +793,7 @@ export default function OperatorPage() {
                 tone="hard"
                 lines={[
                   "REZIME does not tell you what to do.",
-                  "It tells you which regime you are in so decisions stop becoming mismatched.",
+                  "It tells you which regime you are in so behavior stops becoming mismatched.",
                 ]}
               />
               <Takeaway
@@ -757,8 +817,7 @@ export default function OperatorPage() {
                 Want the record archive?
               </p>
               <p className="text-xs text-neutral-400">
-                Portfolio Lab is a cadence-based archive. Context and posture,
-                recorded over time.
+                Portfolio Lab is a cadence-based archive. Context and posture, recorded over time.
               </p>
             </div>
 
