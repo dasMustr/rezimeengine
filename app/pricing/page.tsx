@@ -1,3 +1,5 @@
+"use client";
+
 // app/pricing/page.tsx
 import React from "react";
 import Link from "next/link";
@@ -87,11 +89,14 @@ function PriceToggle({
 }
 
 function AccessCard({ billing }: { billing: "monthly" | "annual" }) {
-  // Keep monthly anchored at 19.99, annual gives a clean 2 months free.
   const monthlyPrice = 19.99;
-  const annualPrice = 199.99; // ~2 months free vs 19.99 * 12 = 239.88
+  const annualPrice = 199.99; // ~2 months free
 
-  const price = billing === "monthly" ? `$${monthlyPrice.toFixed(2)}` : `$${annualPrice.toFixed(2)}`;
+  const price =
+    billing === "monthly"
+      ? `$${monthlyPrice.toFixed(2)}`
+      : `$${annualPrice.toFixed(2)}`;
+
   const cadence = billing === "monthly" ? "monthly" : "yearly";
   const note =
     billing === "monthly"
@@ -117,19 +122,20 @@ function AccessCard({ billing }: { billing: "monthly" | "annual" }) {
       <Sheen className="rounded-2xl" />
 
       <div className="flex h-full flex-col">
-        {/* Header */}
         <div className="space-y-2">
           <p className="text-[11px] uppercase tracking-[0.18em] text-neutral-400">
             Access
           </p>
           <h3 className="text-base font-semibold text-white">REZIME Engine</h3>
           <p className="text-sm text-neutral-400">
-            One tool. One lens. Built for staying in the game long enough to understand it.
+            One tool. One lens. Built for staying in the game long enough to
+            understand it.
           </p>
-          <p className="text-xs text-neutral-300/80">Includes: Engine + embedded Sync</p>
+          <p className="text-xs text-neutral-300/80">
+            Includes: Engine + embedded Sync
+          </p>
         </div>
 
-        {/* Price */}
         <div className="mt-5">
           <div className="flex items-end justify-between gap-4">
             <div>
@@ -142,14 +148,12 @@ function AccessCard({ billing }: { billing: "monthly" | "annual" }) {
           </div>
         </div>
 
-        {/* Features */}
         <ul className="mt-5 space-y-2 text-sm text-neutral-300 leading-relaxed">
           {features.map((f) => (
             <Bullet key={f}>{f}</Bullet>
           ))}
         </ul>
 
-        {/* CTA pinned */}
         <div className="mt-auto pt-6">
           <Link
             href={href}
@@ -162,7 +166,8 @@ function AccessCard({ billing }: { billing: "monthly" | "annual" }) {
           </Link>
 
           <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
-            Educational access only. Not financial advice. No signals. No predictions. No guarantees.
+            Educational access only. Not financial advice. No signals. No
+            predictions. No guarantees.
           </p>
         </div>
       </div>
@@ -175,7 +180,6 @@ export default function PricingPage() {
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12 space-y-12">
-      {/* HERO */}
       <Reveal delayMs={0}>
         <header className="space-y-6">
           <p className="text-xs uppercase tracking-[0.18em] text-neutral-400">
@@ -195,8 +199,9 @@ export default function PricingPage() {
 
           <div className="space-y-3">
             <p className="max-w-3xl text-sm sm:text-base text-neutral-300 leading-relaxed">
-              REZIME is a regime-first decision lens. It helps you reduce mismatch in unstable
-              conditions so you can learn with fewer avoidable mistakes.
+              REZIME is a regime-first decision lens. It helps you reduce mismatch
+              in unstable conditions so you can learn with fewer avoidable
+              mistakes.
             </p>
             <p className="max-w-3xl text-sm text-neutral-400 leading-relaxed">
               The framework is the point. The tool is optional assistance.
@@ -228,12 +233,12 @@ export default function PricingPage() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            Priced like a gym membership. The goal is consistency and staying in the game.
+            Priced like a gym membership. The goal is consistency and staying in
+            the game.
           </p>
         </header>
       </Reveal>
 
-      {/* WHAT THIS IS */}
       <Reveal delayMs={60}>
         <section className="grid gap-4 md:grid-cols-2">
           <InfoCard title="What you are getting" tone="soft">
@@ -256,7 +261,6 @@ export default function PricingPage() {
         </section>
       </Reveal>
 
-      {/* SINGLE ACCESS */}
       <Reveal delayMs={110}>
         <section className="space-y-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
@@ -268,8 +272,8 @@ export default function PricingPage() {
                 Choose monthly or annual.
               </h2>
               <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-                Keep it simple. If REZIME helps you slow down in instability and reset cleanly when
-                regimes flip, it is doing its job.
+                Keep it simple. If REZIME helps you slow down in instability and
+                reset cleanly when regimes flip, it is doing its job.
               </p>
             </div>
 
@@ -288,7 +292,6 @@ export default function PricingPage() {
         </section>
       </Reveal>
 
-      {/* LEGAL / LINKS */}
       <Reveal delayMs={160}>
         <section className="text-xs text-neutral-500 leading-relaxed space-y-2">
           <p>
