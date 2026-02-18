@@ -56,7 +56,6 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-2">
               <Tag>Beginner-safe</Tag>
               <Tag>Risk containment</Tag>
-              <Tag>Owner-friendly</Tag>
               <Tag>Method-neutral</Tag>
               <Tag>Calm by design</Tag>
             </div>
@@ -72,8 +71,7 @@ export default function HomePage() {
             <div className="space-y-4">
               <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
                 Most damage is not caused by being wrong. It comes from carrying
-                risk inside unstable conditions before you have the context and
-                posture to handle it.
+                risk inside unstable conditions.
               </p>
 
               <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
@@ -83,14 +81,13 @@ export default function HomePage() {
               </p>
 
               <p className="max-w-3xl text-sm text-neutral-400 leading-relaxed">
-                This is for individuals and for business owners building a small
-                market exposure sleeve. The goal is the same in both cases.
-                Learn without blowing up.
+                Whether allocating personal capital or building structured
+                exposure, the goal is the same. Learn without blowing up.
               </p>
 
               <p className="text-sm text-neutral-400 max-w-3xl leading-relaxed">
-                The site shares the lens. The optional tool makes the lens easier
-                to apply. One tool. One purpose. Fewer avoidable mistakes.
+                The site shares the lens. The optional tool makes the lens
+                easier to apply. One tool. One purpose. Fewer avoidable mistakes.
               </p>
             </div>
 
@@ -113,7 +110,8 @@ export default function HomePage() {
             </div>
 
             <p className="text-xs text-neutral-500">
-              Educational framework. Not financial advice. No signals. No predictions. No guarantees.
+              Educational framework. Not financial advice. No signals. No
+              predictions. No guarantees.
             </p>
           </div>
         </div>
@@ -144,7 +142,7 @@ export default function HomePage() {
             />
             <HomeCard
               title="Lens"
-              desc="A regime-first decision lens you can apply to any method, including long-term investing and business exposure."
+              desc="A regime-first decision lens you can apply to any method, including long-term investing and structured exposure."
               href="/operator"
               cta="Framework"
             />
@@ -160,8 +158,8 @@ export default function HomePage() {
             <p className="text-sm font-semibold text-white">Scope</p>
             <div className="mt-2 space-y-3 text-sm text-neutral-300 leading-relaxed">
               <p>
-                REZIME is an educational framework describing decision regimes. It
-                does not provide signals or financial advice.
+                REZIME is an educational framework describing decision regimes.
+                It does not provide signals or financial advice.
               </p>
               <p>
                 The optional tool exists to make the lens easier to apply. It is
