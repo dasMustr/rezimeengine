@@ -55,7 +55,8 @@ export default function HomePage() {
             {/* TAGS */}
             <div className="flex flex-wrap gap-2">
               <Tag>Beginner-safe</Tag>
-              <Tag>Risk-first</Tag>
+              <Tag>Risk containment</Tag>
+              <Tag>Owner-friendly</Tag>
               <Tag>Method-neutral</Tag>
               <Tag>Calm by design</Tag>
             </div>
@@ -70,25 +71,49 @@ export default function HomePage() {
             {/* SUBTEXT */}
             <div className="space-y-4">
               <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-                Most damage is not caused by being wrong. It comes from acting
-                inside unstable conditions before you have the context to carry
-                risk.
+                Most damage is not caused by being wrong. It comes from carrying
+                risk inside unstable conditions before you have the context and
+                posture to handle it.
               </p>
 
               <p className="max-w-3xl text-base text-neutral-300 leading-relaxed">
-                REZIME documents a simplified market worldview so you can see
-                the environment first, then decide what kind of action even
+                REZIME documents a simplified market worldview so you can
+                recognize the regime first, then decide what kind of action even
                 makes sense.
               </p>
 
+              <p className="max-w-3xl text-sm text-neutral-400 leading-relaxed">
+                This is for individuals and for business owners building a small
+                market exposure sleeve. The goal is the same in both cases.
+                Learn without blowing up.
+              </p>
+
               <p className="text-sm text-neutral-400 max-w-3xl leading-relaxed">
-                This site exists to share a decision lens. The tools simply help
-                apply the structure. They are optional.
+                The site shares the lens. The optional tool makes the lens easier
+                to apply. One tool. One purpose. Fewer avoidable mistakes.
               </p>
             </div>
 
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3 pt-1">
+              <Link
+                href="/orientation"
+                className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
+              >
+                <Sheen className="rounded-full" />
+                Start with Why →
+              </Link>
+
+              <Link
+                href="/pricing"
+                className="premium-card is-clickable inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-medium text-neutral-200 transition hover:bg-white/10"
+              >
+                Access →
+              </Link>
+            </div>
+
             <p className="text-xs text-neutral-500">
-              Educational framework. No signals. No predictions. No guarantees.
+              Educational framework. Not financial advice. No signals. No predictions. No guarantees.
             </p>
           </div>
         </div>
@@ -105,7 +130,7 @@ export default function HomePage() {
               Why. Lens. Proof.
             </h2>
             <p className="mt-2 max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Understand the problem. Learn the lens. Examine the record.
+              Understand the risk. Learn the lens. Examine the record.
             </p>
           </div>
 
@@ -113,19 +138,19 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Why"
-              desc="Understand why people blow up. Most damage happens in unstable phases, not obvious trends."
+              desc="Why people blow up. It is usually mismatch, not intelligence. Wrong posture in unstable conditions."
               href="/orientation"
               cta="Orientation"
             />
             <HomeCard
               title="Lens"
-              desc="A simplified model for identifying stable and unstable environments before acting."
+              desc="A regime-first decision lens you can apply to any method, including long-term investing and business exposure."
               href="/operator"
               cta="Framework"
             />
             <HomeCard
               title="Proof"
-              desc="A time-stamped record of decisions under the framework. Context included, not just outcomes."
+              desc="A time-stamped archive of decisions under the lens. Context included, not just outcomes."
               href="/allocator"
               cta="Portfolio Lab"
             />
@@ -135,12 +160,12 @@ export default function HomePage() {
             <p className="text-sm font-semibold text-white">Scope</p>
             <div className="mt-2 space-y-3 text-sm text-neutral-300 leading-relaxed">
               <p>
-                REZIME is an educational framework describing decision
-                environments. It does not provide signals or financial advice.
+                REZIME is an educational framework describing decision regimes. It
+                does not provide signals or financial advice.
               </p>
               <p>
-                The tools available are there to make the structure easier to
-                apply. They are optional, not required.
+                The optional tool exists to make the lens easier to apply. It is
+                support, not a substitute for judgment.
               </p>
             </div>
           </div>
