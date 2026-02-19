@@ -52,12 +52,12 @@ function ScopeBlock() {
       <p className="text-sm font-semibold text-white">Scope</p>
       <div className="mt-2 space-y-3 text-sm text-neutral-300 leading-relaxed">
         <p>
-          REZIME is an educational framework describing decision conditions. It
-          does not provide signals or personalized advice.
+          REZIME is an educational framework describing participation conditions.
+          It does not provide signals or personalized advice.
         </p>
         <p>
-          The optional tool exists to help you apply the lens more consistently.
-          It is support, not a substitute for judgment or experience.
+          The optional tool helps you label conditions more consistently. It is
+          support, not a substitute for judgment or experience.
         </p>
       </div>
     </div>
@@ -74,31 +74,31 @@ export default function HomePage() {
             {/* TAGS */}
             <div className="flex flex-wrap gap-2">
               <Tag>Beginner-safe</Tag>
-              <Tag>Risk-aware</Tag>
+              <Tag>Baseline framework</Tag>
               <Tag>Calm by design</Tag>
             </div>
 
             {/* HERO COPY */}
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-white">
-                Markets feel dangerous
+                Markets feel harsh
                 <br />
                 because feedback is immediate.
               </h1>
 
               <p className="max-w-2xl text-base text-neutral-300 leading-relaxed">
-                The problem is not intelligence. The problem is consequence
-                speed.
+                Mistakes can become permanent before understanding has time to
+                form.
               </p>
 
               <p className="max-w-2xl text-sm text-neutral-400 leading-relaxed">
-                REZIME labels conditions before decisions, so you can reduce
-                activity when clarity is low and stay active when conditions are
-                stable.
+                REZIME is a baseline participation framework. It labels
+                conditions before decisions, so you can slow down when clarity
+                drops and stay active when conditions are stable.
               </p>
             </div>
 
-            {/* RECOGNITION (TIGHT + COMPACT) */}
+            {/* COMPACT REFRAME */}
             <div className="max-w-2xl space-y-2">
               <p className="text-sm text-neutral-400">
                 Most damage is not caused by being wrong.
@@ -107,12 +107,12 @@ export default function HomePage() {
                 It comes from carrying risk inside unstable conditions.
               </p>
               <p className="text-sm text-neutral-400">
-                You are not trying to win faster. You are trying to last long
-                enough for the environment to make sense.
+                The objective is time. Time builds experience. Experience builds
+                intuition.
               </p>
             </div>
 
-            {/* CTAs (CLEAR HIERARCHY) */}
+            {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <Link
                 href="/orientation"
@@ -130,15 +130,22 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/pricing"
+                href="/allocator"
                 className="text-sm text-neutral-400 underline decoration-white/10 underline-offset-4 transition hover:text-neutral-200 hover:decoration-white/20"
+              >
+                See the record
+              </Link>
+
+              <Link
+                href="/pricing"
+                className="text-sm text-neutral-500 underline decoration-white/10 underline-offset-4 transition hover:text-neutral-200 hover:decoration-white/20"
               >
                 Access
               </Link>
             </div>
 
             <p className="text-xs text-neutral-500">
-              Educational framework. Not financial advice. No signals. No
+              Educational documentation. Not financial advice. No signals. No
               predictions. No guarantees.
             </p>
           </div>
@@ -154,7 +161,7 @@ export default function HomePage() {
             </p>
             <h2 className="text-xl font-semibold text-white">Why. Lens. Proof.</h2>
             <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Understand the mismatch. Use the lens. Examine the record.
+              Reduce fear. Learn posture. Build a time-stamped record.
             </p>
           </div>
 
@@ -162,7 +169,7 @@ export default function HomePage() {
             <HomeCard
               tone="hard"
               title="Why"
-              desc="If you feel fear, you are not behind. The environment is intense because consequences arrive fast."
+              desc="Fear is normal. The environment is intense because consequences arrive fast. Start with a safer order of learning."
               href="/orientation"
               cta="Orientation"
             />
@@ -174,7 +181,7 @@ export default function HomePage() {
             />
             <HomeCard
               title="Proof"
-              desc="A time-stamped archive of decisions under the lens. Context included. No hindsight theater."
+              desc="A public, time-stamped archive of posture and decisions. Context included. No hindsight reconstruction."
               href="/allocator"
               cta="Portfolio Lab"
             />
