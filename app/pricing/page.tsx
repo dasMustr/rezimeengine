@@ -100,8 +100,8 @@ function AccessCard({ billing }: { billing: "monthly" | "annual" }) {
   const cadence = billing === "monthly" ? "monthly" : "yearly";
   const note =
     billing === "monthly"
-      ? "Cancel anytime. Keep it light while you learn."
-      : "Two months free. Built for steady learning.";
+      ? "Cancel anytime. Stay light while you learn."
+      : "Two months free. Built for steady time-in-market.";
 
   const href =
     billing === "monthly"
@@ -110,10 +110,10 @@ function AccessCard({ billing }: { billing: "monthly" | "annual" }) {
 
   const features = [
     "REZIME Engine access (Sync is embedded as one tool)",
-    "Regime classification on your chosen timeframe",
-    "Two warnings that matter most: Instability (yellow) and Reset (red)",
-    "Posture cues so behavior matches the regime",
-    "Docs, interpretation rules, and examples",
+    "Regime labeling on your chosen timeframe",
+    "Two safety warnings that matter most: Instability (yellow) and Reset (red)",
+    "Posture cues so behavior matches conditions",
+    "Reading rules, examples, and interpretation notes",
     "Method-neutral, works on any charted market",
   ];
 
@@ -124,15 +124,17 @@ function AccessCard({ billing }: { billing: "monthly" | "annual" }) {
       <div className="flex h-full flex-col">
         <div className="space-y-2">
           <p className="text-[11px] uppercase tracking-[0.18em] text-neutral-400">
-            Access
+            Membership
           </p>
-          <h3 className="text-base font-semibold text-white">REZIME Engine</h3>
+          <h3 className="text-base font-semibold text-white">
+            REZIME Engine + Documentation
+          </h3>
           <p className="text-sm text-neutral-400">
-            One tool. One lens. Built for staying in the game long enough to
-            understand it.
+            A baseline framework for people who intend to spend time in markets.
+            Built to reduce avoidable mistakes while experience forms.
           </p>
           <p className="text-xs text-neutral-300/80">
-            Includes: Engine + embedded Sync
+            Includes: Engine tool + full reading guide
           </p>
         </div>
 
@@ -162,11 +164,11 @@ function AccessCard({ billing }: { billing: "monthly" | "annual" }) {
               "bg-white text-black hover:opacity-90",
             ].join(" ")}
           >
-            Request Access
+            Get access
           </Link>
 
           <p className="mt-3 text-xs text-neutral-500 leading-relaxed">
-            Educational access only. Not financial advice. No signals. No
+            Educational framework only. Not financial advice. No signals. No
             predictions. No guarantees.
           </p>
         </div>
@@ -187,24 +189,25 @@ export default function PricingPage() {
           </p>
 
           <div className="flex flex-wrap gap-2">
+            <Tag>Time in markets</Tag>
             <Tag>Risk containment</Tag>
             <Tag>Map, not signals</Tag>
-            <Tag>Method-neutral</Tag>
             <Tag>Calm by design</Tag>
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
-            One tool, kept intentionally simple.
+            Priced for consistency, not intensity.
           </h1>
 
           <div className="space-y-3">
             <p className="max-w-3xl text-sm sm:text-base text-neutral-300 leading-relaxed">
-              REZIME is a regime-first decision lens. It helps you reduce mismatch
-              in unstable conditions so you can learn with fewer avoidable
-              mistakes.
+              REZIME is meant to be the baseline framework for anyone who plans
+              to spend real time in markets.
             </p>
             <p className="max-w-3xl text-sm text-neutral-400 leading-relaxed">
-              The framework is the point. The tool is optional assistance.
+              It helps you recognize conditions first, so you slow down during
+              instability and reset cleanly when assumptions stop working.
+              The tool supports the framework. It does not replace experience.
             </p>
           </div>
 
@@ -233,8 +236,8 @@ export default function PricingPage() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            Priced like a gym membership. The goal is consistency and staying in
-            the game.
+            Priced like a gym membership. The goal is a steady habit and safer
+            time-in-market.
           </p>
         </header>
       </Reveal>
@@ -243,19 +246,19 @@ export default function PricingPage() {
         <section className="grid gap-4 md:grid-cols-2">
           <InfoCard title="What you are getting" tone="soft">
             <ul className="space-y-2">
-              <Bullet>A regime lens you can learn and reuse</Bullet>
-              <Bullet>One indicator tool that makes the lens easier to apply</Bullet>
-              <Bullet>Interpretation rules and examples</Bullet>
-              <Bullet>Posture guidance for instability and resets</Bullet>
+              <Bullet>A baseline decision lens you can reuse forever</Bullet>
+              <Bullet>One simple tool to label conditions on a chart</Bullet>
+              <Bullet>Reading rules, examples, and interpretation guidance</Bullet>
+              <Bullet>Posture cues for instability and resets</Bullet>
             </ul>
           </InfoCard>
 
           <InfoCard title="What this is not" tone="hard">
             <ul className="space-y-2">
               <Bullet>Signals</Bullet>
-              <Bullet>Financial advice</Bullet>
+              <Bullet>Personalized advice</Bullet>
               <Bullet>Guaranteed outcomes</Bullet>
-              <Bullet>A substitute for judgment</Bullet>
+              <Bullet>A substitute for judgment and experience</Bullet>
             </ul>
           </InfoCard>
         </section>
@@ -266,14 +269,14 @@ export default function PricingPage() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div className="space-y-2">
               <p className="text-xs uppercase tracking-[0.18em] text-neutral-400">
-                One option
+                One membership
               </p>
               <h2 className="text-xl sm:text-2xl font-semibold text-white">
                 Choose monthly or annual.
               </h2>
               <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-                Keep it simple. If REZIME helps you slow down in instability and
-                reset cleanly when regimes flip, it is doing its job.
+                If REZIME helps you reduce activity during instability and reset
+                cleanly when regimes change, it is doing its job.
               </p>
             </div>
 
@@ -287,7 +290,7 @@ export default function PricingPage() {
           </div>
 
           <p className="text-xs text-neutral-500 leading-relaxed">
-            Tip: if you are new, read Orientation first. The tool is optional.
+            Tip: If you are new, read Orientation first. The tool is optional.
           </p>
         </section>
       </Reveal>
