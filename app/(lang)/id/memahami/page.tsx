@@ -1,7 +1,7 @@
-// app/orientation/page.tsx
+"use client";
+
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import Reveal from "@/app/components/Reveal";
 import Sheen from "@/app/components/Sheen";
@@ -81,53 +81,84 @@ function JumpPill({ href, label }: { href: string; label: string }) {
   );
 }
 
+function ProgressPills({ current }: { current: "memahami" | "kerangka" | "penerapan" | "akses" }) {
+  const items = [
+    { key: "memahami", label: "Memahami", href: "/id/memahami" },
+    { key: "kerangka", label: "Kerangka", href: "/id/kerangka" },
+    { key: "penerapan", label: "Penerapan", href: "/id/penerapan" },
+    { key: "akses", label: "Akses", href: "/id/akses" },
+  ] as const;
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {items.map((it) => {
+        const active = it.key === current;
+        return (
+          <Link
+            key={it.key}
+            href={it.href}
+            className={[
+              "rounded-full border px-4 py-2 text-xs transition",
+              active
+                ? "border-white/15 bg-white/10 text-white"
+                : "border-white/10 bg-white/5 text-neutral-300 hover:bg-white/10 hover:text-white",
+            ].join(" ")}
+            aria-current={active ? "page" : undefined}
+          >
+            {it.label}
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
+
 /* ---------------------------------- PAGE ---------------------------------- */
 
-export default function OrientationPage() {
+export default function MemahamiPage() {
   return (
     <div className="space-y-16">
-
       {/* HERO */}
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Why
+            Mengapa
           </p>
 
           <div className="flex flex-wrap gap-2">
-            <Tag>Beginner-safe</Tag>
-            <Tag>Calm learning</Tag>
-            <Tag>No pressure</Tag>
+            <Tag>Ramah pemula</Tag>
+            <Tag>Belajar tenang</Tag>
+            <Tag>Tanpa tekanan</Tag>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl text-white">
-            If markets feel intimidating,
+            Kalau pasar terasa menakutkan,
             <br />
-            that is normal.
+            itu normal.
           </h1>
 
           <div className="max-w-3xl space-y-3 text-sm text-neutral-300 leading-relaxed">
             <p>
-              Markets are one of the only places where feedback is immediate.
-              Actions have consequences before understanding has time to form.
+              Pasar adalah salah satu tempat yang memberi umpan balik paling cepat.
+              Tindakan bisa berakibat sebelum pemahaman sempat terbentuk.
             </p>
             <p>
-              The fear does not come from complexity.  
-              It comes from consequence speed.
+              Rasa takut bukan datang dari “rumit”.  
+              Rasa takut datang dari <span className="text-white">kecepatan konsekuensi</span>.
             </p>
             <p>
-              This page exists to slow that down so experience can accumulate
-              safely.
+              Halaman ini ada untuk memperlambat itu — supaya pengalaman bisa terkumpul
+              dengan aman.
             </p>
           </div>
 
           <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4">
             <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-400">
-              <span className="text-neutral-300">Jump to:</span>
-              <JumpPill href="#movement" label="Movement" />
-              <JumpPill href="#headlines" label="Headlines" />
+              <span className="text-neutral-300">Loncat ke:</span>
+              <JumpPill href="#movement" label="Pergerakan" />
+              <JumpPill href="#headlines" label="Headline" />
               <JumpPill href="#mismatch" label="Mismatch" />
-              <JumpPill href="#rezime" label="What REZIME is" />
+              <JumpPill href="#rezime" label="Apa itu REZIME" />
             </div>
           </div>
         </section>
@@ -137,31 +168,31 @@ export default function OrientationPage() {
       <Reveal delayMs={80}>
         <section id="movement" className="space-y-5">
           <SectionHeader
-            eyebrow="Context"
-            title="You already understand price movement"
-            subtitle="Prices changing is not unusual. You see it everywhere."
+            eyebrow="Konteks"
+            title="Anda sebenarnya sudah paham pergerakan harga"
+            subtitle="Harga berubah itu biasa. Anda melihatnya di mana-mana."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
             <Card
               tone="hard"
-              title="Daily goods"
-              desc="Food and necessities change price based on supply and demand."
+              title="Barang harian"
+              desc="Harga makanan dan kebutuhan berubah karena suplai dan permintaan."
             />
             <Card
-              title="Tickets and travel"
-              desc="High demand increases price. Low demand discounts it."
+              title="Tiket dan perjalanan"
+              desc="Permintaan tinggi menaikkan harga. Permintaan rendah menurunkannya."
             />
             <Card
               tone="hard"
-              title="Games and items"
-              desc="Scarcity changes value quickly. Players adapt."
+              title="Game dan item"
+              desc="Kelangkaan mengubah nilai cepat. Pemain menyesuaikan diri."
             />
           </div>
 
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 text-sm text-neutral-300">
-            Movement is not the scary part.  
-            The uncertainty of how to behave during change is.
+            Yang menakutkan bukan pergerakannya.  
+            Yang menakutkan adalah ketidakpastian: <span className="text-white">harus bersikap bagaimana</span> saat kondisi berubah.
           </div>
         </section>
       </Reveal>
@@ -170,25 +201,25 @@ export default function OrientationPage() {
       <Reveal delayMs={160}>
         <section id="headlines" className="space-y-5">
           <SectionHeader
-            eyebrow="Perception"
-            title="Why headlines feel overwhelming"
-            subtitle="Emotion travels faster than information."
+            eyebrow="Persepsi"
+            title="Kenapa headline terasa melelahkan"
+            subtitle="Emosi bergerak lebih cepat daripada informasi."
           />
 
           <div className="grid gap-4 lg:grid-cols-2">
             <Card
-              title="What it feels like"
-              desc="Something is wrong. I need to act immediately."
+              title="Yang terasa"
+              desc="Ada yang salah. Saya harus bertindak sekarang."
             />
             <Card
               tone="hard"
-              title="What it actually is"
-              desc="Prices changed quickly. The condition changed."
+              title="Yang sebenarnya"
+              desc="Harga bergerak cepat. Kondisi berubah."
             />
           </div>
 
           <p className="text-xs text-neutral-500">
-            The goal is not ignoring news. The goal is removing urgency.
+            Tujuannya bukan mengabaikan berita. Tujuannya menghapus rasa urgensi.
           </p>
         </section>
       </Reveal>
@@ -197,27 +228,27 @@ export default function OrientationPage() {
       <Reveal delayMs={240}>
         <section id="mismatch" className="space-y-5">
           <SectionHeader
-            eyebrow="Core risk"
-            title="Most damage comes from mismatch"
-            subtitle="Being active in unstable conditions causes avoidable mistakes."
+            eyebrow="Risiko inti"
+            title="Sebagian besar kerusakan datang dari mismatch"
+            subtitle="Terlalu aktif saat kondisi tidak stabil menghasilkan kesalahan yang bisa dihindari."
           />
 
           <RuleTiles
-            title="Remember"
-            subtitle="These are posture rules, not tactics."
+            title="Ingat"
+            subtitle="Ini aturan postur, bukan taktik."
             rules={[
               {
-                title: "Confusion means reduce activity",
-                desc: "Clarity is low. Decisions worsen outcomes.",
+                title: "Kalau bingung, kurangi aktivitas",
+                desc: "Kalau jelasnya rendah, keputusan biasanya memburuk.",
                 tone: "hard",
               },
               {
-                title: "Urgency creates mistakes",
-                desc: "Speed increases error rate.",
+                title: "Urgensi menciptakan kesalahan",
+                desc: "Kecepatan menaikkan error rate.",
               },
               {
-                title: "Doing less is a skill",
-                desc: "Restraint protects learning time.",
+                title: "Melakukan lebih sedikit adalah skill",
+                desc: "Restraint melindungi waktu belajar.",
                 tone: "hard",
               },
             ]}
@@ -229,67 +260,59 @@ export default function OrientationPage() {
       <Reveal delayMs={320}>
         <section id="rezime" className="space-y-5">
           <SectionHeader
-            eyebrow="What REZIME is"
-            title="A condition label"
-            subtitle="It does not tell you what to do. It helps you decide when decisions deserve confidence."
+            eyebrow="Apa itu REZIME"
+            title="Label kondisi"
+            subtitle="REZIME tidak memberi tahu Anda harus apa. REZIME membantu Anda menilai kapan sebuah keputusan layak percaya diri."
           />
 
           <div className="grid gap-4 lg:grid-cols-3">
-            <Card
-              tone="hard"
-              title="Stable"
-              desc="Actions have time to work."
-            />
-            <Card
-              title="Unstable"
-              desc="Reduce activity and expectations."
-            />
-            <Card
-              tone="hard"
-              title="Reset"
-              desc="Pause and rebuild context."
-            />
+            <Card tone="hard" title="Stabil" desc="Aksi punya waktu untuk bekerja." />
+            <Card title="Tidak stabil" desc="Kurangi aktivitas dan ekspektasi." />
+            <Card tone="hard" title="Reset" desc="Pause, lalu bangun ulang konteks." />
           </div>
 
           <div className="calm-block rounded-3xl border border-white/10 bg-white/[0.04] p-8 sm:p-10">
             <p className="text-xs uppercase tracking-widest text-neutral-400">
-              The point
+              Intinya
             </p>
             <p className="mt-3 text-2xl font-semibold text-white sm:text-3xl">
-              The goal is not fast success.
+              Tujuan kita bukan sukses cepat.
               <br />
-              The goal is staying long enough to understand.
+              Tujuan kita bertahan cukup lama untuk mengerti.
             </p>
             <p className="mt-3 text-sm text-neutral-300 leading-relaxed max-w-3xl">
-              REZIME exists so experience can accumulate without one mistake
-              ending the process.
+              REZIME ada supaya pengalaman bisa terkumpul tanpa satu kesalahan
+              mengakhiri proses.
             </p>
           </div>
         </section>
       </Reveal>
 
-      {/* CTA */}
+      {/* NEXT CTA + PROGRESSION */}
       <Reveal delayMs={420}>
-        <section className="scroll-mt-28">
+        <section className="space-y-5">
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="text-sm font-semibold text-white">
-                  Next: Framework
-                </p>
+                <p className="text-sm font-semibold text-white">Berikutnya: Kerangka</p>
                 <p className="text-xs text-neutral-400">
-                  See how the conditions are labeled.
+                  Lihat bagaimana kondisi dilabeli.
                 </p>
               </div>
 
               <Link
-                href="/operator"
+                href="/id/kerangka"
                 className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-5 py-2 text-sm font-medium transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Enter Framework →
+                Masuk Kerangka →
               </Link>
             </div>
+          </div>
+
+          {/* Progress ribbon */}
+          <div className="pt-2">
+            <ProgressPills current="memahami" />
           </div>
         </section>
       </Reveal>

@@ -11,26 +11,86 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+function normalizePath(pathname: string) {
+  return pathname.split("?")[0].split("#")[0];
+}
+
+function resolveLang(pathname: string) {
+  const p = normalizePath(pathname);
+  if (p.startsWith("/en")) return "en";
+  return "id"; // default/canon
+}
+
+function getCurrentLabel(pathname: string) {
+  const p = normalizePath(pathname);
+
+  // ID canon
+  if (p === "/id" || p === "/") return "Memahami";
+  if (p.startsWith("/id/memahami")) return "Memahami";
+  if (p.startsWith("/id/kerangka")) return "Kerangka";
+  if (p.startsWith("/id/penerapan")) return "Penerapan";
+  if (p.startsWith("/id/akses")) return "Akses";
+
+  // EN mirror
+  if (p === "/en") return "Introduction";
+  if (p.startsWith("/en/introduction")) return "Introduction";
+  if (p.startsWith("/en/framework")) return "Framework";
+  if (p.startsWith("/en/application")) return "Application";
+  if (p.startsWith("/en/access")) return "Access";
+
+  // Legacy fallback (ideally redirects exist)
+  if (p.startsWith("/orientation")) return "Memahami";
+  if (p.startsWith("/operator")) return "Kerangka";
+  if (p.startsWith("/allocator")) return "Penerapan";
+  if (p.startsWith("/pricing")) return "Akses";
+
+  return "Memahami";
+}
+
+function isActive(pathname: string, href: string) {
+  const p = normalizePath(pathname);
+  // Treat exact match or "startsWith" match as active (covers nested routes)
+  return p === href || p.startsWith(href + "/");
+}
+
 function MenuItem({
   href,
   label,
   sub,
   onPick,
+  active,
 }: {
   href: string;
   label: string;
   sub: string;
   onPick: () => void;
+  active?: boolean;
 }) {
   return (
     <Link
       href={href}
       onClick={onPick}
-      className="block rounded-xl px-4 py-3 hover:bg-white/5 transition"
+      className={[
+        "block rounded-xl px-4 py-3 transition",
+        active ? "bg-white/10" : "hover:bg-white/5",
+      ].join(" ")}
+      aria-current={active ? "page" : undefined}
     >
       <div className="flex items-center justify-between">
-        <div className="text-sm font-semibold text-white">{label}</div>
-        <div className="text-neutral-400">→</div>
+        <div className="flex items-center gap-2">
+          {active ? (
+            <span
+              aria-hidden
+              className="h-2 w-2 rounded-full bg-white/60"
+              title="Current page"
+            />
+          ) : (
+            <span aria-hidden className="h-2 w-2 rounded-full bg-white/10" />
+          )}
+          <div className="text-sm font-semibold text-white">{label}</div>
+        </div>
+
+        <div className={active ? "text-white/70" : "text-neutral-400"}>→</div>
       </div>
       <div className="mt-1 text-xs text-neutral-400">{sub}</div>
     </Link>
@@ -45,41 +105,6 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function normalizePath(pathname: string) {
-  // Remove query/hash noise just in case (pathname usually doesn't include them, but safe)
-  return pathname.split("?")[0].split("#")[0];
-}
-
-function resolveLang(pathname: string) {
-  const p = normalizePath(pathname);
-  if (p.startsWith("/en")) return "en";
-  return "id"; // default/canon
-}
-
-function getCurrentLabel(pathname: string) {
-  const p = normalizePath(pathname);
-
-  // ID canon
-  if (p.startsWith("/id/memahami")) return "Memahami";
-  if (p.startsWith("/id/kerangka")) return "Kerangka";
-  if (p.startsWith("/id/penerapan")) return "Penerapan";
-  if (p.startsWith("/id/akses")) return "Akses";
-
-  // EN mirror
-  if (p.startsWith("/en/introduction")) return "Introduction";
-  if (p.startsWith("/en/framework")) return "Framework";
-  if (p.startsWith("/en/application")) return "Application";
-  if (p.startsWith("/en/access")) return "Access";
-
-  // Legacy (should mostly redirect now, but nice fallback)
-  if (p.startsWith("/orientation")) return "Orientation";
-  if (p.startsWith("/operator")) return "Framework";
-  if (p.startsWith("/allocator")) return "Portfolio Lab";
-  if (p.startsWith("/pricing")) return "Access";
-
-  return "Portal";
-}
-
 export default function PortalMenu() {
   const pathname = usePathname();
   const lang = resolveLang(pathname);
@@ -91,7 +116,6 @@ export default function PortalMenu() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
-  // Context label (used for BOTH mobile + desktop button)
   const currentLabel = useMemo(() => getCurrentLabel(pathname), [pathname]);
 
   useEffect(() => {
@@ -127,13 +151,13 @@ export default function PortalMenu() {
           learnHref: "/en/introduction",
           learnLabel: "Introduction",
           learnSub:
-            "Your first lens • What markets are • Why fear is normal • Avoid early damage",
+            "Your first lens • Why markets feel intense • Avoid early damage",
           frameworkHref: "/en/framework",
           frameworkLabel: "Framework",
-          frameworkSub: "Regimes → posture • How to read Engine/Sync/Battle Lines",
+          frameworkSub: "Regime → posture • Confidence before activity",
           applyHref: "/en/application",
           applyLabel: "Application",
-          applySub: "Time-stamped proof • Weekly snapshots • Process over hype",
+          applySub: "Time-stamped record • Weekly snapshots • Process over hype",
           joinHref: "/en/access",
           joinLabel: "Access",
           joinSub: "Conversation-gated entry • Optional paid layer later",
@@ -145,13 +169,13 @@ export default function PortalMenu() {
           learnHref: "/id/memahami",
           learnLabel: "Memahami",
           learnSub:
-            "Lensa awal • Apa itu pasar • Kenapa takut itu normal • Hindari kerusakan dini",
+            "Lensa awal • Kenapa pasar terasa berat • Hindari kerusakan dini",
           frameworkHref: "/id/kerangka",
           frameworkLabel: "Kerangka",
-          frameworkSub: "Rezim → sikap • Cara membaca Engine/Sync/Battle Lines",
+          frameworkSub: "Rezim → postur • Kepercayaan sebelum aktivitas",
           applyHref: "/id/penerapan",
           applyLabel: "Penerapan",
-          applySub: "Bukti bertanggal • Snapshot mingguan • Proses tanpa hype",
+          applySub: "Catatan bertanggal • Snapshot mingguan • Proses tanpa hype",
           joinHref: "/id/akses",
           joinLabel: "Akses",
           joinSub: "Masuk via percakapan • Lapisan berbayar opsional nanti",
@@ -160,7 +184,6 @@ export default function PortalMenu() {
           sectionJoin: "Masuk",
         };
 
-  // One unified menu (mobile + desktop)
   const MENU = (
     <>
       <SectionLabel>{ROUTES.sectionLearn}</SectionLabel>
@@ -169,6 +192,7 @@ export default function PortalMenu() {
         label={ROUTES.learnLabel}
         sub={ROUTES.learnSub}
         onPick={onPick}
+        active={isActive(pathname, ROUTES.learnHref)}
       />
 
       <div className="my-2 border-t border-white/10" />
@@ -179,12 +203,14 @@ export default function PortalMenu() {
         label={ROUTES.frameworkLabel}
         sub={ROUTES.frameworkSub}
         onPick={onPick}
+        active={isActive(pathname, ROUTES.frameworkHref)}
       />
       <MenuItem
         href={ROUTES.applyHref}
         label={ROUTES.applyLabel}
         sub={ROUTES.applySub}
         onPick={onPick}
+        active={isActive(pathname, ROUTES.applyHref)}
       />
 
       <div className="my-2 border-t border-white/10" />
@@ -195,6 +221,7 @@ export default function PortalMenu() {
         label={ROUTES.joinLabel}
         sub={ROUTES.joinSub}
         onPick={onPick}
+        active={isActive(pathname, ROUTES.joinHref)}
       />
     </>
   );

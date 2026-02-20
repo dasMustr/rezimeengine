@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Reveal from "@/app/components/Reveal";
+import Sheen from "@/app/components/Sheen";
 import Section from "@/app/components/Section";
 
 const PORTFOLIO_LAB_URL =
@@ -43,48 +46,83 @@ function Card({
   );
 }
 
-export default function AllocatorPage() {
+function ProgressPills({
+  current,
+}: {
+  current: "memahami" | "kerangka" | "penerapan" | "akses";
+}) {
+  const items = [
+    { key: "memahami", label: "Memahami", href: "/id/memahami" },
+    { key: "kerangka", label: "Kerangka", href: "/id/kerangka" },
+    { key: "penerapan", label: "Penerapan", href: "/id/penerapan" },
+    { key: "akses", label: "Akses", href: "/id/akses" },
+  ] as const;
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {items.map((it) => {
+        const active = it.key === current;
+        return (
+          <Link
+            key={it.key}
+            href={it.href}
+            className={[
+              "rounded-full border px-4 py-2 text-xs transition",
+              active
+                ? "border-white/15 bg-white/10 text-white"
+                : "border-white/10 bg-white/5 text-neutral-300 hover:bg-white/10 hover:text-white",
+            ].join(" ")}
+            aria-current={active ? "page" : undefined}
+          >
+            {it.label}
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
+
+export default function PenerapanPage() {
   return (
     <div className="space-y-14">
-
       {/* HERO */}
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Record
+            Penerapan
           </p>
 
           <div className="flex flex-wrap gap-2">
-            <Pill>Time in markets</Pill>
-            <Pill>Posture archive</Pill>
-            <Pill>Behavior over outcome</Pill>
+            <Pill>Waktu di pasar</Pill>
+            <Pill>Arsip postur</Pill>
+            <Pill>Perilaku di atas hasil</Pill>
           </div>
 
-          <h1 className="text-4xl font-semibold leading-tight sm:text-5xl">
-            Experience cannot be claimed.
+          <h1 className="text-4xl font-semibold leading-tight sm:text-5xl text-white">
+            Pengalaman tidak bisa diklaim.
             <br className="hidden sm:block" />
-            It has to be logged.
+            Pengalaman harus dicatat.
           </h1>
 
           <p className="max-w-3xl text-sm leading-relaxed text-neutral-300">
-            Portfolio Lab is a week-by-week record of how exposure was handled
-            under different conditions.
+            Portfolio Lab adalah catatan mingguan tentang bagaimana eksposur
+            dikelola di bawah kondisi yang berbeda.
             <br />
             <br />
-            Not a scoreboard. Not a prediction feed.
-            A learning record.
+            Bukan scoreboard. Bukan feed prediksi.
+            Ini adalah rekam belajar.
           </p>
 
           <p className="max-w-3xl text-xs text-neutral-500">
-            Educational documentation only. No advice. No signals.
+            Dokumentasi edukasi saja. Bukan nasihat. Bukan sinyal. Bukan prediksi.
           </p>
 
           <div className="flex flex-wrap gap-3">
             <Link
-              href="/operator"
+              href="/id/kerangka"
               className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
-              ← Framework
+              ← Kerangka
             </Link>
 
             <a
@@ -93,48 +131,48 @@ export default function AllocatorPage() {
               rel="noreferrer"
               className="premium-card is-clickable rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
             >
-              Open record →
+              Buka catatan →
             </a>
           </div>
         </section>
       </Reveal>
 
-      {/* WHAT THIS PAGE PROVES */}
+      {/* PURPOSE */}
       <Reveal delayMs={80}>
         <Section
           id="proof"
-          eyebrow="Purpose"
-          title="What this page proves"
-          subtitle="Understanding grows from exposure handled over time."
+          eyebrow="Tujuan"
+          title="Apa yang dibuktikan halaman ini"
+          subtitle="Pemahaman tumbuh dari eksposur yang dikelola dengan benar — berulang, dan tercatat."
         >
           <div className="grid gap-4 lg:grid-cols-3">
             <Card
-              title="What is tracked"
-              desc="The context surrounding decisions."
+              title="Yang dicatat"
+              desc="Konteks di sekitar keputusan."
               rows={[
-                { k: "Regime", v: "What conditions existed" },
-                { k: "Posture", v: "How exposure was handled" },
-                { k: "Reasoning", v: "Why that posture was chosen" },
+                { k: "Kondisi", v: "Kondisi apa yang sedang terjadi" },
+                { k: "Postur", v: "Eksposur dikelola bagaimana" },
+                { k: "Alasan", v: "Kenapa postur itu dipilih" },
               ]}
             />
 
             <Card
-              title="What is not tracked"
-              desc="Because this is not a signal service."
+              title="Yang tidak dicatat"
+              desc="Karena ini bukan layanan sinyal."
               rows={[
-                { k: "No alerts", v: "No entry or exit calls" },
-                { k: "No hindsight", v: "No selective screenshots" },
-                { k: "No claims", v: "No prediction marketing" },
+                { k: "Tanpa alert", v: "Tidak ada call entry/exit" },
+                { k: "Tanpa hindsight", v: "Tidak ada seleksi screenshot" },
+                { k: "Tanpa klaim", v: "Tidak ada marketing prediksi" },
               ]}
             />
 
             <Card
-              title="Why this matters"
-              desc="Skill forms from repetition under feedback."
+              title="Kenapa ini penting"
+              desc="Skill terbentuk dari repetisi di bawah feedback."
               rows={[
-                { k: "Step 1", v: "Avoid damage" },
-                { k: "Step 2", v: "Stay consistent" },
-                { k: "Step 3", v: "Let intuition form" },
+                { k: "Langkah 1", v: "Hindari kerusakan" },
+                { k: "Langkah 2", v: "Jaga konsistensi" },
+                { k: "Langkah 3", v: "Biarkan intuisi terbentuk" },
               ]}
             />
           </div>
@@ -145,45 +183,48 @@ export default function AllocatorPage() {
       <Reveal delayMs={120}>
         <Section
           id="reading"
-          eyebrow="How to read it"
-          title="Do not read this like performance"
-          subtitle="Read it like a flight log."
+          eyebrow="Cara membaca"
+          title="Jangan baca ini seperti performa"
+          subtitle="Baca seperti flight log."
         >
           <div className="grid gap-4 lg:grid-cols-2">
             <Card
-              title="Wrong question"
-              desc="Did it go up or down?"
+              title="Pertanyaan yang salah"
+              desc="Naik atau turun?"
               rows={[
-                { k: "Focus", v: "Outcome" },
-                { k: "Result", v: "Short-term judgment" },
-                { k: "Problem", v: "Teaches nothing repeatable" },
+                { k: "Fokus", v: "Hasil" },
+                { k: "Akibat", v: "Judgement jangka pendek" },
+                { k: "Masalah", v: "Tidak menghasilkan pembelajaran yang bisa diulang" },
               ]}
             />
             <Card
-              title="Correct question"
-              desc="Was behavior matched to conditions?"
+              title="Pertanyaan yang benar"
+              desc="Apakah perilaku cocok dengan kondisi?"
               rows={[
-                { k: "Focus", v: "Decision quality" },
-                { k: "Result", v: "Repeatable learning" },
-                { k: "Benefit", v: "Intuition formation" },
+                { k: "Fokus", v: "Kualitas keputusan" },
+                { k: "Hasil", v: "Pembelajaran repeatable" },
+                { k: "Manfaat", v: "Pembentukan intuisi" },
               ]}
             />
           </div>
         </Section>
       </Reveal>
 
-      {/* ACCESS */}
+      {/* ARCHIVE */}
       <Reveal delayMs={160}>
         <Section
           id="archive"
-          eyebrow="Archive"
-          title="Full Portfolio Lab"
-          subtitle="All weekly logs live in the external record."
+          eyebrow="Arsip"
+          title="Portfolio Lab lengkap"
+          subtitle="Semua log mingguan ada di catatan eksternal."
         >
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-sm text-neutral-300">
-                Week-by-week snapshots, posture changes, and regime notes.
+                Snapshot minggu-ke-minggu, perubahan postur, dan catatan kondisi.
+              </p>
+              <p className="mt-1 text-xs text-neutral-500">
+                Ini bukti proses, bukan bukti “hasil”.
               </p>
             </div>
             <a
@@ -192,12 +233,42 @@ export default function AllocatorPage() {
               rel="noreferrer"
               className="premium-card is-clickable rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
             >
-              Open Portfolio Lab →
+              Buka Portfolio Lab →
             </a>
           </div>
         </Section>
       </Reveal>
 
+      {/* BRIDGE TO ACCESS + PROGRESSION */}
+      <Reveal delayMs={210}>
+        <section className="space-y-5">
+          <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-white">
+                  Berikutnya: Akses
+                </p>
+                <p className="text-xs text-neutral-400">
+                  Saat ini REZIME dibuka lewat percakapan — supaya kualitas,
+                  ekspektasi, dan alignment tetap tinggi.
+                </p>
+              </div>
+
+              <Link
+                href="/id/akses"
+                className="premium-card is-clickable relative inline-flex items-center justify-center rounded-full border border-white/10 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
+              >
+                <Sheen className="rounded-full" />
+                Masuk Akses →
+              </Link>
+            </div>
+          </div>
+
+          <div className="pt-2">
+            <ProgressPills current="penerapan" />
+          </div>
+        </section>
+      </Reveal>
     </div>
   );
 }

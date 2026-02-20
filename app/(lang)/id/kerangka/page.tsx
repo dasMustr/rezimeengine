@@ -1,4 +1,5 @@
-// app/operator/page.tsx
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,6 +8,8 @@ import Reveal from "@/app/components/Reveal";
 import Sheen from "@/app/components/Sheen";
 import Section from "@/app/components/Section";
 import { RuleTiles } from "@/app/components/VisualBlocks";
+
+/* ----------------------------- SMALL COMPONENTS ---------------------------- */
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -104,27 +107,67 @@ function ModeHeader({
   );
 }
 
+/* ----------------------------- PROGRESSION RIBBON ---------------------------- */
+
+function ProgressPills({
+  current,
+}: {
+  current: "memahami" | "kerangka" | "penerapan" | "akses";
+}) {
+  const items = [
+    { key: "memahami", label: "Memahami", href: "/id/memahami" },
+    { key: "kerangka", label: "Kerangka", href: "/id/kerangka" },
+    { key: "penerapan", label: "Penerapan", href: "/id/penerapan" },
+    { key: "akses", label: "Akses", href: "/id/akses" },
+  ] as const;
+
+  return (
+    <div className="flex flex-wrap gap-2">
+      {items.map((it) => {
+        const active = it.key === current;
+        return (
+          <Link
+            key={it.key}
+            href={it.href}
+            className={[
+              "rounded-full border px-4 py-2 text-xs transition",
+              active
+                ? "border-white/15 bg-white/10 text-white"
+                : "border-white/10 bg-white/5 text-neutral-300 hover:bg-white/10 hover:text-white",
+            ].join(" ")}
+            aria-current={active ? "page" : undefined}
+          >
+            {it.label}
+          </Link>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ----------------------------- STRIP LEGEND ---------------------------- */
+
 function StripLegend() {
   const items = [
     {
-      name: "Neutral",
-      note: "Unclear structure. Treat as reduced confidence participation.",
+      name: "Netral",
+      note: "Struktur belum jelas. Perlakukan sebagai partisipasi berkepercayaan rendah.",
       color: "#6b7280",
     },
     {
-      name: "Empire control (Green / Blue)",
-      note: "One Empire has control. Green is Bullish Empire. Blue is Bearish Empire.",
+      name: "Kontrol Empire (Hijau / Biru)",
+      note: "Satu Empire memegang kontrol. Hijau = Bull Empire. Biru = Bear Empire.",
       color: "#22c55e",
       color2: "#3b82f6",
     } as any,
     {
-      name: "Instability (Yellow)",
-      note: "Conflict and traps. Reduce exposure and reduce decisions.",
+      name: "Instabil (Kuning)",
+      note: "Konflik & jebakan. Kurangi eksposur dan kurangi keputusan.",
       color: "#facc15",
     },
     {
-      name: "Reset (Red)",
-      note: "Conditions changed. Rebuild context before you re-engage.",
+      name: "Reset (Merah)",
+      note: "Asumsi berubah. Bangun ulang konteks sebelum re-engage.",
       color: "#ef4444",
     },
   ];
@@ -134,11 +177,12 @@ function StripLegend() {
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="max-w-xl">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Strip color guide
+            Panduan warna strip
           </p>
           <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-            Colors classify <span className="text-white font-semibold">regime</span>.
-            They are not action triggers.
+            Warna mengklasifikasikan{" "}
+            <span className="text-white font-semibold">kondisi</span>. Bukan pemicu
+            tindakan.
           </p>
         </div>
 
@@ -191,36 +235,9 @@ function StripLegend() {
       </div>
 
       <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-        If the story conflicts across timeframes, treat it as reduced confidence.
-        Shrink activity or pause.
+        Jika cerita bentrok antar timeframe, perlakukan sebagai kepercayaan rendah.
+        Kecilkan aktivitas atau pause.
       </p>
-    </div>
-  );
-}
-
-function ToolCard({
-  title,
-  subtitle,
-  bullets,
-}: {
-  title: string;
-  subtitle: string;
-  bullets: string[];
-}) {
-  return (
-    <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-      <div className="space-y-2">
-        <h3 className="text-base font-semibold text-white">{title}</h3>
-        <p className="text-sm text-neutral-300 leading-relaxed">{subtitle}</p>
-      </div>
-      <ul className="mt-4 space-y-2 text-sm text-neutral-300">
-        {bullets.map((b) => (
-          <li key={b} className="flex gap-2">
-            <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" />
-            <span>{b}</span>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 }
@@ -231,7 +248,7 @@ function CasePanel({
   src,
   alt,
   priority = false,
-  tag = "Example (GOOG)",
+  tag = "Contoh (GOOG)",
 }: {
   label: string;
   caption: string;
@@ -269,86 +286,87 @@ function CasePanel({
   );
 }
 
-export default function OperatorPage() {
+/* ---------------------------------- PAGE ---------------------------------- */
+
+export default function KerangkaPage() {
   return (
     <div className="space-y-14">
       {/* HERO */}
       <Reveal delayMs={0}>
         <section className="space-y-6">
           <p className="text-xs uppercase tracking-widest text-neutral-400">
-            Framework
+            Kerangka
           </p>
 
           <div className="flex flex-wrap gap-2">
-            <Pill>Map, not signals</Pill>
-            <Pill>Method-neutral</Pill>
-            <Pill>Regime-first</Pill>
-            <Pill>Built for time in markets</Pill>
+            <Pill>Peta, bukan sinyal</Pill>
+            <Pill>Netral metode</Pill>
+            <Pill>Kondisi dulu</Pill>
+            <Pill>Dirancang untuk waktu di pasar</Pill>
           </div>
 
           <h1 className="text-4xl font-semibold leading-tight sm:text-5xl text-white">
-            Recognize the regime
-            <br className="hidden sm:block" /> before you carry risk.
+            Kenali kondisi
+            <br className="hidden sm:block" /> sebelum Anda membawa risiko.
           </h1>
 
           <div className="max-w-3xl space-y-3 text-sm text-neutral-300 leading-relaxed">
             <p>
-              REZIME is a baseline framework for people who intend to spend time
-              in markets. It is not a shortcut. It is an order of operations.
+              REZIME adalah kerangka partisipasi dasar untuk orang yang memang
+              berniat berada di pasar. Bukan jalan pintas. Ini urutan berpikir.
             </p>
             <p>
-              Most damage is not caused by being wrong. It comes from carrying
-              risk when conditions are unstable.
+              Kerusakan terbesar biasanya bukan karena “salah”. Kerusakan datang
+              saat kita membawa risiko pada kondisi yang instabil.
             </p>
             <p>
-              REZIME labels conditions first, so your activity matches what you
-              are in.
+              REZIME melabeli kondisi terlebih dahulu, supaya aktivitas Anda
+              sesuai dengan kondisi yang sedang terjadi.
             </p>
           </div>
 
           <div className="grid gap-4 pt-2 lg:grid-cols-3">
             <Card
               tone="hard"
-              title="Regime"
-              desc="What condition are you in right now. Stable, Instability, or Reset."
-              footer="Condition first. Method second."
+              title="Kondisi"
+              desc="Anda sedang berada di kondisi apa. Stabil, Instabil, atau Reset."
+              footer="Kondisi dulu. Metode kemudian."
             />
             <Card
-              title="Confidence"
-              desc="Stable allows patience. Instability reduces confidence. Reset requires rebuilding context."
-              footer="Confidence controls how much you do."
+              title="Kepercayaan"
+              desc="Stabil memberi ruang untuk sabar. Instabil menurunkan kepercayaan. Reset berarti bangun ulang konteks."
+              footer="Kepercayaan mengatur seberapa banyak Anda melakukan sesuatu."
             />
             <Card
               tone="hard"
-              title="Activity"
-              desc="When confidence is low, activity shrinks. Fewer decisions means fewer avoidable mistakes."
-              footer="Restraint is a skill."
+              title="Aktivitas"
+              desc="Saat kepercayaan rendah, aktivitas mengecil. Keputusan lebih sedikit = kesalahan yang bisa dihindari lebih sedikit."
+              footer="Restraint adalah skill."
             />
           </div>
 
           <div className="flex flex-wrap gap-3 pt-1">
             <Link
-              href="/orientation"
+              href="/id/memahami"
               className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
-              ← Orientation
+              ← Memahami
             </Link>
             <Link
-              href="/allocator"
+              href="/id/penerapan"
               className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
             >
-              Portfolio Lab →
+              Penerapan → 
             </Link>
           </div>
 
           <div className="calm-block rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-neutral-400 leading-relaxed">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-neutral-300">Jump to:</span>
-              <JumpLink href="#survival" label="Survival Mode" />
-              <JumpLink href="#timing" label="Timing Mode" />
-              <JumpLink href="#strip" label="Strip colors" />
-              <JumpLink href="#rules" label="Reading rules" />
-              <JumpLink href="#tool" label="Tool (optional)" />
+              <span className="text-neutral-300">Loncat ke:</span>
+              <JumpLink href="#survival" label="Mode Bertahan" />
+              <JumpLink href="#timing" label="Mode Timing" />
+              <JumpLink href="#strip" label="Warna strip" />
+              <JumpLink href="#rules" label="Aturan baca" />
               <JumpLink href="#example" label="Walkthrough" />
             </div>
           </div>
@@ -360,39 +378,39 @@ export default function OperatorPage() {
         <Section
           id="survival"
           eyebrow="Mode 1"
-          title="Survival Mode"
-          subtitle="Default. One main timeframe."
+          title="Mode Bertahan"
+          subtitle="Default. Satu timeframe utama."
         >
           <ModeHeader
-            eyebrow="Baseline"
-            title="Learn safely before you try to time anything"
-            subtitle="Survival Mode is the foundation. One main timeframe, your HTF. The goal is not more activity. The goal is fewer avoidable mistakes while experience accumulates."
-            badge="HTF only"
+            eyebrow="Dasar"
+            title="Belajar dengan aman sebelum mencoba timing"
+            subtitle="Mode Bertahan adalah fondasi. Satu timeframe utama (HTF). Tujuannya bukan menambah aktivitas. Tujuannya mengurangi kesalahan yang bisa dihindari, sambil pengalaman terbentuk."
+            badge="HTF saja"
           />
 
           <div className="mt-4 grid gap-4 lg:grid-cols-3">
             <Card
               tone="hard"
-              title="Empire control"
-              desc="On HTF, identify who has control. Bullish Empire or Bearish Empire."
-              footer="This sets posture."
+              title="Kontrol Empire"
+              desc="Di HTF, identifikasi siapa yang memegang kontrol. Bull Empire atau Bear Empire."
+              footer="Ini menentukan postur."
             />
             <Card
-              title="Instability"
-              desc="Yellow means conflict and traps. Reduce exposure and reduce decisions."
-              footer="Less clarity means less activity."
+              title="Instabil"
+              desc="Kuning berarti konflik & jebakan. Kurangi eksposur dan kurangi keputusan."
+              footer="Clarity turun → aktivitas turun."
             />
             <Card
               tone="hard"
               title="Reset"
-              desc="Red means conditions changed. Pause, then rebuild context before re-engaging."
-              footer="Old assumptions may not apply."
+              desc="Merah berarti kondisi berubah. Pause, lalu bangun ulang konteks sebelum re-engage."
+              footer="Asumsi lama bisa tidak berlaku."
             />
           </div>
 
-          <Notice title="The Survival rule">
-            Instability means reduced confidence. Reduced confidence means fewer
-            decisions. Fewer decisions means fewer avoidable mistakes.
+          <Notice title="Aturan inti (Mode Bertahan)">
+            Instabil = kepercayaan turun. Kepercayaan turun = keputusan berkurang.
+            Keputusan berkurang = kesalahan yang bisa dihindari berkurang.
           </Notice>
         </Section>
       </Reveal>
@@ -402,38 +420,38 @@ export default function OperatorPage() {
         <Section
           id="timing"
           eyebrow="Mode 2"
-          title="Timing Mode"
-          subtitle="Optional. Extra detail across timeframes."
+          title="Mode Timing"
+          subtitle="Opsional. Detail ekstra lintas timeframe."
         >
           <ModeHeader
-            eyebrow="Optional"
-            title="Timing is not required for safety"
-            subtitle="If you stay in the game, you will notice how instability often appears on smaller timeframes first and climbs upward. This is optional detail. If it creates urgency, return to Survival Mode."
+            eyebrow="Opsional"
+            title="Timing tidak wajib untuk aman"
+            subtitle="Jika Anda bertahan, Anda akan melihat instabil biasanya muncul di timeframe kecil dulu lalu naik. Ini detail tambahan. Jika detail ini membuat urgensi, kembali ke Mode Bertahan."
             badge="HTF + MTF + LTF"
           />
 
           <div className="mt-4 grid gap-4 lg:grid-cols-3">
             <Card
               tone="hard"
-              title="LTF language"
-              desc="LTF Instability is Tension. LTF Reset is Uprising."
+              title="Bahasa LTF"
+              desc="Instabil LTF = Tension. Reset LTF = Uprising."
             />
             <Card
-              title="MTF language"
-              desc="MTF Instability is Unrest. MTF Reset is Rebellion."
+              title="Bahasa MTF"
+              desc="Instabil MTF = Unrest. Reset MTF = Rebellion."
             />
             <Card
               tone="hard"
-              title="HTF language"
-              desc="HTF Instability is Siege. HTF Reset is Revolution."
+              title="Bahasa HTF"
+              desc="Instabil HTF = Siege. Reset HTF = Revolution."
             />
           </div>
 
-          <Notice title="Escalation chain">
+          <Notice title="Rantai eskalasi">
             Tension → Uprising → Unrest → Rebellion → Siege → Revolution
             <br />
-            When HTF reaches Revolution, treat it as a reset. Rebuild the Empire
-            thesis before you carry risk again.
+            Saat HTF mencapai Revolution, perlakukan sebagai reset. Bangun ulang
+            “tesis Empire” sebelum membawa risiko lagi.
           </Notice>
         </Section>
       </Reveal>
@@ -449,76 +467,44 @@ export default function OperatorPage() {
       <Reveal delayMs={150}>
         <Section
           id="rules"
-          eyebrow="How to use it"
-          title="Reading rules"
-          subtitle="These rules govern posture and confidence. They are not action instructions."
+          eyebrow="Cara pakai"
+          title="Aturan membaca"
+          subtitle="Aturan ini mengatur postur dan kepercayaan. Bukan instruksi tindakan."
         >
           <RuleTiles
-            title="Rules that govern behavior"
-            subtitle="Fast to scan. Hard to misread."
+            title="Aturan yang mengatur perilaku"
+            subtitle="Cepat dipindai. Sulit disalahpahami."
             rules={[
               {
-                title: "Rule 1: Survival Mode is the default",
-                desc: "Start with HTF only. Respect Instability and Reset. Stay safe long enough for judgment to form.",
+                title: "Rule 1: Mode Bertahan adalah default",
+                desc: "Mulai dari HTF saja. Hormati Instabil dan Reset. Bertahan cukup lama sampai judgement terbentuk.",
                 tone: "hard",
               },
               {
-                title: "Rule 2: Timing Mode is optional",
-                desc: "Multi-timeframe detail is not required for safety. If it creates urgency, remove it.",
+                title: "Rule 2: Mode Timing itu opsional",
+                desc: "Detail multi-timeframe tidak wajib untuk aman. Jika membuat urgensi, buang detailnya.",
               },
               {
-                title: "Rule 3: Instability means reduced confidence",
-                desc: "Conflict reduces reliability. Instability is a warning label, not a command to act.",
+                title: "Rule 3: Instabil = kepercayaan turun",
+                desc: "Konflik menurunkan reliabilitas. Instabil adalah label peringatan, bukan perintah untuk bertindak.",
                 tone: "hard",
               },
               {
-                title: "Rule 4: Reduced confidence means reduced activity",
-                desc: "Fewer decisions, tighter criteria, smaller participation. Calm beats fast.",
+                title: "Rule 4: Kepercayaan turun = aktivitas turun",
+                desc: "Keputusan lebih sedikit, kriteria lebih ketat, partisipasi lebih kecil. Tenang mengalahkan cepat.",
               },
               {
-                title: "Rule 5: Reset changes assumptions",
-                desc: "When conditions change, pause and rebuild context before re-engaging.",
+                title: "Rule 5: Reset mengubah asumsi",
+                desc: "Saat kondisi berubah, pause dan bangun ulang konteks sebelum re-engage.",
                 tone: "hard",
               },
             ]}
           />
 
           <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
-            REZIME is designed to make time in markets survivable, so experience
-            has time to compound into intuition.
+            REZIME dirancang supaya waktu di pasar bisa survivable — agar pengalaman
+            punya waktu untuk berubah menjadi intuisi.
           </p>
-        </Section>
-      </Reveal>
-
-      {/* TOOL */}
-      <Reveal delayMs={180}>
-        <Section
-          id="tool"
-          eyebrow="Tool"
-          title="One tool, optional"
-          subtitle="The site explains the map. The tool helps you see it faster."
-        >
-          <div className="grid gap-4">
-            <ToolCard
-              title="REZIME Engine"
-              subtitle="A regime label that helps you stop mismatching behavior to conditions."
-              bullets={[
-                "Classifies Empire control on your chosen timeframe",
-                "Labels Instability so you reduce exposure and reduce decisions",
-                "Labels Reset so you rebuild context before re-engaging",
-                "Includes an optional Timing view once you are ready",
-              ]}
-            />
-          </div>
-
-          <div className="mt-4 calm-block rounded-2xl border border-white/10 bg-black/30 p-6">
-            <p className="text-sm font-semibold text-white">Scope</p>
-            <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              REZIME is educational documentation. It does not provide signals
-              or personalized advice. Use it as a lens for posture and
-              confidence. The tool is optional.
-            </p>
-          </div>
         </Section>
       </Reveal>
 
@@ -527,67 +513,74 @@ export default function OperatorPage() {
         <Section
           id="example"
           eyebrow="Walkthrough"
-          title="A simple way to read a cycle"
-          subtitle="Not about calling bottoms. About avoiding hostile conditions and re-engaging when structure becomes cleaner."
+          title="Cara sederhana membaca satu siklus"
+          subtitle="Bukan soal menebak bottom. Tapi menghindari kondisi hostile dan re-engage saat struktur lebih bersih."
         >
           <div className="grid gap-4">
             <CasePanel
               src="/playbook/engine-strip.png"
-              alt="REZIME Engine strip example on GOOG"
-              label="1) Start with regime"
-              caption="Before any decision, ask one question. Is the regime stable enough to carry risk. If the strip is yellow, activity shrinks. If the strip is red, you pause."
+              alt="Contoh strip REZIME pada GOOG"
+              label="1) Mulai dari kondisi"
+              caption="Sebelum keputusan apa pun, tanya satu hal: apakah kondisinya cukup stabil untuk membawa risiko. Jika kuning, aktivitas mengecil. Jika merah, Anda pause."
               priority
             />
 
             <CasePanel
               src="/playbook/sync-bear-revolution.png"
-              alt="REZIME Timing view example showing Bear control on GOOG"
-              label="2) Hostile structure"
-              caption="When structure is hostile, the goal is not cleverness. It is avoiding long exposure that turns normal movement into deep drawdown."
+              alt="Contoh kondisi hostile pada GOOG"
+              label="2) Struktur hostile"
+              caption="Saat struktur hostile, tujuan bukan jadi pintar. Tujuan adalah menghindari eksposur yang mengubah gerak normal menjadi drawdown yang dalam."
             />
 
             <CasePanel
               src="/playbook/sync-bull-alignment.png"
-              alt="REZIME Timing view example showing alignment on GOOG"
-              label="3) Cleaner structure returns"
-              caption="When regime becomes cleaner, behavior becomes easier. It often becomes easier to hold, and harder to overreact. This is where time in markets starts to feel normal."
+              alt="Contoh struktur membaik pada GOOG"
+              label="3) Struktur membaik"
+              caption="Saat kondisi menjadi lebih bersih, perilaku jadi lebih mudah. Lebih mudah hold, lebih sulit panik. Di sini pasar mulai terasa normal."
             />
 
-            <Notice title="What the walkthrough is proving">
-              You do not need to move faster. You need to match activity to
-              condition. That is how experience stays alive long enough to turn
-              into intuition.
+            <Notice title="Apa yang dibuktikan walkthrough ini">
+              Anda tidak perlu bergerak lebih cepat. Anda perlu menyesuaikan
+              aktivitas dengan kondisi. Itu cara pengalaman tetap hidup cukup lama
+              untuk berubah menjadi intuisi.
             </Notice>
           </div>
         </Section>
       </Reveal>
 
-      {/* CTA */}
+      {/* CTA + PROGRESSION */}
       <Reveal delayMs={250}>
-        <section className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-sm font-semibold text-white">
-                Want the time-stamped record?
-              </p>
-              <p className="text-xs text-neutral-400">
-                Portfolio Lab is a cadence-based archive. Context and posture,
-                recorded over time.
-              </p>
+        <section className="space-y-5">
+          <section className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold text-white">
+                  Berikutnya: Penerapan
+                </p>
+                <p className="text-xs text-neutral-400">
+                  Portfolio Lab adalah arsip berbasis waktu. Konteks dan postur
+                  dicatat, minggu demi minggu.
+                </p>
+              </div>
+
+              <Link
+                href="/id/penerapan"
+                className="premium-card is-clickable inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
+              >
+                <Sheen className="rounded-full" />
+                Masuk Penerapan →
+              </Link>
             </div>
 
-            <Link
-              href="/allocator"
-              className="premium-card is-clickable inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
-            >
-              Enter Portfolio Lab →
-            </Link>
-          </div>
+            <p className="mt-4 text-[11px] text-neutral-500 leading-relaxed">
+              Dokumentasi edukasi saja. Bukan nasihat finansial. Bukan sinyal.
+              Bukan prediksi. Tidak ada jaminan.
+            </p>
+          </section>
 
-          <p className="mt-4 text-[11px] text-neutral-500 leading-relaxed">
-            Educational documentation only. Not financial advice. No signals. No
-            predictions. No guarantees.
-          </p>
+          <div className="pt-2">
+            <ProgressPills current="kerangka" />
+          </div>
         </section>
       </Reveal>
     </div>
