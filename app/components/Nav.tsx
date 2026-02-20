@@ -6,8 +6,8 @@ import LangToggle from "../(lang)/_components/LangToggle";
 
 export default function Nav() {
   return (
-    <header className="sticky top-0 z-50 relative border-b border-white/10 bg-black/60 backdrop-blur">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-white/5 to-transparent">
+    <header className="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/70 backdrop-blur">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
         {/* Brand */}
         <Link
           href="/"
