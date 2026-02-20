@@ -2,36 +2,38 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-neutral-800 mt-24">
-      <div className="max-w-5xl mx-auto px-6 py-12 text-sm text-neutral-400 flex flex-col md:flex-row justify-between gap-8">
-        
-        <div className="space-y-2">
-          <p className="text-white font-semibold tracking-[0.18em]">REZIME</p>
-          <p>A calm market survival framework.</p>
-        </div>
+    <footer className="mt-24 border-t border-white/10 pt-8 pb-12 text-sm text-neutral-400">
+      <div className="mx-auto max-w-6xl px-6 space-y-6">
 
-        <div className="flex flex-col gap-2">
-          <p className="text-white font-semibold">Legal</p>
+        {/* Navigation meta */}
+        <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
+          <Link href="/faq" className="hover:text-white transition">
+            FAQ
+          </Link>
+          <span className="text-neutral-700">•</span>
+          <Link href="/contact" className="hover:text-white transition">
+            Contact
+          </Link>
+          <span className="text-neutral-700">•</span>
           <Link href="/terms" className="hover:text-white transition">
-            Terms of Use
+            Terms
           </Link>
+          <span className="text-neutral-700">•</span>
           <Link href="/privacy" className="hover:text-white transition">
-            Privacy Policy
+            Privacy
           </Link>
         </div>
 
-        <div className="flex flex-col gap-2">
-          <p className="text-white font-semibold">Scope</p>
-          <p className="text-xs text-neutral-500 leading-relaxed max-w-xs">
-            REZIME provides educational and analytical tools only. Not financial
-            advice. Not signals. No guarantees.
-          </p>
-        </div>
+        {/* Disclaimer */}
+        <p className="text-center text-[11px] text-neutral-500 max-w-2xl mx-auto leading-relaxed">
+          Educational framework only. Not financial advice. No signals. No predictions. No guarantees.
+        </p>
 
-      </div>
+        {/* Identity */}
+        <p className="text-center text-[11px] text-neutral-600">
+          © {new Date().getFullYear()} REZIME
+        </p>
 
-      <div className="text-center text-xs text-neutral-600 py-4 border-t border-neutral-800">
-        © {new Date().getFullYear()} REZIME. All rights reserved.
       </div>
     </footer>
   );
