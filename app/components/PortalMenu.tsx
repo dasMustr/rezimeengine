@@ -45,8 +45,44 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+function normalizePath(pathname: string) {
+  // Remove query/hash noise just in case (pathname usually doesn't include them, but safe)
+  return pathname.split("?")[0].split("#")[0];
+}
+
+function resolveLang(pathname: string) {
+  const p = normalizePath(pathname);
+  if (p.startsWith("/en")) return "en";
+  return "id"; // default/canon
+}
+
+function getCurrentLabel(pathname: string) {
+  const p = normalizePath(pathname);
+
+  // ID canon
+  if (p.startsWith("/id/memahami")) return "Memahami";
+  if (p.startsWith("/id/kerangka")) return "Kerangka";
+  if (p.startsWith("/id/penerapan")) return "Penerapan";
+  if (p.startsWith("/id/akses")) return "Akses";
+
+  // EN mirror
+  if (p.startsWith("/en/introduction")) return "Introduction";
+  if (p.startsWith("/en/framework")) return "Framework";
+  if (p.startsWith("/en/application")) return "Application";
+  if (p.startsWith("/en/access")) return "Access";
+
+  // Legacy (should mostly redirect now, but nice fallback)
+  if (p.startsWith("/orientation")) return "Orientation";
+  if (p.startsWith("/operator")) return "Framework";
+  if (p.startsWith("/allocator")) return "Portfolio Lab";
+  if (p.startsWith("/pricing")) return "Access";
+
+  return "Portal";
+}
+
 export default function PortalMenu() {
   const pathname = usePathname();
+  const lang = resolveLang(pathname);
 
   // Mobile
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -56,13 +92,7 @@ export default function PortalMenu() {
   const ref = useRef<HTMLDivElement | null>(null);
 
   // Context label (used for BOTH mobile + desktop button)
-  const currentLabel = useMemo(() => {
-    if (pathname.startsWith("/orientation")) return "Orientation";
-    if (pathname.startsWith("/operator")) return "Framework";
-    if (pathname.startsWith("/allocator")) return "Portfolio Lab";
-    if (pathname.startsWith("/pricing")) return "Access";
-    return "Portal";
-  }, [pathname]);
+  const currentLabel = useMemo(() => getCurrentLabel(pathname), [pathname]);
 
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
@@ -91,40 +121,79 @@ export default function PortalMenu() {
     setMobileOpen(false);
   };
 
+  const ROUTES =
+    lang === "en"
+      ? {
+          learnHref: "/en/introduction",
+          learnLabel: "Introduction",
+          learnSub:
+            "Your first lens • What markets are • Why fear is normal • Avoid early damage",
+          frameworkHref: "/en/framework",
+          frameworkLabel: "Framework",
+          frameworkSub: "Regimes → posture • How to read Engine/Sync/Battle Lines",
+          applyHref: "/en/application",
+          applyLabel: "Application",
+          applySub: "Time-stamped proof • Weekly snapshots • Process over hype",
+          joinHref: "/en/access",
+          joinLabel: "Access",
+          joinSub: "Conversation-gated entry • Optional paid layer later",
+          sectionLearn: "Learn",
+          sectionApply: "Apply",
+          sectionJoin: "Join",
+        }
+      : {
+          learnHref: "/id/memahami",
+          learnLabel: "Memahami",
+          learnSub:
+            "Lensa awal • Apa itu pasar • Kenapa takut itu normal • Hindari kerusakan dini",
+          frameworkHref: "/id/kerangka",
+          frameworkLabel: "Kerangka",
+          frameworkSub: "Rezim → sikap • Cara membaca Engine/Sync/Battle Lines",
+          applyHref: "/id/penerapan",
+          applyLabel: "Penerapan",
+          applySub: "Bukti bertanggal • Snapshot mingguan • Proses tanpa hype",
+          joinHref: "/id/akses",
+          joinLabel: "Akses",
+          joinSub: "Masuk via percakapan • Lapisan berbayar opsional nanti",
+          sectionLearn: "Pelajari",
+          sectionApply: "Terapkan",
+          sectionJoin: "Masuk",
+        };
+
   // One unified menu (mobile + desktop)
   const MENU = (
     <>
-      <SectionLabel>Learn</SectionLabel>
+      <SectionLabel>{ROUTES.sectionLearn}</SectionLabel>
       <MenuItem
-        href="/orientation"
-        label="Orientation"
-        sub="Your first lens • What markets are • Why fear is normal • Avoid early damage"
+        href={ROUTES.learnHref}
+        label={ROUTES.learnLabel}
+        sub={ROUTES.learnSub}
         onPick={onPick}
       />
 
       <div className="my-2 border-t border-white/10" />
 
-      <SectionLabel>Apply</SectionLabel>
+      <SectionLabel>{ROUTES.sectionApply}</SectionLabel>
       <MenuItem
-        href="/operator"
-        label="Framework"
-        sub="Regimes → posture • How to read Engine/Sync/Battle Lines"
+        href={ROUTES.frameworkHref}
+        label={ROUTES.frameworkLabel}
+        sub={ROUTES.frameworkSub}
         onPick={onPick}
       />
       <MenuItem
-        href="/allocator"
-        label="Portfolio Lab"
-        sub="Time-stamped proof • Weekly snapshots • Process over hype"
+        href={ROUTES.applyHref}
+        label={ROUTES.applyLabel}
+        sub={ROUTES.applySub}
         onPick={onPick}
       />
 
       <div className="my-2 border-t border-white/10" />
 
-      <SectionLabel>Join</SectionLabel>
+      <SectionLabel>{ROUTES.sectionJoin}</SectionLabel>
       <MenuItem
-        href="/pricing"
-        label="Access"
-        sub="Membership tiers • Invite-only tools"
+        href={ROUTES.joinHref}
+        label={ROUTES.joinLabel}
+        sub={ROUTES.joinSub}
         onPick={onPick}
       />
     </>
@@ -147,10 +216,13 @@ export default function PortalMenu() {
             </button>
           </SheetTrigger>
 
-          <SheetContent side="bottom" className="border-white/10 bg-black text-white">
+          <SheetContent
+            side="bottom"
+            className="border-white/10 bg-black text-white"
+          >
             <SheetHeader>
               <SheetTitle className="text-left text-sm font-semibold text-white">
-                Choose your route
+                {lang === "en" ? "Choose your route" : "Pilih rute"}
               </SheetTitle>
             </SheetHeader>
 
