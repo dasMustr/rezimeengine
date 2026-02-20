@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import PortalMenu from "./PortalMenu";
+import LangToggle from "../(lang)/_components/LangToggle";
 
 export default function Nav() {
   return (
@@ -16,9 +17,9 @@ export default function Nav() {
         </Link>
 
         {/* Right side */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {/* Public navigation */}
-          <nav className="flex items-center gap-4">
+          <nav className="hidden items-center gap-4 sm:flex">
             <Link
               href="/faq"
               className="text-sm text-neutral-300 hover:text-neutral-100 transition"
@@ -34,8 +35,11 @@ export default function Nav() {
             </Link>
           </nav>
 
-          {/* Portal */}
-          <PortalMenu />
+          {/* Language toggle + Portal */}
+          <div className="flex items-center gap-2">
+            <LangToggle />
+            <PortalMenu />
+          </div>
         </div>
       </div>
     </header>
