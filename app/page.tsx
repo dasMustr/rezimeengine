@@ -39,7 +39,7 @@ function HomeCard({
       <div className="text-sm font-semibold text-white">{title}</div>
       <div className="mt-2 text-sm leading-relaxed text-neutral-300">{desc}</div>
       <div className="mt-4 text-xs text-neutral-300">
-        <span className="text-neutral-400">Open</span>{" "}
+        <span className="text-neutral-400">Buka</span>{" "}
         <span className="text-white">→</span> {cta}
       </div>
     </Link>
@@ -49,15 +49,15 @@ function HomeCard({
 function ScopeBlock() {
   return (
     <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
-      <p className="text-sm font-semibold text-white">Scope</p>
+      <p className="text-sm font-semibold text-white">Tentang</p>
       <div className="mt-2 space-y-3 text-sm text-neutral-300 leading-relaxed">
         <p>
-          REZIME is an educational framework describing participation conditions.
-          It does not provide signals or personalized advice.
+          REZIME adalah kerangka dasar untuk orang yang ingin terbiasa berada di
+          dunia finansial. Bukan sinyal. Bukan prediksi. Bukan ajakan transaksi.
         </p>
         <p>
-          The optional tool helps you label conditions more consistently. It is
-          support, not a substitute for judgment or experience.
+          Tujuannya sederhana: mengurangi kesalahan yang tidak perlu, supaya
+          pengalaman bisa terkumpul dan intuisi bisa terbentuk.
         </p>
       </div>
     </div>
@@ -71,44 +71,48 @@ export default function HomePage() {
       <Reveal delayMs={0}>
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-7 sm:p-12">
           <div className="space-y-7">
+
             {/* TAGS */}
             <div className="flex flex-wrap gap-2">
-              <Tag>Beginner-safe</Tag>
-              <Tag>Baseline framework</Tag>
-              <Tag>Calm by design</Tag>
+              <Tag>Kerangka dasar</Tag>
+              <Tag>Tenang by design</Tag>
+              <Tag>Bukan sinyal</Tag>
             </div>
 
             {/* HERO COPY */}
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl font-semibold leading-tight text-white">
-                Markets feel harsh
+                Pasar terasa keras
                 <br />
-                because feedback is immediate.
+                karena umpan baliknya instan.
               </h1>
 
               <p className="max-w-2xl text-base text-neutral-300 leading-relaxed">
-                Mistakes can become permanent before understanding has time to
-                form.
+                Banyak orang bukan gagal karena tidak pintar.
+                <br />
+                Tapi karena konsekuensi datang lebih cepat dari proses belajar.
               </p>
 
-              <p className="max-w-2xl text-sm text-neutral-400 leading-relaxed">
-                REZIME is a baseline participation framework. It labels
-                conditions before decisions, so you can slow down when clarity
-                drops and stay active when conditions are stable.
+              <p className="max-w-3xl text-sm text-neutral-400 leading-relaxed">
+                REZIME membantu mengenali kondisi terlebih dahulu,
+                supaya bisa melambat saat tidak jelas
+                dan tetap stabil saat kondisi mendukung.
+                <br /><br />
+                Untuk individu yang ingin lebih nyaman mengelola uang.
+                Untuk profesional dan pemilik usaha yang ingin keputusan finansial
+                lebih stabil dalam jangka panjang.
               </p>
             </div>
 
-            {/* COMPACT REFRAME */}
-            <div className="max-w-2xl space-y-2">
+            {/* INVITATION */}
+            <div className="max-w-3xl space-y-2">
               <p className="text-sm text-neutral-400">
-                Most damage is not caused by being wrong.
+                Kalau kamu tidak tertarik dengan cepat kaya,
+                kemungkinan kamu akan cocok di sini.
               </p>
               <p className="text-sm text-neutral-400">
-                It comes from carrying risk inside unstable conditions.
-              </p>
-              <p className="text-sm text-neutral-400">
-                The objective is time. Time builds experience. Experience builds
-                intuition.
+                Tujuannya waktu. Waktu membentuk pengalaman.
+                Pengalaman membentuk intuisi.
               </p>
             </div>
 
@@ -119,34 +123,33 @@ export default function HomePage() {
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Start with Why →
+                Mulai di sini →
               </Link>
 
               <Link
                 href="/operator"
                 className="premium-card is-clickable inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-medium text-neutral-200 transition hover:bg-white/10"
               >
-                Enter Framework →
+                Lihat kerangka →
               </Link>
 
               <Link
                 href="/allocator"
                 className="text-sm text-neutral-400 underline decoration-white/10 underline-offset-4 transition hover:text-neutral-200 hover:decoration-white/20"
               >
-                See the record
+                Catatan publik
               </Link>
 
               <Link
                 href="/pricing"
                 className="text-sm text-neutral-500 underline decoration-white/10 underline-offset-4 transition hover:text-neutral-200 hover:decoration-white/20"
               >
-                Access
+                Akses
               </Link>
             </div>
 
             <p className="text-xs text-neutral-500">
-              Educational documentation. Not financial advice. No signals. No
-              predictions. No guarantees.
+              Dokumentasi edukatif. Bukan nasihat finansial. Tidak ada sinyal. Tidak ada jaminan.
             </p>
           </div>
         </div>
@@ -157,31 +160,33 @@ export default function HomePage() {
         <section className="space-y-6">
           <div className="space-y-2">
             <p className="text-xs uppercase tracking-widest text-neutral-400">
-              A simple structure
+              Struktur sederhana
             </p>
-            <h2 className="text-xl font-semibold text-white">Why. Lens. Proof.</h2>
+            <h2 className="text-xl font-semibold text-white">
+              Kenapa. Kerangka. Catatan.
+            </h2>
             <p className="max-w-3xl text-sm text-neutral-300 leading-relaxed">
-              Reduce fear. Learn posture. Build a time-stamped record.
+              Pahami dulu. Gunakan perlahan. Lihat hasilnya seiring waktu.
             </p>
           </div>
 
           <div className="grid gap-4 lg:grid-cols-3">
             <HomeCard
               tone="hard"
-              title="Why"
-              desc="Fear is normal. The environment is intense because consequences arrive fast. Start with a safer order of learning."
+              title="Kenapa"
+              desc="Pasar terasa menekan karena konsekuensi datang cepat. Mulai dari urutan belajar yang lebih aman."
               href="/orientation"
-              cta="Orientation"
+              cta="Orientasi"
             />
             <HomeCard
-              title="Lens"
-              desc="A condition-first decision lens you can apply to any approach. It helps you choose posture before action."
+              title="Kerangka"
+              desc="Cara membaca kondisi sebelum bertindak. Membantu menyamakan sikap dengan situasi."
               href="/operator"
               cta="Framework"
             />
             <HomeCard
-              title="Proof"
-              desc="A public, time-stamped archive of posture and decisions. Context included. No hindsight reconstruction."
+              title="Catatan"
+              desc="Arsip publik berbasis waktu. Tidak ada edit setelah kejadian."
               href="/allocator"
               cta="Portfolio Lab"
             />
