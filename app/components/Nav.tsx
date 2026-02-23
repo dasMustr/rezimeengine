@@ -1,16 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import PortalMenu from "./PortalMenu";
 import LangToggle from "../(lang)/_components/LangToggle";
 
+function normalizePath(pathname: string) {
+  return pathname.split("?")[0].split("#")[0];
+}
+
+function resolveLang(pathname: string) {
+  const p = normalizePath(pathname);
+  if (p.startsWith("/en")) return "en";
+  return "id";
+}
+
 export default function Nav() {
+  const pathname = usePathname();
+  const lang = resolveLang(pathname);
+
+  // Where clicking "REZIME" should go
+  const homeHref = lang === "en" ? "/en" : "/";
+
   return (
     <header className="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/70 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+
         {/* Brand */}
         <Link
-          href="/"
+          href={homeHref}
           className="text-sm font-semibold tracking-[0.18em] text-neutral-100"
         >
           REZIME
@@ -21,6 +39,7 @@ export default function Nav() {
           <LangToggle />
           <PortalMenu />
         </div>
+
       </div>
     </header>
   );

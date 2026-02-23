@@ -13,11 +13,11 @@ export default function LangToggle() {
   const pathname = usePathname();
   const p = normalizePath(pathname);
 
-  const isID = p.startsWith("/id");
+  // Everything NOT under /en is ID (including "/")
+  const isID = !p.startsWith("/en");
+
   const mirror = useMemo(() => getMirrorPath(p), [p]);
 
-  // If you're on /id, mirror should point to /en, and vice versa.
-  // We want BOTH buttons to be usable:
   const idHref = isID ? p : mirror;
   const enHref = isID ? mirror : p;
 
