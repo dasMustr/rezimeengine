@@ -1,12 +1,13 @@
-// app/operator/page.tsx
+// app/en/framework/page.tsx
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 import Reveal from "@/app/components/Reveal";
-import Sheen from "@/app/components/Sheen";
 import Section from "@/app/components/Section";
 import { RuleTiles } from "@/app/components/VisualBlocks";
+
+/* ----------------------------- SMALL COMPONENTS ---------------------------- */
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
@@ -108,23 +109,23 @@ function StripLegend() {
   const items = [
     {
       name: "Neutral",
-      note: "Unclear structure. Treat as reduced confidence participation.",
+      note: "Unclear structure. Treat as reduced-confidence participation.",
       color: "#6b7280",
     },
     {
       name: "Empire control (Green / Blue)",
-      note: "One Empire has control. Green is Bullish Empire. Blue is Bearish Empire.",
+      note: "One side has control. Green = Bull Empire. Blue = Bear Empire.",
       color: "#22c55e",
       color2: "#3b82f6",
     } as any,
     {
       name: "Instability (Yellow)",
-      note: "Conflict and traps. Reduce exposure and reduce decisions.",
+      note: "Conflict, traps, and whipsaws. Reduce exposure and reduce decisions.",
       color: "#facc15",
     },
     {
       name: "Reset (Red)",
-      note: "Conditions changed. Rebuild context before you re-engage.",
+      note: "Conditions changed. Pause and rebuild context before re-engaging.",
       color: "#ef4444",
     },
   ];
@@ -269,7 +270,9 @@ function CasePanel({
   );
 }
 
-export default function OperatorPage() {
+/* ---------------------------------- PAGE ---------------------------------- */
+
+export default function FrameworkPage() {
   return (
     <div className="space-y-14">
       {/* HERO */}
@@ -294,10 +297,10 @@ export default function OperatorPage() {
           <div className="max-w-3xl space-y-3 text-sm text-neutral-300 leading-relaxed">
             <p>
               REZIME is a baseline framework for people who intend to spend time
-              in markets. It is not a shortcut. It is an order of operations.
+              in markets. It’s not a shortcut. It’s an order of operations.
             </p>
             <p>
-              Most damage is not caused by being wrong. It comes from carrying
+              Most damage isn’t caused by being wrong. It comes from carrying
               risk when conditions are unstable.
             </p>
             <p>
@@ -310,12 +313,12 @@ export default function OperatorPage() {
             <Card
               tone="hard"
               title="Regime"
-              desc="What condition are you in right now. Stable, Instability, or Reset."
+              desc="What condition are you in right now. Empire control, Instability, or Reset."
               footer="Condition first. Method second."
             />
             <Card
               title="Confidence"
-              desc="Stable allows patience. Instability reduces confidence. Reset requires rebuilding context."
+              desc="Empire control supports patience. Instability reduces reliability. Reset requires rebuilding context."
               footer="Confidence controls how much you do."
             />
             <Card
@@ -328,16 +331,16 @@ export default function OperatorPage() {
 
           <div className="flex flex-wrap gap-3 pt-1">
             <Link
-              href="/orientation"
+              href="/en/introduction"
               className="premium-card is-clickable rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-neutral-200 transition hover:bg-white/10"
             >
-              ← Orientation
+              ← Introduction
             </Link>
             <Link
-              href="/allocator"
+              href="/en/application"
               className="premium-card is-clickable rounded-full border border-white/10 px-4 py-2 text-xs text-neutral-300 transition hover:bg-white/5"
             >
-              Portfolio Lab →
+              Notes → {/* Portfolio Lab */}
             </Link>
           </div>
 
@@ -374,7 +377,7 @@ export default function OperatorPage() {
             <Card
               tone="hard"
               title="Empire control"
-              desc="On HTF, identify who has control. Bullish Empire or Bearish Empire."
+              desc="On HTF, identify who has control. Bull Empire or Bear Empire."
               footer="This sets posture."
             />
             <Card
@@ -485,7 +488,7 @@ export default function OperatorPage() {
 
           <p className="mt-4 text-xs text-neutral-500 leading-relaxed">
             REZIME is designed to make time in markets survivable, so experience
-            has time to compound into intuition.
+            can compound into intuition.
           </p>
         </Section>
       </Reveal>
@@ -535,7 +538,7 @@ export default function OperatorPage() {
               src="/playbook/engine-strip.png"
               alt="REZIME Engine strip example on GOOG"
               label="1) Start with regime"
-              caption="Before any decision, ask one question. Is the regime stable enough to carry risk. If the strip is yellow, activity shrinks. If the strip is red, you pause."
+              caption="Before any decision, ask one question: is the regime stable enough to carry risk? If the strip is yellow, activity shrinks. If the strip is red, you pause."
               priority
             />
 
@@ -550,7 +553,7 @@ export default function OperatorPage() {
               src="/playbook/sync-bull-alignment.png"
               alt="REZIME Timing view example showing alignment on GOOG"
               label="3) Cleaner structure returns"
-              caption="When regime becomes cleaner, behavior becomes easier. It often becomes easier to hold, and harder to overreact. This is where time in markets starts to feel normal."
+              caption="When regime becomes cleaner, behavior becomes easier. It becomes easier to hold, and harder to overreact. This is where time in markets starts to feel normal."
             />
 
             <Notice title="What the walkthrough is proving">
@@ -571,16 +574,16 @@ export default function OperatorPage() {
                 Want the time-stamped record?
               </p>
               <p className="text-xs text-neutral-400">
-                Portfolio Lab is a cadence-based archive. Context and posture,
-                recorded over time.
+                Notes is a cadence-based archive. Context and posture, recorded
+                over time.
               </p>
             </div>
 
             <Link
-              href="/allocator"
+              href="/en/application"
               className="premium-card is-clickable inline-flex justify-center rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs text-white transition hover:bg-white/15"
             >
-              Enter Portfolio Lab →
+              Enter Notes →
             </Link>
           </div>
 
