@@ -28,28 +28,28 @@ function getCurrentLabel(pathname: string) {
   if (p === "/id" || p === "/") return "Memahami";
   if (p.startsWith("/id/memahami")) return "Memahami";
   if (p.startsWith("/id/kerangka")) return "Kerangka";
-  if (p.startsWith("/id/penerapan")) return "Penerapan";
-  if (p.startsWith("/id/akses")) return "Akses";
+  if (p.startsWith("/id/penerapan")) return "Catatan";
+  if (p.startsWith("/id/kontak")) return "Kontak";
 
   // EN mirror
   if (p === "/en") return "Introduction";
   if (p.startsWith("/en/introduction")) return "Introduction";
   if (p.startsWith("/en/framework")) return "Framework";
-  if (p.startsWith("/en/application")) return "Application";
-  if (p.startsWith("/en/access")) return "Access";
+  if (p.startsWith("/en/application")) return "Notes";
+  if (p.startsWith("/en/contact")) return "Contact";
 
-  // Legacy fallback (ideally redirects exist)
+  // Legacy fallback (keep if you still have old routes)
   if (p.startsWith("/orientation")) return "Memahami";
   if (p.startsWith("/operator")) return "Kerangka";
-  if (p.startsWith("/allocator")) return "Penerapan";
-  if (p.startsWith("/pricing")) return "Akses";
+  if (p.startsWith("/allocator")) return "Catatan";
+  if (p.startsWith("/contact")) return "Kontak";
+  if (p.startsWith("/pricing")) return "Akses"; // legacy only
 
   return "Memahami";
 }
 
 function isActive(pathname: string, href: string) {
   const p = normalizePath(pathname);
-  // Treat exact match or "startsWith" match as active (covers nested routes)
   return p === href || p.startsWith(href + "/");
 }
 
@@ -150,38 +150,44 @@ export default function PortalMenu() {
       ? {
           learnHref: "/en/introduction",
           learnLabel: "Introduction",
-          learnSub:
-            "Your first lens • Why markets feel intense • Avoid early damage",
+          learnSub: "Your first lens • Why markets feel intense • Avoid early damage",
+
           frameworkHref: "/en/framework",
           frameworkLabel: "Framework",
           frameworkSub: "Regime → posture • Confidence before activity",
-          applyHref: "/en/application",
-          applyLabel: "Application",
-          applySub: "Time-stamped record • Weekly snapshots • Process over hype",
-          joinHref: "/en/access",
-          joinLabel: "Access",
-          joinSub: "Conversation-gated entry • Optional paid layer later",
+
+          notesHref: "/en/application",
+          notesLabel: "Notes",
+          notesSub: "Time-stamped record • Weekly snapshots • Process over hype",
+
+          contactHref: "/en/contact",
+          contactLabel: "Contact",
+          contactSub: "Conversation-first • This is a network tool, not a funnel",
+
           sectionLearn: "Learn",
-          sectionApply: "Apply",
-          sectionJoin: "Join",
+          sectionUse: "Use",
+          sectionConnect: "Connect",
         }
       : {
           learnHref: "/id/memahami",
           learnLabel: "Memahami",
-          learnSub:
-            "Lensa awal • Kenapa pasar terasa berat • Hindari kerusakan dini",
+          learnSub: "Lensa awal • Kenapa pasar terasa berat • Hindari kerusakan dini",
+
           frameworkHref: "/id/kerangka",
           frameworkLabel: "Kerangka",
           frameworkSub: "Rezim → postur • Kepercayaan sebelum aktivitas",
-          applyHref: "/id/penerapan",
-          applyLabel: "Penerapan",
-          applySub: "Catatan bertanggal • Snapshot mingguan • Proses tanpa hype",
-          joinHref: "/id/akses",
-          joinLabel: "Akses",
-          joinSub: "Masuk via percakapan • Lapisan berbayar opsional nanti",
+
+          notesHref: "/id/penerapan",
+          notesLabel: "Catatan",
+          notesSub: "Arsip bertanggal • Snapshot mingguan • Proses tanpa hype",
+
+          contactHref: "/id/kontak",
+          contactLabel: "Kontak",
+          contactSub: "Mulai dari percakapan • Website ini alat koneksi, bukan funnel",
+
           sectionLearn: "Pelajari",
-          sectionApply: "Terapkan",
-          sectionJoin: "Masuk",
+          sectionUse: "Gunakan",
+          sectionConnect: "Terhubung",
         };
 
   const MENU = (
@@ -197,7 +203,7 @@ export default function PortalMenu() {
 
       <div className="my-2 border-t border-white/10" />
 
-      <SectionLabel>{ROUTES.sectionApply}</SectionLabel>
+      <SectionLabel>{ROUTES.sectionUse}</SectionLabel>
       <MenuItem
         href={ROUTES.frameworkHref}
         label={ROUTES.frameworkLabel}
@@ -206,22 +212,22 @@ export default function PortalMenu() {
         active={isActive(pathname, ROUTES.frameworkHref)}
       />
       <MenuItem
-        href={ROUTES.applyHref}
-        label={ROUTES.applyLabel}
-        sub={ROUTES.applySub}
+        href={ROUTES.notesHref}
+        label={ROUTES.notesLabel}
+        sub={ROUTES.notesSub}
         onPick={onPick}
-        active={isActive(pathname, ROUTES.applyHref)}
+        active={isActive(pathname, ROUTES.notesHref)}
       />
 
       <div className="my-2 border-t border-white/10" />
 
-      <SectionLabel>{ROUTES.sectionJoin}</SectionLabel>
+      <SectionLabel>{ROUTES.sectionConnect}</SectionLabel>
       <MenuItem
-        href={ROUTES.joinHref}
-        label={ROUTES.joinLabel}
-        sub={ROUTES.joinSub}
+        href={ROUTES.contactHref}
+        label={ROUTES.contactLabel}
+        sub={ROUTES.contactSub}
         onPick={onPick}
-        active={isActive(pathname, ROUTES.joinHref)}
+        active={isActive(pathname, ROUTES.contactHref)}
       />
     </>
   );
@@ -243,13 +249,10 @@ export default function PortalMenu() {
             </button>
           </SheetTrigger>
 
-          <SheetContent
-            side="bottom"
-            className="border-white/10 bg-black text-white"
-          >
+          <SheetContent side="bottom" className="border-white/10 bg-black text-white">
             <SheetHeader>
               <SheetTitle className="text-left text-sm font-semibold text-white">
-                {lang === "en" ? "Choose your route" : "Pilih rute"}
+                {lang === "en" ? "Choose a route" : "Pilih rute"}
               </SheetTitle>
             </SheetHeader>
 
