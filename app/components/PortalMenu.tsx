@@ -38,12 +38,14 @@ function getCurrentLabel(pathname: string) {
   if (p.startsWith("/en/application")) return "Notes";
   if (p.startsWith("/en/contact")) return "Contact";
 
-  // Legacy fallback (keep if you still have old routes)
+  // Legacy fallback (keep only for backwards compatibility)
   if (p.startsWith("/orientation")) return "Memahami";
   if (p.startsWith("/operator")) return "Kerangka";
   if (p.startsWith("/allocator")) return "Catatan";
   if (p.startsWith("/contact")) return "Kontak";
-  if (p.startsWith("/pricing")) return "Akses"; // legacy only
+
+  // If /pricing still exists historically, do not surface "Akses" anymore
+  if (p.startsWith("/pricing")) return "Kontak";
 
   return "Memahami";
 }
@@ -150,19 +152,19 @@ export default function PortalMenu() {
       ? {
           learnHref: "/en/introduction",
           learnLabel: "Introduction",
-          learnSub: "Your first lens • Why markets feel intense • Avoid early damage",
+          learnSub: "The lens • Why markets feel intense • Start safely",
 
           frameworkHref: "/en/framework",
           frameworkLabel: "Framework",
-          frameworkSub: "Regime → posture • Confidence before activity",
+          frameworkSub: "Condition → posture • Confidence before activity",
 
           notesHref: "/en/application",
           notesLabel: "Notes",
-          notesSub: "Time-stamped record • Weekly snapshots • Process over hype",
+          notesSub: "Time-stamped record • Weekly snapshots • Process proof",
 
           contactHref: "/en/contact",
           contactLabel: "Contact",
-          contactSub: "Conversation-first • This is a network tool, not a funnel",
+          contactSub: "Conversation first • No funnel • Networking only",
 
           sectionLearn: "Learn",
           sectionUse: "Use",
@@ -171,19 +173,19 @@ export default function PortalMenu() {
       : {
           learnHref: "/id/memahami",
           learnLabel: "Memahami",
-          learnSub: "Lensa awal • Kenapa pasar terasa berat • Hindari kerusakan dini",
+          learnSub: "Lensa awal • Kenapa pasar terasa berat • Mulai aman",
 
           frameworkHref: "/id/kerangka",
           frameworkLabel: "Kerangka",
-          frameworkSub: "Rezim → postur • Kepercayaan sebelum aktivitas",
+          frameworkSub: "Kondisi → postur • Percaya diri sebelum aktif",
 
           notesHref: "/id/penerapan",
           notesLabel: "Catatan",
-          notesSub: "Arsip bertanggal • Snapshot mingguan • Proses tanpa hype",
+          notesSub: "Arsip bertanggal • Snapshot mingguan • Bukti proses",
 
           contactHref: "/id/kontak",
           contactLabel: "Kontak",
-          contactSub: "Mulai dari percakapan • Website ini alat koneksi, bukan funnel",
+          contactSub: "Mulai dari percakapan • Bukan funnel • Untuk koneksi",
 
           sectionLearn: "Pelajari",
           sectionUse: "Gunakan",
@@ -249,7 +251,10 @@ export default function PortalMenu() {
             </button>
           </SheetTrigger>
 
-          <SheetContent side="bottom" className="border-white/10 bg-black text-white">
+          <SheetContent
+            side="bottom"
+            className="border-white/10 bg-black text-white"
+          >
             <SheetHeader>
               <SheetTitle className="text-left text-sm font-semibold text-white">
                 {lang === "en" ? "Choose a route" : "Pilih rute"}
