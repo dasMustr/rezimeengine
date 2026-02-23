@@ -116,32 +116,32 @@ export default function HomePageEN() {
             {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3 pt-1">
               <Link
-                href="/en/orientation"
+                href="/en/introduction"
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Start here →
+                Start with the lens →
               </Link>
 
               <Link
                 href="/en/framework"
                 className="premium-card is-clickable inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm font-medium text-neutral-200 transition hover:bg-white/10"
               >
-                View the framework →
+                See the framework →
               </Link>
 
               <Link
-                href="/en/portfolio-lab"
+                href="/en/application"
                 className="text-sm text-neutral-400 underline decoration-white/10 underline-offset-4 transition hover:text-neutral-200 hover:decoration-white/20"
               >
-                Public notes (Portfolio Lab)
+                Public notes
               </Link>
 
               <Link
                 href="/en/contact"
-                className="text-sm text-neutral-500 underline decoration-white/10 underline-offset-4 transition hover:text-neutral-200 hover:decoration-white/20"
+                className="text-sm text-neutral-400 underline decoration-white/10 underline-offset-4 transition hover:text-neutral-200 hover:decoration-white/20"
               >
-                Contact
+                Talk / connect
               </Link>
             </div>
 
@@ -172,8 +172,8 @@ export default function HomePageEN() {
               tone="hard"
               title="Why"
               desc="Why markets feel intense. A safer learning order that avoids early damage."
-              href="/en/orientation"
-              cta="Orientation"
+              href="/en/introduction"
+              cta="Introduction"
             />
             <HomeCard
               title="Framework"
@@ -184,7 +184,7 @@ export default function HomePageEN() {
             <HomeCard
               title="Notes"
               desc="A time-stamped public ledger. No edits after the fact."
-              href="/en/portfolio-lab"
+              href="/en/application"
               cta="Portfolio Lab"
             />
           </div>
@@ -195,7 +195,8 @@ export default function HomePageEN() {
           <div className="calm-block rounded-2xl border border-white/10 bg-white/5 p-6">
             <p className="text-sm font-semibold text-white">Talk to me</p>
             <p className="mt-2 text-sm text-neutral-300 leading-relaxed">
-              REZIME is conversation-gated. If our worldview matches, I can share more.
+              This site is a connection tool, not a funnel. If our worldview matches,
+              I can share more.
             </p>
             <div className="mt-4">
               <Link
@@ -203,7 +204,7 @@ export default function HomePageEN() {
                 className="premium-card is-clickable group relative inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-5 py-2 text-sm font-medium text-white transition hover:bg-white/15"
               >
                 <Sheen className="rounded-full" />
-                Contact →
+                Start a conversation →
               </Link>
             </div>
           </div>
