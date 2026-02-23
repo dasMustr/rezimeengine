@@ -11,6 +11,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+/* ---------------------------- PATH HELPERS ---------------------------- */
+
 function normalizePath(pathname: string) {
   return pathname.split("?")[0].split("#")[0];
 }
@@ -18,42 +20,44 @@ function normalizePath(pathname: string) {
 function resolveLang(pathname: string) {
   const p = normalizePath(pathname);
   if (p.startsWith("/en")) return "en";
-  return "id"; // default/canon
+  return "id";
 }
+
+/* ------------------------ CURRENT LABEL LOGIC ------------------------ */
 
 function getCurrentLabel(pathname: string) {
   const p = normalizePath(pathname);
 
-  // ID canon
-  if (p === "/id" || p === "/") return "Memahami";
+  // ROOT — not inside a section yet
+  if (p === "/" || p === "/id" || p === "/en") return "Portal";
+
+  // ID
   if (p.startsWith("/id/memahami")) return "Memahami";
   if (p.startsWith("/id/kerangka")) return "Kerangka";
   if (p.startsWith("/id/penerapan")) return "Catatan";
   if (p.startsWith("/id/kontak")) return "Kontak";
 
-  // EN mirror
-  if (p === "/en") return "Introduction";
+  // EN
   if (p.startsWith("/en/introduction")) return "Introduction";
   if (p.startsWith("/en/framework")) return "Framework";
   if (p.startsWith("/en/application")) return "Notes";
   if (p.startsWith("/en/contact")) return "Contact";
 
-  // Legacy fallback (keep only for backwards compatibility)
+  // Legacy fallback
   if (p.startsWith("/orientation")) return "Memahami";
   if (p.startsWith("/operator")) return "Kerangka";
   if (p.startsWith("/allocator")) return "Catatan";
   if (p.startsWith("/contact")) return "Kontak";
 
-  // If /pricing still exists historically, do not surface "Akses" anymore
-  if (p.startsWith("/pricing")) return "Kontak";
-
-  return "Memahami";
+  return "Portal";
 }
 
 function isActive(pathname: string, href: string) {
   const p = normalizePath(pathname);
   return p === href || p.startsWith(href + "/");
 }
+
+/* ------------------------------ UI ITEMS ------------------------------ */
 
 function MenuItem({
   href,
@@ -81,19 +85,16 @@ function MenuItem({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           {active ? (
-            <span
-              aria-hidden
-              className="h-2 w-2 rounded-full bg-white/60"
-              title="Current page"
-            />
+            <span className="h-2 w-2 rounded-full bg-white/60" />
           ) : (
-            <span aria-hidden className="h-2 w-2 rounded-full bg-white/10" />
+            <span className="h-2 w-2 rounded-full bg-white/10" />
           )}
           <div className="text-sm font-semibold text-white">{label}</div>
         </div>
 
         <div className={active ? "text-white/70" : "text-neutral-400"}>→</div>
       </div>
+
       <div className="mt-1 text-xs text-neutral-400">{sub}</div>
     </Link>
   );
@@ -107,19 +108,24 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+/* ------------------------------ COMPONENT ------------------------------ */
+
 export default function PortalMenu() {
   const pathname = usePathname();
   const lang = resolveLang(pathname);
 
-  // Mobile
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  // Desktop
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
 
   const currentLabel = useMemo(() => getCurrentLabel(pathname), [pathname]);
 
+  const isHome =
+    normalizePath(pathname) === "/" ||
+    normalizePath(pathname) === "/id" ||
+    normalizePath(pathname) === "/en";
+
+  /* close on outside click */
   useEffect(() => {
     function onClickOutside(e: MouseEvent) {
       if (!ref.current) return;
@@ -147,49 +153,55 @@ export default function PortalMenu() {
     setMobileOpen(false);
   };
 
+  /* ----------------------------- ROUTES ----------------------------- */
+
   const ROUTES =
     lang === "en"
       ? {
           learnHref: "/en/introduction",
           learnLabel: "Introduction",
-          learnSub: "The lens • Why markets feel intense • Start safely",
+          learnSub: "Your first lens • Why markets feel intense • Avoid early damage",
 
           frameworkHref: "/en/framework",
           frameworkLabel: "Framework",
-          frameworkSub: "Condition → posture • Confidence before activity",
+          frameworkSub: "Regime → posture • Confidence before activity",
 
           notesHref: "/en/application",
           notesLabel: "Notes",
-          notesSub: "Time-stamped record • Weekly snapshots • Process proof",
+          notesSub: "Time-stamped record • Weekly snapshots • Process over hype",
 
           contactHref: "/en/contact",
           contactLabel: "Contact",
-          contactSub: "Conversation first • No funnel • Networking only",
+          contactSub: "Conversation first • This site is a networking tool",
 
           sectionLearn: "Learn",
           sectionUse: "Use",
           sectionConnect: "Connect",
+          titleHome: "Choose your path",
+          titleInside: "Jump to",
         }
       : {
           learnHref: "/id/memahami",
           learnLabel: "Memahami",
-          learnSub: "Lensa awal • Kenapa pasar terasa berat • Mulai aman",
+          learnSub: "Lensa awal • Kenapa pasar terasa berat • Hindari kerusakan dini",
 
           frameworkHref: "/id/kerangka",
           frameworkLabel: "Kerangka",
-          frameworkSub: "Kondisi → postur • Percaya diri sebelum aktif",
+          frameworkSub: "Rezim → postur • Kepercayaan sebelum aktivitas",
 
           notesHref: "/id/penerapan",
           notesLabel: "Catatan",
-          notesSub: "Arsip bertanggal • Snapshot mingguan • Bukti proses",
+          notesSub: "Arsip bertanggal • Snapshot mingguan • Proses tanpa hype",
 
           contactHref: "/id/kontak",
           contactLabel: "Kontak",
-          contactSub: "Mulai dari percakapan • Bukan funnel • Untuk koneksi",
+          contactSub: "Mulai dari percakapan • Website ini alat koneksi",
 
           sectionLearn: "Pelajari",
           sectionUse: "Gunakan",
           sectionConnect: "Terhubung",
+          titleHome: "Pilih jalur",
+          titleInside: "Lompat ke",
         };
 
   const MENU = (
@@ -234,30 +246,24 @@ export default function PortalMenu() {
     </>
   );
 
+  /* ------------------------------ RENDER ------------------------------ */
+
   return (
     <>
-      {/* MOBILE = SHEET */}
+      {/* MOBILE */}
       <div className="sm:hidden">
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <SheetTrigger asChild>
-            <button
-              type="button"
-              aria-haspopup="dialog"
-              aria-expanded={mobileOpen}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
-            >
+            <button className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition">
               <span>{currentLabel}</span>
               <span className="text-neutral-400">▼</span>
             </button>
           </SheetTrigger>
 
-          <SheetContent
-            side="bottom"
-            className="border-white/10 bg-black text-white"
-          >
+          <SheetContent side="bottom" className="border-white/10 bg-black text-white">
             <SheetHeader>
               <SheetTitle className="text-left text-sm font-semibold text-white">
-                {lang === "en" ? "Choose a route" : "Pilih rute"}
+                {isHome ? ROUTES.titleHome : ROUTES.titleInside}
               </SheetTitle>
             </SheetHeader>
 
@@ -270,12 +276,9 @@ export default function PortalMenu() {
         </Sheet>
       </div>
 
-      {/* DESKTOP = DROPDOWN */}
+      {/* DESKTOP */}
       <div ref={ref} className="relative hidden sm:block">
         <button
-          type="button"
-          aria-haspopup="menu"
-          aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
           className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-2 text-xs text-neutral-200 hover:bg-white/10 transition"
         >
@@ -284,11 +287,10 @@ export default function PortalMenu() {
         </button>
 
         {open && (
-          <div
-            className="absolute left-0 mt-2 w-[520px] max-w-[92vw] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-xl backdrop-blur"
-            role="menu"
-            aria-label="Portal"
-          >
+          <div className="absolute left-0 mt-2 w-[520px] max-w-[92vw] overflow-hidden rounded-2xl border border-white/10 bg-black/90 shadow-xl backdrop-blur">
+            <div className="px-4 pt-3 pb-2 text-xs text-neutral-400">
+              {isHome ? ROUTES.titleHome : ROUTES.titleInside}
+            </div>
             <div className="p-2">{MENU}</div>
           </div>
         )}
